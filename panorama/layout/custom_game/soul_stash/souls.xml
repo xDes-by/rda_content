@@ -1,0 +1,52 @@
+<root>
+
+	<styles>
+        <include src="file://{resources}/layout/custom_game/soul_stash/souls.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/soul_stash/souls.js" />
+    </scripts>
+	
+    <snippets>
+        <snippet name="SnippetName">
+            <Panel class="souls_stash_panel">
+                
+            </Panel>
+        </snippet>
+    </snippets>
+	
+    <Panel class ="root" hittest="false">
+
+		<Panel class="souls_stash_panel">
+            <Label id="" class="" text="#souls_stash" />
+            <Panel id="souls_stash" class="souls_stash">
+                <DOTAItemImage id="" class="soul_item" itemname="item_forest_soul" >
+                    <Label id="label" class="" text="1" />    
+                </DOTAItemImage>
+                <DOTAItemImage id="" class="soul_item" itemname="item_village_soul" >
+                    <Label id="label" class="" text="1" />    
+                </DOTAItemImage>
+                <DOTAItemImage id="" class="soul_item" itemname="item_mines_soul" >
+                    <Label id="label" class="" text="1" />    
+                </DOTAItemImage>
+                <DOTAItemImage id="" class="soul_item" itemname="item_dust_soul" >
+                    <Label id="label" class="" text="1" />    
+                </DOTAItemImage>
+                <DOTAItemImage id="" class="soul_item" itemname="item_swamp_soul" >
+                    <Label id="label" class="" text="1" />    
+                </DOTAItemImage>
+                <DOTAItemImage id="" class="soul_item" itemname="item_snow_soul" >
+                    <Label id="label" class="" text="1" />    
+                </DOTAItemImage>
+                <DOTAItemImage id="" class="soul_item" itemname="item_divine_soul" >
+                    <Label id="label" class="" text="1" />    
+                </DOTAItemImage>
+            </Panel>
+            
+        </Panel>
+
+	</Panel>
+
+
+</root>

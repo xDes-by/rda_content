@@ -1,0 +1,892 @@
+.root,.Rating{
+	height:100%;
+	width:100%;
+}
+.imgbox{
+	width: 100%;
+	vertical-align: center;
+	flow-children:down;
+}
+.box{
+	height: 50px;
+	width: 300px;
+	background-color: #cc3a53;
+	border: 1px solid black;
+	horizontal-align:center;
+}
+.box_animation_on{
+	animation-name: box_animation_on;
+	animation-duration: 1.5s;
+}
+@keyframes 'box_animation_on'
+{
+	from{
+		transform: translate3d(-1000px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+
+
+
+.RatingPanel{
+	height:700px;
+	width:751px;
+	/*
+	background-image:url('file://{resources}/image/ratingBG.png');
+	*/
+	background-image:url('file://{resources}/images/custom_game/rating/4.png');
+	background-size: 100% 100%;
+	margin-top:9.5%;
+	
+}
+#RatingPanel{
+	transition-property: transform, opacity, pre-transform-scale2d;
+	transition-duration: 0.2s;
+	opacity: 0;
+	pre-transform-scale2d:0.8;
+	transform: translate3d(-100px, 0px, 0px);
+}
+.RatingPanelBG{
+	height:100%;
+	width:723px;
+	background-color: rgba(0, 0, 0, 0.95);
+}
+.RatingContent{
+	width:725px;
+	height:539px;
+	margin-top:150px;
+	margin-left:13px;
+	border:1px solid #878784;
+	background-image:url('file://{resources}/images/custom_game/rating/6.png');
+	background-size: 100% 100%;
+}
+.rating_tab_bg_img{
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+.RatingTeamPanel{
+	width:750px;
+	height:570px;
+	flow-children: down;
+}
+.RatingPlayerInfo{
+	margin-top:10px;
+	height:100px;
+	width:750px; 
+}
+.RatingPlayerRank{
+	margin-left:135px;
+	height:50px;
+	width:50px;
+	margin-top:45px;
+}
+.RatingPlayerRankTop{
+	margin-left:185px;
+	height:50px;
+	width:50px;
+	margin-top:45px;
+}
+.RatingPlayerLineLogo{
+	height:30px;
+	width:30px;
+	tooltip-position:bottom;
+}
+.RatingPlayerAvatar{
+	margin-top:15px;
+	margin-left:50px;
+	height:70px;
+	width:60px;
+}
+.avatar-bg{
+	margin-top:15px;
+	margin-left:100px;
+	height:70px;
+	width:70px;
+}
+.avatar-bg-img{
+	height: 100%;
+	width: 100%;
+}
+.RatingPlayerAvatarTop{
+	height: 92%;
+	width: 92%;
+	vertical-align: center;
+	horizontal-align:center;
+}
+.RatingPlayerName{
+	color:white;
+	font-size:32px;
+	margin-left:135px;
+	margin-top:3px;
+	width:450px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+.RatingTopPlayerPanel{
+	flow-children:right;
+	horizontal-align:center;
+	margin: 5px;
+	width: 100%;
+	margin-left: 20px;
+}
+.season_container_top{
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.season_container_bot{
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.RatingSeasonTopName{
+	margin-left: 15px;
+	vertical-align: center;
+}
+.RatingPlayerNameTop{
+	color:white;
+	font-size:24px;
+	margin-left:185px;
+	margin-top:10px;
+	width:100%;
+}
+.RatingTeamProfilButton{
+	height:60px;
+	width:60px;
+	horizontal-align:right;
+	margin-right:30px;
+	margin-top:20px;
+	border:1px solid white;
+	border-radius:30px;
+}
+.RatingTopInfo{
+	width:100%;
+}
+#RatingTeamProfilButton:hover{
+	background-color:#db6d51;
+}
+#RatingPlayerName:active{
+	
+	sound:"ui_custom_lobby_dialog_slide";
+}
+.RatingPlayerLinePanel{
+	height:2px;
+	width:450px;
+	background-color: #4a4c6f;
+	margin-top:38px;
+	margin-left:130px;
+}
+.RatingPlayerLinePanelTop{
+	height:2px;
+	width:500px;
+	background-color: #4a4c6f;
+	margin-top:38px;
+	margin-left:180px;
+}
+.RatingPlayerLinePanelShopProfil{
+	height:2px;
+	width:350px;
+	background-color: #4a4c6f;
+	margin-top:38px;
+	margin-left:180px;
+}
+.RatingPlayerStat{
+	height:40px;
+	width:400px;
+	margin-top:50px;
+	margin-left:200px;
+	flow-children:right;
+}
+.comens{
+	height: 50px;
+	width: 120px;
+	flow-children:right;
+	vertical-align: center;
+	margin-left: 590px;
+}
+.RatingPlayerAvatar{
+	tooltip-position:bottom;
+}
+.like{
+	width: 60px;
+	height: 50px;
+	horizontal-align:right;
+}
+.dislike{
+	width: 60px;
+	height: 50px;
+}
+.besthero{
+	width: 130px;
+	flow-children:right;
+	horizontal-align:right;
+}
+.heroicon{
+	margin-right: 5px;
+	tooltip-position:bottom;
+}
+#RatingPlayerLikesPanel_1,#RatingPlayerLikesPanel,#RatingPlayerReportsPanel,#RatingPlayerGamesPanel{
+	tooltip-position:bottom;
+}
+.RatingPlayerStatTop{
+	height:40px;
+	width:100%;
+	margin-top:50px;
+	margin-left:250px;
+	margin-right: 50px;
+	flow-children:right;
+}
+.RatingPlayerGamesPanel,.RatingPlayerLikesPanel,.RatingPlayerReportsPanel,.RatingPlayerLikesPanel_1{
+	flow-children: right;
+}
+.RatingPlayerGames1,.RatingPlayerGames2,.RatingPlayerLikes1,.RatingPlayerLikes2,.RatingPlayerReports1,.RatingPlayerReports2,.RatingPlayerLikes2_1,.logotext1,.logotext2,.logotext3,.logotext4{
+	font-size:21px;
+}
+.RatingPlayerLikesPanel{
+	margin-left:5px;
+}
+.RatingPlayerReportsPanel{
+	margin-left:5px;
+}
+.RatingPlayerGamesPanel{
+	margin-left:5px;
+}
+.RatingPlayerLikesPanel_1{
+	margin-left:5px;
+}
+.RatingPlayerGames1,.RatingPlayerGames2,.RatingPlayerLikes2,.RatingPlayerReports2,.RatingPlayerLikes2_1,.logotext1,.logotext2,.logotext3,.logotext4{
+	color:white;
+	vertical-align:center;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+.RatingPlayerLikes1{
+	color:#388348;
+}
+.RatingPlayerReports1{
+	color:#cc3a53;
+}
+.RatingHeader{
+	height:150px;
+	width:100%;
+}
+.RatingVkladkaText{
+	width:100%;
+	text-align:center;
+	font-size:21px;
+	color: white;
+	vertical-align:center;
+	text-shadow: 2px 2px 8px 3.0 #000000b0;
+}
+.RatingTopText{
+	width:100%;
+	text-align:center;
+	font-size:35px;
+	color: white;
+	margin-top:10px;
+}
+.RatingVkladkaPlayerRank,.RatingVkladkaTop,.RatingVkladkaProfil,.RatingVkladkaSeason{
+	vertical-align:bottom;
+	width:180px;
+	height:60px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	margin-right: 6px;
+	/*
+	
+	*/
+	
+}
+.RatingMenuPanel{
+	width: 100%;
+	vertical-align: bottom;
+	flow-children:right;
+}
+.baseTab{
+	background-color: #202336;
+}
+.selectedTab{
+	background-color: #171926;
+}
+.RatingVkladkaPlayerRank{
+	margin-left:13px;
+}
+.RatingVkladkaTop{
+	horizontal-align:center;
+}
+.RatingVkladkaProfil{
+	margin-right:14px;
+	horizontal-align:right;
+}
+.RatingCloseButton{
+	flow-children: right;
+	horizontal-align:right;
+	margin-top:5px;
+	margin-right:5px;
+}
+.RatingCloseButtonText{
+	color:white;
+	font-size:18px;
+	vertical-align:center;
+}
+.openRating{
+	height:61px;
+	width:76px;
+	margin:5px;
+	brightness: 0.6;
+	tooltip-position: bottom;
+}
+.openRating:hover
+{
+    brightness: 1.0;
+}
+.RatingCloseButtonText:hover{
+	color:#c2c2c2;
+}
+.RatingSeasonBox{
+	width: 95%;
+	horizontal-align:center;
+	background-color: rgba(0, 0, 0, 0.404);
+	border-radius: 20px;
+	flow-children:down;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.RatingSeasonTopPlace,.RatingSeasonTopPoints{
+	vertical-align: center;
+	margin-right: 20px;
+	/* color: white; */
+	
+
+	font-size: 25px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+.color_1{
+	color: #f4b100;
+}
+.color_2{
+	color:#c365fb;
+}
+.color_3{
+	color: #cb9d6b;
+}
+.color_4{
+	color:#24abe9;
+}
+.color_5{
+	color:#71aab1;
+}
+.color_6{
+	color:#389c92;
+}
+.color_7{
+	color:#3ab8b4;
+}
+.color_8{
+	color:#d2ce9e;
+}
+.color_9{
+	color:#5480a5;
+}
+.color_10{
+	color:#c88c1e;
+}
+.color_11{
+	color:#d1f4fa;
+}
+.color_12{
+	color:#49e5e1;
+}
+.color_13{
+	color:#94a4be;
+}
+.color_14{
+	color:#f8ba57;
+}
+.color_15{
+	color:#ece0c8;
+}
+.color_16{
+	color:#7fd8ff;
+}
+.color_17{
+	color:#92e8a9;
+}
+.color_18{
+	color:#c0ebf2;
+}
+.color_19{
+	color:#8a47ae;
+}
+.color_20{
+	color:#7fd1ff;
+}
+.color_21{
+	color:#3cb4b2;
+}
+.RatingSeasonTopPoints{
+	margin-left: 20px;
+	
+	/* color:#c362ff; */
+}
+.RatingSeasonLine1Panel{
+	height: 100px;
+	width: 100%;
+	flow-children:right;
+	margin-top: 20px;
+}
+.RatingSeasonLine2Panel{
+	width: 100%;
+	flow-children:right;
+	margin-top: 20px;
+	padding-bottom: 15px;
+}
+.RatingSeasonLine2Panel2{
+	flow-children:down;
+	width: 550px;
+}
+.RatingSeasonTopAvatar{
+	height: 50px;
+	width: 50px;
+}
+#HUETA{
+	color:rgb(132, 165, 42);
+}
+.RatingSeasonTopName{
+	font-size: 50px;
+	color:blue;
+	text-shadow: 2px 2px 8px 3.0 #ff0000b0;
+}
+.RatingSeasonLine1LabelPanel{
+	flow-children:down;
+	height: 100%;
+	horizontal-align:center;
+}
+.season_container{
+	flow-children:right;
+	text-align: center;
+}
+.RatingSeasonLine1Label1{
+	font-size: 30px;
+	margin: 5px;
+	letter-spacing: 5px;
+	/* color:#c362ff; */
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+.RatingSeasonLine1Label2{
+	color:white;
+}
+.RatingSeasonImage{
+	height: 145px;
+	width: 100px;
+	vertical-align: center;
+	horizontal-align:center;
+	margin-bottom: 80px;
+}
+.RatingTopPanel,.RatingSeasonPanel{
+	width:750px;
+	height:535px;
+	margin-top:10px;
+	flow-children: down;
+	overflow: clip scroll;
+}
+.DropDownTop{
+	horizontal-align:center;
+}
+.RatingProfilPanel{
+	width:750px;
+	height:570px;
+}
+.RatingProfilInfoPanel{
+	height:100%;
+	width:200px;
+	margin-left:40px;
+	margin-top:10px;
+	flow-children:down;
+}
+.ProfilPlayerAvatar{
+	height:200px;
+	width:200px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+.RatingProfilInfoDescPanel{
+	flow-children:right;
+	margin-top:10px;
+	height: 100px;
+}
+.statisticbox{
+	flow-children:right;
+}
+.statisticbox1{
+	flow-children:down;
+	margin-right:15px;
+	margin-left:15px;
+}
+.RatingProfilInfoWords,.RatingProfilInfoNumbers{
+	flow-children:down;
+	width:100px;
+}
+.RatingProfilGamesText,.RatingProfilLikesText,.RatingProfilReportsText{
+	width:100%;
+	text-align:right;
+}
+.RatingProfilGamesText,.RatingProfilLikesText,.RatingProfilReportsText,.RatingProfilGamesNumber,.RatingProfilLikesNumber,.RatingProfilReportsNumber{
+	font-size:21px;
+	color:white;
+}
+.RatingProfilLikesText{
+	color:#388348;
+}
+.RatingProfilReportsText{
+	color:#cc3a53;
+}
+.RatingProfilRank{
+	margin-top:10px;
+	horizontal-align:center;
+	height:100px;
+	width:100px;
+}
+.RatingProfilRankInfoPanel{
+	width:100%;
+	flow-children:down;
+}
+.RatingProfilRankInfoLinePanel{
+	horizontal-align:center;
+	height:8px;
+	width: 100px;
+	background-color: #4a4c6f;
+	margin-top:5px;
+	border:1px solid black;
+}
+.RatingProfilRankInfoLineGreen{
+	height:100%;
+	width:40px;
+	background-color:#149a27;
+}
+.RatingProfilRankInfoPoints{
+	font-size:20px;
+	color: #b8b454;
+	width:100%;
+	text-align:center;
+	margin-top:5px;
+}
+.RatingProfilCommentsPanel{
+	height:100%;
+	width:475px;
+	margin-top:10px;
+	horizontal-align:right;
+	flow-children:down;
+}
+.profilimage{
+	height:570px;
+	width:723px;
+	vertical-align:bottom;
+}
+.profilvideopanel,.profilvideo{
+	height: 100%;
+	width: 100%;
+}
+.RatingProfilName{
+	color:white;
+	font-size:35px;
+	width:100%;
+	margin-left:3%;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+#RatingProfilName:active{
+	sound: "ui_custom_lobby_dialog_slide";
+}
+.RatingProfilLinePanel{
+	height:5px;
+	width:474px;
+	background-color: #4a4c6f;
+	margin-top:5px;
+}
+.RatingProfilEntry{
+	border:1px solid black;
+	width:100%;
+	font-size:25px;
+}
+.RatingProfilPlayerByIdPanel{
+	width:750px;
+	height:570px;
+}
+#RatingProfilPlayer{
+	height:100%;
+	width:100%;
+}
+#RatingProfilPlayerById{
+	width:100%;
+	height:100%;
+}
+.open_rating{
+	animation-name: open_rating;
+	animation-duration: .5s;
+	animation-timing-function: linear;
+}
+@keyframes 'open_rating'
+{
+	from{
+		opacity:0;
+		transform: translate3d(-750px, 0px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+	
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.close_rating{
+	animation-name: close_rating;
+	animation-duration: .5s;
+	animation-timing-function: linear;
+}
+@keyframes 'close_rating'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(-750px, 0px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+}
+#RatingVkladkaPlayerRank:active,#RatingVkladkaTop:active,#RatingVkladkaProfil:active, #RatingVkladkaSeason:active
+{
+	sound: "ui_topmenu_activate";
+}
+#RatingCloseButton:active
+{
+	sound: "ui_custom_lobby_dialog_slide";
+}
+.RatingProfilLikeDislikePanel{
+	flow-children:right;
+	horizontal-align:center;
+	margin-top:-20px;
+}
+.RatingProfilLike{
+	height:30px;
+	width:30px;
+	margin-right:15px;
+	border:1px solid green;
+	padding:5px;
+}
+.RatingProfilLike:hover{
+	background-color:green;
+}
+#RatingProfilLike:active,#RatingProfilDislike:active{
+	sound: "ui_settings_multi";
+}
+.RatingProfilDislike{
+	height:30px;
+	width:30px;
+	border:1px solid red;
+	padding:5px;
+}
+.RatingProfilDislike:hover{
+	background-color:red;
+}
+#openRating:active{
+	sound: "ui_find_match_change_options";
+}
+.RatingCommentPanel{
+	horizontal-align:left;
+	flow-children:right;
+	margin-left: 15px;
+	margin-top: 40px;
+}
+.RatingCommentIcon{
+	height: 35px;
+	width: 35px;
+}
+.RatingCommentIcon:hover{
+	brightness: 0.5;
+}
+.dislikeimg:hover{
+	brightness: 1.5;
+}
+.likeimg:hover{
+	brightness: 1.5;
+}
+
+.RatingComment,.RatingCommentCout{
+	color:white;
+	font-size:25px;
+	vertical-align: center;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.RatingCommentCout{
+	margin-left: 5px;
+	color:#cecece;
+	font-weight: bold;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.LikeNotificationsPanel{
+	flow-children:right;
+	margin-top:15%;
+	horizontal-align:center;
+}
+.LikeNotificationsFrom,.LikeNotifications{
+	font-size:50px;
+	letter-spacing:10px;
+}
+.LikeNotifications{
+	color:white;
+}
+
+.show_notif{
+	animation-name: show_notif;
+	animation-duration: 1.5s;
+}
+@keyframes 'show_notif'
+{
+	from{
+		opacity: 0;
+	}
+	
+	to{
+		opacity: 1;
+	}
+}
+.hide_notif{
+	animation-name: hide_notif;
+	animation-duration: 1.5s;
+}
+@keyframes 'hide_notif'
+{
+	from{
+		opacity: 1;
+	}
+	
+	to{
+		opacity: 0;
+	}
+}
+.RatingPlayerTopNumberRankPanel{
+	width:70px;
+	height:70px;
+	border-radius:40px;
+	margin-left:15px;
+	margin-top:15px;
+}
+.RatingPlayerTopNumberRank{
+	color:white;
+	font-size:42px;
+	vertical-align:center;
+	width:100%;
+	text-align:center;
+}
+.rating_info_panel{
+	horizontal-align:right;
+	width: 50%;
+}
+.rating_info_panel_img{ 
+	width: 100px; 
+	height: 100px; 
+	vertical-align: center; 
+	horizontal-align:right;
+	margin-right: 90px;
+}
+.rating_info_panel_1,.rating_score_image_bg{
+	flow-children:down;
+	margin-left: 95px;
+}
+.rating_info_panel_1{
+	margin-top: 8px;
+}
+.rating_score_image_bg{
+	margin-left: 90px;
+}
+.rating_info_panel_2,.rating_info_panel_3{
+	flow-children:right;
+}
+.rating_info_paadssdf23{
+	horizontal-align:center;
+	margin-right: 40%;
+	flow-children:right;
+}
+.rating_info_panel_5,.rating_info_panel_6,.rating_info_panel_7,.rating_info_panel_8,.rating_info_panel_9,.rating_info_panel_10,.rating_info_panel_11,.rating_info_panel_12{
+	width: 60px;
+	height: 25px;
+	margin-right: 20px;
+	tooltip-position:bottom;
+}
+.rating_info_panel_12{
+	margin-left: 80px;
+}
+.rating_info_label{
+	color:white;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	font-size: 18px;
+	width: 100%;
+	text-align: center;
+}
+#rating_zar{
+	color:red;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	font-size: 18px;
+}
+#rating_doom{
+	color:red;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	font-size: 18px;
+}
+#rating_nadez{
+	color: red;
+}
+#RatingCloseButtonIcon{
+	height: 35px;
+	width: 35px;
+}
+
+#last_games_profil{
+	width: 485px;
+	height: 470px;
+	flow-children: down;
+	vertical-align: bottom;
+	horizontal-align: right;
+	margin-bottom: 10px;
+	padding: 0;
+}
+.profil_game{
+	width: 100%;
+	flow-children: right;
+	margin: 1px 0;
+	height: 40px;
+}
+.profil_game_colun_des_panel{
+	width: 16.6%;
+	vertical-align: center;
+}
+.profil_game_colun_des_panel Label{
+	horizontal-align: center;
+	color:white;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.last_game_hero_img{
+	width: 75px;
+	height: 40px;
+	horizontal-align: center;
+}
+.win{
+	color:#19962b;
+}
+.lose{
+	color:rgb(46, 108, 201);
+}
+.profil_first_game{
+	flow-children: down;
+	horizontal-align: center;
+}
+.profil_first_game Label{
+	color:white;
+	horizontal-align: center;
+}

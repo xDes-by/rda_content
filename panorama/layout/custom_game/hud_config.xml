@@ -1,0 +1,12 @@
+<root> 
+	<styles>
+		<!--<include src="s2r://panorama/styles/dotastyles.vcss_c" />-->
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/hud_config.js" />
+	</scripts>
+
+	<Panel>
+	</Panel>
+</root>

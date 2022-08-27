@@ -1,0 +1,41 @@
+<root> 
+	<styles>
+		<include src="s2r://panorama/styles/custom_loading_screen.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/custom_loading_screen.js" />
+	</scripts>	
+	<Panel class="AddonLoadingRoot">
+		<Panel id="custom_loading_screen" class="custom_loading_screen" style="height:100%;width:100%;">
+
+			<Image id="image_bg" class="ImageBg"  style="height:100%;width:100%;" src="file://{images}/load.png"/>
+			<!-- <Movie style="height:100%;width:100%;" src="file://{resources}/videos/invok.webm" controls="false" repeat="true" hittest="false" hittestchildren="false" autoplay="onload"/> -->
+	 
+		<!--	<Panel id="da">
+				<Button id="daa" onactivate="DOTADisplayURL('https://new.donatepay.ru/@RDA');">
+					<Label id="HowToPlayHeader" class="Header2" html="true" text="dondon" />
+				</Button>		
+			</Panel>	-->
+		
+			<Panel id="discord">
+				<Button id="dis" onactivate="DOTADisplayURL('https://discord.gg/2B5KVM7ATR');">
+					<Image class="avatar1" src="file://{images}/custom_game/discord-logo.png" />
+				</Button>		
+			</Panel>
+			
+		 	<Panel id="patreon">
+				<Button id="pat" onactivate="DOTADisplayURL('https://www.patreon.com/random_defense_adventure');">
+					<Image class="avatar1" src="file://{images}/custom_game/patreon.png" />
+				</Button>		
+			</Panel> 
+
+			<Panel id="qq">
+				<Image class="avatar1" src="https://cdn.discordapp.com/attachments/814126475958681612/904325803448340480/qq.png" />	
+			</Panel> 
+			
+			<!-- <Panel id="event2021" class="">
+				<Label id="event2021Lable" class="" text="#event2021description" />
+			</Panel> -->
+		</Panel>
+  	</Panel>
+</root>

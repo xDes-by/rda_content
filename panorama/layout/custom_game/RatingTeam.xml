@@ -1,0 +1,47 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/rating.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/tooltip.js" />
+	</scripts>
+	<Panel class = "RatingPlayerInfo">
+		<Image id="RatingPlayerRank" class = "RatingPlayerRank" src="file://{resources}/images/custom_game/ranks/30.png" />
+		<!-- <Image id="RatingTeamProfilButton" class = "RatingTeamProfilButton" src="file://{resources}/images/custom_game/rating/profile.png" onmouseover="TipsOver('profil','RatingTeamProfilButton')" onmouseout="TipsOut()"/> -->
+		<!--<DOTAAvatarImage id="RatingPlayerAvatar" class="RatingPlayerAvatar" steamid="76561198416138269" />-->
+		<DOTAHeroImage id="RatingPlayerAvatar" class="RatingPlayerAvatar" heroname="npc_dota_hero_pudge" heroimagestyle="portrait" onmouseover="TipsOver('profil','RatingPlayerAvatar')" onmouseout="TipsOut()" />
+		<DOTAUserName id="RatingPlayerName" class="RatingPlayerName" steamid="local" />
+		<Panel class = "RatingPlayerLinePanel"/>
+		<Panel class = "RatingPlayerStat">
+			<Panel id = "RatingPlayerLikesPanel" class = "RatingPlayerLikesPanel" onmouseover="TipsOver('like','RatingPlayerLikesPanel')" onmouseout="TipsOut()">
+				<Image class = "RatingPlayerLineLogo" id = "RatingPlayerLineLogo" src="file://{resources}/images/custom_game/rating/bonus48x48.png" />
+				<Label id="RatingPlayerLikes2" class="RatingPlayerLikes2" text='123'/>
+			</Panel>
+			<Panel id = "RatingPlayerReportsPanel" class = "RatingPlayerReportsPanel" onmouseover="TipsOver('dislike','RatingPlayerReportsPanel')" onmouseout="TipsOut()">
+				<Image class = "RatingPlayerLineLogo" id = "RatingPlayerDislikeLogo" src="file://{resources}/images/custom_game/rating/onebit.png" />
+				<Label id="RatingPlayerReports2" class="RatingPlayerReports2" text='123'/>
+			</Panel>
+			<Panel id = "RatingPlayerGamesPanel" class = "RatingPlayerGamesPanel" onmouseover="TipsOver('games','RatingPlayerGamesPanel')" onmouseout="TipsOut()">
+				<Image class = "RatingPlayerLineLogo" id = "RatingPlayerDislikeLogo2" src="file://{resources}/images/custom_game/rating/1 (2).png" />
+				<Label id="RatingPlayergames" class="RatingPlayerReports2" text='123'/>
+			</Panel>
+			<Panel id="RatingPlayerLikesPanel_1" class = "RatingPlayerLikesPanel" onmouseover="TipsOver('points','RatingPlayerLikesPanel_1')" onmouseout="TipsOut()">
+				<Image class = "RatingPlayerLineLogo" id = "RatingPlayerLineLogo2" src="file://{resources}/images/custom_game/rating/starblue.png" />
+				<Label id="RatingPlayerrait" class="RatingPlayerLikes2" text='123'/>
+			</Panel>
+			<Panel id="besthero" class="besthero">
+				<DOTAHeroImage id="heroicon_0" class="heroicon" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
+				<DOTAHeroImage id="heroicon_1" class="heroicon" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
+				<DOTAHeroImage id="heroicon_2" class="heroicon" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
+			</Panel>
+		</Panel>
+		<Panel id="comens" class="comens">
+			<Panel id="dislike" class="dislike">
+				<Image class = "dislikeimg" id = "dislikeimg" src="file://{resources}/images/custom_game/rating/dislike.png"/>
+			</Panel>
+			<Panel id="like" class="like">
+				<Image class = "likeimg" id = "likeimg" src="file://{resources}/images/custom_game/rating/like.png"/>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

@@ -1,0 +1,32 @@
+<root> 
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/global_events_notifications.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/global_events_notifications.js" />
+	</scripts>
+	<Panel class = "root" hittest="false">
+		<Panel id="notipanel_1" class="notipanel_1">
+			<Image class='ivent_img_1' id='ivent_img_1' src="file://{resources}/images/custom_game/global_ivents/warlock22.png" />
+			<Panel id="text_panel_1" class="text_panel_1">
+				<Label class="text_1" id="text_1" text='event_babka'/>
+			</Panel>
+		</Panel>
+		
+		<Panel id="notipanel_2" class="notipanel_2">
+			<Image class='ivent_img_2' id='ivent_img_2' src="file://{resources}/images/custom_game/global_ivents/golden.png" />
+			<Panel id="text_panel_2" class="text_panel_2">
+				<Label class="text_2" id="text_2" text='event_dragon'/>
+			</Panel>
+		</Panel>
+		
+		<Panel id="notipanel_3" class="notipanel_3">
+			<Image class='ivent_img_3' id='ivent_img_3' src="file://{resources}/images/custom_game/global_ivents/golden_rosh.png" />
+			<Panel id="text_panel_3" class="text_panel_3">
+				<Label class="text_3" id="text_3" text='event_roshan'/>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

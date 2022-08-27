@@ -1,0 +1,46 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/DonateShop.css" />
+	</styles>
+	<Panel class = "DonateShopItem1">
+		
+
+		<DOTAItemImage id='DonateShopItem' class="DonateShopItem" hittest="true" itemname="">
+			<Image id='DonateShopImg' class="DonateShopImg" src=""/>
+		</DOTAItemImage>
+		<Image id='' class="shop_modul_bg" src="file://{resources}/images/custom_game/DonateShop/shop_modul_bg_1.png"/>
+		<Panel id='DonateShopItemLabel_c'>
+			<Label id = "DonateShopItemLabel" class="DonateShopItemLabel" text='Аганим'/>
+		</Panel>
+
+		<Panel id = 'DonateShopItemButtonBuy' class="DonateShopItemButtonBuy">
+			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
+			<Panel id="buy_line_pn" >
+				<Panel id="shop_button_price_container_don" class="">
+					<Panel class='shopButtonImgAndText' id='shopButtonImgAndText1'>
+						<Label id='DonateShopItemButtonLabelNotAlign1' class="DonateShopItemButtonLabelNotAlign" text='500'/>
+						<Image class='shopButtonImg' id='shopButtonImg1' src="file://{resources}/images/custom_game/DonateShop/money_logo_3_mini.png" />
+					</Panel>
+				</Panel>
+				<Panel id="shop_button_price_container_rp" class="">
+					<Panel class='shopButtonImgAndText' id='shopButtonImgAndText2'>
+						<Label id='DonateShopItemButtonLabelNotAlign2' class="DonateShopItemButtonLabelNotAlign" text='500'/>
+						<Image class='shopButtonImg' id='shopButtonImg2' src="file://{resources}/images/custom_game/DonateShop/protection_mini.png" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id = "DonateShopItemButtonHas" class="DonateShopItemButtonHas">
+			<Label id = 'DonateShopItemButtonLabel' class="DonateShopItemButtonLabel" text='#taik'/>
+			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
+		</Panel>
+		<Panel id = "DonateShopItemButtonGived" class="DonateShopItemButtonGived">
+			<Label id = 'DonateShopItemButtonLabelGived' class="DonateShopItemButtonLabelGived" text='#taik'/>
+			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
+		</Panel>
+		<Panel id = "DonateShopItemButtonActive" class="DonateShopItemButtonActive">
+			<Label id = 'DonateShopItemButtonLabelActive' class="DonateShopItemButtonLabelActive" text='Выдано'/>
+			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
+		</Panel>
+	</Panel>
+</root>

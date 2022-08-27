@@ -1,0 +1,48 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/DonateShop.css" />
+	</styles>
+	<Panel class = "RatingProfilInfo">
+		<Panel id="profilimage" class="profilimage"/>
+		<Panel id="profilvideopanel" class="profilvideopanel">
+			
+		</Panel>
+		<Panel id = 'RatingProfilInfoPanel' class="RatingProfilInfoPanel">
+			<DOTAAvatarImage id="profavatar" class="ProfilPlayerAvatar" steamid="local" />
+			<Panel id = "RatingProfilInfoDescPanel" class="RatingProfilInfoDescPanel">
+				<Panel class="statisticbox1" >
+					<Panel class = "statisticbox">
+						<Image class = "RatingPlayerLineLogo" id = "logo1" src="file://{resources}/images/custom_game/rating/starblue.png" onmouseover="TipsOver('points','logo1')" onmouseout="TipsOut()"/>
+						<Label id="logotext1" class="logotext1" text='123'/>
+					</Panel>
+					<Panel class = "statisticbox">
+						<Image class = "RatingPlayerLineLogo" id = "logo2" src="file://{resources}/images/custom_game/rating/1 (2).png" onmouseover="TipsOver('games','logo2')" onmouseout="TipsOut()"/>
+						<Label id="logotext2" class="logotext2" text='123'/>
+					</Panel>
+				</Panel>
+				<Panel class="statisticbox1" >
+					<Panel class = "statisticbox">
+						<Image class = "RatingPlayerLineLogo" id = "logo3" src="file://{resources}/images/custom_game/rating/bonus48x48.png" onmouseover="TipsOver('likes','logo3')" onmouseout="TipsOut()"/>
+						<Label id="logotext3" class="logotext3" text='123'/>
+					</Panel>
+					<Panel class = "statisticbox">
+						<Image class = "RatingPlayerLineLogo" id = "logo4" src="file://{resources}/images/custom_game/rating/onebit.png" onmouseover="TipsOver('reports','logo4')" onmouseout="TipsOut()"/>
+						<Label id="logotext4" class="logotext4" text='123'/>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Image id="RatingProfilRank" class = "RatingProfilRank" src="file://{resources}/images/custom_game/ranks/9.png" />
+			<Panel class = "RatingProfilRankInfoPanel">
+				<Label id="RatingProfilRankInfoPoints" class="RatingProfilRankInfoPoints" text=''/>
+				<Panel id="RatingProfilLikeDislikePanel" class="RatingProfilLikeDislikePanel">
+					<Image id="RatingProfilLike" class="RatingProfilLike" src="file://{resources}/images/custom_game/rating/like.png"/>
+					<Image id="RatingProfilDislike" class="RatingProfilDislike" src="file://{resources}/images/custom_game/rating/dislike.png"/>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel class = "RatingProfilCommentsPanel" id = "RatingProfilCommentsPanel">
+			<DOTAUserName id="RatingProfilName" class="RatingProfilName" steamid="local" />
+			<Panel class = "RatingProfilLinePanel"/>
+		</Panel>
+	</Panel>
+</root>

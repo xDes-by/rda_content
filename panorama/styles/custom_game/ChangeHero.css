@@ -1,0 +1,104 @@
+#ChangeHeroMainPanel{
+    height: 500px;
+    width: 350px;
+    vertical-align: center;
+    margin-bottom: 10%;
+    margin-left: 0.1%;
+    background-image:url('file://{resources}/images/custom_game/changehero/bg.png');
+}
+.ChangeHeroScenePanel{
+    height: 100%;
+    width: 100%;
+}
+.ChangeHeroText{
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+#ChangeHero_Text_1{
+    margin-top: 20px;
+    font-size: 21;
+}
+#ChangeHero_Text_2{
+    color: tomato;
+    margin-top: 50px;
+    font-size: 25;
+}
+#ChangeHeroDescription{
+    width: 300px;
+    horizontal-align:center;
+    margin-top: 130px;
+    flow-children:down;
+}
+.ChangeHeroTextDescription{
+    color: white;
+}
+#ChangeHeroСonditions{
+    width: 300px;
+    horizontal-align:center;
+    margin-top: 200px;
+    flow-children:down;
+}
+#ChangeHeroButtonPanel{
+    horizontal-align:center;
+    margin-top: 420px;
+}
+#ChangeHeroButtonImage{
+    width: 250px;
+    height: 50px;
+}
+#ChangeHeroButtonPanel:hover{
+    brightness:0.5;
+}
+#ChangeHeroButtonText{
+    color:white;
+    font-size: 25;
+    text-align: center;
+    width: 100%;
+    vertical-align: center;
+}
+#ChangeHeroCloseButton{
+    horizontal-align:right;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+#ChangeHeroCloseButton:hover{
+    brightness:0.5;
+}
+
+.show_change{
+	animation-name: show_change;
+	animation-duration: .3s;
+}
+@keyframes 'show_change'
+{
+	from{
+		opacity:0;
+		transform: translate3d(0px, 0px, 500px);
+		pre-transform-scale2d: 0.1;
+	}
+	
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.hide_change{
+	animation-name: hide_change;
+	animation-duration: .3s;
+}
+@keyframes 'hide_change'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(0px, 0px, 500px);
+		pre-transform-scale2d: 0.1;
+	}
+}

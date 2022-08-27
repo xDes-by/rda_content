@@ -1,0 +1,9 @@
+<root>
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/dummy/dummy.js" />
+    </scripts>
+
+    <Panel class ="root" hittest="false">
+        
+	</Panel>
+</root>

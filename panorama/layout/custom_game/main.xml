@@ -1,0 +1,309 @@
+<root>
+	
+	<styles>
+		<include src="file://{resources}/styles/custom_game/rating.css" />
+		<include src="file://{resources}/styles/custom_game/DonateShop.css" />
+		<include src="file://{resources}/styles/custom_game/ChangeHero.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/main.js" />
+	</scripts>
+    
+	<snippets>
+		<snippet name="SnippetName">
+			<Panel id="" class="RatingSeasonBox">
+				<Panel id="" class="RatingSeasonLine1Panel">
+					<!-- <Image class="RatingSeasonImage" src="file://{resources}/images/custom_game/rating/seasons/1.png"/> -->
+					<Panel id="" class="RatingSeasonLine1LabelPanel">
+						<Panel id="" class="season_container">
+							<Label id="rait_season_id_1" class="RatingSeasonLine1Label1" text='#SEASON'/>
+							<Label id="rait_season_id_2" class="RatingSeasonLine1Label1" text='3'/>
+						</Panel>
+						<Panel id="" class="season_container">
+							<!-- <Label id="rait_season_id_3" class="RatingSeasonLine1Label1 RatingSeasonLine1Label2" text='1-31'/> -->
+							<Label id="rait_season_id_4" class="RatingSeasonLine1Label1 RatingSeasonLine1Label2" text='#AUGUST'/>
+						</Panel>
+					</Panel>
+				</Panel>
+				<Panel id="" class="RatingSeasonLine2Panel">
+					<Panel id="" class="RatingSeasonLine2Panel2">
+						<Panel id="rait_pl_0" class="RatingTopPlayerPanel">
+							<Label id="rait_pl_id" class="RatingSeasonTopPlace" text='1'/>
+							<DOTAAvatarImage id="rait_pl_ava" class="RatingSeasonTopAvatar" accountid="1173620367" />
+							<DOTAUserName id="rait_pl_name" class="RatingSeasonTopName" steamid="1173620367"/>
+							<Label id="rait_pl_mmr" class="RatingSeasonTopPoints" text='13029'/>
+						</Panel>
+						<Panel id="rait_pl_1" class="RatingTopPlayerPanel">
+							<Label id="rait_pl_id" class="RatingSeasonTopPlace" text='2'/>
+							<DOTAAvatarImage id="rait_pl_ava" class="RatingSeasonTopAvatar" accountid="1173620367" />
+							<DOTAUserName id="rait_pl_name" class="RatingSeasonTopName" steamid="1173620367"/>
+							<Label id="rait_pl_mmr" class="RatingSeasonTopPoints" text='13029'/>
+						</Panel>
+						<Panel id="rait_pl_2" class="RatingTopPlayerPanel">
+							<Label id="rait_pl_id" class="RatingSeasonTopPlace" text='3'/>
+							<DOTAAvatarImage id="rait_pl_ava" class="RatingSeasonTopAvatar" accountid="1173620367" />
+							<DOTAUserName id="rait_pl_name" class="RatingSeasonTopName" steamid="1173620367"/>
+							<Label id="rait_pl_mmr" class="RatingSeasonTopPoints" text='13029'/>
+						</Panel>
+						<Panel id="rait_pl_3" class="RatingTopPlayerPanel">
+							<Label id="rait_pl_id" class="RatingSeasonTopPlace" text='4'/>
+							<DOTAAvatarImage id="rait_pl_ava" class="RatingSeasonTopAvatar" accountid="1173620367" />
+							<DOTAUserName id="rait_pl_name" class="RatingSeasonTopName" steamid="1173620367"/>
+							<Label id="rait_pl_mmr" class="RatingSeasonTopPoints" text='13029'/>
+						</Panel>
+						<Panel id="rait_pl_4" class="RatingTopPlayerPanel">
+							<Label id="rait_pl_id" class="RatingSeasonTopPlace" text='5'/>
+							<DOTAAvatarImage id="rait_pl_ava" class="RatingSeasonTopAvatar" accountid="1173620367" />
+							<DOTAUserName id="rait_pl_name" class="RatingSeasonTopName" steamid="1173620367"/>
+							<Label id="rait_pl_mmr" class="RatingSeasonTopPoints" text='13029'/>
+						</Panel>
+					</Panel>
+					<Image id="RatingSeasonImage" class="RatingSeasonImage" src="file://{resources}/images/custom_game/rating/seasons/18.png"/>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="profil_game_history">
+			<Panel id="" class="profil_game">
+				<Panel id="" class="profil_game_colun_des_panel">
+					<DOTAHeroImage class="last_game_hero_img" heroname="npc_dota_hero_pudge" heroimagestyle="landscape" />
+				</Panel>
+				<Panel id="" class="profil_game_colun_des_panel">
+					<Label id="" class="" text="+34" />
+				</Panel>
+				<Panel id="" class="profil_game_colun_des_panel">
+					<Label id="" class="" text="Да" />
+				</Panel>
+				<Panel id="" class="profil_game_colun_des_panel">
+					<Label id="" class="" text="64 мин" />
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+
+
+    <Panel class="root" hittest="false">
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/DonateShop/heros/marci.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str_last.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str6.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str7.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str8.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str9.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str10.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str11.png"/> -->
+		
+		<Panel id = "Rating" class = "Rating" hittest = "false">
+			<Panel id='RatingPanel' class='RatingPanel'>
+				<Panel id='RatingHeader' class='RatingHeader'>
+					<Panel id = "RatingCloseButton" class = "RatingCloseButton" onmouseactivate="closeRaiting()" onmouseover="TipsOver('close','RatingCloseButton')" onmouseout="TipsOut()">
+						<Image id="RatingCloseButtonIcon" class = "RatingCloseButtonIcon" src="file://{resources}/images/custom_game/pet/close.png"/>
+						<!-- <Label id = 'RatingCloseButtonText' class="RatingCloseButtonText" text='#close'/> -->
+					</Panel>
+					<Panel id="RatingMenuPanel" class="RatingMenuPanel">
+						<Panel id="RatingVkladkaPlayerRank" class = "RatingVkladkaPlayerRank" onmouseactivate="openRaiting('team')">
+							<Label id="RatingVkladkaText1" class="RatingVkladkaText" text='#team'/>
+							<Image id="RatingVkladkaPlayerRank_img" class = "rating_tab_bg_img" src="file://{resources}/images/custom_game/rating/unactive_rating_button.png"/>
+						</Panel>
+						<Panel id="RatingVkladkaTop" class = "RatingVkladkaTop" onmouseactivate="openRaiting('top')">
+							<Label id="RatingVkladkaText2" class="RatingVkladkaText" text='#top'/>
+							<Image id="RatingVkladkaTop_img" class = "rating_tab_bg_img" src="file://{resources}/images/custom_game/rating/active_rating_button.png"/>
+						</Panel>
+						<Panel id="RatingVkladkaSeason" class = "RatingVkladkaSeason" onmouseactivate="openRaiting('season')">
+							<Label id="RatingVkladkaText4" class="RatingVkladkaText" text='#season_tab'/>
+							<Image id="RatingVkladkaSeason_img" class = "rating_tab_bg_img" src="file://{resources}/images/custom_game/rating/active_rating_button.png"/>
+						</Panel>
+						<Panel id="RatingVkladkaProfil" class = "RatingVkladkaProfil" onmouseactivate="openRaiting('profil')">
+							<Label id="RatingVkladkaText3" class="RatingVkladkaText" text='#profil'/>
+							<Image id="RatingVkladkaProfil_img" class = "rating_tab_bg_img" src="file://{resources}/images/custom_game/rating/active_rating_button.png"/>
+						</Panel>
+					</Panel>
+				</Panel>
+
+				<Panel id="RatingCommentPanel" class="RatingCommentPanel" onmouseover="TipsOver('commens','RatingCommentPanel')" onmouseout="TipsOut()">
+					<Image class='RatingCommentIcon' id='RatingCommentIcon' src="file://{resources}/images/custom_game/rating/promotion.png"/>
+					<Label id="RatingCommentCout" class="RatingCommentCout" text='0'/>
+				</Panel>
+				<Panel id='RatingContent' class='RatingContent'>
+					<Panel id='RatingProfilPlayerByIdPanel' class='RatingProfilPlayerByIdPanel'/>
+					<Panel id='RatingTeamPanel' class='RatingTeamPanel'/>
+					<Panel id='RatingTopPanel' class='RatingTopPanel' >
+						
+					</Panel>
+					<Panel id='RatingSeasonPanel' class='RatingSeasonPanel' >
+						
+					</Panel>
+					<Panel id='RatingProfilPanel' class='RatingProfilPanel'/>
+				</Panel>
+			</Panel>
+		</Panel>
+		
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/rating/Rating1.png"/> -->
+		
+		
+		<Panel id = "donateShop" class = "donateShop" hittest = "false">
+			<Panel id="openShopPanelLabel" class="openShopPanelLabel" hittest = 'false'>
+				<Panel class = "RatingCloseButton1">
+					<Label class="openShopLabel" id="openShopLabel" text='#open' onmouseactivate="specialOpnBut()"/>
+				</Panel>
+			</Panel>
+			<Panel class="DonateShopPanel" id="DonateShopPanel">
+				<Image id="osnovnoi_logo" class = "" src="file://{resources}/images/custom_game/DonateShop/osnovnoi_logo.png"/>
+				<Panel id="accept_shadow" hittest='false'/>
+				<Panel id = "RatingCloseButton1" class = "RatingCloseButton1" onmouseactivate="closeShop()" onmouseover="TipsOver('close','RatingCloseButton1')" onmouseout="TipsOut()">
+					<Image id="RatingCloseButtonIcon" class = "RatingCloseButtonIcon" src="file://{resources}/images/custom_game/pet/close.png"/>
+				</Panel>
+				<Panel id = "shopProfilPanel" class = "shopProfilPanel">
+					<Panel class = "RatingProfilInfo">
+						<Panel id = 'RatingProfilInfoPanelShop' class="RatingProfilInfoPanel">
+							<DOTAAvatarImage id="profavatarShop" class="ProfilPlayerAvatar" steamid="local" />
+							<Panel id = "RatingProfilInfoDescPanelShop" class="RatingProfilInfoDescPanel">
+								<Panel id="statisticbox121" class="statisticbox12" onmouseover="TipsOver('points','statisticbox121')" onmouseout="TipsOut()">
+									<Image class = "RatingPlayerLineLogo" id = "logo1shop" src="file://{resources}/images/custom_game/rating/starblue.png"/>
+										<Label id="logotext1shop" class="logotext1" text='123'/>
+								</Panel>
+								<Panel id="statisticbox122" class="statisticbox12" onmouseover="TipsOver('games','statisticbox122')" onmouseout="TipsOut()">
+									<Image class = "RatingPlayerLineLogo" id = "logo1shop" src="file://{resources}/images/custom_game/rating/1 (2).png"/>
+										<Label id="logotext2shop" class="logotext2" text='123'/>
+								</Panel>
+								<Panel id="statisticbox123" class="statisticbox12" onmouseover="TipsOver('likes','statisticbox123')" onmouseout="TipsOut()">
+									<Image class = "RatingPlayerLineLogo" id = "logo1shop" src="file://{resources}/images/custom_game/rating/bonus48x48.png"/>
+									<Label id="logotext3shop" class="logotext3" text='123'/>
+								</Panel>
+							</Panel>
+						</Panel>
+						<DOTAUserName id="RatingProfilNameShop" class="RatingProfilName" steamid="local" />
+					</Panel>
+				</Panel>
+				<Panel id="shop_gems_panel" class="">
+					<Panel id="smithy_gem_purple_panel" class="smithy_gem_base_class">
+						<Image id="" class="smithy_gem_image" src="file://{resources}/images/custom_game/smithy/purple_gem.png" />
+						<Label id="smithy_purple_label" class="smithy_gem_lable" text="1000" />
+					</Panel>
+					<Panel id="smithy_gem_blue_panel" class="smithy_gem_base_class">
+						<Image id="" class="smithy_gem_image" src="file://{resources}/images/custom_game/smithy/blue_gem.png" />
+						<Label id="smithy_blue_label" class="smithy_gem_lable" text="1000" />
+					</Panel>
+					<Panel id="smithy_gem_orange_panel" class="smithy_gem_base_class">
+						<Image id="" class="smithy_gem_image" src="file://{resources}/images/custom_game/smithy/orange_gem.png" />
+						<Label id="smithy_orange_label" class="smithy_gem_lable" text="1000" />
+					</Panel>
+					<Panel id="smithy_gem_red_panel" class="smithy_gem_base_class">
+						<Image id="" class="smithy_gem_image" src="file://{resources}/images/custom_game/smithy/red_gem.png" />
+						<Label id="smithy_red_label" class="smithy_gem_lable" text="1000" />
+					</Panel>
+					<Panel id="smithy_gem_green_panel" class="smithy_gem_base_class">
+						<Image id="" class="smithy_gem_image" src="file://{resources}/images/custom_game/smithy/green_gem.png" />
+						<Label id="smithy_green_label" class="smithy_gem_lable" text="1000" />
+					</Panel>
+				</Panel>
+				<Panel id = 'lowPanel' class='lowPanel'>
+					<Panel id="money_panel" class="money_panel">
+						<Panel class='DonateMoneyPanel' id='DonateMoneyPanel' onmouseover="TipsOver('gems','DonateMoneyPanel')" onmouseout="TipsOut()">
+							<Image class='DonateMoneyLogo3' id='DonateMoneyLogo' src="file://{resources}/images/custom_game/DonateShop/money_logo_3_mini.png" />
+							<Label class="DonateMoneyLabel" id="DonateMoneyLabel" text='0'/>
+						</Panel>
+						<Panel class='MMMRPointsPanel' id='MMMRPointsPanel' onmouseover="TipsOver('mmrpoints','MMMRPointsPanel')" onmouseout="TipsOut()">
+							<Image class='MMMRPointsLogo' id='MMMRPointsLogo' src="file://{resources}/images/custom_game/DonateShop/protection_mini.png" />
+							<Label class="DonateMoneyLabel" id="MMMRPointsLabel" text='0'/>
+						</Panel>
+					</Panel>
+					<!-- background-image: url("file://{resources}/images/custom_game/DonateShop/2.png");
+	background-size: 100% 100%; -->
+					<Panel class="DonateShopTabsPanel" id="DonateShopTabsPanel"/>
+                    <Panel class="DonateShopContentPanel_bg" id="DonateShopContentPanel_bg"/>
+					<Panel class="DonateShopContentPanel" id="DonateShopContentPanel">
+					</Panel>
+					<Panel id="discord">
+						<Button id="dis" onactivate="DOTADisplayURL('https://discord.gg/2B5KVM7ATR');">
+							<Image class="avatar1" src="file://{images}/custom_game/discord-logo.png" />
+						</Button>		
+					</Panel>
+					
+					<Panel id="patreon">
+						<Button id="pat" onactivate="DOTADisplayURL('https://www.patreon.com/random_defense_adventure');">
+							<Image class="avatar1" src="file://{images}/custom_game/patreon.png" />
+						</Button>		
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel class="BuyControl" id='BuyControl'>
+				<Image class='BuyControlCurDon' id='BuyControlCurDon' src="file://{resources}/images/custom_game/DonateShop/shop.png" />
+				<Image class='BuyControlCurGem' id='BuyControlCurGem' src="file://{resources}/images/custom_game/DonateShop/money_logo_3.png" />
+				<Image class='BuyControlCurRp' id='BuyControlCurRp' src="file://{resources}/images/custom_game/DonateShop/protection.png" />
+				<!-- <Label id = "BuyControlTextLine1" class = "BuyControlTextLine1" text='Подтверждение покупки'/> -->
+				<Label id = "BuyControlTextLine2" class = "BuyControlTextLine1" text='Морскиая свинка'/>
+				<Label id = "BuyControlTextLine3" class = "BuyControlTextLine1" text='300'/>
+				<Panel id="BuyControlDropPanel" class="">
+					<DropDown id="BuyControlDrop" oninputsubmit="OnDropDownChanged()">
+						<Label text="1" id="entry1"/>
+						<Label text="2" id="entry2"/>
+						<Label text="3" id="entry3"/>
+						<Label text="4" id="entry4"/>
+						<Label text="5" id="entry5" checked="true"/>
+						<Label text="6" id="entry6"/>
+						<Label text="7" id="entry7"/>
+						<Label text="8" id="entry8"/>
+						<Label text="9" id="entry9"/>
+						<Label text="10" id="entry10"/>
+					</DropDown>
+				</Panel>
+				<Panel class = "acceptButton" id='acceptButton'>
+					<Image class='controllButtonImg' id='' src="file://{resources}/images/custom_game/DonateShop/6.png" />
+					<Label class = "BuyControlButtonText" text='#yes'/>
+				</Panel>
+				<Panel class = "cancelButton" id='cancelButton' onmouseactivate="$('#BuyControl').visible = false;$('#accept_shadow').visible = false;">
+					<Image class='controllButtonImg' id='' src="file://{resources}/images/custom_game/DonateShop/6.png" />
+					<Label class = "BuyControlButtonText" text='#no'/>
+				</Panel>
+			</Panel>
+		</Panel>
+		<!-- rating score -->
+		<Panel id="rating_info_panel" class="rating_info_panel">
+			<Panel id="rating_info_paadssdf23">
+				<Image id="rating_score_image_bg" class="rating_score_image_bg" src="file://{resources}/images/custom_game/rating/score.png" />
+				<Panel id="rating_info_panel_1" class="rating_info_panel_1">
+					<Panel id="rating_info_panel_3" class="rating_info_panel_3">
+						<Panel id="rating_info_panel_9" class="rating_info_panel_9" onmouseover="TipsOver('rating_zar','rating_info_panel_9')" onmouseout="TipsOut()">
+							<Label id="rating_zar" class="rating_info_label" text="0" />
+						</Panel>
+						<Panel id="rating_info_panel_10" class="rating_info_panel_10" onmouseover="TipsOver('rating_nadez','rating_info_panel_10')" onmouseout="TipsOut()">
+							<Label id="rating_nadez" class="rating_info_label" text="0" />
+						</Panel>
+						<Panel id="rating_info_panel_11" class="rating_info_panel_11" onmouseover="TipsOver('rating_doom','rating_info_panel_11')" onmouseout="TipsOut()">
+							<Label id="rating_doom" class="rating_info_label" text="0" />
+						</Panel>
+						<Panel id="rating_info_panel_12" class="rating_info_panel_12" onmouseover="TipsOver('rating_your_mmr','rating_info_panel_12')" onmouseout="TipsOut()">
+							<Label id="rating_your_mmr" class="rating_info_label" text="0" />
+						</Panel>
+					</Panel>
+				</Panel>
+				<Image id="rating_info_panel_img" class = "rating_info_panel_img" src="" />
+			</Panel>
+		</Panel>
+
+		<Panel id="ChangeHeroMainPanel">
+			<Image id="ChangeHeroCloseButton" class="" src="file://{resources}/images/custom_game/changehero/close.png" onmouseactivate="hide_change()" onmouseover="TipsOver('close','ChangeHeroCloseButton')" onmouseout="TipsOut()" />
+			<Label id="ChangeHero_Text_1" class="ChangeHeroText" text="#сharacter_change" />
+			<Label id="ChangeHero_Text_2" class="ChangeHeroText" text="#npc_dota_hero_marci" />
+			<Panel id="ChangeHeroDescription" class="">
+				<Label id="ChangeHero_Text_3" class="ChangeHeroText" text="#сharacter_change_description" />
+				<Label id="ChangeHero_Text_4" class="ChangeHeroText" text="#сharacter_change_change_hero" />
+			</Panel>
+			<Panel id="ChangeHeroСonditions" class="">
+				<Label id="ChangeHero_Text_5" class="ChangeHeroText" text="#сharacter_change_conditions" />
+				<Label id="ChangeHero_Text_6" class="ChangeHeroText" text="#сharacter_change_condition_1" />
+				<Label id="ChangeHero_Text_7" class="ChangeHeroText" text="#сharacter_change_condition_2" />
+				<Label id="ChangeHero_Text_8" class="ChangeHeroText" text="#сharacter_change_condition_3" />
+				<Label id="ChangeHero_Text_9" class="ChangeHeroText" text="#сharacter_change_condition_4" />
+			</Panel>
+			<Panel id="ChangeHeroButtonPanel" class="">
+				<Image id="ChangeHeroButtonImage" class="" src="file://{resources}/images/custom_game/changehero/btn.png" />
+				<Label id="ChangeHeroButtonText" class="" text="" />
+			</Panel>
+			
+			<!-- <DOTAScenePanel class="ChangeHeroScenePanel" unit = "npc_dota_hero_marci" particleonly="false" allowrotation="false"/> -->
+		</Panel>
+
+	</Panel>
+     
+</root>

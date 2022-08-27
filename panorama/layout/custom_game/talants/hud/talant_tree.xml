@@ -1,0 +1,9 @@
+<root> 
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/layout/custom_game/talants/hud/talants.css" />
+	</styles>
+	<Panel class = "root" hittest="false">
+		<Image class='icon_bg' id='icon_bg' src="file://{resources}/images/custom_game/talants/tree_icon_3.png" />
+    </Panel>
+</root>

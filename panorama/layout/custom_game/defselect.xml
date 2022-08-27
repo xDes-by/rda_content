@@ -1,0 +1,51 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/defselect.css" />
+	</styles>
+		
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/defselect.js" />
+	</scripts>
+	
+	<snippets>
+		
+	</snippets>	
+		
+	<Panel hittest="false" class="xyu">
+		<Panel id="defselect">
+			<Image id="ItemsImage0" src="file://{images}/custom_game/game_info/213.png" />
+			<Label class="TextVubor" id="Textvubora" text="SELECT MODE" />
+			<Panel class="buttoneasy">
+				<Button id="buttoneasyk" onactivate="OnClickEasy()">
+					<Image id="ItemsImage1" src="file://{images}/custom_game/game_info/easy.png" />
+					<Label class="EasyButtonText" id="easytext" text="EASY" />
+				</Button>
+			</Panel>
+			
+			<Panel class="texteasy">
+				<Label class="easymode" id="easymodeid" text="#easy_desc" />
+			</Panel>
+			
+			<Panel class="textnormal">
+				<Label class="normalmode" id="normalmodeid" text="#normal_desc" />
+			</Panel>
+			
+			<Panel class="texthard">
+				<Label class="hardmode" id="hardmodeid" text="#hard_desc" />
+			</Panel>
+			
+			<Panel class="buttonmedium">
+				<Button id="buttonmediumsuk" onactivate="OnClickMedium()">
+					<Image id="ItemsImage2" src="file://{images}/custom_game/game_info/normal.png" />
+					<Label class="MediumButtonText" id="mediumtext" text="NORMAL" />
+				</Button>
+			</Panel>	
+			<Panel class="buttonhard">
+				<Button id="buttonhardsuk" onactivate="OnClickHard()">
+				<Image id="ItemsImage3" src="file://{images}/custom_game/game_info/hard.png" />
+					<Label class="HardButtonText" id="hardtext" text="HARD" />	
+				</Button>
+			</Panel>							
+		</Panel>
+	</Panel>
+</root>

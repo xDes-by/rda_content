@@ -1,0 +1,59 @@
+<root>
+	<styles>
+    	<include src="file://{resources}/layout/custom_game/damage/damage.css" />
+    	<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/damage/damage.js" /> 
+	</scripts>
+	<snippets>
+		<snippet name="heroinfo">
+			<Panel class="heroinfo">
+                <Label id="heroname" class="heroname" text="#npc_dota_hero_templar_assassin"/>
+                <Panel class="left">
+                    <Label class="heal" text="Heal :"></Label>
+                    <Label class="dmg" text="PHYS :"></Label>
+                    <Label class="mag" text="MAGIC :"></Label>
+                    <Label class="pure" text="PURE :"></Label>
+                    <Label class="tank" text="Taken :"></Label>
+                </Panel>
+                <Panel class="right">
+                    <Label id="heal" text="0"></Label>
+                    <Label id="dmg" text="0"></Label>
+                    <Label id="mag" text="0"></Label>
+                    <Label id="pure" text="0"></Label>
+                    <Label id="tank" text="0"></Label>
+                </Panel>
+            </Panel>
+		</snippet>
+	</snippets>
+	<Panel class="HUDRoot" hittest="false">
+		<Panel id="button_show">
+			<Button id="show_damage" onactivate="ShowDamage()">
+				<Label class="show_damage" id="accepttext" text="#damage_table" />
+			</Button>
+		</Panel>	
+		<Panel id="hpbarroot" class="HPBarContainer">
+			<Label id="name" text="#npc_dota_hero_abaddon"></Label>
+			<Panel class="hpbar">
+				<Panel class="bar" id="hpbar">
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="heroinfo" class="dmgPanel">
+			<!-- <Panel class="heroinfo">
+				<Label class="heroname" text="#npc_dota_hero_templar_assassin"></Label>
+				<Panel class="left">
+					<Label class="heal" text="Heal:"></Label>
+					<Label class="dmg" text="Dmg:"></Label>
+					<Label class="tank" text="Taked:"></Label>
+				</Panel>
+				<Panel class="right">
+					<Label id="heal" text="1000"></Label>
+					<Label id="dmg" text="1000"></Label>
+					<Label id="tank" text="1000"></Label>
+				</Panel>
+			</Panel> -->
+		</Panel>
+	</Panel>
+</root>

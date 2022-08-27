@@ -1,0 +1,250 @@
+.page_1,.page_2,.page_3,.page_4,.page_5{
+    width: 500px;
+    flow-children:down;
+}
+.page_3,.page_4,.page_5{
+    opacity:0;
+}
+.lab{
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+    text-align: center;
+    font-size: 28px;
+}
+
+.short_desc_label,.short_desc_2_label{
+    width: 100%;
+}
+.image_btn1{
+    horizontal-align: center;
+}
+.btn{
+    img-shadow: 2px 2px 8px 3.0 #b10f0fb0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn_lab{
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+.three_btn{
+    width: 100%;
+}
+.image_btn3{
+    horizontal-align: center;
+}
+.image_btn4{
+    horizontal-align: right;
+}
+#image_btn4:hover #phys_label,#image_btn3:hover #tank_label,#image_btn2:hover #mage_label,#image_btn1:hover #here_label, #btn3:hover #back_label{
+    font-size: 32px;
+    color: rgb(175, 117, 10);
+}
+.minimap{
+    img-shadow: 2px 2px 8px 3.0 #4a3c80;
+}
+.souls_lab{
+    font-size: 32px;
+    margin-top: 20px;
+    color: rgb(221, 14, 14);
+    font-weight: bold;
+}
+.souls_img{
+    height: 200px;
+}
+.souls_2_img{
+    width: 400px;
+    height: 185px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    horizontal-align:center;
+}
+.key_lab{
+    color: rgb(44, 108, 247);
+    font-weight: bold;
+    font-size: 30px;
+}
+.key_img{
+    horizontal-align:center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.tp{
+    width: 100%;
+    font-weight: bold;
+    color: rgb(179, 154, 73);
+}
+.teleport_panel{
+    flow-children:right;
+    margin-left: 180px;
+}
+.teleport_1,.teleport_2{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    vertical-align: center;
+    margin-right: 10px;
+}
+.teleport_1{
+    background-color: #0ef702;
+}
+.teleport_2{
+    background-color: #a200ff;
+}
+.agha{
+    width: 100%;
+    margin-top: 20px;
+}
+.btn3{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+    height: 110px;
+}
+.class_desc_panel{
+    width: 500px;
+    flow-children:down;
+}
+
+.empty_inv{
+    width: 80%;
+    height: 290px;
+    margin-left: 10%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.items{
+    width: 120px;
+    height: 90px;
+}
+.item_1{
+    margin-top: 12px;
+    margin-left: 8px;
+}
+.item_2{
+    margin-top: 12px;
+    margin-left: 140px;
+}
+.item_3{
+    margin-top: 12px;
+    margin-left: 275px;
+}
+.item_4{
+    margin-top: 110px;
+    margin-left: 8px;
+}
+.item_5{
+    margin-top: 110px;
+    margin-left: 140px;
+}
+.item_6{
+    margin-top: 110px;
+    margin-left: 275px;
+}
+.gd_ch{
+    flow-children:right;
+    horizontal-align:center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.mage_item{
+    margin-left:20px;
+    margin-right: 20px;
+}
+.gd_ch_tank{
+    flow-children:down;
+    width: 500px;
+    margin-bottom: 20px;
+}
+.tank_item_1_line,.tank_item_2_line{
+    horizontal-align:center;
+    flow-children:right;
+    margin-top: 10px;
+}
+.pet_panel{
+    flow-children:right;
+    width: 500px;
+    height: 70px;
+    margin-top: 10px;
+}
+
+
+.open_class{
+	animation-name: open_class;
+	animation-duration: .2s;
+	animation-timing-function: linear;
+}
+@keyframes 'open_class'
+{
+	from{
+		opacity:0;
+		transform: translate3d(0px, -200px, 0px);
+		pre-transform-scale2d: .5;
+	}
+	
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.close_class{
+	animation-name: close_class;
+	animation-duration: .2s;
+	animation-timing-function: linear;
+}
+@keyframes 'close_class'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(0px, 200px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.move_map_up{
+	animation-name: move_map_up;
+	animation-duration: .2s;
+	animation-timing-function: linear;
+}
+@keyframes 'move_map_up'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(0px, -500px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.move_map_down{
+	animation-name: move_map_down;
+	animation-duration: .2s;
+	animation-timing-function: linear;
+}
+@keyframes 'move_map_down'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(0px, 500px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}

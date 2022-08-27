@@ -1,0 +1,49 @@
+<root>
+    <styles>
+    	<include src="s2r://panorama/styles/dotastyles.css" />
+        <include src="file://{resources}/layout/custom_game/damage/damage.css" />
+    </styles>
+    <scripts>
+       <include src="file://{resources}/layout/custom_game/damage/damage.js" />
+    </scripts>
+	<snippets>
+		<snippet name="playerrow">
+			<Panel class="playerrow">
+				<DOTAAvatarImage id="playerAvatar" class="playerAvatar" steamid="local" />
+				<Label id="heronameboard" class="heronameboard" text="Faceless Void 5 lvl"></Label>
+				<Panel class="items">
+					<DOTAItemImage id="slot0" itemname="" />
+					<DOTAItemImage id="slot1" itemname="" />
+					<DOTAItemImage id="slot2" itemname="" />
+					<DOTAItemImage id="slot3" itemname="" />
+					<DOTAItemImage id="slot4" itemname="" />
+					<DOTAItemImage id="slot5" itemname="" />
+				</Panel>
+				<Label id="healboard" class="healboard death" text="0"></Label>
+				<Label id="dmgboard" class="dmgboard death" text="0"></Label>
+				<Label id="magboard" class="magboard death" text="0"></Label>
+				<Label id="pureboard" class="pureboard death" text="0"></Label>
+				<Label id="takenboard" class="takenboard death" text="0"></Label>
+				<Label id="invokerdamageboard" class="invokerdamageboard death" text="0"></Label>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="endboard">
+			<Label id="victoryText" text="victory" onload="showEndScreen()"/>
+			<Button id="CloseButton" onactivate="Game.FinishGame();">
+				<Label text="#CustomEndScreenClose" />
+			</Button>
+			<Panel class="help">
+				<Label class="name" text="#Name"></Label>
+				<Label class="items" text="#Items"></Label>
+				<Label class="healboard" text="#Healed"></Label>
+				<Label class="dmgboard" text="#Physical"></Label>
+				<Label class="magboard" text="#Magic"></Label>
+				<Label class="pureboard" text="#Pure"></Label>
+				<Label class="takenboard" text="#Taken"></Label>
+				<Label class="invokerdamage" text="#invoker"></Label>
+			</Panel>
+			<Panel class="players" id="players">
+			</Panel>
+		</Panel>
+</root>

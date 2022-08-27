@@ -1,0 +1,31 @@
+<root>
+    <styles>
+        <include src="file://{resources}/layout/custom_game/duel/duel.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/duel/duel.js" />
+    </scripts>
+    
+		<Panel class="root" hittest="false">
+            <Panel id="bg_victory" class="bg_victory" style="height:100%; width:100%;" hittest = "false"> 
+                <Image id="element_1" class="element_1" src="file://{resources}/images/custom_game/duel/duel.png">
+                    <Panel id="textidid" class="textidid">
+                        <Label id="textid" class="textid" text="#duel_text" /> 
+                    </Panel>
+                </Image>
+                <Panel id="polosk" class="polosk">
+                    <Panel id="polosk2" class="polosk2">
+                    </Panel>
+                </Panel>
+         
+                 <Image id="element_2" class="element_2" src="file://{resources}/images/custom_game/duel/no.png" onactivate="part_1_btn()">
+                <Label id="textid5" class="textid5" text="#duel_net" />
+                </Image>
+                 <Image id="element_3" class="element_3" src="file://{resources}/images/custom_game/duel/yes.png" onactivate="part_2_btn()">
+                <Label id="textid6" class="textid6" text="#duel_da" />
+                </Image>
+            </Panel>
+        </Panel>
+</root>               

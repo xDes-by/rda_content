@@ -1,0 +1,10 @@
+.IMBA_HeroCard {
+	transition-duration: 0.25s;
+	transition-property: box-shadow;
+    box-shadow: #1dc50e 0px -41px 12px 13p;
+}
+
+#team_rank_panel{
+	width: 300px;
+	border: 1px solid black;
+}

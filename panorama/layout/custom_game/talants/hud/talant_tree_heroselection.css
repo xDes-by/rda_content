@@ -1,0 +1,67 @@
+.talant_tree_panel{
+    height: 700px;
+    width: 700px;
+    margin-left: 200px;
+    horizontal-align: center;
+    vertical-align: center;
+    z-index: -10;
+}
+.talant_tree_images_panel{
+    height: 670px;
+    width: 670px;
+    horizontal-align: center;
+    vertical-align: center;
+    z-index: 1;
+}
+.description_panel{
+    height: 600px;
+    width: 350px;
+    horizontal-align:right;
+    vertical-align: center;
+    margin-right: 5%;
+    margin-bottom: 50px;
+}
+.talant_img_description{
+    height: 148px;
+    width: 150px;
+    border-radius: 100px;
+    horizontal-align:center;
+    margin-top: 85px;
+}
+.talant_name_label,.talant_description_label,.talant_description_buff_label{
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 8px 3.5 #333333b0;
+}
+.talant_description_buff_label{
+    vertical-align: center;
+}
+.talant_name_label{
+    color: white;
+    text-decoration: underline;
+    margin-top: 260px;
+}
+.under_line_panel{
+    width: 260px;
+    height: 180px;
+    margin-top: 270px;
+    horizontal-align:center;
+}
+.talant_icon_panel_size_1{
+    height: 43px;
+    width: 43px;
+    border-radius: 30px;
+}
+.talant_icon_panel_size_2{
+    height: 48px;
+    width: 48px;
+    border-radius: 30px;
+}
+.talant_icon_panel_size_3{
+    height: 56px;
+    width: 56px;
+    border-radius: 30px;
+}
+
+

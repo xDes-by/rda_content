@@ -1,0 +1,95 @@
+        .root {
+            height: 100%;
+            width: 100%;
+            flow-children: down;
+        }
+        
+        .element_3:hover {
+            brightness: 1.5;
+        }
+        
+        .element_3 {
+            vertical-align: center;
+            horizontal-align: center;
+            margin-right: 15%;
+            margin-top: 25%;
+			height: 60px;
+            width: 200px;
+        }
+        
+        .element_2 {
+            vertical-align: center;
+            horizontal-align: center;
+            margin-left: 15%;
+            margin-top: 25%;
+			height: 60px;
+            width: 200px;
+        }
+        
+        .element_2:hover {
+            brightness: 1.5;
+            /*  Это делает яркость больше */
+        }
+        
+        .element_1 {
+            vertical-align: center;
+            horizontal-align: center;
+			    height: 400px;
+            width: 600px;
+        }
+        
+        .textid {
+            width: 100%;
+            text-align: center;
+            color: Gold;
+			font-size:30px;
+            vertical-align: center;
+			margin-bottom:80px;
+        }
+        
+        .textidid {
+            width: 60%;
+            vertical-align: center;
+            horizontal-align: center;
+            /* текст не работает на horizontal-align */
+        }
+        
+        .polosk {
+            height: 15px;
+            width: 400px;
+            border: 1px solid black;
+            vertical-align: center;
+            horizontal-align: center;
+            margin-top: 150px;
+			background-color:#151e47;
+        }
+        
+        .polosk2 {
+            height: 100%;
+            width: 30%;
+            background-color: #481a70;
+        }
+        
+        .textid2 {
+            width: 100%;
+            text-align: center;
+            color: goldenrod;
+            vertical-align: center;
+            margin-bottom: 180px;
+        }
+        
+        .textid5 {
+            width: 100%;
+            text-align: center;
+            color: silver;
+            vertical-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .textid6 {
+            width: 100%;
+            text-align: center;
+            color: silver;
+            vertical-align: center;
+            margin-bottom: 10px;
+        }

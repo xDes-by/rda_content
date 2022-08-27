@@ -1,0 +1,36 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+.container{
+    flow-children: right;
+    margin-left: 15px;
+}
+.flowChildrenRight{
+    flow-children: down;
+}
+.button_panel{
+    height: 35px;
+    width: 150px;
+    border:1px solid black;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( rgb(109, 109, 109) ), to( #3a3333 ) );
+    margin: 2px;
+    transition-duration: 0.1s;
+    transition-property: brightness;
+}
+.button_panel:hover{
+    brightness: 0.8;
+}
+.button_panel:active{
+    sound: "ui_generic_button_click";
+}
+.button_label{
+    color:white;
+    font-size: 21;
+    vertical-align: center;
+    horizontal-align: center;
+}
+.textentry{
+    width: 150px;
+    margin: 2px;
+}

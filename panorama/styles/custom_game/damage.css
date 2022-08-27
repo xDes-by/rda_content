@@ -1,0 +1,159 @@
+.DamageList
+{
+	width: 400px;
+	height: 800px;
+	margin-top:100px;
+	horizontal-align: left;
+	vertical-align: top;
+}
+
+#PlayerColor 
+{
+	horizontal-align: left;
+	font-size:24px;
+} 
+ 
+#Players
+{
+	flow-children:down;
+	margin-top:30px;
+} 
+.Player
+{  
+	border-bottom-right-radius: 3px;
+	border-top-right-radius: 3px;
+	background-image: url("s2r://panorama/images/hud/reborn/bg_shop_guide_psd.vtex");
+	background-size: cover;
+	color:white;
+	margin-bottom:3px;
+	width: 136px;
+	height: 78px;
+	flow-children: down;
+	box-shadow: rgba(20, 20, 20, 0.5) -3px -3px 6px 6px;
+
+}
+.Player:hover
+{  
+	background-color: rgba(80, 80, 80, 0.7);
+}
+.Toggled {
+	width: 16px;
+	background-image: url("s2r://panorama/images/right_arrow_png.vtex");
+	background-color: rgba(80, 80, 80, 0.7);
+	background-size: 100% 100%; 
+	background-repeat: no-repeat;
+	margin-bottom:3px;
+}
+.Toggled:hover
+{  
+	background-color: rgba(120, 120, 120, 0.7);
+}
+.Toggled > Panel {
+	opacity: 0;
+}
+.Toggled > Label {
+	opacity: 0;
+}
+
+#PlayerHeroSignal {
+	margin-top: 4px;
+	font-size: 16px;
+	height: 20px;
+	font-family: Radiance;
+	text-overflow: shrink;
+	font-weight: bold;
+	brightness: 0.75;
+	horizontal-align: center;
+	border-style: solid;
+	border-width: 1px;
+	border-bottom-color: rgba(140, 140, 140, 0.6);
+	text-shadow: 0px 0px 10px #000;
+}
+#PlayerDamageTypes
+{
+	flow-children:right;
+	margin-top: -20px;
+	width: 125px;
+	horizontal-align: center;
+	height: 15px;
+}
+
+#PlayerDamageTypes > Panel 
+{
+	height: 100%;
+	width: 33%;
+}
+.PercentPanel > Label 
+{
+	text-overflow: shrink;
+	height: 100%;
+	color:white;
+	font-size:14px;
+	font-family: Radiance;
+	brightness: 0.75;
+}
+#PlayerPhysical
+{
+	background-color: rgba(200, 30, 30, 0.6);
+}
+#PlayerMagical
+{
+	background-color: rgba(40, 40, 200, 0.6);
+}
+#PlayerPure
+{
+	background-color: rgba(255, 255, 255, 0.6);
+}
+#PlayerPure > Label
+{
+	color: black;
+}
+#Stats {
+	margin-top: 4px;
+	height: 45px;
+	width: 130px;
+	flow-children: down;
+	margin-left: 4px;
+} 
+
+
+.FlowRight
+{
+	width: 100%;
+	flow-children: right;
+}
+.FlowRight > .StatContainer
+{
+	width: 50%;
+}
+.StatContainer
+{
+	flow-children:right;
+}
+
+.LeftSide {
+	padding: 1px;
+	width: 24px;
+	font-size: 16px;
+	text-overflow: shrink;
+	height: 22px;
+	font-family: Radiance;
+	text-align: right;
+	color: gray;
+	brightness: 1.8;
+	text-shadow: 1px 1px 1px #000;
+	
+	
+}
+
+.RightSide {
+	font-size: 16px;
+	padding: 1px;
+	width: 45px;
+	text-overflow: shrink;
+	height: 22px;
+	font-family: Radiance;
+	brightness: 0.8;
+	text-shadow: 1px 1px 1px #000;
+	brightness: 0.75;
+}

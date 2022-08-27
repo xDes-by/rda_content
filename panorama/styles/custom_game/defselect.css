@@ -1,0 +1,268 @@
+.Hidden
+{
+	visibility: collapse;
+}
+
+.xyu
+{
+	horizontal-align: middle;
+	vertical-align: center;
+}
+
+#defselect
+{
+	width: 800px;
+	height: 300px;
+	
+	horizontal-align: middle;
+	vertical-align: center;
+	visibility: visible;	
+	border: 0px double black;
+	background-color: black;	
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+}
+.TextVubor
+{
+	font-size: 54px;
+	text-shadow: 6px 6px 4px rgba(0,0,0, 0.9);
+	vertical-align: top;
+	margin-top: 15px;
+	horizontal-align: middle;
+	color: rgba(237, 237, 237, 0.7);
+	visibility: visible;
+}
+
+#ItemsImage0
+{
+    width: 1000px;
+    height: 300px;
+	border: 3px double black;
+}
+
+#ItemsImage1
+{
+    width: 230px;
+    height: 70px;
+	border: 3px double black;
+}
+
+#ItemsImage2
+{
+    width: 230px;
+    height: 70px;
+	border: 3px double black;
+}
+
+#ItemsImage3
+{
+    width: 230px;
+    height: 70px;
+	border: 3px double black;
+}
+
+#ItemsImage4
+{
+    width: 230px;
+    height: 70px;
+	border: 3px double black;
+}
+
+
+#defselect.Visible{
+	visibility: collapse;
+}
+
+#defselect.Vis{
+	visibility: collapse;
+}
+
+
+.buttoneasy
+{
+	width: 230px;
+	height: 70px;
+	margin-top: -30px;
+	horizontal-align: left;
+	visibility: visible;
+	margin-left: 15px;
+	vertical-align: center;
+	border: 3px solid black;
+	box-shadow: 2px 2px 32px rgba(0,0,0, 0.7);
+	max-height: 180px;
+	transition: transform 0.2s ease-in-out 0.0s;
+	transform: scale3d(0.9,0.9,1.0);
+}
+
+.buttoneasy:hover
+{
+	transform: scale3d(1.0,1.0,1.0);
+}
+
+.buttoneasy > Image
+{
+	height: width-percentage(100%);
+}
+
+.buttonmedium
+{
+	width: 230px;
+	height: 70px;
+	margin-top: -30px;
+	horizontal-align: left;
+	margin-left: 282px;
+	visibility: visible;
+	vertical-align: center;
+	border: 3px solid black;
+	box-shadow: 2px 2px 32px rgba(0,0,0, 0.7);
+	max-height: 180px;
+	transition: transform 0.2s ease-in-out 0.0s;
+	transform: scale3d(0.9,0.9,1.0);	
+}
+
+.buttonmedium:hover
+{
+	transform: scale3d(1.0,1.0,1.0);
+}
+
+.buttonmedium > Image
+{
+	height: width-percentage(100%);
+}
+
+.buttonhard
+{
+	width: 230px;
+	height: 70px;
+	margin-top: -30px;
+	horizontal-align: right;
+	visibility: visible;
+	margin-right: 17px;
+	vertical-align: center;
+	border: 3px solid black;
+
+	box-shadow: 2px 2px 32px rgba(0,0,0, 0.7);
+	max-height: 180px;
+	transition: transform 0.2s ease-in-out 0.0s;
+	transform: scale3d(0.9,0.9,1.0);		
+}
+
+.buttonhard:hover
+{
+	transform: scale3d(1.0,1.0,1.0);
+}
+
+.buttonhard > Image
+{
+	height: width-percentage(100%);
+}
+
+
+
+.EasyButtonText
+{
+	font-size: 40px;
+	text-shadow: 2px 2px 2px rgba(0,0,0, 0.9);
+	vertical-align: top;
+	margin-top: 10px;
+	horizontal-align: middle;
+	color: rgba(237, 237, 237, 0.7);
+	visibility: visible;
+
+}
+
+.MediumButtonText
+{
+	font-size: 40px;
+	text-shadow: 2px 2px 2px rgba(0,0,0, 0.9);
+	vertical-align: top;
+	margin-top: 10px;
+	horizontal-align: middle;
+	color: rgba(237, 237, 237, 0.7);
+	visibility: visible;
+}
+
+.HardButtonText
+{
+	font-size: 40px;
+	text-shadow: 2px 2px 2px rgba(0,0,0, 0.9);
+	vertical-align: top;
+	margin-top: 10px;
+	horizontal-align: middle;
+	color: rgba(237, 237, 237, 0.7);
+	visibility: visible;
+}
+
+
+
+
+
+
+.texteasy
+{
+	width: 240px;
+	height: 120px;
+	margin-top:150px;
+	horizontal-align: left;
+	visibility: visible;
+	margin-left: 15px;
+	vertical-align: center;
+
+}
+
+.easymode
+{
+	font-size: 18px;
+	text-shadow: 2px 2px 2px rgba(0,0,0, 0.9);
+	vertical-align: top;	
+	color: white;
+	margin-left: 2px;
+	visibility: visible;
+	text-align:center;
+
+}
+
+
+.textnormal
+{
+	width: 240px;
+	height: 120px;
+	margin-top:150px;
+	horizontal-align: left;
+	visibility: visible;
+	margin-left: 282px;
+	vertical-align: center;
+}
+
+.normalmode
+{
+	font-size: 18px;
+	text-shadow: 2px 2px 2px rgba(0,0,0, 0.9);
+	vertical-align: top;	
+	color: white;
+	margin-left: 2px;
+	visibility: visible;
+	text-align:center;
+}
+
+
+.texthard
+{
+	width: 240px;
+	height: 120px;
+	margin-top:150px;
+	horizontal-align: right;
+	visibility: visible;
+	margin-right: 0px;
+	vertical-align: center;
+}
+
+.hardmode
+{
+	font-size: 18px;
+	text-shadow: 2px 2px 2px rgba(0,0,0, 0.9);
+	vertical-align: top;	
+	color: white;
+	margin-left: 2px;
+	visibility: visible;
+	text-align:center;
+}

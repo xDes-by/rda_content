@@ -1,0 +1,13 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quest.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quest.js" />
+	</scripts>
+	<Panel class="ItemPanel">
+		<Label id="ItemsNumber" class="ItemsNumber" text="x2"/>
+		<DOTAItemImage id="questRewardItem" class="questRewardItem" hittest="true" itemname="item_ultimate_scepter"/>
+		<Label id="ItemName" class="ItemName" text="Aghanim's scepter"/>
+	</Panel>
+</root>

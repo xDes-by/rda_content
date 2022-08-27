@@ -1,0 +1,73 @@
+var can_use = true;
+var playerID = Players.GetLocalPlayer()
+
+function FindDotaHudElement(panel) {
+	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
+}
+
+function OnClickSpray() {
+	var spray = CustomNetTables.GetTableValue( "player_pets", playerID);
+	if (spray != null){
+		if(can_use) {
+				GameEvents.SendCustomGameEventToServer( "UsePet", {} )
+				timer(2)	
+			}
+		can_use = false
+	}	
+}	
+
+function timer(i) {
+	var text_timer = FindDotaHudElement("CosmeticAbility_text");
+		if (i > 0) {
+			text_timer.text = (i - 1)
+		}
+		if (i == 0 ) {
+			text_timer.text = ""
+			can_use = true
+			return	
+		}
+		 i--;
+    $.Schedule(1, function() {
+        timer(i)
+    });
+}
+
+
+function UpdatePetIcon(){
+	var spray = CustomNetTables.GetTableValue( "player_pets", playerID);
+	const spray_icon = FindDotaHudElement("CustomAbility_spray_custom");
+	spray_icon
+		.FindChildTraverse("CosmeticAbilityImage")
+		.SetImage( "file://{images}/custom_game/pet_buttons/"+spray.pet+".png" );
+}
+
+(function () {
+	$.Msg("Qwerty2");
+	Game.AddCommand( "UsePet", OnClickSpray, "", 0 );
+	$.Msg("Qwerty2");
+	
+	const centerBlock = FindDotaHudElement("center_block");
+	let cosmetics = centerBlock.FindChildTraverse("BarOverItems");
+
+	if (cosmetics) {
+		cosmetics.DeleteAsync(0);
+	}
+
+	const ability = $.CreatePanel("Button", FindDotaHudElement("BarOverItems"), "CustomAbility_spray_custom");
+	ability.BLoadLayoutSnippet("CosmeticAbility");
+	
+	if (!cosmetics) {
+		$("#BarOverItems").SetParent(centerBlock);
+	}
+
+	const spray = FindDotaHudElement("CustomAbility_spray_custom");
+	spray
+		.FindChildTraverse("CosmeticAbilityImage")
+		.SetImage( "file://{images}/custom_game/spray_no_empty.png" );
+	FindDotaHudElement("BuffContainer").style.marginBottom = "43px;";
+})();
+
+
+(function() {
+	GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
+})();

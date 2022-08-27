@@ -1,0 +1,327 @@
+.smithy_main_window_panel{
+    height: 781px;
+    width: 571px;
+    vertical-align: center;
+    horizontal-align:center;
+    margin-bottom: 50px;
+    z-index: 10;
+    transition-property: transform, opacity, pre-transform-scale2d;
+	transition-duration: 0.2s;
+	opacity: 0;
+	pre-transform-scale2d:0.8;
+	transform: translate3d(0px, 300px, 0px);
+}
+
+.smithy_main_window_gems_panel{
+    height: 140px;
+    flow-children:right;
+    margin-top: 95px;
+    horizontal-align: center;
+}
+.smithy_gem_base_class{
+    margin: 13px;
+    height: 90%;
+    width: 75px;
+    flow-children:down;
+    tooltip-position: top;
+    tooltip-arrow-position: 50% 100%;
+    tooltip-body-position: 50% 100%;
+}
+.smithy_gem_image{
+    width:75px;
+    height: 75px;
+    margin-top: 5px;
+}
+.smithy_gem_lable{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: "Courier";
+    font-size: 18px;
+    color:white;
+    font-weight: bold;
+}
+.arrow_label{
+    font-family: "Courier";
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+    color:white;
+    font-weight: bold;
+    font-size: 24px;
+    horizontal-align:center;
+}
+#smithy_gold_bar_panel{
+    width: 129px;
+    height: 96px;
+    margin-top: 360px;
+    margin-left: 35px;
+}
+.smithy_item_bg{
+    width: 100%;
+    height: 100%;
+    vertical-align: center;
+    horizontal-align:center;
+}
+.smithy_dota_item{
+    vertical-align: center;
+    horizontal-align:center;
+    height: 100%;
+    width: 100%;
+}
+#smithy_main_item_panel{
+    width: 129px;
+    height: 96px;
+    margin-top: 360px;
+    horizontal-align: center;
+}
+#smithy_soul_panel{
+    width: 129px;
+    height: 96px;
+    margin-top: 360px;
+    margin-right: 36px;
+    horizontal-align:right;
+}
+.arrow_panel{
+    width: 100px;
+}
+#smithy_vopros_img{
+    margin-top: 620px;
+    margin-left: 25px;
+    tooltip-position:left;
+    tooltip-arrow-position: 100% 50%;
+    tooltip-body-position: 100% 50%;
+}
+#smithy_vopros_img:hover{
+    brightness:1.4;
+}
+#smithy_top_arrow_panel{
+    margin-top: 285px;
+    margin-left: 50px;
+}
+.smithy_arrow_image{
+    vertical-align: center;
+    horizontal-align:center;
+    margin-top: 10px;
+}
+.smithy_arrow_item_image{
+    horizontal-align:center;
+}
+#smithy_down_arrow_panel{
+    margin-top: 220px;
+    horizontal-align:center;
+}
+#smithy_soul_arrow_panel{
+    margin-top: 400px;
+}
+#smithy_arrow_gem_image{
+    height: 50px;
+    width: 50px;
+}
+#smithy_output_item_panel{
+    width: 136px;
+    height: 106px;
+    margin-left: 4px;
+    margin-top: 530px;
+    horizontal-align:center;
+}
+#smuthy_output{
+    height: 86px;
+    width: 118px;
+    vertical-align: center;
+    horizontal-align:center;
+}
+#smithy_top_arrow_label{
+    margin-top: 5px;
+}
+#smuthy_output{
+    height: 100%;
+    width: 100%;
+}
+#smithy_down_arrow_label{
+    margin-top: 70px;
+}
+#smithy_craft_button_panel{
+    height: 60px;
+    width: 220px;
+    margin-top: 670px;
+    horizontal-align:center;
+}
+#smithy_craft_button_label{
+    vertical-align: center;
+}
+.smithy_item_label{
+    color:white;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+    font-size: 21px;
+    vertical-align: bottom;
+    horizontal-align:right;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+#smithy_close_button{
+    height: 25px;
+    width: 25px;
+    margin-top: 35px;
+    margin-right: 5px;
+    horizontal-align:right;
+}
+.background_smithy{
+    height: 750px;
+    width: 100%;
+    vertical-align: bottom;
+}
+#smithy_vopros_button{
+    height: 25px;
+    width: 25px;
+    margin-top: 10px;
+    margin-right: 45px;
+    horizontal-align:right;
+}
+#smithy_close_button:hover{
+    brightness: 0.5;
+}
+#smithy_vopros_button:hover{
+    brightness: 0.5;
+}
+#smithy_open_button_panel{
+    height: 100px;
+    width: 100px;
+    background-color: yellowgreen;
+    margin-left: 1250px;
+}
+.SelectedStonePurple{
+    background-color: rgba(125, 45, 199, 0.4);
+    border-radius: 10px;
+}
+.SelectedStoneBlue{
+    background-color: rgba(32, 22, 177, 0.4);
+    border-radius: 10px;
+}
+.SelectedStoneOrange{
+    background-color: rgba(141, 96, 29, 0.4);
+    border-radius: 10px;
+}
+.SelectedStoneRed{
+    background-color: rgba(141, 29, 29, 0.4);
+    border-radius: 10px;
+}
+.SelectedStoneGreen{
+    background-color: rgba(48, 141, 29, 0.4);
+    border-radius: 10px;
+}
+.smithy_gem_image:hover{
+    brightness: 1.5;
+}
+.box_shadow_result_red{
+    box-shadow: fill #ff0000 0px 0px 8px 0px;
+}
+.box_shadow_result_green{
+    box-shadow: fill #88ff00 0px 0px 8px 0px;
+}
+#smithy_i_button{
+    vertical-align: bottom;
+    margin-bottom: 55px;
+    margin-left: 55px;
+    
+}
+#smithy_craft_button_panel:hover #smitht_craft_btn{
+    brightness: 1.5;
+}
+#smithy_i_button_img{
+    brightness: 0.5;
+}
+#smithy_i_button_img:hover{
+    brightness: 1.2;
+}
+#smithy_info_panel{
+    width: 400px;
+    height: 400px;
+    margin-top: 300px;
+    margin-left: 60px;
+    box-shadow: fill #f7f7f7 0px 0px 8px 0px;
+}
+.css_style{
+    border: 4px solid red;
+}
+.brightness05{
+    brightness:0.1;
+}
+#smart_mode_panel{
+    margin-bottom: 30px;
+    margin-left: 20px;
+    vertical-align: bottom;
+    flow-children:down;
+}
+#openRating{
+    vertical-align: bottom;
+    horizontal-align: right;
+    margin-right: 16%;
+    brightness:0.8;
+    margin-bottom: 5px;
+    tooltip-position:right;
+    tooltip-arrow-position: 100% 50%;
+    tooltip-body-position: 100% 50%;
+    height: 150px;
+    width: 150px;
+}
+#openRating:hover{
+    brightness:1.2;
+}
+#shift_toggle, #smart_toggle{
+    tooltip-position:left;
+    tooltip-arrow-position: 100% 50%;
+    tooltip-body-position: 100% 50%;
+    margin: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.open_smithy{
+	animation-name: open_smithy;
+	animation-duration: .3s;
+	animation-timing-function: linear;
+}
+@keyframes 'open_smithy'
+{
+	from{
+		opacity:0;
+		transform: translate3d(0px, 500px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+	
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.close_smithy{
+	animation-name: close_smithy;
+	animation-duration: .3s;
+	animation-timing-function: linear;
+}
+@keyframes 'close_smithy'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(0px, 500px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+}

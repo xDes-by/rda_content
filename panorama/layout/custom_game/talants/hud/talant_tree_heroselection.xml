@@ -1,0 +1,34 @@
+<root> 
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/layout/custom_game/talants/hud/talants.css" />
+        <include src="file://{resources}/layout/custom_game/talants/hud/talant_tree_heroselection.css" />
+	</styles>
+    
+	<Panel class = "root" hittest = "false">
+        <Panel id="talant_root" class="talant_root" hittest = "false">
+            
+            <Panel id="talant_tree_panel" class="talant_tree_panel" hittest = "false">
+                
+                <Image class='talante_bg_image_panel' id='talante_bg_image_panel' src="file://{resources}/images/custom_game/talants/tree5.png" />
+                <Panel id="talant_tree_images_panel" class="talant_tree_images_panel"/>
+
+            </Panel>
+
+            <Panel id="description_panel" class="description_panel">
+                <Panel id="description_gradient_border_out" class="description_gradient_border_out">
+                    <Image class='background-image-description' id='background-image-description' src="file://{resources}/images/custom_game/talants/111.png" />
+                    <Image class='talant_img_description' id='talant_img_description' src="" />
+                    <Label id="talant_name_label" class="talant_name_label" text="" />
+                    <Panel id="under_line_panel" class="under_line_panel">
+                        <Label id="talant_description_label" class="talant_description_label" text="" />
+                        <Label id="talant_description_buff_label" class="talant_description_buff_label" text="" />
+                    </Panel>
+                    <Image class='button' id='button' src="file://{resources}/images/custom_game/talants/button.png" >
+                        <Label id="button_label" class="button_label" text="#talant_button_examine" />
+                    </Image>
+                </Panel>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

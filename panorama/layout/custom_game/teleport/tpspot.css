@@ -1,0 +1,240 @@
+.root {
+    height: 100%;
+    width: 100%;
+    flow-children: down;
+}
+
+.element_3 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 580px;
+    width: 320px;
+    margin-bottom: 12.5%;
+    margin-right: 32%;
+}
+
+.element_2 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 240px;
+    width: 230px;
+    margin-bottom: 44.%;
+    margin-right: 70%;
+}
+
+.element_1 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 780px;
+    width: 1800px;
+    margin-bottom: 100px;
+}
+
+.element_7 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 240px;
+    width: 230px;
+    margin-top: 18.8%;
+    margin-right: 70%;
+}
+
+.element_8 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 75.2%;
+    margin-left: 90.2%;
+}
+
+.element_8:hover {
+    brightness: 2;
+}
+
+.element_4 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 580px;
+    width: 320px;
+    margin-bottom: 12.5%;
+    margin-left: 3%;
+}
+
+.element_5 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 580px;
+    width: 320px;
+    margin-bottom: 12.5%;
+    margin-left: 73%;
+}
+
+.element_6 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 580px;
+    width: 320px;
+    margin-bottom: 12.5%;
+    margin-left: 38%;
+}
+
+.element_11 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 80px;
+    width: 250px;
+    margin-top: 50%;
+    margin-right: 70%;
+}
+
+.element_11:hover {
+    brightness: 2;
+}
+
+.element_12 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 80px;
+    width: 250px;
+    margin-bottom: 12.%;
+    margin-right: 70%;
+}
+
+.element_12:hover {
+    brightness: 2;
+}
+
+.element_13 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 80px;
+    width: 250px;
+    margin-top: 50%;
+    margin-right: 32%;
+}
+
+.element_13:hover {
+    brightness: 2;
+}
+
+.element_14 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 80px;
+    width: 250px;
+    margin-top: 50%;
+    margin-left: 3%;
+}
+
+.element_14:hover {
+    brightness: 2;
+}
+
+.element_15 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 80px;
+    width: 250px;
+    margin-top: 50%;
+    margin-left: 73%;
+}
+
+.element_15:hover {
+    brightness: 2;
+}
+
+.element_16 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 80px;
+    width: 250px;
+    margin-top: 50%;
+    margin-left: 38%;
+}
+
+.element_16:hover {
+    brightness: 2;
+}
+
+.textid5 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+    font-size: 25;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+
+.textid6 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+    font-size: 25;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+
+.textid7 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+    font-size: 25;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+
+.textid10 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+    font-size: 25;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+
+.textid11 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+    font-size: 25;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+
+.textid12 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+    font-size: 25;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+
+.element_20 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 120px;
+    width: 820px;
+    margin-bottom: 80%;
+}
+
+.element_20 {
+    brightness: 1.1;
+}
+
+.textid20 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+    font-size: 35;
+    text-shadow: 2px 2px 8px 3.0 #333333b0;
+}

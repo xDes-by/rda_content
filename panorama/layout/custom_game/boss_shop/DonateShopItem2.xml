@@ -1,0 +1,34 @@
+<root>
+	<styles>
+		<include src="file://{resources}/layout/custom_game/boss_shop/shop.css" />
+	</styles>
+	<Panel class = "DonateShopItem2">
+		<DOTAItemImage id='DonateShopItem' class="DonateShopItem" hittest="true" itemname="">
+			<Image id='DonateShopImg' class="DonateShopImg" src=""/>
+		</DOTAItemImage>
+		<Label id = "DonateShopItemLabel" class="DonateShopItemLabel" text='Аганим'/>
+		<Panel id = "consumablesCoutPanel" class = "consumablesCoutPanel">
+			<Label id ='DonateShopItemButtonLabelStock' class="DonateShopItemButtonLabelStock" text='100шт'/>
+		</Panel>
+		<Panel id = 'DonateShopItemButtonBuyCon' class="DonateShopItemButtonBuyCon">
+			<Label class="DonateShopItemButtonLabel" text='Взять'/>
+		</Panel>
+		<Panel id = "DonateShopItemButtonHasCon" class="DonateShopItemButtonHasCon">
+			<Panel id="shop_button_price_container_don" class="">
+				<Panel class='shopButtonImgAndText' id='shopButtonImgAndText1'>
+					<Label id='DonateShopItemButtonLabelNotAlign1' class="DonateShopItemButtonLabelNotAlign" text='500'/>
+					<Image class='shopButtonImg' id='shopButtonImg1' src="file://{resources}/images/custom_game/DonateShop/money_logo_3.png" />
+				</Panel>
+			</Panel>
+			<Panel id="shop_button_price_container_rp" class="">
+				<Panel class='shopButtonImgAndText' id='shopButtonImgAndText2'>
+					<Label id='DonateShopItemButtonLabelNotAlign2' class="DonateShopItemButtonLabelNotAlign" text='500'/>
+					<Image class='shopButtonImg' id='shopButtonImg2' src="file://{resources}/images/custom_game/DonateShop/protection.png" />
+				</Panel>
+			</Panel>
+		</Panel>
+        <Panel id='DonateShopReturnItemBtn'>
+            <Label id = 'DonateShopItemButtonLabelGived' class="DonateShopItemButtonLabelGived2" text='#issued'/>
+        </Panel>
+	</Panel>
+</root>

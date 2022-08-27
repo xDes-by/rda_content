@@ -1,0 +1,77 @@
+.root {
+    height: 100%;
+    width: 100%;
+    flow-children: down;
+}
+
+.element_3:hover {
+    brightness: 1.5;
+}
+
+.element_3 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 690px;
+    width: 300px;
+    margin-bottom: 1.5%;
+    margin-left: 35.5%;
+    border-radius: 90px black;
+}
+
+.element_2 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 690px;
+    width: 300px;
+    margin-bottom: 1.5%;
+    border-radius: 90px;
+}
+
+.element_2:hover {
+    brightness: 1.5;
+}
+
+.element_1 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 780px;
+    width: 1100px;
+}
+
+.element_7 {
+    vertical-align: center;
+    horizontal-align: center;
+    height: 690px;
+    width: 300px;
+    margin-bottom: 1.5%;
+    margin-right: 35.5%;
+    border-radius: 90px;
+}
+
+.element_7:hover {
+    brightness: 1.5;
+}
+
+.textid5 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+}
+
+.textid6 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+}
+
+.textid7 {
+    width: 100%;
+    text-align: center;
+    color: silver;
+    vertical-align: center;
+    margin-bottom: 10px;
+}

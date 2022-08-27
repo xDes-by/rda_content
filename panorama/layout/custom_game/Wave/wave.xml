@@ -1,0 +1,37 @@
+<root>
+	<styles>
+		<include src="file://{resources}/layout/custom_game/Wave/wave.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+    
+	<Panel class ="root" hittest="false">
+        <Panel id="waveButtonPanel" class="">
+            <Panel id="hide_button_container" class="">
+                <Panel id="hide_button" class=""></Panel>
+            </Panel>
+            
+            <Panel id="waveNumberContainer" class="">
+                <Label id="waveNumber" class="" text="" />
+            </Panel>
+
+            <Panel id="waveCreepContainer" class="">
+                <Label id="waveCreep" class="" text="" />
+            </Panel>
+        </Panel>
+        <Panel id="waveNotificationPanel" class="" hittest="false">
+            <Panel id="waveImg_1" class=""></Panel>
+            <Panel id="WaveTextPanelsContainer" class="">
+                <Panel id="WaveNamePanel" class="">
+                    <Label id="WaveNameLabel" class="" text="Название волны" />
+                </Panel>
+                <Panel id="WaveDescriptionPanel" class="">
+                    <Label id="WaveDescriptionLabel" class="" text="Описание волны" />
+                </Panel>
+            </Panel>
+        </Panel>
+	</Panel>
+
+    <scripts>
+		<include src="file://{resources}/layout/custom_game/Wave/wave.js" />
+	</scripts>
+</root>

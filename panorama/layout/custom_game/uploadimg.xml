@@ -1,0 +1,19 @@
+<root>
+	<Panel class = "RatingPlayerInfo">
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_1.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_2.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_3.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_4.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_5.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_6.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_7.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_8.png"/> -->
+		<!-- <Image src="file://{resources}/images/wave/bosses/boss_9.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_treant/int/int-talant-8.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_treant/agi/agi-talant-9.png"/> -->
+		<Image src="file://{resources}/images/custom_game/pet/shop_feed.png"/>
+		
+		
+
+	</Panel>
+</root>

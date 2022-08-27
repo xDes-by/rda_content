@@ -1,0 +1,52 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/layout/custom_game/teleport/tpspot.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+
+    <scripts>
+        <include src="s2r://panorama/layout/custom_game/teleport/tpspot.js" />
+    </scripts>
+    
+		<Panel class="root" hittest="false">
+            <Panel id="bg_victory" class="bg_victory" style="height:100%; width:100%;" hittest = "false"> 
+                <Image id= "element_1" class = "element_1" src = "file://panorama/images/custom_game/tpspot/fonk.png">
+                </Image>         
+                    <Image id="element_2" class="element_2" src = "file://panorama/images/custom_game/tpspot/roshan1.png">
+                </Image>
+                    <Image id="element_3" class="element_3" src = "file://panorama/images/custom_game/tpspot/xDes1.png">
+                </Image>
+                    <Image id="element_7" class="element_7" src = "file://panorama/images/custom_game/tpspot/traps1.png">
+                </Image>
+                    <Image id="element_4" class="element_4" src = "file://panorama/images/custom_game/tpspot/lufigan1.png">
+                </Image>
+                    <Image id="element_5" class="element_5" src = "file://panorama/images/custom_game/tpspot/ice1.png">
+                </Image>
+                    <Image id="element_6" class="element_6" src = "file://panorama/images/custom_game/tpspot/dotaboss1.png">
+                </Image>
+                <Image id= "element_11" class = "element_11" src = "file://panorama/images/custom_game/tpspot/knop1.png" onactivate="part_4_btn()">
+                <Label id="textid7" class="textid7" text="#Traps" /> 
+                </Image> 
+                <Image id= "element_12" class = "element_12" src = "file://panorama/images/custom_game/tpspot/knop2.png" onactivate="part_1_btn()"> 
+                <Label id="textid5" class="textid5" text="#Roshan" />
+                </Image> 
+                <Image id= "element_13" class = "element_13" src = "file://panorama/images/custom_game/tpspot/knop3.png" onactivate="part_2_btn()"> 
+                <Label id="textid6" class="textid6" text="#xDes" />
+                </Image> 
+                <Image id= "element_14" class = "element_14" src = "file://panorama/images/custom_game/tpspot/knop4.png" onactivate="part_6_btn()">
+                <Label id="textid10" class="textid10" text="#lufigan" /> 
+                </Image> 
+                <Image id= "element_15" class = "element_15" src = "file://panorama/images/custom_game/tpspot/knop5.png" onactivate="part_7_btn()"> 
+                <Label id="textid11" class="textid11" text="#ice_yellow" />
+                </Image> 
+                <Image id= "element_16" class = "element_16" src = "file://panorama/images/custom_game/tpspot/knop6.png" onactivate="part_9_btn()">
+                <Label id="textid12" class="textid12" text="#Dota_Boss" /> 
+                </Image> 
+                <Image id= "element_8" class = "element_8" src = "file://panorama/images/custom_game/tpspot/krest.png" onactivate="part_5_btn()"> 
+                </Image> 
+                <Image id="element_20" class="element_20" src = "file://panorama/images/custom_game/tpspot/knop20.png">
+                <Label id="textid20" class="textid20" text="#Куда желаете переместиться?" />
+                </Image>
+            </Panel>
+        </Panel>
+</root>                 

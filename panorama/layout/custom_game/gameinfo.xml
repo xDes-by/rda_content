@@ -1,0 +1,132 @@
+<root> 
+	<styles>
+        <include src="file://{resources}/styles/custom_game/gameinfo.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/gameinfo.js" />
+	</scripts>
+
+	<Panel class = "root" hittest="false">
+        <Panel id="page_1" class="page_1">
+            <Label id="short_desc_label" class="short_desc_label lab" text="Краткое описание что и как" />
+            <Image id="image_btn1" class = "image_btn1 btn" onmouseactivate="opn()" src="file://{resources}/images/custom_game/game_info/btn1.png">
+                <Label id="here_label" class="btn_lab lab" text="Тут" />
+            </Image>
+            <Label id="short_desc_2_label" class="short_desc_2_label lab" text="а это гайды по классам" />
+            <Panel id="three_btn" class="three_btn">
+                <Image id="image_btn2" class = "image_btn2 btn" onmouseactivate="btn('mage')" src="file://{resources}/images/custom_game/game_info/btn1.png">
+                    <Label id="mage_label" class="btn_lab lab" text="маг" />
+                </Image>
+                <Image id="image_btn3" class = "image_btn3 btn" onmouseactivate="btn('tank')" src="file://{resources}/images/custom_game/game_info/btn1.png">
+                    <Label id="tank_label" class="btn_lab lab" text="танк" />
+                </Image>
+                <Image id="image_btn4" class = "image_btn4 btn" onmouseactivate="btn('agi')" src="file://{resources}/images/custom_game/game_info/btn1.png">
+                    <Label id="phys_label" class="btn_lab lab" text="физ" />
+                </Image>
+            </Panel>
+            <Panel id = 'mage_desc_panel' class="class_desc_panel">
+                <Label class="short_desc_label lab" text="Примерный закуп" />
+                <Image class = "empty_inv" src="file://{resources}/images/custom_game/game_info/empty_inv.png">
+                    <DOTAItemImage class="item_1 items" itemname="item_kaya_custom" />
+                    <DOTAItemImage class="item_2 items" itemname="item_bloodstone" />
+                    <DOTAItemImage class="item_3 items" itemname="item_shivas_guard" />
+                    <DOTAItemImage class="item_4 items" itemname="item_heart" />
+                    <DOTAItemImage class="item_5 items" itemname="item_mage_heart" />
+                    <DOTAItemImage class="item_6 items" itemname="item_radiance" />
+                </Image>
+                <Label class="short_desc_label lab" text="может быть хорошим выбором" />
+                <Panel class="gd_ch_tank">
+                    <Panel class="tank_item_1_line">
+                        <DOTAItemImage class="mage_item" itemname="item_veil_of_discord" />
+                        <DOTAItemImage class="mage_item" itemname="item_octarine_core" />
+                        <DOTAItemImage class="mage_item" itemname="item_ethereal_blade" />
+                    </Panel>
+                    <Panel class="tank_item_2_line">
+                        <DOTAItemImage class="mage_item" itemname="item_mjollnir" />
+                    </Panel>
+                    
+                    
+                </Panel>
+            </Panel>
+            <Panel id = 'tank_desc_panel' class="class_desc_panel">
+                <Label class="short_desc_label lab" text="Примерный закуп" />
+                <Image class = "empty_inv" src="file://{resources}/images/custom_game/game_info/empty_inv.png">
+                    <DOTAItemImage class="item_1 items" itemname="item_crimson_guard" />
+                    <DOTAItemImage class="item_2 items" itemname="item_heart" />
+                    <DOTAItemImage class="item_3 items" itemname="item_assault" />
+                    <DOTAItemImage class="item_4 items" itemname="item_hood_sword" />
+                </Image>
+                <Label class="short_desc_label lab" text="может быть хорошим выбором" />
+                <Panel class="gd_ch_tank">
+                    <Panel class="tank_item_1_line">
+                        <DOTAItemImage class="mage_item" itemname="item_tank_hell" />
+                        <DOTAItemImage class="mage_item" itemname="item_tank_crimson" />
+                        <DOTAItemImage class="mage_item" itemname="item_tank_cuirass" />
+                    </Panel>
+                    <Panel class="tank_item_2_line">
+                        <DOTAItemImage class="mage_item" itemname="item_pipe" />
+                        <DOTAItemImage class="mage_item" itemname="item_pudge_heart" />
+                    </Panel>
+                    
+                    
+                </Panel>
+            </Panel>
+            <Panel id = 'agi_desc_panel' class="class_desc_panel">
+                <Label class="short_desc_label lab" text="Примерный закуп" />
+                <Image class = "empty_inv" src="file://{resources}/images/custom_game/game_info/empty_inv.png">
+                    <DOTAItemImage class="item_1 items" itemname="item_heart" />
+                    <DOTAItemImage class="item_2 items" itemname="item_butterfly" />
+                    <DOTAItemImage class="item_3 items" itemname="item_assault" />
+                    <DOTAItemImage class="item_4 items" itemname="item_greater_crit" />
+                    <DOTAItemImage class="item_5 items" itemname="item_desolator" />
+                    <DOTAItemImage class="item_6 items" itemname="item_vampiric_sword" />
+                </Image>
+                <Label class="short_desc_label lab" text="может быть хорошим выбором" />
+                <Panel class="gd_ch_tank">
+                    <Panel class="tank_item_1_line">
+                        <DOTAItemImage class="mage_item" itemname="item_agility_heart" />
+                        <DOTAItemImage class="mage_item" itemname="item_hood_sword" />
+                        <DOTAItemImage class="mage_item" itemname="item_moon_shard_lua" />
+                    </Panel>
+                    <Panel class="tank_item_2_line">
+                        <DOTAItemImage class="mage_item" itemname="item_monkey_king_bar" />
+                        <DOTAItemImage class="mage_item" itemname="item_bfury" />
+                    </Panel>
+                    
+                    
+                </Panel>
+            </Panel>
+            <Image id="minimap" class = "minimap" src="file://{resources}/images/custom_game/game_info/minimap.png"/>
+        </Panel>
+        <Panel id="page_2" class="page_2">
+            <Label class="lab" text="главная задача - убить рейд боса, который появляется после уничтожения трона помимо рейд боса в игре есть мини босы, с которых падают души" />\
+            <Label class="lab souls_lab" text="Души необходимы для улучшения вещей" />
+            <Image class = "souls_img" src="file://{resources}/images/custom_game/game_info/souls.png"/>
+            <Label class="lab" text="уникальные души для улучшения оригинальных предметов, выдаются за выполнение задания на миду, только1 игроку" />
+            <Image class = "souls_2_img" src="file://{resources}/images/custom_game/game_info/souls2.png"/>
+            <Label class="lab key_lab" text="ключ находится на кладбище, в деревьях" />
+            <DOTAItemImage class = "key_img" itemname="item_key" />
+            <Label class="lab tp" text="телепорты" />
+            <Panel class="teleport_panel">
+                <Panel class="teleport_1"/>
+                <Label class="teleport_lab lab" text="- тини" />
+            </Panel>
+            <Panel class="teleport_panel">
+                <Panel class="teleport_2"/>
+                <Label class="teleport_lab lab" text="- рошан" />
+            </Panel>
+            <Image class = "key_img" src="file://{resources}/images/custom_game/game_info/tp_rs.png"/>
+            <Label class="lab" text="дум открывается после сноса бараков, дает +1 ретинг за каждое убийство" />
+            <Label class="lab agha" text="рошан дает аганим" />
+            <Panel class="pet_panel">
+                <DOTAItemImage itemname="item_pet" />
+                <Label class="lab agha" text=" - ваш лучший друг в игре" />
+            </Panel>
+            <Image id = 'btn3' class = "btn3 btn" onmouseactivate="cls()" src="file://{resources}/images/custom_game/game_info/btn3.png">
+                <Label id="back_label" class="btn_lab lab" text="Вернуться" />
+            </Image>
+        </Panel>
+	</Panel>
+</root>

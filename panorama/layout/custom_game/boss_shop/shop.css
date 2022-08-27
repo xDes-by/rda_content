@@ -1,0 +1,591 @@
+.root,.donateShop{
+	height:100%;
+	z-index: 1;
+	width:100%;
+}
+.openShopPanelLabel{
+	height:651px;
+	width:1166px;
+	vertical-align:center;
+	horizontal-align:center;
+	margin-bottom:10%;
+}
+.DonateShopPanel{
+	height:651px;
+	width:1166px;
+	background-image:url('file://{resources}/images/custom_game/DonateShop/osnovnoi_logo.png');
+	vertical-align:center;
+	horizontal-align:center;
+	margin-bottom:10%;
+}
+.DonateShopTabsPanel{
+	margin-top:90px;
+	margin-left:5px;
+	width:176px;
+	flow-children:down;
+}
+.TabPanel{
+	width:100%;
+	height:35px;
+	margin-left:3%;
+	border-top-left-radius:6px;
+	border-bottom-left-radius:6px;
+}
+.TabPanelOnServ:hover{
+	background-color:#2e2f3a;
+}
+.TabPanelOnServ:hover .TabLabelOnServ{
+	color:#d7bb00;
+	text-shadow: 2px 2px 8px 3.0 #222222;
+}
+.TabLabel{
+	letter-spacing: 1px;
+	font-size:18px;
+	color:white;
+	width:100%;
+	margin-left:20px;
+	vertical-align:center;
+}
+.TabContent{
+	width:100%;
+	flow-children:down;
+}
+.horizontal_panel{
+	width:100%;
+	flow-children:right;
+	min-height:100px;
+}
+.DonateShopContentPanel_bg{
+	background-image:url('file://{resources}/images/custom_game/DonateShop/shop(1).png');
+	margin-top:10px;
+	margin-left:180px;
+	height:475px;
+	width:957px;
+	border-top-right-radius:6px;
+}
+.DonateShopContentPanel{
+	/*background-image:url('file://{resources}/images/custom_game/DonateShop/shop(1).png');*/
+	margin-top:10px;
+	margin-left:180px;
+	height:475px;
+	width:957px;
+	border-top-right-radius:6px;
+	overflow: clip scroll;
+	border:1px solid black;
+}
+.RatingCloseButton1{
+	flow-children: right;
+	horizontal-align:right;
+	margin-top:35px;
+	margin-right:0px;
+	padding: 10px;
+	z-index: 2;
+}
+.DonateShopItemPanel, .DonateShopItem1{
+	width:180px;
+	height:220px;
+	background-color: rgba(0, 0, 0, 0.7);
+	margin-left:10px;
+	margin-top:10px;
+}
+
+.DonateShopItem{
+	margin-left:10px;
+	margin-top:10px;
+	width:160px;
+	height:120px;
+	border:3px solid;
+	border-radius:5px;
+	background-size:100%;
+}
+.DonateShopItemLabel{
+	width:100%;
+	height:30px;
+	margin-top:135px;
+	text-align:center;
+	color:purple;
+	font-size:21px;
+}
+.DonateShopItemButtonBuy{
+	width:160px;
+	height:35px;
+	margin-left:10px;
+	vertical-align:bottom;
+	margin-bottom:10px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #3458f4 ), to( #6782f2 ) );
+	border:3px solid #324cbb;
+	border-radius:10px;
+	z-index: 100;
+	flow-children:right;
+}
+.DonateMoneyLogoButton{
+	width:35px;
+	height:70%;
+	margin-left:20px;
+}
+.DonateShopItemButtonHas{
+	width:160px;
+	height:35px;
+	margin-left:10px;
+	vertical-align:bottom;
+	margin-bottom:10px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #3ca479 ), to( #6d6f35 ) );
+	border:3px solid #658d62;
+	border-radius:10px;
+}
+.DonateShopItemButtonLabel{
+	color:gold;
+	font-size:22px;
+	width:100%;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	vertical-align:center;
+	text-align:center;
+}
+.DonateMoneyPanel{
+	border-radius:10px;
+	margin-top: 10%;
+}
+.money_panel{
+	height:75px;
+	width:162px;
+	margin-top:10px;
+	flow-children:down;
+	background-image:url('file://{resources}/images/custom_game/DonateShop/shop2.png');
+	background-size: 100% 100%;
+	border-radius:10px;
+	padding-left: 5px;
+	margin-left: 10px;
+
+}
+.MMMRPointsPanel{
+	border-radius:10px;
+	margin-top: 10%;
+}
+
+.lowPanel{
+	width:1146px;
+	height:493px;
+	vertical-align:bottom;
+	horizontal-align:center;
+	margin-bottom:10px;
+	background-image:url('file://{resources}/imagses/custom_game/DonateShop/fon_sdelai_teni.png');
+	box-shadow: #00000080 4px 4px 8px 0px;
+}
+.DonateMoneyLogo3{
+	vertical-align:center;
+	height:20px;
+	width:30px;
+	margin-left:10px;
+}
+.MMMRPointsLogo{
+	vertical-align:center;
+	height:20px;
+	width:23px;
+	margin-left:10px;
+}
+.DonateMoneyLabel{
+	color:gold;
+	font-size:22px;
+	margin-left:45px;
+	vertical-align:center;
+	text-shadow: 1px 1px 8px 0.5 #666066;
+}
+.openShop{
+	width:30px;
+	height:30px;
+	margin-left:200px;
+	margin-top:10px;
+	tooltip-position: bottom;
+}
+.closeShop{
+	width:50px;
+	height:50px;
+	border:1px solid black;
+	horizontal-align:right;
+}
+.selected_bd{
+	background-color:#171926;
+}
+.selected_text{
+	color:#d76a00;
+}
+.DonateShopItem2{
+	width:180px;
+	height:320px;
+	background-color: rgba(0, 0, 0, 0.7);
+	margin-left:10px;
+	margin-top:10px;
+}
+.consumablesCoutPanel{
+	width:160px;
+	height:30px;
+	margin-left:10px;
+	margin-top:170px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #2f4a54 ), to( #364f59 ) );
+	border:3px solid #253c46;
+	border-radius:10px;
+}
+.DonateShopItemButtonBuyCon{
+	width:160px;
+	height:30px;
+	margin-left:10px;
+	margin-top:205px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #3ca479 ), to( #6d6f35 ) );
+	border:3px solid #658d62;
+	border-radius:10px;
+}
+.DonateShopItemButtonHasCon{
+	width:160px;
+	height:30px;
+	margin-left:10px;
+	margin-top:240px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #3458f4 ), to( #6782f2 ) );
+	border:3px solid #324cbb;
+	border-radius:10px;
+    flow-children:right;
+}
+#DonateShopReturnItemBtn:hover .DonateShopItemButtonLabelGived2{
+	color:red;
+	font-size:22px;
+}
+.DonateShopItemButtonLabelGived2{
+    color:#d5bdd5;
+	font-size:21px;
+	width:100%;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	vertical-align:center;
+	text-align:center;
+}
+#DonateShopReturnItemBtn{
+    width:160px;
+	height:30px;
+	margin-left:10px;
+	margin-top:275px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #a52bcd ), to( #702988 ) );
+	border:3px solid #702988;
+	border-radius:10px;
+}
+.shopButtonImg{
+	width:31px;
+	height:80%;
+	margin-top:10%;
+}
+.shopButtonImgAndText{
+	horizontal-align:center;
+	flow-children:right;
+	height:100%;
+}
+#shopButtonImg2{
+	width: 25px;
+}
+.shop_button_1_params{
+	width: 160px;
+	height: 100%;
+}
+.shop_button_2_params{
+	width: 80px;
+	height: 100%;
+}
+.DonateShopItemButtonLabelNotAlign{
+	color:gold;
+	font-size:21px;
+	text-shadow: 1px 1px 8px 3.0 #2847cc;
+	vertical-align:center;
+	margin-right:5px;
+}
+.DonateShopItemButtonLabelStock{
+	color:white;
+	font-size:19px;
+	width:100%;
+	margin-top:1px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	vertical-align:center;
+	text-align:center;
+}
+.BuyControl{
+	vertical-align:center;
+	horizontal-align:center;
+	width:586px;
+	height:421px;
+	margin-bottom:250px;
+}
+.acceptButton{
+	height:73px;
+	width:144px;
+	margin-top:310px;
+	margin-left:100px;
+}
+.cancelButton{
+	height:73px;
+	width:144px;
+	margin-top:310px;
+	horizontal-align:right;
+	margin-right:100px;
+}
+.BuyControlButtonText{
+	text-align:center;
+	width:100%;
+	vertical-align:center;
+	color:white;
+	font-size:28px;
+	margin-bottom: 13px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+.BuyControlTextPanel{
+	width:100%;
+	margin-top:20px;
+	flow-children:down;
+}
+#BuyControlTextLine1{
+	color: white;
+	width:100%;
+	text-align:center;
+	font-size:25px;
+	margin-top: 60px;
+	font-weight: bold;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+#accept_shadow{
+	width: 100%;
+	height: 650px;
+	margin-top: 39px;
+	background-color: rgba(0, 0, 0, 0.9);
+	z-index: 2;
+}
+#BuyControlTextLine2{
+	color: white;
+	margin-top: 25px;
+	width:100%;
+	text-align:center;
+	font-size:23px;
+	margin-top: 100px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+#BuyControlTextLine3{
+	color: white;
+	text-align:center;
+	font-size:25px;
+	width:100%;
+	text-align:center;
+	margin-top: 200px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+#BuyControlTextLine3_pan{
+	horizontal-align:center;
+	flow-children:right;
+	margin-top: 20px;
+}
+#BuyControlDropPanel{ 
+	margin-bottom: 125px;
+	vertical-align: bottom;
+}
+#BuyControlDrop,#BuyControlDropPanel{
+	width: 100px;
+	horizontal-align:center;
+}
+.BuyControlTextLine2{
+	font-size:21px;
+	margin-top:50%;
+	width:100%;
+	text-align:center;
+	color:#ca2f2f;
+}
+.DonateShopItemButtonGived{
+	width:160px;
+	height:35px;
+	margin-left:10px;
+	vertical-align:bottom;
+	margin-bottom:10px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #a52bcd ), to( #702988 ) );
+	border:3px solid #702988;
+	border-radius:10px;
+}
+.DonateShopItemButtonActive{
+	width:160px;
+	height:35px;
+	margin-left:10px;
+	vertical-align:bottom;
+	margin-bottom:10px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #c2db31 ), to( #7c8620 ) );
+	border:3px solid #86880c;
+	border-radius:10px;
+}
+.DonateShopItemButtonActive:hover .DonateShopItemButtonLabelActive{
+	font-size: 23px;
+	color: black;
+}
+.DonateShopItemButtonLabelActive{
+	color:#1f1d1f;
+	font-size:22px;
+	width:100%;
+	margin-top:1px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	vertical-align:center;
+	text-align:center;
+}
+.DonateShopItemButtonLabelGived{
+	color:#d5bdd5;
+	font-size:22px;
+	width:100%;
+	margin-top:1px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	vertical-align:center;
+	text-align:center;
+}
+.RatingCloseButtonIcon{
+	vertical-align:center;
+	margin-right:5px;
+}
+.RatingCloseButtonText:hover{
+	color:#c2c2c2;
+}
+.RatingCloseButtonText{
+	color:white;
+	font-size:18px;
+	vertical-align:center;
+	z-index: 0;
+}
+.openShopLabel{
+	color:white;
+	font-size:18px;
+	vertical-align:center;
+	opacity: 0.5;
+	
+	border: 1px solid black;
+}
+.openShopLabel:hover{
+	color:#c2c2c2;
+}
+#RatingCloseButton:active
+{
+	sound: "ui_custom_lobby_dialog_slide";
+}
+#openShop:active{
+	sound: "ui_chat_slide_in";
+}
+.openShop:hover{
+	brightness: 1.8;
+}
+#acceptButton:active, #cancelButton:active{
+	sound: "ui_learn_mode_popup";
+}
+.DonateShopItemButtonGived:hover .DonateShopItemButtonLabelGived{
+	color:red;
+	font-size:23px;
+}
+.DonateShopItemButtonHas:hover .DonateShopItemButtonLabel, .DonateShopItemButtonBuyCon:hover .DonateShopItemButtonLabel{
+	color:#ff8a00;
+	font-size:23px;
+}
+#shopButtonImgAndText1:hover #DonateShopItemButtonLabelNotAlign1, #shopButtonImgAndText2:hover #DonateShopItemButtonLabelNotAlign2{
+	color:#f5a23f;
+	font-size:23px;
+}
+.acceptButton:hover .controllButtonImg, .cancelButton:hover .controllButtonImg{
+	brightness: 1.5;
+}
+
+.open_shop{
+	animation-name: open_shop;
+	animation-duration: .2s;
+	animation-timing-function: linear;
+}
+@keyframes 'open_shop'
+{
+	from{
+		opacity:0;
+		transform: translate3d(0px, 700px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+	
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.close_shop{
+	animation-name: close_shop;
+	animation-duration: .2s;
+	animation-timing-function: linear;
+}
+@keyframes 'close_shop'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(0px, 700px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+}
+.shopProfilPanel{
+	height:100px;
+	width:100%;
+	margin-top:50px;
+	margin-left:-80px;
+}
+
+.shop_selection_panel{
+	width: 100%;
+	height: 100px;
+	margin-top: 40px;
+	z-index: 1;
+}
+.openShopLabel{
+	margin-left: 1000px;
+}
+#discord{
+	height: 70px;
+	width: 70px;
+	horizontal-align:left;
+	margin-bottom: 10px;
+	margin-left: 18px;
+	border:1px solid black;
+	vertical-align: bottom;
+	border-radius:10px;
+}
+#discord:hover{
+	brightness: 2.0;
+}
+#patreon{
+	height: 70px;
+	width: 70px;
+	horizontal-align:left;
+	margin-bottom: 10px;
+	border:1px solid black;
+	margin-left: 92px;
+	vertical-align: bottom;
+	border-radius:10px;
+	
+}
+#patreon:hover{
+	brightness: 2.0;
+}
+#shop_gems_panel{
+	height: 150px;
+	width: 450px;
+	horizontal-align: right;
+	margin-top: 50px;
+	flow-children:right;
+}
+.smithy_gem_image{
+	height: 70px;
+	width: 70px;
+}
+.smithy_gem_base_class{
+	flow-children:down;
+}
+.smithy_gem_lable{
+	margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    font-family: "Courier";
+    
+    color:white;
+    font-weight: bold;
+}

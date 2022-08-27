@@ -1,0 +1,12 @@
+<root> 
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/pick/pick.js" />
+	</scripts>
+
+	<Panel>
+	</Panel>
+</root>

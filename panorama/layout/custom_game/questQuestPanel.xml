@@ -1,0 +1,13 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/quest.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quest.js" />
+	</scripts>
+	<Panel class="questInfoBar">
+		<Label id = "questInfoBarLabel_3" class="questInfoBarLabel_3" text="!"/>
+		<Label id = "questInfoBarLabel_1" class="questInfoBarLabel_1" text="Собери грибы"/>
+		<Label id = "questInfoBarLabel_2" class="questInfoBarLabel_2" text="0/10"/>
+	</Panel>
+</root>

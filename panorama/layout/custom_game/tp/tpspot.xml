@@ -1,0 +1,27 @@
+<root>
+    <styles>
+        <include src="file://{resources}/layout/custom_game/tp/tpspot.css" />
+        
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/tp/tpspot.js" />
+    </scripts>
+    
+		<Panel class="root" hittest="false">
+            <Panel id="bg_victory" class="bg_victory" style="height:100%; width:100%;" hittest = "false"> 
+                <Image id= "element_1" class = "element_1" src = "file://panorama/images/custom_game/tptp/tpp4.png">
+                </Image>         
+                    <Image id="element_2" class="element_2" src = "file://panorama/images/custom_game/tptp/ptt1.jpg" onactivate="part_1_btn()">
+                <Label id="textid5" class="textid5" text="#ROSHAN" />
+                </Image>
+                    <Image id="element_3" class="element_3" src = "file://panorama/images/custom_game/tptp/ptt2.jpg" onactivate="part_2_btn()">
+                <Label id="textid6" class="textid6" text="#RAID BOSS" />
+                </Image>
+                    <Image id="element_7" class="element_7" src="file://panorama/images/custom_game/tptp/tpp3.png" onactivate="part_4_btn()">
+                <Label id="textid7" class="textid7" text="#TRAPS" />
+                </Image>
+            </Panel>
+        </Panel>
+</root>                 

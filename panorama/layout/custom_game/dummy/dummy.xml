@@ -1,0 +1,31 @@
+<root>
+
+	<styles>
+        <include src="file://{resources}/layout/custom_game/dummy/dummy.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <scripts>
+        <!-- <include src="file://{resources}/layout/custom_game/dummy/dummy.js" /> -->
+    </scripts>
+
+    <Panel class ="root" hittest="false">
+        <Panel id="" class="container">
+            <Panel id="Arrmor" class="flowChildrenRight">
+                <Panel id="" class="button_panel">
+                    <Label id="" class="button_label" text="+10 брони" />
+                </Panel>
+                <Panel id="" class="button_panel">
+                    <Label id="" class="button_label" text="-10 брони" />
+                </Panel>
+            </Panel>
+            <Panel id="MagicResistance" class="flowChildrenRight">
+                <Panel id="" class="button_panel">
+                    <Label id="" class="button_label" text="+5 соп.маг" />
+                </Panel>
+                <Panel id="" class="button_panel">
+                    <Label id="" class="button_label" text="-5 соп.маг" />
+                </Panel>
+            </Panel>
+        </Panel>
+	</Panel>
+</root>
