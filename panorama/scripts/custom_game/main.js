@@ -138,7 +138,7 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 		profil.FindChildTraverse("RatingProfilDislike").visible = false
 		profil.FindChildTraverse("RatingProfilLike").SetPanelEvent("onmouseactivate",function(){сommenBut(i,'likes')})
 		profil.FindChildTraverse("RatingProfilDislike").SetPanelEvent("onmouseactivate",function(){сommenBut(i,'reports')})
-		profil.FindChildTraverse("profil_first_game_label").text = type(t.rating[i+1].first_game) == 'string' ? t.rating[i+1].first_game : "-"
+		profil.FindChildTraverse("profil_first_game_label").text = typeof(t.rating[i+1].first_game) == 'string' ? t.rating[i+1].first_game : "-"
 		profil.FindChildTraverse("last_games_profil").RemoveAndDeleteChildren()
 		for(let n in t.history[i+1]){
 			let pan = $.CreatePanelWithProperties("Panel", profil.FindChildTraverse("last_games_profil"), "", {class:"profil_game"})
