@@ -3,13 +3,16 @@
     width: 100%;
     /* background-color: red; */
 }
+#souls_main{
+    horizontal-align: right;
+    margin-top: 640px;
+    flow-children: right;
+}
 .souls_stash_panel{
     height: 72px;
     max-width: 306px;
     min-width: 70px;
     background-image:url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex") ;
-    horizontal-align: right;
-    margin-top: 640px;
 }
 .souls_stash_panel Label{
     color:white;
@@ -42,4 +45,25 @@
     margin-left: 3px;
     margin-bottom: -3px;
     text-shadow: 0px 0px 3px 4 #000000;
+}
+#arrow_button{
+    width: 22px;
+    height: 22px;
+    background-image:url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex") ;
+    z-index: 2;
+    vertical-align: top;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#hide_button{
+    background-image: url("s2r://panorama/images/control_icons/arrow_min_right_psd.vtex");
+    margin-right: 4px;
+    width: 18px;
+    height: 14px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition-property: brightness;
+    background-position: center;
+    horizontal-align: center;
+    vertical-align: center;
 }

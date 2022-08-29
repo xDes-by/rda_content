@@ -17,34 +17,39 @@
     </snippets>
 	
     <Panel class ="root" hittest="false">
-
-		<Panel class="souls_stash_panel">
-            <Label id="" class="" text="#souls_stash" />
-            <Panel id="souls_stash" class="souls_stash">
-                <DOTAItemImage id="" class="soul_item" itemname="item_forest_soul" >
-                    <Label id="label" class="" text="1" />    
-                </DOTAItemImage>
-                <DOTAItemImage id="" class="soul_item" itemname="item_village_soul" >
-                    <Label id="label" class="" text="1" />    
-                </DOTAItemImage>
-                <DOTAItemImage id="" class="soul_item" itemname="item_mines_soul" >
-                    <Label id="label" class="" text="1" />    
-                </DOTAItemImage>
-                <DOTAItemImage id="" class="soul_item" itemname="item_dust_soul" >
-                    <Label id="label" class="" text="1" />    
-                </DOTAItemImage>
-                <DOTAItemImage id="" class="soul_item" itemname="item_swamp_soul" >
-                    <Label id="label" class="" text="1" />    
-                </DOTAItemImage>
-                <DOTAItemImage id="" class="soul_item" itemname="item_snow_soul" >
-                    <Label id="label" class="" text="1" />    
-                </DOTAItemImage>
-                <DOTAItemImage id="" class="soul_item" itemname="item_divine_soul" >
-                    <Label id="label" class="" text="1" />    
-                </DOTAItemImage>
+        <Panel id="souls_main" class="">
+            <Panel id="arrow_button" class="">
+                <Panel id="hide_button" class=""></Panel>
             </Panel>
-            
+            <Panel id="souls_stash_panel" class="souls_stash_panel">
+                <Label id="" class="" text="#souls_stash" />
+                <Panel id="souls_stash" class="souls_stash">
+                    <DOTAItemImage id="" class="soul_item" itemname="item_forest_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_village_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_mines_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_dust_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_swamp_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_snow_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_divine_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                </Panel>
+                
+            </Panel>
         </Panel>
+		
 
 	</Panel>
 

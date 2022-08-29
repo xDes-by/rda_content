@@ -175,6 +175,8 @@ function AutoGet(pet){
                 }
             }
             GameEvents.SendCustomGameEventToServer("AutoGetPetOprion", {pet : pet})
+        }else{
+            GameEvents.SendCustomGameEventToServer("AutoGetPetOprion", {})
         }
     }
 }
