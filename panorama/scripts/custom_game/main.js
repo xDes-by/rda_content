@@ -576,7 +576,7 @@ var acceptBuy = (function(i, n, pan, consumabl, currency)
 			pan.FindChildTraverse('DonateShopItemButtonLabelActive').text = $.Localize('#active')
 			if(shopinfo[i][n].type == 'pet_change'){
 				shopinfo[i][n].now = Number(Number(shopinfo[i][n].now) + amountBuy)
-				RefreshPet(shopinfo)
+				// RefreshPet(shopinfo)
 			}
 		}else if(shopinfo[i][n].type != 'gem' && shopinfo[i][n].type != 'loot-box'){
 			pan.FindChildTraverse('DonateShopItemButtonHas').visible = true
@@ -739,7 +739,7 @@ var give = (function(i, n, pan, consumabl)
 			}
 			GameEvents.SendCustomGameEventToServer("giveItem", {i : i, n : n})
 			$.Schedule(0.2, function(){
-				RefreshPet(shopinfo)
+				// RefreshPet(shopinfo)
 			})
 		
 	}
@@ -893,6 +893,7 @@ function initShop(tab){
 							}else if(tovarValue.status == 'takeoff'){
 								pan.FindChildTraverse('DonateShopItemButtonGived').visible = true
 								pan.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#takeoff')
+								pan.FindChildTraverse('DonateShopItemButtonGived').SetPanelEvent("onmouseactivate",takeoff(pan, key, tovarKey))
 							}else if(tovarValue.status == 'active'){
 								pan.FindChildTraverse('DonateShopItemButtonActive').visible = true
 								pan.FindChildTraverse('DonateShopItemButtonLabelActive').text = $.Localize('#active')
@@ -1337,7 +1338,7 @@ function FindChildTraverse(name){
 	GameEvents.Subscribe( "UpdateChangeHeresInfo", UpdateChangeHeresInfo)
 	GameEvents.Subscribe("dota_player_update_query_unit", open_quest_window);
 	GameEvents.Subscribe("DeactivateShop",DeactivateShop)
-	GameEvents.Subscribe("shop_refresh_pets",RefreshPet)
+	// GameEvents.Subscribe("shop_refresh_pets",RefreshPet)
 	// GameEvents.Subscribe('dota_player_update_selected_unit', open_quest_window);
 	GameEvents.Subscribe('open_quest_window', open_quest_window);
 	
