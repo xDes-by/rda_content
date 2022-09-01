@@ -6,6 +6,10 @@ function FindDotaHudElement(panel) {
 }
 
 function OnClickSpray() {
+	Game.CreateCustomKeyBind(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT), "UsePet");
+	var button_text = FindDotaHudElement("CosmeticAbility_text2");
+	button_text.text = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT)
+
 	var spray = CustomNetTables.GetTableValue( "player_pets", playerID);
 	if (spray != null){
 		if(can_use) {
@@ -34,6 +38,10 @@ function timer(i) {
 
 
 function UpdatePetIcon(){
+	Game.CreateCustomKeyBind(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT), "UsePet");
+	var button_text = FindDotaHudElement("CosmeticAbility_text2");
+	button_text.text = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT)
+	
 	var spray = CustomNetTables.GetTableValue( "player_pets", playerID);
 	const spray_icon = FindDotaHudElement("CustomAbility_spray_custom");
 	spray_icon
@@ -70,4 +78,9 @@ function UpdatePetIcon(){
 
 (function() {
 	GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
+	Game.CreateCustomKeyBind(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT), "UsePet");
+	var button_text = FindDotaHudElement("CosmeticAbility_text2");
+	button_text.text = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT)
 })();
+
+
