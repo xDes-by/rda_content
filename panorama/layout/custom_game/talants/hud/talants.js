@@ -380,6 +380,18 @@ function portrait(){
 
 }
 
+function GetPlayerIDByPortraitIndex(){
+    if(pInfo == null){
+        return -1
+    }
+    var idx = Players.GetLocalPlayerPortraitUnit()
+    for(var i in pInfo){
+        if(pInfo[i][2] == idx){
+            return i
+        }
+    }
+}
+
 function open(){
     isOpen = true;
     $("#talant_root").visible = true;
@@ -587,7 +599,9 @@ var hiddeDescription = (function(arg)
 function MoreInformation(pan){
     return function(){
         talantpanel.FindChildTraverse("players_have").text = $.Localize('#talents_loading')
-        GameEvents.SendCustomGameEventToServer("HeroesAmountInfo", {i : pan.i, j : pan.j})
+        let portID = GetPlayerIDByPortraitIndex()
+        $.Msg("portID:",portID)
+        GameEvents.SendCustomGameEventToServer("HeroesAmountInfo", {i : pan.i, j : pan.j, portID:Number(portID)})
     }
 }
 
@@ -618,7 +632,7 @@ var selectTalant = (function(arg)
         talantpanel.FindChildTraverse("talant_name_label").text = $.Localize("#"+name);
         talantpanel.FindChildTraverse("talant_name_label").i = pan.i;
         talantpanel.FindChildTraverse("talant_description_buff_label").text = $.Localize("#"+buff);
-        let progress = CustomNetTables.GetTableValue( "talants", Players.GetLocalPlayer() )
+        let progress = CustomNetTables.GetTableValue( "talants", GetPlayerIDByPortraitIndex() )
         if(talantpanel.FindChildTraverse("players_have")){
             if(!progress[pan.i+pan.j+"count"]){
                 talantpanel.FindChildTraverse("players_have").text = $.Localize("#talent_count")
@@ -627,12 +641,6 @@ var selectTalant = (function(arg)
             }
             talantpanel.FindChildTraverse("players_have").SetPanelEvent("onmouseactivate",MoreInformation(pan))
         }
-        $.Msg('info')
-        $.Msg(progress["int1"])
-        $.Msg(progress["agi1"])
-        $.Msg(progress["str1"])
-        $.Msg(progress["cout"])
-        $.Msg(progress[pan.i+1])
         if(Game.GetState() >= DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME && talantpanel.FindChildTraverse("button") && pid == portID && !pan.selected && ((pan.i == 'don' && progress['freedonpoints'] >= LevelNeed(pan.i, pan.j, progress)) || (pan.i != 'don' && progress['freepoints'] >= LevelNeed(pan.i, pan.j, progress)) ) && 
             (pan.j != 12 || pan.available) && ((pan.j != 6 && pan.j != 7 && pan.j != 8) || (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0)) && ((pan.j != 9 && pan.j != 10 && pan.j != 11) || (progress[pan.i+9] + progress[pan.i+10] + progress[pan.i+11] == 0)) && 
             (pan.i == "don" || (progress["int1"] + progress["agi1"] + progress["str1"] < progress["cout"] || progress[pan.i+1] == 1))){
