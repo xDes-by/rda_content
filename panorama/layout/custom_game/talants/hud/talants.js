@@ -641,8 +641,9 @@ var selectTalant = (function(arg)
             }
             talantpanel.FindChildTraverse("players_have").SetPanelEvent("onmouseactivate",MoreInformation(pan))
         }
+        $.Msg(pan.i+pan.j)
         if(Game.GetState() >= DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME && talantpanel.FindChildTraverse("button") && pid == portID && !pan.selected && ((pan.i == 'don' && progress['freedonpoints'] >= LevelNeed(pan.i, pan.j, progress)) || (pan.i != 'don' && progress['freepoints'] >= LevelNeed(pan.i, pan.j, progress)) ) && 
-            (pan.j != 12 || pan.available) && ((pan.j != 6 && pan.j != 7 && pan.j != 8) || (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0)) && ((pan.j != 9 && pan.j != 10 && pan.j != 11) || (progress[pan.i+9] + progress[pan.i+10] + progress[pan.i+11] == 0)) && 
+            (pan.j != 12 || pan.available) && ((pan.j != 6 && pan.j != 7 && pan.j != 8) || (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0)) && ((pan.j != 9 && pan.j != 10 && pan.j != 11) || ((progress[pan.i+9] + progress[pan.i+10] + progress[pan.i+11] == 0) && (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0 || ((pan.j == 9 && progress[pan.i+6] == 1) || (pan.j == 10 && progress[pan.i+7] == 1) || (pan.j == 11 && progress[pan.i+8] == 1))))) && 
             (pan.i == "don" || (progress["int1"] + progress["agi1"] + progress["str1"] < progress["cout"] || progress[pan.i+1] == 1))){
             
             talantpanel.FindChildTraverse("button").visible = true;
