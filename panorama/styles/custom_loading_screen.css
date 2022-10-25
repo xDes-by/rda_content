@@ -5,7 +5,6 @@ flow-children: down;
 	vertical-align: top;
 	margin: 440px 170px;
 	border-radius: 16px;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) );
 	box-shadow: #000000 -2px -2px 8px 4px;
 }
 
@@ -16,10 +15,6 @@ flow-children: down;
 	horizontal-align: center;
 }
 
-#dis:active {	/*при нажатии*/
- 	 opacity: 0.6;
-}
-
 #patreon 
 {
 	flow-children: down;
@@ -27,122 +22,26 @@ flow-children: down;
 	vertical-align: top;
 	margin: 440px 40px;
 	border-radius: 16px;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #272d2eee ), to( #131617ee ) );
 	box-shadow: #000000 -2px -2px 8px 4px;
 }
 
-#pat {	/*обычное состояние*/
+#pat {
 	width: 82px;
 	height: 82px;
 	vertical-align: middle;
 	horizontal-align: center;
 }
 
-#pat:active {	/*при нажатии*/
- 	 opacity: 0.6;
-}
-
-
-#bsa 
-{
-	flow-children: down;
-	horizontal-align: left;
-	vertical-align: top;
-	position: 60px 40px 0px;	
-}
-
-#bsa1 {	/*обычное состояние*/
-	width: 450px;
-	height: 150px;
-	vertical-align: middle;
-	horizontal-align: center;
-}
-
-#bsa1:active
-{
-  opacity: 0.6;
-}
-
-
-#dabsa
-{
-	flow-children: down;
-	horizontal-align: left;
-	vertical-align: top;
-	position: 215px 165px 0px; 
-}
-
-.bsa-head
-{
-	font-size: 16px;
-	color: white;
-	text-shadow: 1px 1px 3px #666666,
-                    -1px -1px 3px #FFFFFF;
-    font-weight: bold;
-	font-stretch: expanded;
-	margin-top: 16px;
-	horizontal-align: center;
-	text-transform: uppercase;
-	text-align: center;
-}
-
-
-#da 
-{
-	flow-children: down;
-	horizontal-align: left;
-	vertical-align: top;
-	position: 60px 650px 0px; 
-}
-
-
-
-#daa
-{
-	width: 600px;
-	height: 280px;
-	vertical-align: middle;
-	horizontal-align: center;
-	border-radius: 15px;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #40494aee ), to( #131617ee ) );
-	box-shadow: #000000 -2px -2px 8px 4px;
-}
-#daa:active
-{
-  opacity: 1.6;
-}
-.Header2
-{
-	font-size: 25px;
-	color: #CCCCCC;
-	text-shadow: 1px 1px 3px #666666,
-                    -1px -1px 3px #FFFFFF;
-
-    font-weight: bold;
-	font-stretch: expanded;
-	margin-top: 16px;
-	horizontal-align: center;
-	text-transform: uppercase;
-	text-align: center;
-}
 #qq{
 	margin: 30px;
 	vertical-align: top;
 	height: 374px;
 	width: 233px;
 }
-#event2021{
-	width: 900px;
-	background-color: rgb(100, 43, 43);
-	opacity: 0.9;
-	vertical-align: bottom;
-	margin-left: 30px;
-	margin-bottom: 60px;
-	padding: 20px;
-	border-radius: 20px;
-}
-#event2021Lable{
-	color: white;
-	text-shadow: 1px 1px 3px #000000;
-	font-size: 19;
+
+#telega{
+	margin: 30px 300px;
+	vertical-align: top;
+	height: 217px;
+	width: 200px;
 }
