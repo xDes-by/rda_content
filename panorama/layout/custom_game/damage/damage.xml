@@ -27,7 +27,9 @@
             </Panel>
 		</snippet>
 	</snippets>
+	<Image id="ban"/>
 	<Panel class="HUDRoot" hittest="false">
+	
 		<Panel id="button_show">
 			<Button id="show_damage" onactivate="ShowDamage()">
 				<Label class="show_damage" id="accepttext" text="#damage_table" />

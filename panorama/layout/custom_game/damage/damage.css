@@ -1,3 +1,11 @@
+
+#ban{
+	width:100%;
+	height:100%;
+	background-image:url('file://{resources}/images/custom_game/ban.png');
+}
+
+
 .HUDRoot{
 	height: 100%;
 	width: 100%;

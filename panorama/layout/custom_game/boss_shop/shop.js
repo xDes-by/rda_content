@@ -1,3 +1,5 @@
+$("#ban").visible = false
+
 var PlayerCount = 0,
 	rating,
 	commented = [],
@@ -302,6 +304,7 @@ var takeoff = (function(pan, i, n)
 
 function initShop(tab){
 	shopinfo = tab
+	
 	// деньги
 	if($('#DonateMoneyLabel')){
 		$('#DonateMoneyLabel').text = shopinfo.coins

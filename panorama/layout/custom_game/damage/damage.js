@@ -92,10 +92,20 @@ function close2()
 	})	
 }
 
+$("#ban").visible = false
+
+function ban()
+{
+	$.Msg("BAN")
+	$("#ban").visible = true
+}
+
 (function() {
     if($.GetContextPanel().BHasClass("endboard"))
         return;
     $("#hpbarroot").visible = false
     GameEvents.Subscribe("dmgtable",dmgtable)
     GameEvents.SendCustomGameEventToServer ("startreq",{})
+	GameEvents.Subscribe("ban",ban)
 })()
+
