@@ -5,6 +5,14 @@ function FindDotaHudElement(panel) {
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
 }
 
+///////////////////////////////////////////////
+
+const commandf7 = `On${"F7"}${Date.now()}`;
+    Game.CreateCustomKeyBind(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT), `+${commandf7}`);
+    Game.AddCommand(`+${commandf7}`, () => { OnClickSpray() }, "", 0 );
+	
+///////////////////////////////////////////////
+
 function OnClickSpray() {
 	Game.CreateCustomKeyBind(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT), "UsePet");
 	var button_text = FindDotaHudElement("CosmeticAbility_text2");

@@ -30,9 +30,9 @@
 				<Image class="avatar1" src="file://{images}/QR_code.png" />
 			</Panel> 
 			
-			<Panel id="sale">
-				<Image class="avatar1" src="file://{images}/sale.png" />
-			</Panel> 
+			<!-- <Panel id="sale"> -->
+				<!-- <Image class="avatar1" src="file://{images}/sale.png" /> -->
+			<!-- </Panel>  -->
 		</Panel>
   	</Panel>
 </root>
