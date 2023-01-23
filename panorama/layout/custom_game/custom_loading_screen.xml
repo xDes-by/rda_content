@@ -23,7 +23,7 @@
 			</Panel> 
 
 			<Panel id="qq">
-				<Image class="avatar1" src="https://cdn.discordapp.com/attachments/814126475958681612/904325803448340480/qq.png" />	
+				<Image class="avatar1" src="file://{images}/qq.png" />	
 			</Panel> 
 			
 			<Panel id="telega">

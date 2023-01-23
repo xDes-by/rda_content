@@ -1,33 +1,33 @@
 <root>
 	<Panel class = "RatingPlayerInfo">
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-6.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-7.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-8.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-9.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-10.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-11.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/int/int-talant-12.png"/>
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/int/int-talant-6.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/int/int-talant-7.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/int/int-talant-8.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/int/int-talant-9.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/int/int-talant-10.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/int/int-talant-11.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/int/int-talant-12.png"/> -->
 		
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-6.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-7.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-8.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-9.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-10.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-11.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/str/str-talant-12.png"/>
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/str/str-talant-6.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/str/str-talant-7.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/str/str-talant-8.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/str/str-talant-9.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/str/str-talant-10.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/str/str-talant-11.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/str/str-talant-12.png"/> -->
 	
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-6.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-7.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-8.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-9.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-10.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-11.png"/>
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-12.png"/>
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-6.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-7.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-8.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-9.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-10.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-11.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-12.png"/> -->
 		
-		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_gyrocopter/agi/agi-talant-12.png"/>
-		<Image src="file://{resources}/images/custom_game/DonateShop/heros/bs.png"/>
-		<Image src="file://{resources}/images/custom_game/DonateShop/heros/bs.jpg"/>
-		<Image src="file://{resources}/images/custom_game/DonateShop/heros/gr.png"/>
-		<Image src="file://{resources}/images/custom_game/DonateShop/heros/gr.jpg"/>
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-12.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/DonateShop/heros/bs.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/DonateShop/heros/bs.jpg"/> -->
+		<Image src="file://{resources}/images/custom_game/DonateShop/heros/aa.png"/>
+		<Image src="file://{resources}/images/custom_game/DonateShop/heros/aa.jpg"/>
 	</Panel>
 </root>
