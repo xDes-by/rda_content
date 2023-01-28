@@ -24,10 +24,12 @@
 		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-11.png"/> -->
 		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-12.png"/> -->
 		
-		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_ancient_apparition/agi/agi-talant-12.png"/> -->
+		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_axe/int/int-talant-8.png"/>
+		<Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_axe/int/int-talant-7.png"/>
+		<!-- <Image src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_wisp/int/int-talant-12.png"/> -->
 		<!-- <Image src="file://{resources}/images/custom_game/DonateShop/heros/bs.png"/> -->
 		<!-- <Image src="file://{resources}/images/custom_game/DonateShop/heros/bs.jpg"/> -->
-		<Image src="file://{resources}/images/custom_game/DonateShop/heros/aa.png"/>
-		<Image src="file://{resources}/images/custom_game/DonateShop/heros/aa.jpg"/>
+		<!-- <Image src="file://{resources}/images/custom_game/DonateShop/heros/aa.png"/> -->
+		<!-- <Image src="file://{resources}/images/custom_game/DonateShop/heros/aa.jpg"/> -->
 	</Panel>
 </root>
