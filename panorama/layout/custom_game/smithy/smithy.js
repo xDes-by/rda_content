@@ -1,4 +1,3 @@
-
 var ItemNumber = false;
 var GameTime = false;
 var SelectedStone = false;
