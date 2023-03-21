@@ -14,6 +14,7 @@ const commandf7 = `On${"F7"}${Date.now()}`;
 ///////////////////////////////////////////////
 
 function OnClickSpray() {
+	$.Msg('OnClickSpray')
 	Game.CreateCustomKeyBind(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT), "UsePet");
 	var button_text = FindDotaHudElement("CosmeticAbility_text2");
 	button_text.text = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT)
@@ -58,9 +59,7 @@ function UpdatePetIcon(){
 }
 
 (function () {
-	$.Msg("Qwerty2");
 	Game.AddCommand( "UsePet", OnClickSpray, "", 0 );
-	$.Msg("Qwerty2");
 	
 	const centerBlock = FindDotaHudElement("center_block");
 	let cosmetics = centerBlock.FindChildTraverse("BarOverItems");
@@ -85,6 +84,11 @@ function UpdatePetIcon(){
 
 
 (function() {
+	$.Msg('GetKeybindForCommand')
+	$.Msg(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT))
+	// $.RegisterForUnhandledEvent('F1',() => {
+    //     $.Msg("123")
+    // })
 	GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
 	Game.CreateCustomKeyBind(Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT), "UsePet");
 	var button_text = FindDotaHudElement("CosmeticAbility_text2");

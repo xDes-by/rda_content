@@ -203,7 +203,7 @@ var showQuest = (function(availableQuest, t)
 			}
 			$('#questGoldRewardNumber').text = player_info[sid][type][number]['gold']
 			$('#questExpRewardNumber').text = player_info[sid][type][number]['experience']
-			$('#questTalantRewardNumber').text = talent_exp[mode]
+			$('#questTalantRewardNumber').text = player_info[sid][type][number]['talentExperience']
 			//reward_tab[base_tab[eblan].reward][]
 			if(base_tab[eblan] && base_tab[eblan].items && reward_tab[base_tab[eblan].items]['items']["1"]){
 				$('#questRewardItemLabel').visible = true

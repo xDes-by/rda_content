@@ -8,6 +8,7 @@
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/main.js" />
+		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
 	</scripts>
     
 	<snippets>
@@ -84,13 +85,13 @@
 
     <Panel class="root" hittest="false">
 		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/DonateShop/heros/marci.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str_last.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str6.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str7.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str8.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str9.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str10.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_marci/str/npc_dota_hero_marci_str11.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-6.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-7.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-8.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-9.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-10.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-11.png"/>
+		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-12.png"/> -->
 		
 		<Panel id = "Rating" class = "Rating" hittest = "false">
 			<Panel id='RatingPanel' class='RatingPanel'>
