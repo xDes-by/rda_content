@@ -526,8 +526,6 @@ $("#close_pet").SetPanelEvent("onmouseactivate",()=>{
 
 
 
-
-
 $("#buy_coufirm_bg_pet").visible = false
 // $("#PetWindowMain").visible = false
 
@@ -548,3 +546,10 @@ $("#feed_image_pet").SetPanelEvent("onmouseover", TipsOver( "feed", $("#feed_ima
 $("#feed_image_pet").SetPanelEvent("onmouseout", TipsOut() )
 
 
+
+$.RegisterForUnhandledEvent('Cancelled',() => {
+    isOpen = false
+    $("#PetWindowMain").style.opacity = "0";
+    $("#PetWindowMain").style.transform = "translate3d(0px, 300px, 0px)";
+    $("#PetWindowMain").style.preTransformScale2d = "1";
+})

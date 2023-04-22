@@ -9,7 +9,6 @@
 .HUDRoot{
 	height: 100%;
 	width: 100%;
-
 }
 
 .dmgPanel{
@@ -305,4 +304,16 @@
 }
 .items DOTAItemImage{
 	height: 50%;
+}
+
+.root{
+	height: 100%;
+	width: 100%;
+}
+#test{
+	height: 100px;
+	width: 100px;
+	vertical-align: center;
+	horizontal-align: center;
+	background-color: pink;
 }

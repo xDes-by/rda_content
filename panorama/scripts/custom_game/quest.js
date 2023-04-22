@@ -24,6 +24,18 @@ function npcInfo(t){
 	list = t.list
 	mode = t.mode
 }
+function isBonusExpAvailable() {
+	const player = Players.GetPlayerHeroEntityIndex(playerID);
+	for (let i = 0; i < Entities.GetNumBuffs(player); i++) {
+	  const modifier = Entities.GetBuff( player, i );
+	  if (Buffs.GetName(player, modifier) === "modifier_don2") {
+		return true;
+	  }
+	}
+	return false;
+  }
+
+
 function ActivateShop(t) {
 	//var player_info = CustomNetTables.GetTableValue( "player_info", GetUniverseSteamID32( playerID ) )
 	if(t.sound == true){
@@ -194,17 +206,11 @@ var showQuest = (function(availableQuest, t)
 		
 		if(true){
 			// reward
-			let talent_exp = {
-				0 : 0,
-				1 : 15,
-				2 : 20,
-				3 : 25,
-				4 : 30,
-			}
+			
+			const talentExperience = player_info[sid][type][number]['talentExperience']
 			$('#questGoldRewardNumber').text = player_info[sid][type][number]['gold']
 			$('#questExpRewardNumber').text = player_info[sid][type][number]['experience']
-			$('#questTalantRewardNumber').text = player_info[sid][type][number]['talentExperience']
-			//reward_tab[base_tab[eblan].reward][]
+			$('#questTalantRewardNumber').text = isBonusExpAvailable ? Math.round(talentExperience * 1.15) : talentExperience
 			if(base_tab[eblan] && base_tab[eblan].items && reward_tab[base_tab[eblan].items]['items']["1"]){
 				$('#questRewardItemLabel').visible = true
 				var i = 1
@@ -562,3 +568,5 @@ function open_base_panel(name, unit){
 	
 
 })();
+
+

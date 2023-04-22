@@ -36,7 +36,7 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/teleport/tpspot.xml" />
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage/damage.xml"/>
-    <CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/damage/end_screen.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage/end_screen.xml" />
     
 	<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet_button/pet_button.xml" />
 	<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet ui rework/pets.xml" />

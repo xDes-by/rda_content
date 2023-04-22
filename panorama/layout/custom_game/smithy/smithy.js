@@ -334,6 +334,12 @@ var TipsOut2 = (function()
 	}
 });
 
+(()=>{
+    $.RegisterForUnhandledEvent('Cancelled',() => {
+        close()
+    })
+})();
+
 (function(){
     
     if($("#smithy_main_item_panel")){

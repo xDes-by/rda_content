@@ -1,0 +1,8 @@
+<root>
+
+    <Panel class="root" style="height: 100%; width: 100%;">
+        <Panel style="height: 100px; width: 100px; vertical-align: center; horizontal-align: center; background-color: pink;">
+            
+        </Panel>
+    </Panel>    
+</root>

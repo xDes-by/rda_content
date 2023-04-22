@@ -470,6 +470,16 @@ function shopinfo(table_name, key, data){
         }
     }
 }
+function isBonusExpAvailable(playerID) {
+	const player = Players.GetPlayerHeroEntityIndex(playerID);
+	for (let i = 0; i < Entities.GetNumBuffs(player); i++) {
+	  const modifier = Entities.GetBuff( player, i );
+	  if (Buffs.GetName(player, modifier) === "modifier_don2") {
+		return true;
+	  }
+	}
+	return false;
+  }
 function updateExpInfo(data){
     if(asssd == false){
         asssd = true;
@@ -528,7 +538,9 @@ function updateExpInfo(data){
     text = percent + "%";
     $("#red_line_panel").style.width = text;
     if(data["gave_exp"]){
-        var gain = (Math.ceil( Number(data["gave_exp"]) * 10 ) / 10).toFixed(1)
+        $.Msg(data["gave_exp"])
+        const gave_exp = isBonusExpAvailable(Number(portID)) ? Number(data["gave_exp"]) * 1.15 : Number(data["gave_exp"])
+        var gain = (Math.ceil( gave_exp * 10 ) / 10).toFixed(1)
         $("#blue_line_label_gain").text = "+" + gain;
         if(data["donavailable"] == 1){
             $("#red_line_label_gain").text = "+" + gain;
@@ -830,7 +842,11 @@ function opnShop(){
 
 })();
 
-
+(()=>{
+    $.RegisterForUnhandledEvent('Cancelled',() => {
+        close()
+    })
+})();
 
 
 

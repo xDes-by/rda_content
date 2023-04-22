@@ -33,11 +33,11 @@ function hudInit(){
 }
 
 function closeRaiting(){
+	if(!$('#RatingPanel')) return
 	isopen = false
 	$('#RatingPanel').style.opacity = "0"
 	$("#RatingPanel").style.transform = "translate3d(-100px, 0px, 0px)";
 	$("#RatingPanel").style.preTransformScale2d = "0.8";
-
 }
 var openRaitingButton =  function(){
 	return function(){
@@ -480,7 +480,7 @@ var openShopButton = function(){
 }
  
 function closeShop(){
-	
+	if(!$('#DonateShopPanel')) return
 	isopen = false
 	if(IsSelected){
 		IsSelected = false;
@@ -1425,25 +1425,9 @@ function FindChildTraverse(name){
     }
 })();
 
-// function getRandomInt(max) {
-// 	return Math.floor(Math.random() * Math.floor(max));
-// }
-// var allHeroes = [
-// 	{heroname : "BrewMaster", image : "asdfgsf/sdfsgdfg/sdf.png"},
-// 	{heroname : "BrewMaster2", image : "2asdfgsf/sdfsgdfg/sdf.png"},
-// 	{heroname : "BrewMaster3", image : "3asdfgsf/sdfsgdfg/sdf.png"},
-// 	{heroname : "BrewMaster4", image : "4asdfgsf/sdfsgdfg/sdf.png"},
-// 	{heroname : "BrewMaster5", image : "5asdfgsf/sdfsgdfg/sdf.png"},
-// 	{heroname : "BrewMaster6", image : "6asdfgsf/sdfsgdfg/sdf.png"},
-// ]
-
-// var rand1 = getRandomInt(allHeroes.length)
-// var rand2 = getRandomInt(allHeroes.length)
-// var rand3 = getRandomInt(allHeroes.length)
-// $.Msg('--------------')
-// $.Msg(allHeroes[rand1].heroname, ' ---------- ', allHeroes[rand1].image)
-// $.Msg(allHeroes[rand2].heroname, ' ---------- ', allHeroes[rand2].image)
-// $.Msg(allHeroes[rand3].heroname, ' ---------- ', allHeroes[rand3].image)
-
-
-// $("#panel").SetImage("file://{resources}/images/custom_game/ranks/image-" + i + ".png");
+(()=>{
+    $.RegisterForUnhandledEvent('Cancelled',() => {
+        closeRaiting()
+		closeShop()
+    })
+})();

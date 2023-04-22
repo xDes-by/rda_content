@@ -84,9 +84,11 @@
 
 
     <Panel class="root" hittest="false">
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/DonateShop/heros/marci.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-6.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-7.png"/>
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/DonateShop/heros/magnus.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_medusa/medusa_mystic_snake.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-6.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_medusa/str/sotr-talant-13.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-7.png"/>
 		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-8.png"/>
 		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-9.png"/>
 		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-10.png"/>

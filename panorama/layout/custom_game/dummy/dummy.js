@@ -4,6 +4,7 @@ function FindDotaHudElement(panel) {
 var dummy_index = null
 
 function open_quest_window(){
+    if(!FindDotaHudElement("center_bg").FindChildTraverse("dummy")) return
     var unit = Players.GetLocalPlayerPortraitUnit()
     if(Number(unit) == Number(dummy_index)){
         FindDotaHudElement("center_bg").FindChildTraverse("dummy").style.visibility = "visible"
