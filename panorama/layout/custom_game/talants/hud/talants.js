@@ -835,9 +835,12 @@ function opnShop(){
         
         $("#players_have").visible = false
     }else{
-        FindDotaHudElement("HeroAbilities").GetChild(4).visible = false;
-        FindDotaHudElement("HeroAbilities").GetChild(5).visible = false;
-        FindDotaHudElement("HeroAbilities").GetChild(0).visible = false
+        // FindDotaHudElement("HeroAbilities").GetChild(4).visible = false;
+        // FindDotaHudElement("HeroAbilities").GetChild(5).visible = false;
+        // FindDotaHudElement("HeroAbilities").GetChild(0).visible = false
+        // if(FindDotaHudElement("RightContainerMain")){
+        //     FindDotaHudElement("RightContainerMain").visible = false;
+        // }
     }
 
 })();

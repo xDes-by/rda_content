@@ -553,3 +553,30 @@ $.RegisterForUnhandledEvent('Cancelled',() => {
     $("#PetWindowMain").style.transform = "translate3d(0px, 300px, 0px)";
     $("#PetWindowMain").style.preTransformScale2d = "1";
 })
+
+var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
+
+
+function OnMouseEvent(eventType, clickBehavior) {
+	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE || clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_MOVE) {
+        let petPanel = $("#PetWindowMain")
+		if(petPanel){
+			let cursorPos = GameUI.GetCursorPosition();
+			let panelPos = petPanel.GetPositionWithinWindow();
+			let width = Number(petPanel.actuallayoutwidth)
+			let height = Number(petPanel.actuallayoutheight)
+			if (!(Number(panelPos.x) < cursorPos[0] && Number(panelPos.x) + width > cursorPos[0] && Number(panelPos.y) < cursorPos[1] && Number(panelPos.y) + height > cursorPos[1]))
+			{
+				isOpen = false
+                $("#PetWindowMain").style.opacity = "0";
+                $("#PetWindowMain").style.transform = "translate3d(0px, 300px, 0px)";
+                $("#PetWindowMain").style.preTransformScale2d = "1";
+			}
+		}
+    }
+}
+
+(function() {
+    // Update();
+    DotaHUD.ListenToMouseEvent(OnMouseEvent);
+})();

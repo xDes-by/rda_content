@@ -4,11 +4,15 @@
 		<include src="file://{resources}/styles/custom_game/rating.css" />
 		<include src="file://{resources}/styles/custom_game/DonateShop.css" />
 		<include src="file://{resources}/styles/custom_game/ChangeHero.css" />
+		<include src="file://{resources}/layout/custom_game/collection/collection.css" />
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/main.js" />
+		
 		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
+		<include src="file://{resources}/layout/custom_game/collection/collection_const.js" />
+		<include src="file://{resources}/layout/custom_game/collection/collection.js" />
+		<include src="file://{resources}/scripts/custom_game/main.js" />
 	</scripts>
     
 	<snippets>
@@ -80,20 +84,60 @@
 				</Panel>
 			</Panel>
 		</snippet>
+		<snippet name="TreasuresPreviewWrap">
+			<Panel class="TreasuresPreviewWrap" onactivate="">
+				<Panel id="TreasuresPreviewHeaderRoot">
+					<Panel id="PreviewParticleRoot" />
+					<Label id="TreasureName" html="true" text="Common Treasure" />
+					<Image id="TreasureImagePreview" src="s2r://" />
+				</Panel>
+				<Panel id="ItemsPreviewListRoot">
+					<Panel id="ItemsPreviewList" />
+					<Panel class="OverlayShadow_Bottom" hittest="false" />
+				</Panel>
+				<Panel id="PreviewButtons">
+					<Button id="Preview_OpenTreasure" class="AccessButtons">
+						<Label class="AccessText" text="#open_treasure" />
+					</Button>
+					<Button id="Preview_Cancel" class="AccessButtons">
+						<Label class="AccessText" text="#Close" />
+					</Button>
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="ItemCHC">
+			<Panel class="ItemCHC">
+				<Panel id="ItemBackground">
+					<Panel id="ItemOverlay" />
+					<Image id="ItemImage" />
+					<Label id="ItemCount" />
+					<Label id="ItemName" html="true" />
+					<Panel id="TextContentRoot" hittest="false">
+						<Label text="#barrages_example" hittest="false" />
+					</Panel>
+					<Panel id="ItemEquippedState" />
+					<Button id="TreasureShowInfo" onmouseover="DOTAShowTextTooltip('#tresure_preview_hint')" onmouseout="DOTAHideTextTooltip()" />
+				</Panel>
+				<Button id="ItemActionButton">
+					<Label id="ItemButtonText" />
+				</Button>
+			</Panel>
+		</snippet>
+		<snippet name="WheelWinParticle">
+			<Panel class="WheelWinParticle" style="width:100%;height:100%;" hittest="false">
+				<DOTAScenePanel class="WinNewPrize" camera="camera_default" particleonly="false" map="duel_win" hittest="false" />
+			</Panel>
+		</snippet>
 	</snippets>
 
 
     <Panel class="root" hittest="false">
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/DonateShop/heros/magnus.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/DonateShop/spray/1.png"/> -->
 		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_medusa/medusa_mystic_snake.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_axe/str/str-talant-6.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/bloodseeker_thirst.png"/> -->
 		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_medusa/str/sotr-talant-13.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-7.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-8.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-9.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-10.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-11.png"/>
-		<Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_magnataur/int/int-talant-12.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_huskar/agi/1.png"/> -->
+		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_huskar/agi/3.png"/> -->
 		
 		<Panel id = "Rating" class = "Rating" hittest = "false">
 			<Panel id='RatingPanel' class='RatingPanel'>
@@ -199,6 +243,9 @@
 						<Label id="smithy_green_label" class="smithy_gem_lable" text="1000" />
 					</Panel>
 				</Panel>
+				<Button id="ShopBuyGemsButton" class="ShopBuyGemsButton" onactivate="let o = opn(0) o()">
+					<Label id="ShopBuyGemsButton" text="#ShopBuyGemsLabel" />
+				</Button>
 				<Panel id = 'lowPanel' class='lowPanel'>
 					<Panel id="money_panel" class="money_panel">
 						<Panel class='DonateMoneyPanel' id='DonateMoneyPanel' onmouseover="TipsOver('gems','DonateMoneyPanel')" onmouseout="TipsOut()">
@@ -210,11 +257,15 @@
 							<Label class="DonateMoneyLabel" id="MMMRPointsLabel" text='0'/>
 						</Panel>
 					</Panel>
-					<!-- background-image: url("file://{resources}/images/custom_game/DonateShop/2.png");
-	background-size: 100% 100%; -->
-					<Panel class="DonateShopTabsPanel" id="DonateShopTabsPanel"/>
+					<Panel class="DonateShopTabsPanel" id="DonateShopTabsPanel">
+						<Panel id="TabPanel_Inventory" class="TabPanel TabPanelOnServ TabLabelOnServ tab-normal-style" onactivate="OpenInventory()">
+							<Panel id="TabLabelImg_Inventory" class="TabLabelImg"/>
+							<Label id="TabLabel_Inventory" class="TabLabel" text="#PanoramaShopInventoryTab" />
+						</Panel>
+					</Panel>
                     <Panel class="DonateShopContentPanel_bg" id="DonateShopContentPanel_bg"/>
 					<Panel class="DonateShopContentPanel" id="DonateShopContentPanel">
+						<Panel id="DonateShopContentPanel_Inventory" class="TabContent" style="flow-children:right-wrap;"></Panel>
 					</Panel>
 					<Panel id="discord">
 						<Button id="dis" onactivate="DOTADisplayURL('https://discord.gg/2B5KVM7ATR');">
@@ -260,6 +311,45 @@
 				</Panel>
 			</Panel>
 		</Panel>
+		<!-- Treasures -->
+		<Panel class="TreasuresWheelBackground">
+			<Panel id="TreasuresWheelWrap" onactivate="">
+				<Label id="SpinHeader" class="AdaptiveText_LightAndUpper BlueHeader" text="#spin_header" />
+				<Panel id="ChestIcon" />
+				<DOTAScenePanel id="ParticlePrize" class="Particle" camera="camera_glow" particleonly="false" map="collection/spin_glow" hittest="false" />
+				<Panel id="TreasuresWheel" />
+				<Label id="PrizeBorder" />
+				<DOTAScenePanel id="ParticleArrow" class="Particle" camera="camera_arrow" particleonly="false" map="collection/spin_glow" hittest="false" />
+				<Label id="SpinArrow" />
+				<Panel id="WheelParticle" hittest="false" />
+				<Button id="SkipSpin" class="AccessButtons" onactivate="SkipSpin()">
+					<Label class="AccessText" text="#spin_skip" />
+				</Button>
+				<Panel id="InfoAboutPrize" hittest="false">
+					<Panel id="PrizeInfo" hittest="false">
+						<Label class="WhiteText" text="#spin_received" />
+						<Label id="ItemRecived" class="GoldText" text="ITEM NAME" />
+						<Label class="WhiteText" text="!" />
+					</Panel>
+					<Panel id="DoubleGloryInfoWrap" hittest="false">
+						<Label id="DoubleGloryInfo" class="WhiteText" text="#duplicate_item_info" />
+						<Label id="DoubleGloryValue" class="GoldText" />
+						<Image id="DoubleGloryIcon" src="s2r://panorama/images/custom_game/collection/collection_coin_png.vtex" />
+						<Label id="DoubleGloryBack" class="WhiteText" text="#duplicate_item_back" />
+					</Panel>
+					<Panel id="PrizeButtons">
+						<Button id="SpinAgain" class="AccessButtons" onactivate="SpinAgain()">
+							<Label class="AccessText" text="#spin_again" />
+						</Button>
+						<Button id="CloseWheel" class="AccessButtons" onactivate="CloseWheelCHC()">
+							<Label class="AccessText" text="#spin_close" />
+						</Button>
+					</Panel>
+					<Label id="TreasuresLeft" class="PaymentInBrowser" text="#spin_treasures_left" />
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="TreasuresPreviewRoot" />
 		<!-- rating score -->
 		<Panel id="rating_info_panel" class="rating_info_panel">
 			<Panel id="rating_info_paadssdf23">

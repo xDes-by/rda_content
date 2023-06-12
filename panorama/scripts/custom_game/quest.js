@@ -51,28 +51,29 @@ function ActivateShop(t) {
 			i++;
 		}
 	}
-	if(name && false){
-		var availableQuest = searchQuestByName(name)
-		if(availableQuest){
-			butupdate = true
-			if($("#shopbuttonname")){
-				$("#shopbuttonname").text = $.Localize('#open')
-			}
-			if($('#shopbutton')){
-				$('#shopbutton').SetPanelEvent("onmouseactivate",showQuest(availableQuest, t))
-			}
-			if($("#shopbuttonhud")){
-				//$("#shopbuttonhud").text = $.Localize('open')
-				$('#shopbuttonhud').RemoveClass('hide_button')
-				$('#shopbuttonhud').AddClass('show_button')
-				$("#shopbuttonhud").visible = true
-			}
-			$.Msg(t.index)
-			//UpdateButtonInWorld(t.index)
+	if(name && searchQuestByName( name )){
+		open_quest_window(t)
+		// var availableQuest = searchQuestByName(name)
+		// if(availableQuest){
+		// 	butupdate = true
+		// 	if($("#shopbuttonname")){
+		// 		$("#shopbuttonname").text = $.Localize('#open')
+		// 	}
+		// 	if($('#shopbutton')){
+		// 		$('#shopbutton').SetPanelEvent("onmouseactivate",showQuest(availableQuest, t))
+		// 	}
+		// 	if($("#shopbuttonhud")){
+		// 		//$("#shopbuttonhud").text = $.Localize('open')
+		// 		$('#shopbuttonhud').RemoveClass('hide_button')
+		// 		$('#shopbuttonhud').AddClass('show_button')
+		// 		$("#shopbuttonhud").visible = true
+		// 	}
+		// 	$.Msg(t.index)
+		// 	//UpdateButtonInWorld(t.index)
 			
-			//pan.style.position = uixp + '% ' + uiyp + '% 0'
+		// 	//pan.style.position = uixp + '% ' + uiyp + '% 0'
 			
-		}
+		// }
 	}
 }
 
@@ -80,6 +81,8 @@ var showQuest = (function(availableQuest, t)
 {
 	return function()
 	{
+		$.Msg(availableQuest)
+		$.Msg(t)
 		$("#questScrollPanel").visible = true
 		$("#basepanel").visible = false
 		Game.EmitSound('Shop.Available')
@@ -512,7 +515,6 @@ function open_quest_window(index){
 
 function open_base_panel(name, unit){
 	var availableQuest = searchQuestByName(name)
-	//$.Msg(availableQuest)
 	if(availableQuest){
 		$("#tasks_nichego_net").visible = false
 		$.Msg('print_1')

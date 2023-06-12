@@ -59,8 +59,9 @@ function LoopVectorTarget( effect_cast, ability, location ) {
 	Particles.ReleaseParticleIndex( effect_cast );
 }
 
+var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 function Init() {
-	GameUI.SetMouseCallback( function( eventName, arg ) {
+	DotaHUD.ListenToMouseEvent(function( eventName, arg ) {
 		var CONSUME_EVENT = true;
 		var CONTINUE_PROCESSING_EVENT = false;
 
@@ -131,7 +132,7 @@ function Init() {
 			return CONTINUE_PROCESSING_EVENT;
 		}
 		return CONTINUE_PROCESSING_EVENT;
-	} );
+	});
 }
 
 // Helper

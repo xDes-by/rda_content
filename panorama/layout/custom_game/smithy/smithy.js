@@ -340,6 +340,30 @@ var TipsOut2 = (function()
     })
 })();
 
+var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
+
+
+function OnMouseEvent(eventType, clickBehavior) {
+	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE || clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_MOVE) {
+        let smithyPanel = $('#smithy_main_window_panel')
+		if(smithyPanel){
+			let cursorPos = GameUI.GetCursorPosition();
+			let panelPos = smithyPanel.GetPositionWithinWindow();
+			let width = Number(smithyPanel.actuallayoutwidth)
+			let height = Number(smithyPanel.actuallayoutheight)
+			if (!(Number(panelPos.x) < cursorPos[0] && Number(panelPos.x) + width > cursorPos[0] && Number(panelPos.y) < cursorPos[1] && Number(panelPos.y) + height > cursorPos[1]))
+			{
+				close()
+			}
+		}
+    }
+}
+
+(function() {
+    // Update();
+    DotaHUD.ListenToMouseEvent(OnMouseEvent);
+})();
+
 (function(){
     
     if($("#smithy_main_item_panel")){

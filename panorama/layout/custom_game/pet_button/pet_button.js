@@ -53,7 +53,7 @@ function UpdatePetIcon(){
 	// button_text.text = keybind_courier
 	
 	var spray = CustomNetTables.GetTableValue( "player_pets", playerID);
-	const spray_icon = FindDotaHudElement("CustomAbility_spray_custom");
+	const spray_icon = FindDotaHudElement("CustomAbility_pet_custom");
 	spray_icon
 		.FindChildTraverse("CosmeticAbilityImage")
 		.SetImage( "file://{images}/custom_game/pet_buttons/"+spray.pet+".png" );
@@ -90,19 +90,19 @@ function CtrlTimer(){
 (function() {
 	const centerBlock = FindDotaHudElement("center_block");
 	let cosmetics = centerBlock.FindChildTraverse("BarOverItems");
-
+	
 	if (cosmetics) {
 		cosmetics.DeleteAsync(0);
 	}
 
-	const ability = $.CreatePanel("Button", FindDotaHudElement("BarOverItems"), "CustomAbility_spray_custom");
+	const ability = $.CreatePanel("Button", FindDotaHudElement("BarOverItems"), "CustomAbility_pet_custom");
 	ability.BLoadLayoutSnippet("CosmeticAbility");
 	
 	if (!cosmetics) {
 		$("#BarOverItems").SetParent(centerBlock);
 	}
 
-	const spray = FindDotaHudElement("CustomAbility_spray_custom");
+	const spray = FindDotaHudElement("CustomAbility_pet_custom");
 	spray
 		.FindChildTraverse("CosmeticAbilityImage")
 		.SetImage( "file://{images}/custom_game/spray_no_empty.png" );

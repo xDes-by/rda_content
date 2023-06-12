@@ -32,11 +32,14 @@
 }
 .TabPanel{
 	width:160px;
-	height:40px;
+	height:35px;
 	border-top-left-radius:6px;
 	border-bottom-left-radius:6px;
 	margin-top: 10px;
 	horizontal-align:center;
+	background-color: #1c3847;
+	border-radius: 5px;
+	border: 1px solid orangered;
 }
 .TabPanelOnServ:hover{
 	brightness:1.5;
@@ -59,8 +62,12 @@
 }
 .TabContent{
 	width:100%;
-	flow-children:down;
+	flow-children:right-wrap;
 	padding-bottom: 10px;
+}
+.ShopItemCheckBox{
+	margin-top: 10px;
+	align: right top;
 }
 .horizontal_panel{
 	width:100%;
@@ -99,10 +106,13 @@
 	height:220px;
 	margin-left:10px;
 	margin-top:10px;
+	background-color: #1c3847;
+	border-radius: 5px;
+	border: 2px solid orangered;
 }
 
 .DonateShopItem{
-	margin-left:11px;
+	horizontal-align: center;
 	margin-top:10px;
 	width:159px;
 	height:118px;
@@ -110,7 +120,8 @@
 	border-radius:5px;
 	background-size:100%;
 	z-index: 1;
-	border-radius: 24px;
+	border-radius: 10px;
+	border:1px solid orangered;
 }
 #DonateShopItemLabel_c{
 	width: 100%;
@@ -135,11 +146,41 @@
 	margin-bottom:10px;
 	border-radius:10px;
 }
+.DonateShopItemButtonInTreasuries{
+	width:160px;
+	height:35px;
+	margin-left:10px;
+	vertical-align:bottom;
+	margin-bottom:10px;
+	border-radius:10px;
+}
+.DonateShopItemButtonSell{
+	width:140px;
+	height:35px;
+	vertical-align:bottom;
+	horizontal-align: center;
+	margin-bottom:95px;
+	border-radius:10px;
+	flow-children: right;
+	z-index: 2;
+}
 #buy_line_pn{
 	height:100%;
-	width:100%;
 	flow-children:right;
 	z-index: 100;
+	horizontal-align: center;
+}
+.shop_button_price_container{
+	width: 50%;
+	height: 100%;
+}
+.shopButtonImgAndText_2{
+	flow-children: right;
+	vertical-align: center;
+	horizontal-align: center;
+}
+.shopButtonImgAndText_2 Label{
+	font-size: 20;
 }
 .DonateMoneyLogoButton{
 	width:35px;
@@ -155,6 +196,30 @@
 	margin-bottom:10px;
 	border-radius:10px;
 }
+.DonateShopItemButtonHas, .DonateShopItemButtonGived, .DonateShopItemButtonActive, .DonateShopItemButtonBuy, .DonateShopItemButtonInTreasuries, .DonateShopItemButtonSell{
+	border:1px solid rgba(255, 68, 0, 0.562);
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
+}
+#ShopBuyGemsButton{
+	height: 50px;
+	width: 120px;
+	border:1px solid rgba(255, 68, 0, 0.562);
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
+	margin-top: 65px;
+	margin-right: 55px;
+	horizontal-align: right;
+	border-radius: 5px;
+}
+#ShopBuyGemsButton Label{
+	color:white;
+	width: 100%;
+	text-align: center;
+	vertical-align: center;
+}
+#ShopBuyGemsButton:hover #ShopBuyGemsButtonLabel{
+	color:gold;
+	font-size: 19;
+}
 .DonateShopItemButtonLabel{
     /* font-family: "Courier"; */
 	color:gold;
@@ -164,6 +229,28 @@
 	vertical-align:center;
 	text-align:center;
 	font-weight: bold;
+}
+.DonateShopItemButtonPreviewLabel{
+    /* font-family: "Courier"; */
+	color:gold;
+	font-size:22px;
+	width:100%;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	vertical-align:center;
+	text-align:center;
+	font-weight: bold;
+}
+.DonateShopItemButtonSellLabel{
+	color:gold;
+	font-size:16px;
+	text-shadow: 2px 2px 8px 3.0 #333333b0;
+	vertical-align:center;
+	font-weight: bold;
+}
+.DonateShopItemButtonSellImg{
+	height: 25px;
+	width: 25px;
+	vertical-align: center;
 }
 .DonateMoneyPanel{
 	margin-top: 4px;
@@ -262,9 +349,12 @@
 }
 .DonateShopItem2{
 	width:180px;
-	height:280px;
+	height:255px;
 	margin-left:10px;
 	margin-top:10px;
+	background-color: #1c3847;
+	border:3px solid orangered;
+	border-radius: 5px;
 }
 .consumablesCoutPanel{
 	width:160px;
@@ -277,19 +367,43 @@
 	width:160px;
 	height:30px;
 	margin-left:10px;
-	margin-top:205px;
+	margin-top:175px;
 	border-radius:10px;
+	border:1px solid rgba(255, 68, 0, 0.562);
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
+}
+.DonateShopItemButtonPreview{
+	width:160px;
+	height:30px;
+	margin-left:10px;
+	margin-top:175px;
+	border-radius:10px;
+	border:1px solid rgba(255, 68, 0, 0.562);
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
 }
 .DonateShopItemButtonHasCon{
 	width:160px;
 	height:30px;
 	margin-left:10px;
-	margin-top:240px;
+	margin-top:210px;
 	border-radius:10px;
+	border:1px solid rgba(255, 68, 0, 0.562);
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
 }
+
 .shopButtonImg{
 	width:31px;
 	height:80%;
+	margin-top:10%;
+}
+#shopButtonImg_2{
+	width:25px;
+	height:25px;
+	margin-top:10%;
+}
+#shopButtonImg2_2{
+	width:25px;
+	height:23px;
 	margin-top:10%;
 }
 .shopButtonImgAndText{
@@ -317,15 +431,30 @@
 	margin-right:5px;
 	font-weight: bold;
 }
+.DonateShopItemButtonLabelStockPanel{
+	height: 30px;
+	width: 30px;
+	border-radius: 20px;
+	border:3px solid black;
+	margin-left: 5px;
+	margin-top: 5px;
+	background-color: #333333b0;
+	padding: 0;
+}
 .DonateShopItemButtonLabelStock{
 	color:white;
-	font-size:19px;
-	width:100%;
+	font-size:17px;
     /* font-family: "Courier"; */
+	font-weight: bold;
 	margin-top:1px;
 	text-shadow: 2px 2px 8px 3.0 #333333b0;
-	vertical-align:center;
+	vertical-align:top;
 	text-align:center;
+	width: 100%;
+	vertical-align: center;
+	text-align: center;
+	padding: 0;
+	margin: 0;
 }
 .BuyControl{
 	vertical-align:center;
@@ -481,6 +610,28 @@
 	/* font-family: "Courier"; */
 	font-weight: bold;
 }
+.DonateShopItemButtonInTreasuries:hover .DonateShopItemButtonInTreasuriesLabel{
+	font-size: 20px;
+    /* font-family: "Courier"; */
+	color: rgb(216, 113, 29);
+}
+.DonateShopItemButtonInTreasuriesLabel{
+	/* text-transform: uppercase; */
+	color:#e0c215;
+	font-size:18px;
+	width:100%;
+	margin-top:1px;
+	text-shadow: 2px 2px 8px 2.0 #333333b0;
+	vertical-align:center;
+	text-align:center;
+	/* font-family: "Courier"; */
+	font-weight: bold;
+}
+.DonateShopItemButtonSell:hover .DonateShopItemButtonSellLabel{
+	font-size: 17px;
+    /* font-family: "Courier"; */
+	color: rgb(216, 113, 29);
+}
 .DonateShopItemButtonLabelGived{
 	color:#d5bdd5;
     /* font-family: "Courier"; */
@@ -546,12 +697,12 @@
     /* font-family: "Courier"; */
 	font-size:23px;
 }
-.DonateShopItemButtonHas:hover .DonateShopItemButtonLabel, .DonateShopItemButtonBuyCon:hover .DonateShopItemButtonLabel{
+.DonateShopItemButtonHas:hover .DonateShopItemButtonLabel, .DonateShopItemButtonBuyCon:hover .DonateShopItemButtonLabel, .DonateShopItemButtonPreview:hover .DonateShopItemButtonPreviewLabel{
 	color:#ff8a00;
     /* font-family: "Courier"; */
 	font-size:23px;
 }
-#shopButtonImgAndText1:hover #DonateShopItemButtonLabelNotAlign1, #shopButtonImgAndText2:hover #DonateShopItemButtonLabelNotAlign2, #DonateShopItemButtonHasCon:hover #DonateShopItemButtonLabelNotAlign{
+#shopButtonImgAndText1:hover #DonateShopItemButtonLabelNotAlign1, #shopButtonImgAndText2:hover #DonateShopItemButtonLabelNotAlign2{
 	color:#f5a23f;
     /* font-family: "Courier"; */
 	font-size:23px;
@@ -677,7 +828,7 @@
 	horizontal-align: right;
 	margin-top: 50px;
 	flow-children:right;
-	margin-right: 50px;
+	margin-right: 90px;
 }
 .smithy_gem_image{
 	height: 60px;

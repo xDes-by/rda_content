@@ -10,19 +10,19 @@
 	<Panel class = "root" hittest="false">
 
         <Panel id="talant_root" class="talant_root">
-            <DOTAScenePanel class = "panel_bg" map="scene2" light="light_1" camera="camera_1" particleonly="false" hittest="false"/>
+            <DOTAScenePanel id="panel_bg" class = "panel_bg" map="scene2" light="light_1" camera="camera_1" particleonly="false" hittest="true" onmouseactivate="close()" />
             <!-- <DOTAScenePanel id='hero_scen_panel' class='HeroScenePanel' style='width:800px;height:800px;margin-right:10px;' unit='' particleonly='false' allowrotation='true' /> -->
 
             <Panel class="smoke_movie_panel" />
 
-            <Panel id="talant_tree_panel" class="talant_tree_panel">
+            <Panel id="talant_tree_panel" class="talant_tree_panel" onmouseactivate="">
                 
                 <Image class='talante_bg_image_panel' id='talante_bg_image_panel' src="file://{resources}/images/custom_game/talants/tree5.png" />
                 <Panel id="talant_tree_images_panel" class="talant_tree_images_panel"/>
 
             </Panel>
 
-            <Panel id="description_panel" class="description_panel">
+            <Panel id="description_panel" class="description_panel" onmouseactivate="">
                 <Panel id="description_gradient_border_out" class="description_gradient_border_out">
                     <Image class='background-image-description' id='background-image-description' src="file://{resources}/images/custom_game/talants/111.png" />
                     <Image class='talant_img_description' id='talant_img_description' src="" />
@@ -41,7 +41,7 @@
                 </Panel>
             </Panel>
 
-            <Panel id="progress_line_panel" class="progress_line_panel">
+            <Panel id="progress_line_panel" class="progress_line_panel" onmouseactivate="">
                 <Panel id="exp_line_container" class="exp_line_container">
                     <Panel id="blue_line_panel" class="blue_line_panel">
                         <DOTAScenePanel id="top_burner" class="SceneLoaded" map="maps/scenes/hud/healthbarburner.vmap" camera="camera_1" />
@@ -67,7 +67,7 @@
 
             </Panel>
             <Image class='openbtn' id='openbtn' onmouseactivate="opnShop();" src="file://{resources}/images/custom_game/talants/btnmore.png" />
-            <Panel id="talant-2nd-window" class="talant-2nd-window">
+            <Panel id="talant-2nd-window" class="talant-2nd-window" onmouseactivate="">
                 <Image class='' id='talant-bg-img-shop' src="file://{resources}/images/custom_game/talants/2ws.png" />
                 <Panel id="player-state" class="player-state">
                     <Panel id="" class="state">

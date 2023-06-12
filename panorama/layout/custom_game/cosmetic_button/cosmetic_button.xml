@@ -1,0 +1,34 @@
+<root>
+	<styles>
+		<include src="file://{resources}/layout/custom_game/cosmetic_button/cosmetic_button.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/cosmetic_button/cosmetic_button.js" />
+	</scripts>
+	<snippets>
+		<snippet name="CosmeticAbility">
+			<Button id="CosmeticAbility" class="CosmeticAbility" onactivate="OnClickSpray('spray')">
+				<Image id="CosmeticAbilityImage" />
+				<Label class="CosmeticAbility_text" id="CosmeticAbility_text" text="" />
+				<Label class="CosmeticAbility_text2" id="CosmeticAbility_text2" text="Ctrl+X" />
+			</Button>
+		</snippet>
+		<snippet name="CosmeticAbility2">
+			<Button id="CosmeticAbility2" class="CosmeticAbility2" onactivate="OnClickSpray('highfive')">
+				<Image id="CosmeticAbilityImage" />
+				<Label class="CosmeticAbility_text" id="CosmeticAbility_text" text="" />
+				<Label class="CosmeticAbility_text2" id="CosmeticAbility_text2" text="Ctrl+Z" />
+			</Button>
+		</snippet>
+		<snippet name="CosmeticAbility3">
+			<Button id = "CosmeticAbility3" class="CosmeticAbility3" onactivate="OnClickSpray('pet')">
+				<Image id="CosmeticAbilityImage" />
+				<Label class="CosmeticAbility_text" id="CosmeticAbility_text" text="" />
+				<Label class="CosmeticAbility_text2" id="CosmeticAbility_text2" text="Ctrl" />
+			</Button>
+		</snippet>
+	</snippets>
+	<Panel style="width:100%;height:100%;" hittest="false">
+		<Panel id="BarOverItems" hittest="false" />
+	</Panel>
+</root>

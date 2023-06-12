@@ -1,5 +1,6 @@
 <root>
 	<styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/DonateShop.css" />
 	</styles>
 	<Panel class = "DonateShopItem1">
@@ -7,14 +8,16 @@
 
 		<DOTAItemImage id='DonateShopItem' class="DonateShopItem" hittest="true" itemname="">
 			<Image id='DonateShopImg' class="DonateShopImg" src=""/>
+			<Panel id="DonateShopItemButtonLabelStockPanel" class="DonateShopItemButtonLabelStockPanel">
+				<Label id ='DonateShopItemButtonLabelStock' class="DonateShopItemButtonLabelStock" text='50'/>
+			</Panel>
+			<ToggleButton id="ShopItemCheckBox" class="ShopItemCheckBox" text="" />
 		</DOTAItemImage>
-		<Image id='' class="shop_modul_bg" src="file://{resources}/images/custom_game/DonateShop/shop_modul_bg_1.png"/>
 		<Panel id='DonateShopItemLabel_c'>
 			<Label id = "DonateShopItemLabel" class="DonateShopItemLabel" text='Аганим'/>
 		</Panel>
 
 		<Panel id = 'DonateShopItemButtonBuy' class="DonateShopItemButtonBuy">
-			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
 			<Panel id="buy_line_pn" >
 				<Panel id="shop_button_price_container_don" class="">
 					<Panel class='shopButtonImgAndText' id='shopButtonImgAndText1'>
@@ -32,15 +35,21 @@
 		</Panel>
 		<Panel id = "DonateShopItemButtonHas" class="DonateShopItemButtonHas">
 			<Label id = 'DonateShopItemButtonLabel' class="DonateShopItemButtonLabel" text='#taik'/>
-			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
 		</Panel>
 		<Panel id = "DonateShopItemButtonGived" class="DonateShopItemButtonGived">
 			<Label id = 'DonateShopItemButtonLabelGived' class="DonateShopItemButtonLabelGived" text='#taik'/>
-			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
 		</Panel>
 		<Panel id = "DonateShopItemButtonActive" class="DonateShopItemButtonActive">
 			<Label id = 'DonateShopItemButtonLabelActive' class="DonateShopItemButtonLabelActive" text='Выдано'/>
-			<Image class='buy_btn_bg' id='' src="file://{resources}/images/custom_game/DonateShop/0.png" />
+		</Panel>
+		<Panel id = "DonateShopItemButtonInTreasuries" class="DonateShopItemButtonInTreasuries">
+			<Label id = 'DonateShopItemButtonInTreasuriesLabel' class="DonateShopItemButtonInTreasuriesLabel" text='#InTreasuriesLabel'/>
+		</Panel>
+		<Panel id = "DonateShopItemButtonSell" class="DonateShopItemButtonSell">
+			<Panel style="flow-children:right; align: center center; height:100%;">
+				<Label id='DonateShopItemButtonSellLabel' class="DonateShopItemButtonSellLabel" text='Продать за 10'/>
+				<Image class='DonateShopItemButtonSellImg' id='DonateShopItemButtonSellImg' src="file://{resources}/images/custom_game/DonateShop/protection_mini.png" />
+			</Panel>
 		</Panel>
 	</Panel>
 </root>

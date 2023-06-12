@@ -28,7 +28,8 @@
 			</Panel>
 		</snippet>
 	</snippets>
-	<Panel class="endboard">
+	<Panel class="HUDRoot">
+		<!-- <Panel id="endboard" class="">
 			<Label id="victoryText" text="victory" onload="showEndScreen()"/>
 			<Button id="CloseButton" onactivate="Game.FinishGame();">
 				<Label text="#CustomEndScreenClose" />
@@ -45,5 +46,28 @@
 			</Panel>
 			<Panel class="players" id="players">
 			</Panel>
+		</Panel> -->
+		<Panel id="endboardContainer" class="" onload="showEndScreen()">
+			<Panel id="endboard" class="">
+				<Label id="victoryText" text="victory" />
+				<Panel class="help">
+					<Label class="name" text="#Name"></Label>
+					<Label class="items" text="#Items"></Label>
+					<Label class="healboard" text="#Healed"></Label>
+					<Label class="dmgboard" text="#Physical"></Label>
+					<Label class="magboard" text="#Magic"></Label>
+					<Label class="pureboard" text="#Pure"></Label>
+					<Label class="takenboard" text="#Taken"></Label>
+					<Label class="invokerdamage" text="#invoker"></Label>
+				</Panel>
+				<Panel class="players" id="players">
+				</Panel>
+			</Panel>
+			<!-- <Panel id="EndButtonsContainer" class="">
+				<Button id="EndButton2" class="ButtonBevel ESCMenuButton" onactivate="ContinueButton()">
+					<Label text="#Panorama_Tooltip_Continue" />
+				</Button>
+			</Panel> -->
 		</Panel>
+	</Panel>
 </root>

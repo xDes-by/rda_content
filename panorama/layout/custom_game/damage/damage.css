@@ -120,14 +120,55 @@
 .hidden{
 	transform: translateY(-1000px);
 }
-
-.endboard{
+#endboardContainer{
 	align: center center;
+	flow-children: down;
+}
+#endboard{
 	min-height: 100px;
 	width: 1500px;
 	background-image: url("s2r://panorama/images/hud/reborn/bg_hud_inspect_psd.vtex");
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+#EndButtonsContainer{
+	margin-top: 20px;
+	height: 50px;
+	horizontal-align: center;
+	flow-children: right;
+}
+#EndButton1, #EndButton2{
+	height: 100%;
+	margin: 0 50px;
+}
+.ButtonBevel {
+    width: 270px;
+    min-width: 192px;
+    min-height: 36px;
+    
+    margin-top: 8px;
+    margin-bottom: 6px;
+    
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
+    border-style: solid;
+    border-width: 1px;
+    
+    padding: 4px 10px;
+    
+    border-top-color: #555555;
+    border-left-color: #494949;
+    border-bottom-color: #333333;
+    border-right-color: #404040;
+    
+    transition-property: background-color;
+    transition-duration: 0.05s;
+    transition-timing-function: linear;
+    box-shadow: #00000055 -2px -2px 4px 4px;
+}
+.ESCMenuButton {
+    margin-top: 8px;
+    margin-bottom: 6px;
+    width: 270px;
 }
 #CloseButton{
 	box-shadow: #000000aa 0px 0px 5px 0px;
@@ -196,7 +237,6 @@
 	width: 100%;
 	flow-children: right;
 	margin-top: 45px;
-	//background-color: red;
 }
 .help Label{
 	color:grey;
@@ -207,7 +247,6 @@
 .help .items{
 	width: 250px;
 	text-align: center;
-	//background-color: red;
 }
 .help .healboard{
 	width: 150px;

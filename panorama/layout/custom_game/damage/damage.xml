@@ -26,10 +26,29 @@
                 </Panel>
             </Panel>
 		</snippet>
+		<snippet name="playerrow">
+			<Panel class="playerrow">
+				<DOTAAvatarImage id="playerAvatar" class="playerAvatar" steamid="local" />
+				<Label id="heronameboard" class="heronameboard" text="Faceless Void 5 lvl"></Label>
+				<Panel class="items">
+					<DOTAItemImage id="slot0" itemname="" />
+					<DOTAItemImage id="slot1" itemname="" />
+					<DOTAItemImage id="slot2" itemname="" />
+					<DOTAItemImage id="slot3" itemname="" />
+					<DOTAItemImage id="slot4" itemname="" />
+					<DOTAItemImage id="slot5" itemname="" />
+				</Panel>
+				<Label id="healboard" class="healboard death" text="0"></Label>
+				<Label id="dmgboard" class="dmgboard death" text="0"></Label>
+				<Label id="magboard" class="magboard death" text="0"></Label>
+				<Label id="pureboard" class="pureboard death" text="0"></Label>
+				<Label id="takenboard" class="takenboard death" text="0"></Label>
+				<Label id="invokerdamageboard" class="invokerdamageboard death" text="0"></Label>
+			</Panel>
+		</snippet>
 	</snippets>
-	<Image id="ban"/>
 	<Panel class="HUDRoot" hittest="false">
-	
+		<Image id="ban"/>
 		<Panel id="button_show">
 			<Button id="show_damage" onactivate="ShowDamage()">
 				<Label class="show_damage" id="accepttext" text="#damage_table" />
@@ -43,19 +62,29 @@
 			</Panel>
 		</Panel>
 		<Panel id="heroinfo" class="dmgPanel">
-			<!-- <Panel class="heroinfo">
-				<Label class="heroname" text="#npc_dota_hero_templar_assassin"></Label>
-				<Panel class="left">
-					<Label class="heal" text="Heal:"></Label>
-					<Label class="dmg" text="Dmg:"></Label>
-					<Label class="tank" text="Taked:"></Label>
+
+		</Panel>
+		<Panel id="endboardContainer" class="">
+			<Panel id="endboard" class="">
+				<Label id="victoryText" text="victory" />
+				<Panel class="help">
+					<Label class="name" text="#Name"></Label>
+					<Label class="items" text="#Items"></Label>
+					<Label class="healboard" text="#Healed"></Label>
+					<Label class="dmgboard" text="#Physical"></Label>
+					<Label class="magboard" text="#Magic"></Label>
+					<Label class="pureboard" text="#Pure"></Label>
+					<Label class="takenboard" text="#Taken"></Label>
+					<Label class="invokerdamage" text="#invoker"></Label>
 				</Panel>
-				<Panel class="right">
-					<Label id="heal" text="1000"></Label>
-					<Label id="dmg" text="1000"></Label>
-					<Label id="tank" text="1000"></Label>
+				<Panel class="players" id="players">
 				</Panel>
-			</Panel> -->
+			</Panel>
+			<Panel id="EndButtonsContainer" class="">
+				<Button id="EndButton2" class="ButtonBevel ESCMenuButton" onactivate="ContinueButton()">
+					<Label text="#Panorama_Tooltip_Continue" />
+				</Button>
+			</Panel>
 		</Panel>
 	</Panel>
 </root>
