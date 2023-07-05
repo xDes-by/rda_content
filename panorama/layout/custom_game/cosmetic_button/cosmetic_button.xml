@@ -10,14 +10,14 @@
 			<Button id="CosmeticAbility" class="CosmeticAbility" onactivate="OnClickSpray('spray')">
 				<Image id="CosmeticAbilityImage" />
 				<Label class="CosmeticAbility_text" id="CosmeticAbility_text" text="" />
-				<Label class="CosmeticAbility_text2" id="CosmeticAbility_text2" text="Ctrl+X" />
+				<Label class="CosmeticAbility_text2" id="CosmeticAbility_text2" text="" />
 			</Button>
 		</snippet>
 		<snippet name="CosmeticAbility2">
 			<Button id="CosmeticAbility2" class="CosmeticAbility2" onactivate="OnClickSpray('highfive')">
 				<Image id="CosmeticAbilityImage" />
 				<Label class="CosmeticAbility_text" id="CosmeticAbility_text" text="" />
-				<Label class="CosmeticAbility_text2" id="CosmeticAbility_text2" text="Ctrl+Z" />
+				<Label class="CosmeticAbility_text2" id="CosmeticAbility_text2" text="" />
 			</Button>
 		</snippet>
 		<snippet name="CosmeticAbility3">

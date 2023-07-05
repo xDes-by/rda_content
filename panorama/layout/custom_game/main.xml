@@ -2,31 +2,29 @@
 	
 	<styles>
 		<include src="file://{resources}/styles/custom_game/rating.css" />
-		<include src="file://{resources}/styles/custom_game/DonateShop.css" />
+		<include src="file://{resources}/styles/custom_game/RDAShop.css" />
 		<include src="file://{resources}/styles/custom_game/ChangeHero.css" />
 		<include src="file://{resources}/layout/custom_game/collection/collection.css" />
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 	<scripts>
-		
 		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection_const.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection.js" />
 		<include src="file://{resources}/scripts/custom_game/main.js" />
+    	<include src="file://{resources}/scripts/custom_game/ChangeHero.js" />
 	</scripts>
     
 	<snippets>
 		<snippet name="SnippetName">
 			<Panel id="" class="RatingSeasonBox">
 				<Panel id="" class="RatingSeasonLine1Panel">
-					<!-- <Image class="RatingSeasonImage" src="file://{resources}/images/custom_game/rating/seasons/1.png"/> -->
 					<Panel id="" class="RatingSeasonLine1LabelPanel">
 						<Panel id="" class="season_container">
 							<Label id="rait_season_id_1" class="RatingSeasonLine1Label1" text='#SEASON'/>
 							<Label id="rait_season_id_2" class="RatingSeasonLine1Label1" text='3'/>
 						</Panel>
 						<Panel id="" class="season_container">
-							<!-- <Label id="rait_season_id_3" class="RatingSeasonLine1Label1 RatingSeasonLine1Label2" text='1-31'/> -->
 							<Label id="rait_season_id_4" class="RatingSeasonLine1Label1 RatingSeasonLine1Label2" text='#AUGUST'/>
 						</Panel>
 					</Panel>
@@ -86,6 +84,7 @@
 		</snippet>
 		<snippet name="TreasuresPreviewWrap">
 			<Panel class="TreasuresPreviewWrap" onactivate="">
+				<Image id="CloseTreasuresPreviewWrap" class="" src="file://{images}/custom_game/ChangeHero/close.png"/>
 				<Panel id="TreasuresPreviewHeaderRoot">
 					<Panel id="PreviewParticleRoot" />
 					<Label id="TreasureName" html="true" text="Common Treasure" />
@@ -132,19 +131,19 @@
 
 
     <Panel class="root" hittest="false">
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/DonateShop/spray/1.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_medusa/medusa_mystic_snake.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_bloodseeker/str/bloodseeker_thirst.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_medusa/str/sotr-talant-13.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_huskar/agi/1.png"/> -->
-		<!-- <Image id="" class="" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_huskar/agi/3.png"/> -->
 		
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/heros/silencer.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/1.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/2.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/3.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/4.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_award.png"/> -->
+
 		<Panel id = "Rating" class = "Rating" hittest = "false">
 			<Panel id='RatingPanel' class='RatingPanel'>
 				<Panel id='RatingHeader' class='RatingHeader'>
 					<Panel id = "RatingCloseButton" class = "RatingCloseButton" onmouseactivate="closeRaiting()" onmouseover="TipsOver('close','RatingCloseButton')" onmouseout="TipsOut()">
 						<Image id="RatingCloseButtonIcon" class = "RatingCloseButtonIcon" src="file://{resources}/images/custom_game/pet/close.png"/>
-						<!-- <Label id = 'RatingCloseButtonText' class="RatingCloseButtonText" text='#close'/> -->
 					</Panel>
 					<Panel id="RatingMenuPanel" class="RatingMenuPanel">
 						<Panel id="RatingVkladkaPlayerRank" class = "RatingVkladkaPlayerRank" onmouseactivate="openRaiting('team')">
@@ -184,17 +183,17 @@
 			</Panel>
 		</Panel>
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/rating/Rating1.png"/> -->
 		
 		
-		<Panel id = "donateShop" class = "donateShop" hittest = "false">
+		<Panel id = "RDAShop" class = "RDAShop" hittest = "false">
+		
 			<Panel id="openShopPanelLabel" class="openShopPanelLabel" hittest = 'false'>
 				<Panel class = "RatingCloseButton1">
 					<Label class="openShopLabel" id="openShopLabel" text='#open' onmouseactivate="specialOpnBut()"/>
 				</Panel>
 			</Panel>
-			<Panel class="DonateShopPanel" id="DonateShopPanel">
-				<Image id="osnovnoi_logo" class = "" src="file://{resources}/images/custom_game/DonateShop/osnovnoi_logo.png"/>
+			<Panel class="RDAShopPanel" id="RDAShopPanel">
+				<Image id="osnovnoi_logo" class = "" src="file://{resources}/images/custom_game/RDAShop/osnovnoi_logo.png"/>
 				<Panel id="accept_shadow" hittest='false'/>
 				<Panel id = "RatingCloseButton1" class = "RatingCloseButton1" onmouseactivate="closeShop()" onmouseover="TipsOver('close','RatingCloseButton1')" onmouseout="TipsOut()">
 					<Image id="RatingCloseButtonIcon" class = "RatingCloseButtonIcon" src="file://{resources}/images/custom_game/pet/close.png"/>
@@ -243,29 +242,29 @@
 						<Label id="smithy_green_label" class="smithy_gem_lable" text="1000" />
 					</Panel>
 				</Panel>
-				<Button id="ShopBuyGemsButton" class="ShopBuyGemsButton" onactivate="let o = opn(0) o()">
-					<Label id="ShopBuyGemsButton" text="#ShopBuyGemsLabel" />
+				<Button id="ShopBuyGemsButton" class="ShopBuyGemsButton" onactivate="OpenBuyGens()">
+					<Label id="ShopBuyGemsButtonLabel" text="#ShopBuyGemsLabel" />
 				</Button>
 				<Panel id = 'lowPanel' class='lowPanel'>
 					<Panel id="money_panel" class="money_panel">
-						<Panel class='DonateMoneyPanel' id='DonateMoneyPanel' onmouseover="TipsOver('gems','DonateMoneyPanel')" onmouseout="TipsOut()">
-							<Image class='DonateMoneyLogo3' id='DonateMoneyLogo' src="file://{resources}/images/custom_game/DonateShop/money_logo_3_mini.png" />
-							<Label class="DonateMoneyLabel" id="DonateMoneyLabel" text='0'/>
+						<Panel class='RDAMoneyPanel' id='RDAMoneyPanel' onmouseover="TipsOver('gems','DonateMoneyPanel')" onmouseout="TipsOut()">
+							<Image class='RDAMoneyLogo3' id='RDAMoneyLogo' src="file://{resources}/images/custom_game/RDAShop/money_logo_3_mini.png" />
+							<Label class="RDAMoneyLabel" id="RDAMoneyLabel" text='0'/>
 						</Panel>
 						<Panel class='MMMRPointsPanel' id='MMMRPointsPanel' onmouseover="TipsOver('mmrpoints','MMMRPointsPanel')" onmouseout="TipsOut()">
-							<Image class='MMMRPointsLogo' id='MMMRPointsLogo' src="file://{resources}/images/custom_game/DonateShop/protection_mini.png" />
-							<Label class="DonateMoneyLabel" id="MMMRPointsLabel" text='0'/>
+							<Image class='MMMRPointsLogo' id='MMMRPointsLogo' src="file://{resources}/images/custom_game/RDAShop/protection_mini.png" />
+							<Label class="RDAMoneyLabel" id="MMMRPointsLabel" text='0'/>
 						</Panel>
 					</Panel>
-					<Panel class="DonateShopTabsPanel" id="DonateShopTabsPanel">
+					<Panel class="RDAShopTabsPanel" id="RDAShopTabsPanel">
 						<Panel id="TabPanel_Inventory" class="TabPanel TabPanelOnServ TabLabelOnServ tab-normal-style" onactivate="OpenInventory()">
 							<Panel id="TabLabelImg_Inventory" class="TabLabelImg"/>
 							<Label id="TabLabel_Inventory" class="TabLabel" text="#PanoramaShopInventoryTab" />
 						</Panel>
 					</Panel>
-                    <Panel class="DonateShopContentPanel_bg" id="DonateShopContentPanel_bg"/>
-					<Panel class="DonateShopContentPanel" id="DonateShopContentPanel">
-						<Panel id="DonateShopContentPanel_Inventory" class="TabContent" style="flow-children:right-wrap;"></Panel>
+                    <Panel class="RDAShopContentPanel_bg" id="RDAShopContentPanel_bg"/>
+					<Panel class="RDAShopContentPanel" id="RDAShopContentPanel">
+						<Panel id="RDAShopContentPanel_Inventory" class="TabContent" style="flow-children:right-wrap;"></Panel>
 					</Panel>
 					<Panel id="discord">
 						<Button id="dis" onactivate="DOTADisplayURL('https://discord.gg/2B5KVM7ATR');">
@@ -281,10 +280,9 @@
 				</Panel>
 			</Panel>
 			<Panel class="BuyControl" id='BuyControl'>
-				<Image class='BuyControlCurDon' id='BuyControlCurDon' src="file://{resources}/images/custom_game/DonateShop/shop.png" />
-				<Image class='BuyControlCurGem' id='BuyControlCurGem' src="file://{resources}/images/custom_game/DonateShop/money_logo_3.png" />
-				<Image class='BuyControlCurRp' id='BuyControlCurRp' src="file://{resources}/images/custom_game/DonateShop/protection.png" />
-				<!-- <Label id = "BuyControlTextLine1" class = "BuyControlTextLine1" text='Подтверждение покупки'/> -->
+				<Image class='BuyControlCurDon' id='BuyControlCurDon' src="file://{resources}/images/custom_game/RDAShop/shop.png" />
+				<Image class='BuyControlCurGem' id='BuyControlCurGem' src="file://{resources}/images/custom_game/RDAShop/money_logo_3.png" />
+				<Image class='BuyControlCurRp' id='BuyControlCurRp' src="file://{resources}/images/custom_game/RDAShop/protection.png" />
 				<Label id = "BuyControlTextLine2" class = "BuyControlTextLine1" text='Морскиая свинка'/>
 				<Label id = "BuyControlTextLine3" class = "BuyControlTextLine1" text='300'/>
 				<Panel id="BuyControlDropPanel" class="">
@@ -302,18 +300,22 @@
 					</DropDown>
 				</Panel>
 				<Panel class = "acceptButton" id='acceptButton'>
-					<Image class='controllButtonImg' id='' src="file://{resources}/images/custom_game/DonateShop/6.png" />
+					<Image class='controllButtonImg' id='' src="file://{resources}/images/custom_game/RDAShop/6.png" />
 					<Label class = "BuyControlButtonText" text='#yes'/>
 				</Panel>
 				<Panel class = "cancelButton" id='cancelButton' onmouseactivate="$('#BuyControl').visible = false;$('#accept_shadow').visible = false;">
-					<Image class='controllButtonImg' id='' src="file://{resources}/images/custom_game/DonateShop/6.png" />
+					<Image class='controllButtonImg' id='' src="file://{resources}/images/custom_game/RDAShop/6.png" />
 					<Label class = "BuyControlButtonText" text='#no'/>
 				</Panel>
 			</Panel>
 		</Panel>
-		<!-- Treasures -->
+		
+		
+
+
 		<Panel class="TreasuresWheelBackground">
 			<Panel id="TreasuresWheelWrap" onactivate="">
+				<Image id="CloseTreasuresWheelWrap" class="" src="file://{images}/custom_game/ChangeHero/close.png" onactivate="CloseWheelCHC()" onmouseover="$.DispatchEvent( 'DOTAShowTextTooltip', $('#CloseTreasuresWheelWrap'), $.Localize('#close'));" onmouseout="$.DispatchEvent( 'DOTAHideTextTooltip')"/>
 				<Label id="SpinHeader" class="AdaptiveText_LightAndUpper BlueHeader" text="#spin_header" />
 				<Panel id="ChestIcon" />
 				<DOTAScenePanel id="ParticlePrize" class="Particle" camera="camera_glow" particleonly="false" map="collection/spin_glow" hittest="false" />
@@ -334,7 +336,7 @@
 					<Panel id="DoubleGloryInfoWrap" hittest="false">
 						<Label id="DoubleGloryInfo" class="WhiteText" text="#duplicate_item_info" />
 						<Label id="DoubleGloryValue" class="GoldText" />
-						<Image id="DoubleGloryIcon" src="s2r://panorama/images/custom_game/collection/collection_coin_png.vtex" />
+						<Image id="DoubleGloryIcon" src="file://{resources}/images/custom_game/RDAShop/protection_mini.png" />
 						<Label id="DoubleGloryBack" class="WhiteText" text="#duplicate_item_back" />
 					</Panel>
 					<Panel id="PrizeButtons">
@@ -350,7 +352,7 @@
 			</Panel>
 		</Panel>
 		<Panel id="TreasuresPreviewRoot" />
-		<!-- rating score -->
+		
 		<Panel id="rating_info_panel" class="rating_info_panel">
 			<Panel id="rating_info_paadssdf23">
 				<Image id="rating_score_image_bg" class="rating_score_image_bg" src="file://{resources}/images/custom_game/rating/score.png" />
@@ -376,25 +378,25 @@
 
 		<Panel id="ChangeHeroMainPanel">
 			<Image id="ChangeHeroCloseButton" class="" src="file://{resources}/images/custom_game/changehero/close.png" onmouseactivate="hide_change()" onmouseover="TipsOver('close','ChangeHeroCloseButton')" onmouseout="TipsOut()" />
-			<Label id="ChangeHero_Text_1" class="ChangeHeroText" text="#сharacter_change" />
+			<Label id="ChangeHero_Text_1" class="ChangeHeroText" text="#character_change" />
 			<Label id="ChangeHero_Text_2" class="ChangeHeroText" text="#npc_dota_hero_marci" />
 			<Panel id="ChangeHeroDescription" class="">
-				<Label id="ChangeHero_Text_3" class="ChangeHeroText" text="#сharacter_change_description" />
-				<Label id="ChangeHero_Text_4" class="ChangeHeroText" text="#сharacter_change_change_hero" />
+				<Label id="ChangeHero_Text_3" class="ChangeHeroText" text="#character_change_description" />
+				<Label id="ChangeHero_Text_4" class="ChangeHeroText" text="#character_change_change_hero" />
 			</Panel>
-			<Panel id="ChangeHeroСonditions" class="">
-				<Label id="ChangeHero_Text_5" class="ChangeHeroText" text="#сharacter_change_conditions" />
-				<Label id="ChangeHero_Text_6" class="ChangeHeroText" text="#сharacter_change_condition_1" />
-				<Label id="ChangeHero_Text_7" class="ChangeHeroText" text="#сharacter_change_condition_2" />
-				<Label id="ChangeHero_Text_8" class="ChangeHeroText" text="#сharacter_change_condition_3" />
-				<Label id="ChangeHero_Text_9" class="ChangeHeroText" text="#сharacter_change_condition_4" />
+			<Panel id="ChangeHeroConditions" class="">
+				<Label id="ChangeHero_Text_5" class="ChangeHeroText" text="#character_change_conditions" />
+				<Label id="ChangeHero_Text_6" class="ChangeHeroText" text="#character_change_condition_1" />
+				<Label id="ChangeHero_Text_7" class="ChangeHeroText" text="#character_change_condition_2" />
+				<Label id="ChangeHero_Text_8" class="ChangeHeroText" text="#character_change_condition_3" />
+				<Label id="ChangeHero_Text_9" class="ChangeHeroText" text="#character_change_condition_4" />
 			</Panel>
+			<Label id="ChangeHero_Text_10" class="ChangeHeroText" text="#quest_trial_period" />
 			<Panel id="ChangeHeroButtonPanel" class="">
 				<Image id="ChangeHeroButtonImage" class="" src="file://{resources}/images/custom_game/changehero/btn.png" />
 				<Label id="ChangeHeroButtonText" class="" text="" />
 			</Panel>
 			
-			<!-- <DOTAScenePanel class="ChangeHeroScenePanel" unit = "npc_dota_hero_marci" particleonly="false" allowrotation="false"/> -->
 		</Panel>
 
 	</Panel>

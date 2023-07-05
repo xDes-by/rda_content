@@ -35,6 +35,21 @@
 #gems_container_pet{
 
 }
+#change_pet_button{
+    margin-top: 340px;
+    margin-left: 770px;
+    height: 40px;
+    width: 150px;
+}
+#change_pet_button Label{
+    text-transform: uppercase;
+    align: center center;
+    color:white;
+    font-size: 21;
+}
+#buy_pet_button2{
+
+}
 .money_container_pet{
     height: 34px;
     width: 126px;
@@ -45,14 +60,14 @@
     vertical-align: center;
 }
 #gems_image_pet{
-    background-image: url("file://{images}/custom_game/DonateShop/money_logo_3_mini.png");
+    background-image: url("file://{images}/custom_game/RDAShop/money_logo_3_mini.png");
     height: 28px;
     width: 25px;
     background-size: contain;
     margin-left: 8px;
 }
 #rp_image_pet{
-    background-image: url("file://{images}/custom_game/DonateShop/protection_mini.png");
+    background-image: url("file://{images}/custom_game/RDAShop/protection_mini.png");
     height: 24px;
     width: 25px;
     background-size: contain;
@@ -140,6 +155,7 @@
     horizontal-align: center;
     margin-top: 30px;
     border:1px solid black;
+    tooltip-body-position: 100% 100%;
 }
 .center{
     vertical-align: center;
@@ -155,17 +171,17 @@
     height: 40px;
     width: 125px;
     horizontal-align: right;
-    margin-top: 465px;
+    margin-top: 340px;
     margin-right: 40px;
 }
 .buy_gem_img{
-    background-image: url("file://{images}/custom_game/DonateShop/money_logo_3_mini.png");
+    background-image: url("file://{images}/custom_game/RDAShop/money_logo_3_mini.png");
     height: 28px;
     width: 25px;
     background-size: contain;
 }
 .buy_rp_img{
-    background-image: url("file://{images}/custom_game/DonateShop/protection_mini.png");
+    background-image: url("file://{images}/custom_game/RDAShop/protection_mini.png");
     height: 24px;
     width: 25px;
     background-size: contain;
@@ -180,7 +196,7 @@
 #name_and_level_pet{
     flow-children: right;
     horizontal-align: center;
-    margin-top: 390px;
+    margin-top: 395px;
     width: 1050px;
 }
 .select_pet_description_label{
@@ -308,7 +324,7 @@
     margin-top: 5px;
 }
 #shop_1_img{
-    background-image: url("file://{images}/custom_game/donateshop/items/pet_change.png");
+    background-image: url("file://{images}/custom_game/RDAshop/items/pet_change.png");
     height: 81px;
     width: 110px;
     background-repeat: no-repeat;
@@ -345,6 +361,9 @@
     sound: "ui_rollover_today";
     
 }
+.button_bg:hover{
+    box-shadow: inset #3f021475 0px 0px 8px 12px;
+}
 .PaginationButtonCustom{
     background-color: gradient( radial, 50% 50%, 0% 0%, 50% 50%, color-stop(0.0, #7e8f93 ), color-stop(0.5, #7e8f93), color-stop(0.6, #00000000 ) );
     background-repeat: no-repeat;
@@ -363,10 +382,29 @@
     horizontal-align: right;
     margin-right: 90px;
 }
+#arrows2{
+    width: 100%;
+    margin-top: 160px;
+}
 #arrows{
     flow-children: right;
     horizontal-align: right;
     vertical-align: center;
+}
+#arrow2_left{
+    background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
+    background-size: 100% 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    width:23px;
+    height: 70px;
+    opacity: 0.6;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    margin: 8px;
+}
+#arrow2_left:hover{
+    opacity: 1;
 }
 #arrow_left{
     background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
@@ -382,6 +420,22 @@
     opacity: 0.6;
     transition-property: opacity;
     transition-duration: 0.2s;
+}
+#arrow2_right{
+    background-image: url("s2r://panorama/images/control_icons/arrow_solid_right_png.vtex");
+    background-size: 100% 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    width:23px;
+    height: 70px;
+    opacity: 0.6;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    horizontal-align: right;
+    margin: 8px;
+}
+#arrow2_right:hover{
+    opacity: 1;
 }
 #arrow_right{
     background-image: url("s2r://panorama/images/control_icons/arrow_solid_right_png.vtex");
@@ -447,33 +501,47 @@
     horizontal-align: right;
 }
 
-#interface_name_pet{
+#interface_name_pet, #selected_name_pet{
     font-size: 30;
     margin-left: 130px;
     vertical-align: center;
     color:white;
     text-transform: uppercase;
 }
-#item_main_pet{
+#item_main_pet, #item_selected_pet{
     vertical-align: center;
     margin-left: 20px;
-    box-shadow: #c44a04b2 0px 0px 8px 0px;
     width: 85px;
     height: 62px;
+    tooltip-body-position: 100% 100%;
 }
 #item_main_pet:hover{
     sound: "ui_select_arrow";
+}
+#item_selected_pet Label{
+    color:rgb(253, 253, 253);
+    text-transform: uppercase;
+    font-size: 21;
+    vertical-align: top;
+    horizontal-align: center;
+    font-weight: bold;
 }
 #interface_info_panel{
     background-color: rgba(0, 0, 0, 0.9);
     padding: 5px;
     height: 90px;
-    width: 350px;
-    margin-top: 315px;
-    width: 350px;
+    margin-top: 310px;
+    width: 340px;
     horizontal-align: center;
 }
-
+#selected_pet_panel{
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 5px;
+    height: 90px;
+    margin-top: 310px;
+    width: 340px;
+    margin-left: 40px;
+}
 #buy_coufirm_bg_pet{
     height: 100%;
     width: 100%;
@@ -481,11 +549,12 @@
 }
 #buy_confirm_panel{
     height: 300px;
-    width: 500px;
+    width: 491px;
     border:1px solid white;
     vertical-align: center;
     horizontal-align: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-image: url("file://{images}/custom_game/RDAShop/shop.png");
+    background-size: contain;
 }
 .buy_label__pet{
     text-transform: uppercase;
@@ -494,7 +563,11 @@
 .confirm_panel{
     height: 40px;
     width: 150px;
+    margin-top: 245px;
     border:1px solid white;
+}
+.confirm_panel:hover{
+    box-shadow: inset #3f021475 0px 0px 8px 12px;
 }
 .confirm_panel Label{
     color:white;
@@ -503,20 +576,18 @@
     text-transform: uppercase;
 }
 #confirm_yes_panel{
-    margin-top: 200px;
     margin-left: 40px;
-    background-color: rgba(0, 128, 0, 0.5);
+    background-color: rgba(0, 128, 0, 0.6);
 }
 #confirm_no_panel{
-    margin-top: 200px;
     margin-right: 40px;
     horizontal-align: right;
-    background-color: rgba(128, 15, 0, 0.5);
+    background-color: rgba(128, 15, 0, 0.6);
 }
 #buy_description_panel{
-    flow-children: right;
+    flow-children: down;
     horizontal-align: center;
-    margin-top: 100px;
+    margin-top: 90px;
 }
 .buy_description_text{
     color: white;
@@ -527,7 +598,7 @@
 #confirm_drop_down{
     width: 100px;
     horizontal-align: center;
-    margin-top: 140px;
+    margin-top: 10px;
 }
 
 #feed_entry_panel{
@@ -554,14 +625,14 @@
     width: 1px;
     border:1px solid rgb(99, 99, 99);
 }
-#interface_tier_pet{
+#interface_tier_pet, #selected_tier_pet{
     horizontal-align: left;
     color:white;
     text-transform: uppercase;
     font-weight: thin;
     margin-left: 130px;
 }
-#interface_level_pet_1{
+#interface_level_pet_1, #selected_level_pet_1{
     horizontal-align: left;
     vertical-align: bottom;
     color:white;

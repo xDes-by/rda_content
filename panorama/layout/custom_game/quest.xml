@@ -1,6 +1,7 @@
 <root>
 	
 	<styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/styles/custom_game/quest.css" />
 	</styles>
 	<scripts>
@@ -57,7 +58,7 @@
 						</Panel>
 					</Panel>
 					<Panel id="questTalantRewardPanel" class="questTalantRewardPanel">
-						<Label id="questTalantRewardWord" class="questTalantRewardWord" text="Опыт талантов: "/>
+						<Label id="questTalantRewardWord" class="questTalantRewardWord" text="#quest_talent_exp"/>
 						<Label id="questTalantRewardNumber" class="questTalantRewardNumber" text="1500"/>
 					</Panel>
 					<Label id="questRewardItemLabel" class="questRewardItemLabel" text="#quest_xml_reward_items_label"/>
@@ -89,11 +90,13 @@
 				</Panel>
 			</Panel>
 			<Panel id="questAcceptButtonPanel" class="questAcceptButtonPanel">
-				<Label id="questAcceptButtonLabel" class="questButtonLabel" text="Accept"/>
+				<Label id="questAcceptButtonLabel" class="questButtonLabel" text="#Quest_Accept"/>
 			</Panel>
 			<Panel id="questIgnoreButtonPanel" class="questIgnoreButtonPanel">
-				<Label id="questIgnoreButtonLabel" class="questButtonLabel" text="Ignore" onmouseactivate="DeactivateShop(true)"/>
+				<Label id="questIgnoreButtonLabel" class="questButtonLabel" text="#Ignore" onmouseactivate="DeactivateShop(true)"/>
 			</Panel>
+			<Label id="TrialPeriod" class="" text="Вам доступно 20 игр" />
+			<ToggleButton id="auto_quest_toggle" class="" checked="false" text="#quest_automatic_surrender" onmouseover="$.DispatchEvent( 'DOTAShowTextTooltip', $('#auto_quest_toggle'), $.Localize('#quest_automatic_surrender_tooltip'));" onmouseout="$.DispatchEvent( 'DOTAHideTextTooltip');" />
 		</Panel>
 		<Panel id="questInfoBarPanel" class="questInfoBarPanel"/>
 	</Panel>

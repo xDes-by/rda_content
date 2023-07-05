@@ -1,8 +1,8 @@
 <root>
 	<styles>
-		<include src="file://{resources}/styles/custom_game/DonateShop.css" />
+		<include src="file://{resources}/styles/custom_game/RDAShop.css" />
 	</styles>
 	<Panel class = "modul_shop">
-		<Image class="openShop" id="openShop" src="file://{resources}/images/custom_game/DonateShop/ShopOpen.png" />
+		<Image class="openShop" id="openShop" src="file://{resources}/images/custom_game/RDAShop/ShopOpen.png" />
 	</Panel>
 </root>

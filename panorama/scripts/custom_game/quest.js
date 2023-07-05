@@ -12,7 +12,10 @@ var npc,
 	giveItem_tab = CustomNetTables.GetTableValue( "quests" , 'giveItem'),
 	itemsArray,
 	list,
-	mode
+	mode,
+	trialPeriod,
+	subscribe
+
 const context = $.GetContextPanel(),
 	scaleX = context.actualuiscale_x,
 	scaleY = context.actualuiscale_y
@@ -36,8 +39,9 @@ function isBonusExpAvailable() {
   }
 
 
+
 function ActivateShop(t) {
-	//var player_info = CustomNetTables.GetTableValue( "player_info", GetUniverseSteamID32( playerID ) )
+	var player_info = CustomNetTables.GetTableValue( "player_info", GetUniverseSteamID32( playerID ) )
 	if(t.sound == true){
 		Game.EmitSound("Item.LotusOrb.Activate")
 	}
@@ -81,8 +85,6 @@ var showQuest = (function(availableQuest, t)
 {
 	return function()
 	{
-		$.Msg(availableQuest)
-		$.Msg(t)
 		$("#questScrollPanel").visible = true
 		$("#basepanel").visible = false
 		Game.EmitSound('Shop.Available')
@@ -213,7 +215,7 @@ var showQuest = (function(availableQuest, t)
 			const talentExperience = player_info[sid][type][number]['talentExperience']
 			$('#questGoldRewardNumber').text = player_info[sid][type][number]['gold']
 			$('#questExpRewardNumber').text = player_info[sid][type][number]['experience']
-			$('#questTalantRewardNumber').text = isBonusExpAvailable ? Math.round(talentExperience * 1.15) : talentExperience
+			$('#questTalantRewardNumber').text = " " + isBonusExpAvailable ? Math.round(talentExperience * 1.15) : talentExperience
 			if(base_tab[eblan] && base_tab[eblan].items && reward_tab[base_tab[eblan].items]['items']["1"]){
 				$('#questRewardItemLabel').visible = true
 				var i = 1
@@ -266,6 +268,8 @@ var showQuest = (function(availableQuest, t)
 		$('#questPanel').RemoveClass('hide_quest')
 		$('#questPanel').AddClass('show_quest')
 		$("#questPanel").visible = true
+		$("#TrialPeriod").visible = false
+		$("#auto_quest_toggle").visible = false
 	}
 });
 
@@ -396,11 +400,6 @@ var textColor = (function(panel, color)
 });
 
 function changeHudPanel(table_name, key, data){
-	
-	
-	for(var i = 1; i < 5; i++){
-		
-	}
 	if(key == sid){
 		var mainPanel = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("questInfoBarPanel");
 		//var mainPanel = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("shop");
@@ -489,7 +488,7 @@ function open_quest_window(index){
 				i++;
 			}
 		}
-		if(name){
+		if(name && Players.GetLocalPlayerPortraitUnit() != Players.GetPlayerHeroEntityIndex(playerID)){
 			GameUI.SelectUnit(hero, false)
 		}
 		if(name && length < 350){
@@ -539,8 +538,12 @@ function open_base_panel(name, unit){
 		}
 		
 	}
-	
+	$("#auto_quest_toggle").visible = true
+	if(trialPeriod > 0 && !subscribe)
+		$("#TrialPeriod").visible = true
 }
+
+
 
 
 (function(){
@@ -550,8 +553,8 @@ function open_base_panel(name, unit){
 	if($("#questPanel") != null)
 		$("#shopbuttonhud").visible = false
 	GameEvents.Subscribe("load_npc",load_npc)
-	GameEvents.Subscribe("ActivateShop",ActivateShop)
-	GameEvents.Subscribe("DeactivateShop",DeactivateShop)
+	GameEvents.Subscribe("ActivateQuestAura",ActivateShop)
+	GameEvents.Subscribe("DeactivateQuestAura",DeactivateShop)
 	GameEvents.Subscribe("npcInfo",npcInfo)
 	GameEvents.Subscribe("dota_player_update_query_unit", open_quest_window)
 	GameEvents.Subscribe('dota_player_update_hero_selection', open_quest_window);
@@ -567,7 +570,22 @@ function open_base_panel(name, unit){
 		mainPanel.style.horizontalAlign = "right";
 		mainPanel.style.marginTop = "35%";
 	}
-	
+	if($("#auto_quest_toggle"))
+		$("#auto_quest_toggle").SetPanelEvent("onmouseactivate", ()=>{
+			GameEvents.SendCustomGameEventToServer( "auto_quest_toggle", {toggle_state : $("#auto_quest_toggle").checked} )
+		})
+	GameEvents.Subscribe( "change_auto_quest_toggle_state", (t)=>{
+		if($("#auto_quest_toggle"))
+			$("#auto_quest_toggle").SetSelected(t.toggle_state)
+		trialPeriod = t.count
+		subscribe = t.subscribe
+		$("#TrialPeriod").text = $.Localize("#quest_trial_period").replace("##count##", trialPeriod);
+		if(subscribe)
+			$("#TrialPeriod").visible = false
+	})
+	GameEvents.Subscribe( "QuestEmitSound", (t)=>{
+		Game.EmitSound("Item.LotusOrb.Activate")
+	})
 
 })();
 

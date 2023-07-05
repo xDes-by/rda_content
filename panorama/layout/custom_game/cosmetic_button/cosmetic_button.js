@@ -7,8 +7,24 @@ function FindDotaHudElement(panel) {
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
 }
 
+var TipsOver = (function(message, pos)
+{
+	return function()
+	{
+        $.DispatchEvent( "DOTAShowTextTooltip", pos, $.Localize("#"+message));
+	}
+});
+
+var TipsOut = (function()
+{
+	return function()
+	{
+        $.DispatchEvent( "DOTAHideTitleTextTooltip");
+        $.DispatchEvent( "DOTAHideTextTooltip");
+	}
+});
+
 function OnClickSpray(t) {
-	$.Msg(t)
 	if (t == "spray"){
 		if(can_use_spray) {
 			GameEvents.SendCustomGameEventToServer( "CastSpray", {} )
@@ -21,7 +37,7 @@ function OnClickSpray(t) {
 			timer2(15)	
 		}
 		can_use_highfive = false
-	}else if(t == "pet"){
+	}else if(t == "pet" && Entities.IsAlive( Players.GetPlayerHeroEntityIndex( playerID ) )){
 		var spray = CustomNetTables.GetTableValue( "player_pets", playerID);
 		if (spray != null){
 			if(can_use_pet) {
@@ -85,17 +101,16 @@ function timer2(i) {
 function timer3(i) {
 	var pan = FindDotaHudElement("CustomAbility_pet_custom");
 	text_timer = pan.FindChildTraverse("CosmeticAbility_text");
-		if (i > 0) {
-			text_timer.text = (i - 1)
-		}
-		if (i == 0 ) {
-			text_timer.text = ""
-			can_use_pet = true
-			return	
-		}
-		 i--;
-    $.Schedule(1, function() {
-        timer3(i)
+	if (i > 0) {
+		text_timer.text = i
+	}
+	if (i == 0 ) {
+		text_timer.text = ""
+		can_use_pet = true
+		return	
+	}
+    $.Schedule(0.1, function() {
+        timer3((i-0.1).toFixed(1))
     });
 }
 
@@ -125,8 +140,8 @@ function CtrlTimer(){
 
 	
 	
-	const ability = $.CreatePanel("Button", FindDotaHudElement("BarOverItems"), "CustomAbility_highfive_custom");
-	ability.BLoadLayoutSnippet("CosmeticAbility2");
+	// const ability = $.CreatePanel("Button", FindDotaHudElement("BarOverItems"), "CustomAbility_highfive_custom");
+	// ability.BLoadLayoutSnippet("CosmeticAbility2");
 	
 	const ability2 = $.CreatePanel("Button", FindDotaHudElement("BarOverItems"), "CustomAbility_spray_custom");
 	ability2.BLoadLayoutSnippet("CosmeticAbility");
@@ -138,11 +153,11 @@ function CtrlTimer(){
 		$("#BarOverItems").SetParent(centerBlock);
 	}
 
-	const highfive = FindDotaHudElement("CustomAbility_highfive_custom");
-	highfive
-		.FindChildTraverse("CosmeticAbilityImage")
-		.SetImage( "file://{images}/custom_game/highfive_png.png" );
-	FindDotaHudElement("BuffContainer").style.marginBottom = "43px;";
+	// const highfive = FindDotaHudElement("CustomAbility_highfive_custom");
+	// highfive
+	// 	.FindChildTraverse("CosmeticAbilityImage")
+	// 	.SetImage( "file://{images}/custom_game/highfive_png.png" );
+	// FindDotaHudElement("BuffContainer").style.marginBottom = "43px;";
 
 	const spray = FindDotaHudElement("CustomAbility_spray_custom");
 	spray
@@ -155,6 +170,8 @@ function CtrlTimer(){
 		.FindChildTraverse("CosmeticAbilityImage")
 		.SetImage( "file://{images}/custom_game/spray_no_empty.png" );
 	FindDotaHudElement("BuffContainer").style.marginBottom = "43px;";
+	pet.SetPanelEvent("onmouseover", TipsOver("CustomAbility_pet_custom_tooltip", pet))
+	pet.SetPanelEvent("onmouseout", TipsOut())
 
 	const makeid = function(length) {
 		let result = '';
@@ -167,12 +184,12 @@ function CtrlTimer(){
 		}
 		return result;
 	}
-	let bind_1 = "bind1_"+makeid(10)
-	Game.CreateCustomKeyBind('Z', bind_1);
-	Game.AddCommand( bind_1, ()=>{ if(GameUI.IsControlDown())OnClickSpray( 'highfive' ) }, "", 0 );
-	let bind_2 = "bind2_"+makeid(10)
-	Game.CreateCustomKeyBind('X', bind_2);
-	Game.AddCommand( bind_2, ()=>{ if(GameUI.IsControlDown())OnClickSpray( 'spray' ) }, "", 0 );
+	// let bind_1 = "bind1_"+makeid(10)
+	// Game.CreateCustomKeyBind('Z', bind_1);
+	// Game.AddCommand( bind_1, ()=>{ if(GameUI.IsControlDown())OnClickSpray( 'highfive' ) }, "", 0 );
+	// let bind_2 = "bind2_"+makeid(10)
+	// Game.CreateCustomKeyBind('X', bind_2);
+	// Game.AddCommand( bind_2, ()=>{ if(GameUI.IsControlDown())OnClickSpray( 'spray' ) }, "", 0 );
 	var keybind_courier = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT)
 	let bind_3 = "bind3_"+makeid(10)
 	Game.CreateCustomKeyBind(keybind_courier, bind_3);
@@ -182,3 +199,5 @@ function CtrlTimer(){
 	GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
 	CtrlTimer()
 })();
+
+

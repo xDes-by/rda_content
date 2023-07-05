@@ -144,7 +144,15 @@ function pickInit(tab){
             pan.AddClass(imbalist[cat[i]][0])
             pan.SetPanelEvent("onmouseover",prepareDescription(arg));
             pan.SetPanelEvent("onmouseout",hiddeDescription(arg));
-            pan.SetPanelEvent("onmouseactivate",selectTalant(arg));
+            // pan.SetPanelEvent("onmouseactivate",selectTalant(arg));
+            pan.SetPanelEvent("ondblclick", ()=>{
+                $.Msg("selectTalantButton")
+                // Game.EmitSound("ui_team_select_shuffle")
+                // let selectTalantButton = selectTalantButton(
+                //     talantpanel.FindChildTraverse(arg))
+                // selectTalantButton()
+                
+            });
             pan.i = cat[i];
             pan.j = j;
             
@@ -249,6 +257,7 @@ function talantTreeInit(tab){
             var name = herotalant[id][skill].name;
             var description = herotalant[id][skill].description;
             var buff = herotalant[id][skill].buff;
+            var tooltip = herotalant[id][skill].tooltip;
 
             for(var i in herotalant[id][skill]['place']){
                 var str = herotalant[id][skill]['place'][i]
@@ -259,7 +268,8 @@ function talantTreeInit(tab){
                     url : url,
                     name : name,
                     description : description,
-                    buff : buff
+                    buff : buff,
+                    tooltip : tooltip,
                 }
             }
         }
@@ -276,6 +286,7 @@ function talantTreeInit(tab){
             pan.SetPanelEvent("onmouseover",prepareDescription(arg));
             pan.SetPanelEvent("onmouseout",hiddeDescription(arg));
             pan.SetPanelEvent("onmouseactivate",selectTalant(arg));
+            pan.SetPanelEvent("ondblclick", selectTalantCheat(cat[i], j));
             pan.i = cat[i];
             pan.j = j;
             
@@ -313,7 +324,7 @@ function talantTreeInit(tab){
             price_text.text = talant_shop[i]["gems"]
             var gem_image = $.CreatePanel('Image',price,'gem_image_gem'+i)
             gem_image.AddClass("gem-image")
-            gem_image.SetImage("file://{resources}/images/custom_game/DonateShop/money_logo_3.png")
+            gem_image.SetImage("file://{resources}/images/custom_game/RDAShop/money_logo_3.png")
             if(tab['coins'] < talant_shop[i]["gems"]){
                 shop_gem_btn_panel.AddClass("no-money")
             }else{
@@ -335,7 +346,7 @@ function talantTreeInit(tab){
             price_text.text = talant_shop[i]["rait"]
             var gem_image = $.CreatePanel('Image',price,'gem_image_rait'+i)
             gem_image.AddClass("rait-image")
-            gem_image.SetImage("file://{resources}/images/custom_game/DonateShop/protection.png")
+            gem_image.SetImage("file://{resources}/images/custom_game/RDAShop/protection.png")
             if(tab['mmrpoints'] < talant_shop[i]["rait"]){
                 shop_rait_btn_panel.AddClass("no-money")
             }else{
@@ -346,6 +357,12 @@ function talantTreeInit(tab){
 
     
     asssd = true;
+}
+
+const selectTalantCheat = function(i, j){
+    return ()=>{
+        GameEvents.SendCustomGameEventToServer("selectTalantCheat",  {i : i, j : j})
+    }
 }
 
 function showHeroPanel(name){
@@ -492,7 +509,7 @@ function updateExpInfo(data){
     text = "lvl." + level;
     if(data["freepoints"] > 0)
         text += "( " + data["freepoints"] + " )";
-    $("#donate_level_label").text = text;
+    $("#RDA_level_label").text = text;
     if(lvls[level+1]){
         var this_lvl = 0
         for(var i = 1; i <= level;i++){
@@ -634,7 +651,7 @@ var selectTalant = (function(arg)
         var pan = talantpanel.FindChildTraverse(arg);
         var url = herotalant[portID][pan.i][pan.j]["url"];
         var name = herotalant[portID][pan.i][pan.j]["name"];
-        var description = herotalant[portID][pan.i][pan.j]["description"];
+        var tooltip = herotalant[portID][pan.i][pan.j]["tooltip"] != undefined ? herotalant[portID][pan.i][pan.j]["tooltip"] : herotalant[portID][pan.i][pan.j]["name"] + "_tooltip";
         var buff = herotalant[portID][pan.i][pan.j]["buff"];
         talantpanel.FindChildTraverse("talant_img_description").visible = true;
         talantpanel.FindChildTraverse("talant_name_label").visible = true;
@@ -644,6 +661,16 @@ var selectTalant = (function(arg)
         talantpanel.FindChildTraverse("talant_name_label").text = $.Localize("#"+name);
         talantpanel.FindChildTraverse("talant_name_label").i = pan.i;
         talantpanel.FindChildTraverse("talant_description_buff_label").text = $.Localize("#"+buff);
+        if("#"+tooltip != $.Localize("#"+tooltip)){
+            $("#InfoIcon").SetPanelEvent("onmouseover",()=>{
+                $.DispatchEvent( "DOTAShowTextTooltip", $("#InfoIcon"), $.Localize("#"+tooltip));
+            });
+            $("#InfoIcon").SetPanelEvent("onmouseout",()=>{
+                $.DispatchEvent( "DOTAHideTitleTextTooltip");
+                $.DispatchEvent( "DOTAHideTextTooltip");
+            });
+            $("#InfoIcon").visible = true
+        }else $("#InfoIcon").visible = false
         let progress = CustomNetTables.GetTableValue( "talants", GetPlayerIDByPortraitIndex() )
         if(talantpanel.FindChildTraverse("players_have")){
             if(!progress[pan.i+pan.j+"count"]){
@@ -653,7 +680,6 @@ var selectTalant = (function(arg)
             }
             talantpanel.FindChildTraverse("players_have").SetPanelEvent("onmouseactivate",MoreInformation(pan))
         }
-        $.Msg(pan.i+pan.j)
         if(Game.GetState() >= DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME && talantpanel.FindChildTraverse("button") && pid == portID && !pan.selected && ((pan.i == 'don' && progress['freedonpoints'] >= LevelNeed(pan.i, pan.j, progress)) || (pan.i != 'don' && progress['freepoints'] >= LevelNeed(pan.i, pan.j, progress)) ) && 
             (pan.j != 12 || pan.available) && ((pan.j != 6 && pan.j != 7 && pan.j != 8) || (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0)) && ((pan.j != 9 && pan.j != 10 && pan.j != 11) || ((progress[pan.i+9] + progress[pan.i+10] + progress[pan.i+11] == 0) && (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0 || ((pan.j == 9 && progress[pan.i+6] == 1) || (pan.j == 10 && progress[pan.i+7] == 1) || (pan.j == 11 && progress[pan.i+8] == 1))))) && 
             (pan.i == "don" || (progress["int1"] + progress["agi1"] + progress["str1"] < progress["cout"] || progress[pan.i+1] == 1))){

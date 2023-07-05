@@ -311,7 +311,7 @@ function talantTreeInit(tab){
             price_text.text = talant_shop[i]["gems"]
             var gem_image = $.CreatePanel('Image',price,'gem_image_gem'+i)
             gem_image.AddClass("gem-image")
-            gem_image.SetImage("file://{resources}/images/custom_game/DonateShop/money_logo_3.png")
+            gem_image.SetImage("file://{resources}/images/custom_game/RDAShop/money_logo_3.png")
             if(tab['coins'] < talant_shop[i]["gems"]){
                 shop_gem_btn_panel.AddClass("no-money")
             }else{
@@ -333,7 +333,7 @@ function talantTreeInit(tab){
             price_text.text = talant_shop[i]["rait"]
             var gem_image = $.CreatePanel('Image',price,'gem_image_rait'+i)
             gem_image.AddClass("rait-image")
-            gem_image.SetImage("file://{resources}/images/custom_game/DonateShop/protection.png")
+            gem_image.SetImage("file://{resources}/images/custom_game/RDAShop/protection.png")
             if(tab['mmrpoints'] < talant_shop[i]["rait"]){
                 shop_rait_btn_panel.AddClass("no-money")
             }else{
@@ -477,7 +477,7 @@ function updateExpInfo(data){
     text = "lvl." + level;
     if(data["freepoints"] > 0)
         text += "( " + data["freepoints"] + " )";
-    $("#donate_level_label").text = text;
+    $("#RDA_level_label").text = text;
     if(lvls[level+1]){
         var this_lvl = 0
         for(var i = 1; i <= level;i++){

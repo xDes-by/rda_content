@@ -3,7 +3,7 @@ function FindDotaHudElement(panel) {
 }
 GameEvents.Subscribe( "updateSoulsInventory", function(t){
     var pan = $("#souls_stash")
-    for(let i = 0; i < 7; i++){
+    for(let i = 0; i < 10; i++){
         pan.GetChild(i).FindChildTraverse("label").text = t[i]
         if(t[i] == 0){
             pan.GetChild(i).visible = false
@@ -67,17 +67,39 @@ $("#souls_stash").GetChild(6).SetPanelEvent("onmouseactivate", function(){
 $("#souls_stash").GetChild(6).SetPanelEvent("oncontextmenu", function(){
     GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_divine_soul"})
 })
+
+$("#souls_stash").GetChild(7).visible = false
+$("#souls_stash").GetChild(7).SetPanelEvent("onmouseactivate", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul"})
+})
+$("#souls_stash").GetChild(7).SetPanelEvent("oncontextmenu", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul"})
+})
+
+$("#souls_stash").GetChild(8).visible = false
+$("#souls_stash").GetChild(8).SetPanelEvent("onmouseactivate", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_2"})
+})
+$("#souls_stash").GetChild(8).SetPanelEvent("oncontextmenu", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_2"})
+})
+
+$("#souls_stash").GetChild(9).visible = false
+$("#souls_stash").GetChild(9).SetPanelEvent("onmouseactivate", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_3"})
+})
+$("#souls_stash").GetChild(9).SetPanelEvent("oncontextmenu", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_3"})
+})
 var isOpen = true
 function ActionButton(){
     return function(){
         if(isOpen){
-            $.Msg(111)
             isOpen = false
             $("#souls_stash_panel").visible = false
             $("#hide_button").style.backgroundImage = 'url("s2r://panorama/images/control_icons/arrow_min_left_psd.vtex")'
             // $("#arrow_button").visible = true
         }else{
-            $.Msg(222)
             isOpen = true
             $("#souls_stash_panel").visible = true
             $("#hide_button").style.backgroundImage = 'url("s2r://panorama/images/control_icons/arrow_min_right_psd.vtex")'

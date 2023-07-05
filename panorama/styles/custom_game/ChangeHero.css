@@ -65,6 +65,15 @@
 #ChangeHeroCloseButton:hover{
     brightness:0.5;
 }
+#ChangeHeroConditions{
+    width: 100%;
+    flow-children: down;
+    margin-top: 200px;
+}
+#ChangeHero_Text_10{
+    margin-top: 390px;
+    color:orange;
+}
 
 .show_change{
 	animation-name: show_change;

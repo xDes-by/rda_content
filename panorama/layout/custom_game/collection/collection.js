@@ -21,7 +21,10 @@ const treasuresPreviewRoot = $("#TreasuresPreviewRoot");
 const collectionCHC = $("#CollectionCHC");
 const giftCodeChecker = $("#GiftCodePaymentFlag");
 
-function OpenTreasurePreview(value) {
+function OpenTreasurePreview(categoryKey, productKey) {
+	value = shopinfo[categoryKey][productKey]
+	value.categoryKey = categoryKey
+	value.productKey = productKey
 	Game.EmitSound("ui.treasure_unlock.wav");
 	const previewPanelName = "#TreasurePreview_" + value.name;
 	lastPreviewPanel = previewPanelName;
@@ -31,7 +34,12 @@ function OpenTreasurePreview(value) {
 	const actionButtonInPreview = treasurePreviewPanel.FindChildTraverse("Preview_OpenTreasure");
 	const treasureIsAvaileble = value.now > 0
 	actionButtonInPreview.SetHasClass("PlayerIsHasTreasure", treasureIsAvaileble);
-	actionButtonInPreview.GetChild(0).text = $.Localize(treasureIsAvaileble ? "#open_treasure" : "#buy_treasure");
+	actionButtonInPreview.GetChild(0).text = $.Localize("#open_treasure");
+	if(treasureIsAvaileble){
+		actionButtonInPreview.visible = true
+	}else{
+		actionButtonInPreview.visible = false
+	}
 }
 
 const ACTIVATE_FUNCTUIONS = {
@@ -82,11 +90,11 @@ const ITEM_BUTTON_FUNCTIONS = {
 		_ChangeItemEquipState(itemName, true);
 	},
 	[2]: function (itemName) {
-		const previewPanelName = "#TreasurePreview_" + itemName;
+		const previewPanelName = "#TreasurePreview_" + itemName.name;
 		if (lastPreviewPanel == previewPanelName) {
-			OpenTreasure(itemName);
+			OpenTreasure(itemName.categoryKey, itemName.productKey);
 		} else {
-			OpenTreasurePreview(itemName);
+			OpenTreasurePreview(itemName.categoryKey, itemName.productKey);
 		}
 	},
 
@@ -107,38 +115,45 @@ function ClickButton() {
 	Game.EmitSound("General.ButtonClick");
 }
 
-function OpenTreasure(value) {
+function OpenTreasure(categoryKey, productKey) {
+	value = shopinfo[categoryKey][productKey]
 	ClickButton();
 	currentTreasure = value;
 	const treasuresLeftPanel = $("#TreasuresLeft");
-	const playerIsHaveMoreTreasure = value.now - 1 > 0;
-	treasuresLeftPanel.text = $.Localize("spin_treasures_left").replace("##tries##", value.now - 1);
+	value.now -= 1;
+	const playerIsHaveMoreTreasure = value.now > 0;
+	treasuresLeftPanel.text = $.Localize("#spin_treasures_left").replace("##tries##", value.now);
+	if(value.now > 0){
+		$("#SpinAgain").visible = true
+	}else{
+		$("#SpinAgain").visible = false
+	}
 	treasuresLeftPanel.visible = playerIsHaveMoreTreasure;
 	$("#SpinAgain").SetHasClass("block", !playerIsHaveMoreTreasure);
 	// if (!count > 0) return;
-	GameEvents.SendCustomGameEventToServer("battlepass_inventory:open_treasure", {
-		treasureName: value,
+	GameEvents.SendCustomGameEventToServer("OpenTreasure", {
+		treasureName: value.name,
 	});
 	
 	
-	let data = {
-		itemPool: [],
-		itemPrize: "item6",
-		glory: 500,
-		skipAnimation: false
-	};
-	for(let i = 1; i <= 8; i++){
-		for (const [k, item] of Object.entries(shopinfo[i])) {
-			if(typeof(item) != 'object') continue
-			if(item.source != undefined && item.source.treasury == value.name){
-				data.itemPool.push(item)
-			}
-		}
-	}
-	const rand = getRandomInt(10)
-	
-	data.itemPrize = shopinfo[4][rand + 1]
-	ShowWheel(data)
+	// let data = {
+	// 	itemPool: [],
+	// 	itemPrize: "item6",
+	// 	glory: 500,
+	// 	skipAnimation: false
+	// };
+	// for(let i = 1; i <= 8; i++){
+	// 	for (const [k, item] of Object.entries(shopinfo[i])) {
+	// 		if(typeof(item) != 'object') continue
+	// 		if(item.source != undefined && item.source.treasury == value.name){
+	// 			data.itemPool.push(item)
+	// 		}
+	// 	}
+	// }
+	// const rand = getRandomInt(10)
+	// $.Msg(data.itemPool)
+	// data.itemPrize = shopinfo[4][rand + 1]
+	// ShowWheel(data)
 }
 
 function SpinAgain() {
@@ -925,9 +940,9 @@ function SetItemInWheel(panel, value, isPrize) {
 
 	panel.RemoveClass(panel.oldClass);
 
-	panel.oldClass = "legendary";
+	panel.oldClass = "immortal";
 	panel.AddClass("InWheel");
-	panel.AddClass("legendary");
+	panel.AddClass("immortal");
 	panel.SetHasClass("PrizeItem", isPrize);
 }
 
@@ -946,7 +961,6 @@ function SetPanelsVisibilityByWheelActive(bool) {
 }
 
 function ShowWheel(data) {
-	
 	SetPanelsVisibilityByWheelActive(true);
 	wheelData = data;
 	const wheelPanel = $("#TreasuresWheel");
@@ -964,7 +978,6 @@ function ShowWheel(data) {
 		const item = $.CreatePanel("Panel", wheelPanel, "");
 		SetItemInWheel(item, value, false);
 	}
-	$.Msg("1234")
 	if (!data.skipAnimation) StartWheel(data.itemPrize, data.itemPool, data.glory);
 }
 
@@ -1004,7 +1017,7 @@ function StopWheel() {
 
 	const itemPrizeName = wheelData.itemPrize;
 
-	$("#ItemRecived").text = $.Localize(itemPrizeName);
+	$("#ItemRecived").text = $.Localize("#"+itemPrizeName.name);
 	const isItemDuplicate = gloryForDuplicate > 0;
 	$("#DoubleGloryInfoWrap").SetHasClass("show", isItemDuplicate);
 	SetVisiblePrizeParticle(!isItemDuplicate);
@@ -1019,10 +1032,10 @@ function StopWheel() {
 		const particle = $.CreatePanel("Panel", particleParent, "");
 		particle.BLoadLayoutSnippet("WheelWinParticle");
 
-		if (parentItemPanel.hideInCollection == undefined) {
-			parentItemPanel.AddClass("NewItemGlow");
-			UpdateNewItemsNotificationByCategory(parentItemPanel.category, 1);
-		}
+		// if (parentItemPanel.hideInCollection == undefined) {
+		// 	parentItemPanel.AddClass("NewItemGlow");
+		// 	UpdateNewItemsNotificationByCategory(parentItemPanel.category, 1);
+		// }
 	}
 	spinEndSound = Game.EmitSound(soundName);
 	StopSchelude(firstMoveSchelude);
@@ -1062,8 +1075,7 @@ function StartWheel(itemPrize, itemData) {
 					wheelPanel.style.paddingLeft = ++count * parentWidth + "px";
 					const movedChild = wheelPanel.GetChild(0);
 					const isItemPrize = count == prizeCount;
-					const value = isItemPrize ? itemPrize : itemData[Math.ceil(Math.random() * itemLength)-1];
-					$.Msg(value)
+					const value = isItemPrize ? itemPrize : itemData[Math.ceil(Math.random() * itemLength)];
 					SetItemInWheel(movedChild, value, isItemPrize);
 					wheelPanel.MoveChildAfter(movedChild, wheelPanel.GetChild(wheelPanel.Children().length - 1));
 					move();
@@ -1198,7 +1210,7 @@ function CheckConnectionState() {
 	// frame.SubscribeProtected("battlepass_inventory:update_player_items", UpdatePlayerItems);
 	// frame.SubscribeProtected("battlepass_inventory:update_equipped_items", UpdateEquippedItems);
 	// frame.SubscribeProtected("battlepass_inventory:update_coins", UpdateCoins);
-	// frame.SubscribeProtected("battlepass_inventory:show_wheel", ShowWheel);
+	GameEvents.Subscribe( "ShowWheel", ShowWheel)
 	// frame.SubscribeProtected("battlepass_inventory:select_sprays", SelectSprays);
 	// frame.SubscribeProtected("battlepass_inventory:open_specific_collection", OpenSpecificCollection);
 	// InitCollection()

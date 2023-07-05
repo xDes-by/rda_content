@@ -5,7 +5,8 @@
     <include src="file://{resources}/scripts/custom_game/api/dota_hud.js" />
   </scripts>
   <Panel>
-  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/DonateShopItem2.xml" /> -->
+  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RDAShopItem1.xml" /> -->
+  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RDAShopItem2.xml" /> -->
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage/damage.xml" />
     <CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/damage/end_screen.xml" />

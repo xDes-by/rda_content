@@ -1066,16 +1066,21 @@
  .TreasuresWheelBackground.show{
   opacity: 1;
  }
+ #CloseTreasuresPreviewWrap, #CloseTreasuresWheelWrap{
+  horizontal-align: right;
+  margin: 5px;
+ }
  #TreasuresWheelWrap,.TreasuresPreviewWrap{
 
-  width: 1060px;
-  height: 640px;
+  width: 1200px;
+  height: 650px;
   align: center center;
   background-color: #0f101f;
-  background-image: url("s2r://panorama/images/custom_game/collection/spin_background_png.vtex");
+  background-image: url("file://{images}/custom_game/pet/bg.png");
+  background-img-opacity: 0.2;
   background-size: 100%;
   box-shadow: rgba(0, 0, 0, 1) 0px 0px 8px 0px;
-  margin-top: 140px;
+  margin-top: 0px;
  }
  .TreasuresPreviewWrap{
   opacity: 0;
@@ -1084,7 +1089,7 @@
   opacity: 1;
  }
  #TreasuresWheel{
-  width: 100%;
+  width: 1060px;
   flow-children: right;
   align: center bottom;
   padding-left: -4px;
@@ -1416,6 +1421,7 @@
   padding-bottom: 110px;
   opacity: 0;
   z-index: 2;
+  background-color-opacity:0;
  }
  #TreasuresPreviewRoot.show{
   opacity: 1;

@@ -10,9 +10,9 @@
 }
 .souls_stash_panel{
     height: 72px;
-    max-width: 306px;
     min-width: 70px;
     background-image:url("s2r://panorama/images/hud/reborn/bg_item_build_psd.vtex") ;
+    background-size: 100%;
 }
 .souls_stash_panel Label{
     color:white;

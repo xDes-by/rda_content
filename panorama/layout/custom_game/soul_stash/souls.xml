@@ -45,6 +45,15 @@
                     <DOTAItemImage id="" class="soul_item" itemname="item_divine_soul" >
                         <Label id="label" class="" text="1" />    
                     </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_dragon_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_dragon_soul_2" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_dragon_soul_3" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
                 </Panel>
                 
             </Panel>

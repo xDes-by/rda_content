@@ -8,7 +8,8 @@ GameEvents.Subscribe("GetPets_Js",function(t){
 })
 
 Pets.PageTitle = []
-
+Pets.NamePage = {}
+Pets.PageTier = []
 function FindDotaHudElement(panel) {
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
 }
@@ -62,24 +63,25 @@ function CreatePetList(t){
         }
     }
     $("#ItemPips").RemoveAndDeleteChildren()
+    var page = 0
     for(i in tier){
 
         for(let z = 0; z < Math.ceil(tier[i].length/6); z++){
 
-            Pets.PageTitle.push($.Localize("#pet_title") + 1)
+            Pets.PageTitle.push($.Localize("#pet_title") + i)
             let pagePanel = $.CreatePanelWithProperties("Panel", $("#pet_showcase"), "", {class:"showcase"})
             
             for(let j = z*6; j < 6+6*z; j++){
-                
-                CreatePetPanel(tier, pagePanel, i, j)
+                CreatePetPanel(tier, pagePanel, i, j, page)
             }
             let p = Pets.PageTitle.length - 1
             let dot = $.CreatePanelWithProperties("Button", $("#ItemPips"), "" ,{class:"PaginationButtonCustom"})
             dot.SetPanelEvent("onmouseactivate", ()=>{
                 SetPage(p)
             })
+            Pets.PageTier[page] = i
+            page += 1
         }
-        
     }
 
     CreatePetShop(1,1)
@@ -90,7 +92,6 @@ function CreatePetList(t){
     pan.FindChildTraverse("gems_label_pet").text = Pets.all["coins"]
     pan.FindChildTraverse("rp_label_pet").text = Pets.all["mmrpoints"]
     pan.FindChildTraverse("feed_label_pet").text = Pets.all["feed"]
-
     
     if(t.auto_pet){
         panel[t.auto_pet].FindChildTraverse("auto_get").SetSelected(true)
@@ -101,17 +102,16 @@ function CreatePetList(t){
                 break
             }
         }
+        SetPage(Pets.NamePage[t.auto_pet])
     }else{
         let f = InterfaceFilling(tier[1][0])
         f()
+        SetPage(0)
     }
-    SetPage(0)
-
 }
 
-
 // создание панели пета
-function CreatePetPanel(tier, pagePanel, i, j){
+function CreatePetPanel(tier, pagePanel, i, j, pageNumber){
     let pan_id = ""
     if(tier[i][j]){
         pan_id = tier[i][j].name + "_panel"
@@ -130,7 +130,9 @@ function CreatePetPanel(tier, pagePanel, i, j){
         petPanel.FindChildTraverse("buy_pet_button").visible = false
         petPanel.FindChildTraverse("have_pet").visible = false
     }
-    
+    if(tier[i][j]){
+        Pets.NamePage[tier[i][j].name] = pageNumber
+    }
 }
 
 // заполнение пета
@@ -194,12 +196,23 @@ function InterfaceFilling(petObj){
 
         // ShowAbilityTooltip
         BuildExpDate(petObj.now)
-        $("#interface_tier_pet").text = $.Localize("тир ")+petObj.tier
-        $("#interface_level_pet_1").text = $.Localize("#pet_level")+Level(petObj.now)[0]
+        $("#interface_tier_pet").text = $.Localize("#tier")+" "+petObj.tier
+        $("#interface_level_pet_1").text = $.Localize("#pet_level")+" "+Level(petObj.now)[0]
         
         if(petObj.now > 0){
             $("#pet_upgrade_container").visible = true
             $("#buy_pet_button_2").visible = false
+            if(petObj == Pets.selectedPet){
+                $("#change_pet_label").text = $.Localize("#pet_equip2")
+            }else{
+                $("#change_pet_label").text = $.Localize("#pet_equip")
+            }
+            $("#change_pet_button").SetPanelEvent("onmouseactivate", GetPet(petObj))
+            if(Pets.can_change == 1){
+                $("#change_pet_button").visible = true
+            }else{
+                $("#change_pet_button").visible = false
+            }
         }else{
             $("#pet_upgrade_container").visible = false
             $("#buy_pet_button_2").visible = true
@@ -216,6 +229,7 @@ function InterfaceFilling(petObj){
                 $("#buy_pet_button_2").FindChildTraverse("buy_pet_label").text = petObj.price.rp
                 $("#buy_pet_button_2").SetPanelEvent("onmouseactivate",Pets.Buy(1, petObj.i, "rp"))
             }
+            $("#change_pet_button").visible = false
         }
         BuildFeedEntryButtons(petObj)
 
@@ -223,6 +237,25 @@ function InterfaceFilling(petObj){
             panel[name].FindChildTraverse("item_pet").RemoveClass("item_pet_selected")
         }
         panel[petObj.name].FindChildTraverse("item_pet").AddClass("item_pet_selected")
+    }
+}
+
+function CreateOldPet(petObj){
+    $("#selected_name_pet").text = $.Localize("#"+petObj.name)
+    $("#item_selected_pet").abilityname = petObj.itemname
+    $("#item_selected_pet").SetPanelEvent("onmouseover", ShowAbilityTooltip($("#item_selected_pet"), petObj.itemname))
+    $("#item_selected_pet").SetPanelEvent("onmouseout", HideAbilityTooltip())
+
+    if(petObj.now == undefined){
+        $("#item_selected_pet").SetPanelEvent("onmouseactivate", ()=>{})
+        $("#selected_tier_pet").visible = false
+        $("#selected_level_pet_1").visible = false
+    }else{
+        $("#item_selected_pet").SetPanelEvent("onmouseactivate", InterfaceFilling(petObj))
+        $("#selected_tier_pet").text = $.Localize("#tier")+" "+petObj.tier
+        $("#selected_level_pet_1").text = $.Localize("#pet_level")+" "+Level(petObj.now)[0]
+        $("#selected_tier_pet").visible = true
+        $("#selected_level_pet_1").visible = true
     }
 }
 
@@ -331,18 +364,24 @@ function SetPage(n){
             $("#ItemPips").GetChild(i).RemoveClass("slider_button_active")
         }
     }
+    // $("#interface_tier_pet").text = $.Localize("тир ")+Pets.PageTier[n]
+    Pets.Page = n
 }
 
 Pets.NextPage = ()=>{
-    if(Pets.Page == Pets.PageTitle.length -1){ return }
-    SetPage(Pets.Page + 1)
-    Pets.Page += 1
+    if(Pets.Page == Pets.PageTitle.length -1){ 
+        SetPage(0)
+    }else{
+        SetPage(Pets.Page + 1)
+    }
 }
 
 Pets.PreviousPage = ()=>{
-    if(Pets.Page == 0){ return }
-    SetPage(Pets.Page - 1)
-    Pets.Page -= 1
+    if(Pets.Page == 0){ 
+        SetPage(Pets.PageTitle.length -1)
+    }else{
+        SetPage(Pets.Page - 1)
+    }
 }
 
 
@@ -352,7 +391,20 @@ $("#arrow_left").SetPanelEvent("onmouseactivate", ()=>{
 $("#arrow_right").SetPanelEvent("onmouseactivate", ()=>{
     Pets.NextPage()
 })
-
+$("#arrow2_left").SetPanelEvent("onmouseactivate", ()=>{
+    Pets.PreviousPage()
+    $("#arrow2_left").visible = false
+    $.Schedule(0.15, ()=>{
+        $("#arrow2_left").visible = true
+    })
+})
+$("#arrow2_right").SetPanelEvent("onmouseactivate", ()=>{
+    Pets.NextPage()
+    $("#arrow2_right").visible = false
+    $.Schedule(0.15, ()=>{
+        $("#arrow2_right").visible = true
+    })
+})
 
 var dropdown_count = 1
 Pets.Buy = (i,j, currency)=>{
@@ -364,7 +416,7 @@ Pets.Buy = (i,j, currency)=>{
             return
         }
         let pan = $("#buy_coufirm_bg_pet")
-        pan.FindChildTraverse("buy_confirm_item_name").text = $.Localize("#"+obj.name)
+        pan.FindChildTraverse("buy_confirm_item_name").text = " " + $.Localize("#"+obj.name)
         let price = 0
         if(currency == "gems"){
             price = obj.price.don
@@ -490,7 +542,9 @@ function HideAbilityTooltip(){
 }
 
 
-$("#buy_coufirm_bg_pet").SetPanelEvent("onmouseactivate", ()=>{})
+$("#buy_coufirm_bg_pet").SetPanelEvent("onmouseactivate", ()=>{
+    $("#buy_coufirm_bg_pet").visible = false
+})
 $("#confirm_no_panel").SetPanelEvent("onmouseactivate", ()=>{
     $("#buy_coufirm_bg_pet").visible = false
 })
@@ -521,9 +575,33 @@ $("#close_pet").SetPanelEvent("onmouseactivate",()=>{
     $("#PetWindowMain").style.transform = "translate3d(0px, 300px, 0px)";
     $("#PetWindowMain").style.preTransformScale2d = "1";
 })
-
-
-
+function UpdatePetIcon(t){
+	var player_pets = CustomNetTables.GetTableValue( "player_pets", Players.GetLocalPlayer());
+    if(player_pets.pet == "spell_item_pet"){
+        Pets.selectedPet = {
+            name : "dota_tooltip_ability_spell_item_pet",
+            itemname : player_pets.pet,
+        }
+        $("#change_pet_label").text = $.Localize("#pet_equip")
+        $("#item_main_pet").RemoveClass("item_pet_selected")
+    }else{
+        for(let i in Pets.pet){
+            if(Pets.pet[i].itemname == player_pets.pet){
+                Pets.selectedPet = Pets.pet[i]
+                break
+            }
+        }
+        $("#change_pet_label").text = $.Localize("#pet_equip2")
+        $("#item_main_pet").AddClass("item_pet_selected")
+    }
+    Pets.can_change = t["can_change"]
+    if(Pets.can_change == 1){
+        $("#change_pet_button").visible = true
+    }else{
+        $("#change_pet_button").visible = false
+    }
+    CreateOldPet(Pets.selectedPet)
+}
 
 
 $("#buy_coufirm_bg_pet").visible = false
@@ -558,7 +636,7 @@ var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 
 
 function OnMouseEvent(eventType, clickBehavior) {
-	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE || clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_MOVE) {
+	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
         let petPanel = $("#PetWindowMain")
 		if(petPanel){
 			let cursorPos = GameUI.GetCursorPosition();
@@ -579,4 +657,5 @@ function OnMouseEvent(eventType, clickBehavior) {
 (function() {
     // Update();
     DotaHUD.ListenToMouseEvent(OnMouseEvent);
+    GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
 })();

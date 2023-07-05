@@ -1,4 +1,4 @@
-
+const tableLength = 7
 var PlayerCount = 0,
 	rating,
 	commented = [],
@@ -14,8 +14,7 @@ var PlayerCount = 0,
 	isRatingOpen = false,
 	isShopOpen = false,
 	marci = null,
-	pango = null,
-	totaldonate = null
+	pango = null
 
 function hudInit(){
     /*
@@ -410,6 +409,10 @@ var TipsOver2 = (function(message, pos)
 {
 	return function()
 	{
+		let text = $.Localize("#"+message)
+		if(text == $.Localize("#"+message)){
+			text = message
+		}
         $.DispatchEvent( "DOTAShowTextTooltip", pos, $.Localize("#"+message));
 	}
 });
@@ -480,29 +483,29 @@ var openShopButton = function(){
 }
  
 function closeShop(){
-	if(!$('#DonateShopPanel')) return
+	if(!$('#RDAShopPanel')) return
 	isopen = false
 	if(IsSelected){
 		IsSelected = false;
-		$('#donateShop').hittest = false
-		$('#DonateShopPanel').style.position = x + 'px ' + y + 'px 0'
+		$('#RDAShop').hittest = false
+		$('#RDAShopPanel').style.position = x + 'px ' + y + 'px 0'
 	}
-	if(GameUI.IsAltDown() && specialAltOpenBut == false){
-		specialAltOpenBut = true;
-	}else if(GameUI.IsAltDown() && specialAltOpenBut == true){
-		specialAltOpenBut = false;
-	}
+	// if(GameUI.IsAltDown() && specialAltOpenBut == false){
+	// 	specialAltOpenBut = true;
+	// }else if(GameUI.IsAltDown() && specialAltOpenBut == true){
+	// 	specialAltOpenBut = false;
+	// }
 	if(specialAltOpenBut){
 		$.Schedule(0.2, function(){
 			$('#openShopLabel').visible = true;
 		})
 	}
 
-	$('#DonateShopPanel').style.opacity = "0"
-	$('#DonateShopPanel').style.preTransformScale2d = "0.8"
-	$('#DonateShopPanel').style.transform = "translate3d(0px, 300px, 0px)"
+	$('#RDAShopPanel').style.opacity = "0"
+	$('#RDAShopPanel').style.preTransformScale2d = "0.8"
+	$('#RDAShopPanel').style.transform = "translate3d(0px, 300px, 0px)"
 	
-	$('#donateShop').SetFocus(false)
+	$('#RDAShop').SetFocus(false)
 	$('#BuyControl').visible = false
 	$('#accept_shadow').visible = false
 }
@@ -519,16 +522,16 @@ function specialOpnBut(){
 function openShop(n){
 	isopen = true
 	windowName = "shop"
-	$('#DonateShopPanel').style.opacity = "1"
-	$('#DonateShopPanel').style.preTransformScale2d = "1"
-	$('#DonateShopPanel').style.transform = "translate3d(0px, 0px, 0px)"
-	for(var i = 1; i <= Object.keys( shopinfo ).length; i++){
+	$('#RDAShopPanel').style.opacity = "1"
+	$('#RDAShopPanel').style.preTransformScale2d = "1"
+	$('#RDAShopPanel').style.transform = "translate3d(0px, 0px, 0px)"
+	for(var i = 1; i <= tableLength; i++){
 		if(i == n){
 			$('#TabLabelImg_' + i).AddClass('selected_bd')
 			$('#TabLabelImg_' + i).RemoveClass('TabPanelOnServ')
 			$('#TabLabel_' + i).AddClass('selected_text')
 			$('#TabLabel_' + i).RemoveClass('TabLabelOnServ')
-			visibleOn("DonateShopContentPanel_" + i)
+			visibleOn("RDAShopContentPanel_" + i)
 		}else{
 			if($('#TabLabelImg_' + i)){
 				$('#TabLabelImg_' + i).AddClass('TabPanelOnServ')
@@ -538,7 +541,7 @@ function openShop(n){
 				$('#TabLabel_' + i).AddClass('TabLabelOnServ')
 				$('#TabLabel_' + i).RemoveClass('selected_text')
 			}
-			visibleOff("DonateShopContentPanel_" + i)
+			visibleOff("RDAShopContentPanel_" + i)
 		}
 	}
 	if($('#TabLabelImg_Inventory')){
@@ -549,24 +552,48 @@ function openShop(n){
 		$('#TabLabel_Inventory').AddClass('TabLabelOnServ')
 		$('#TabLabel_Inventory').RemoveClass('selected_text')
 	}
-	visibleOff("DonateShopContentPanel_Inventory")
+	visibleOff("RDAShopContentPanel_Inventory")
 	if(n == 0){
 		$('#TabLabelImg_Inventory').AddClass('selected_bd')
 		$('#TabLabelImg_Inventory').RemoveClass('TabPanelOnServ')
 		$('#TabLabel_Inventory').AddClass('selected_text')
 		$('#TabLabel_Inventory').RemoveClass('TabLabelOnServ')
-		visibleOn("DonateShopContentPanel_Inventory")
+		visibleOn("RDAShopContentPanel_Inventory")
+	}
+	$('#ShopBuyGemsButtonLabel').AddClass('selected_bd')
+	$('#ShopBuyGemsButtonLabel').RemoveClass('TabPanelOnServ')
+	$('#ShopBuyGemsButtonLabel').AddClass('selected_text')
+	$('#ShopBuyGemsButtonLabel').RemoveClass('TabLabelOnServ')
+	if(n == 5){
+		$('#ShopBuyGemsButtonLabel').RemoveClass('selected_bd')
+		$('#ShopBuyGemsButtonLabel').AddClass('TabPanelOnServ')
+		$('#ShopBuyGemsButtonLabel').RemoveClass('selected_text')
+		$('#ShopBuyGemsButtonLabel').AddClass('TabLabelOnServ')
 	}
 }
 
 
 function OpenInventory(){
+	let Inventory = $("#RDAShopContentPanel_Inventory")
+	Inventory.RemoveAndDeleteChildren()
+
+	for(var i = 1; i <= tableLength; i++){
+		if(shopinfo[i].name == "pets" || shopinfo[i].name == "other") continue
+		for (const [key, value] of Object.entries(shopinfo[i])) {
+			if(typeof(value) != 'object' || value.onStart == 0) continue
+			value.categoryKey = i
+			value.productKey = key
+			if(Inventory){
+				CreateItem(value, Inventory, "ShopItem_Inventory" + value.categoryKey + '_' + value.productKey)
+			}
+		}
+	}
 	let o = opn(0)
 	o()
 }
 
-function OpneBuyGens(){
-	let o = opn(5)
+function OpenBuyGens(){
+	let o = opn(7)
 	o()
 }
 
@@ -585,47 +612,47 @@ var acceptBuy = (function(i, n, pan, consumabl, currency)
 {
 	return function()
 	{
-		// $.Msg("accept buy 1")
 		$('#BuyControl').visible = false;
 		$('#accept_shadow').visible = false
 		GameEvents.SendCustomGameEventToServer("buyItem", {i,n, amountBuy,currency})
 		if(consumabl){
 			var numb = Number(Number(shopinfo[i][n].now) + amountBuy)
-			$("#ShopItem" + i + '_' + n).FindChildTraverse('DonateShopItemButtonLabelStock').text =  numb
+			$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
 			if($("#ShopItem_Inventory" + i + '_' + n)){
-				$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('DonateShopItemButtonLabelStock').text =  numb
+				$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
 			}
 			shopinfo[i][n].now = numb
+			shopinfo[i][n].onStart = Number(shopinfo[i][n].onStart) + amountBuy
 		}else if(shopinfo[i][n].type == 'talant' || shopinfo[i][n].type == 'pet_change'){
-			pan.FindChildTraverse('DonateShopItemButtonBuy').visible = false
-			pan.FindChildTraverse('DonateShopItemButtonActive').visible = true
-			pan.FindChildTraverse('DonateShopItemButtonLabelActive').text = $.Localize('#active')
+			pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+			pan.FindChildTraverse('RDAShopItemButtonActive').visible = true
+			pan.FindChildTraverse('RDAShopItemButtonLabelActive').text = $.Localize('#active')
 			if(shopinfo[i][n].type == 'pet_change'){
 				shopinfo[i][n].now = Number(Number(shopinfo[i][n].now) + amountBuy)
 				// RefreshPet(shopinfo)
 			}
 		}else if(shopinfo[i][n].type != 'gem' && shopinfo[i][n].type != 'loot-box'){
-			pan.FindChildTraverse('DonateShopItemButtonHas').visible = true
-			pan.FindChildTraverse('DonateShopItemButtonBuy').visible = false
-			pan.FindChildTraverse('DonateShopItemButtonLabel').text = $.Localize('#taik')
+			pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
+			pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+			pan.FindChildTraverse('RDAShopItemButtonLabel').text = $.Localize('#taik')
 		}
 		if(currency){
 			shopinfo.mmrpoints = Number(Number(shopinfo.mmrpoints) - Number(shopinfo[i][n]['price']['rp']))
 		}else{
 			shopinfo.coins = Number(Number(shopinfo.coins) - Number(shopinfo[i][n]['price']['don']))
 		}
-		$('#DonateMoneyLabel').text = shopinfo.coins
+		$('#RDAMoneyLabel').text = shopinfo.coins
 		$('#MMMRPointsLabel').text = shopinfo.mmrpoints
 		if(shopinfo[i][n].type == 'talant'){
-			var shopPanel = $("#DonateShopContentPanel")
+			var shopPanel = $("#RDAShopContentPanel")
 			for (const [categoryKey, categoryValue] of Object.entries(shopinfo)) {
 				if(typeof(categoryValue) == 'object'){
 					for (const [productKey, productValue] of Object.entries(categoryValue)) {
 						if(typeof(productValue) == 'object' && productValue.type == "talant" && productValue.hero == shopinfo[i][n].hero){
 							singl = shopPanel.FindChildTraverse("ShopItem" + categoryKey + '_' + productKey)
-							singl.FindChildTraverse('DonateShopItemButtonBuy').visible = false
-							singl.FindChildTraverse('DonateShopItemButtonActive').visible = true
-							singl.FindChildTraverse('DonateShopItemButtonLabelActive').text = $.Localize('#active')
+							singl.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+							singl.FindChildTraverse('RDAShopItemButtonActive').visible = true
+							singl.FindChildTraverse('RDAShopItemButtonLabelActive').text = $.Localize('#active')
 						}
 					}
 				}
@@ -705,9 +732,9 @@ var give = (function(i, n, pan, consumabl)
 			if(consumabl){
 				var numb = Number(Number(shopinfo[i][n].now) - Number(1))
 				if(Number(shopinfo[i][n].now) > 0){
-					$("#ShopItem" + i + '_' + n).FindChildTraverse('DonateShopItemButtonLabelStock').text =  numb
+					$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
 					if($("#ShopItem_Inventory" + i + '_' + n)){
-						$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('DonateShopItemButtonLabelStock').text =  numb
+						$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
 					}
 				}
 				if(numb <= 0){
@@ -719,38 +746,38 @@ var give = (function(i, n, pan, consumabl)
 			}else{
 		//else
 				var c = shopinfo[i][n].now
-				$("#ShopItem" + i + '_' + n).FindChildTraverse('DonateShopItemButtonGived').visible = true
-				$("#ShopItem" + i + '_' + n).FindChildTraverse('DonateShopItemButtonHas').visible = false
+				$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonGived').visible = true
+				$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonHas').visible = false
 				if($("#ShopItem_Inventory" + i + '_' + n)){
-					$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('DonateShopItemButtonGived').visible = true
-					$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('DonateShopItemButtonHas').visible = false
+					$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonGived').visible = true
+					$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonHas').visible = false
 				}
 			//effect
 				if(type == 'effect'){
-					pan.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#takeoff')
-					pan.FindChildTraverse('DonateShopItemButtonGived').SetPanelEvent("onmouseactivate",takeoff(pan, i, n))
+					pan.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#takeoff')
+					pan.FindChildTraverse('RDAShopItemButtonGived').SetPanelEvent("onmouseactivate",takeoff(pan, i, n))
 				}else if(type == 'hero_change'){
-					pan.FindChildTraverse('DonateShopItemButtonGived').visible = false
-					pan.FindChildTraverse('DonateShopItemButtonActive').visible = true
-					pan.FindChildTraverse('DonateShopItemButtonLabelActive').text = $.Localize('#active')
+					pan.FindChildTraverse('RDAShopItemButtonGived').visible = false
+					pan.FindChildTraverse('RDAShopItemButtonActive').visible = true
+					pan.FindChildTraverse('RDAShopItemButtonLabelActive').text = $.Localize('#active')
 					for (const [productKey, productValue] of Object.entries(shopinfo[6])) {
 						if(productValue.type == "hero_change" && productKey != n){
 							sel = $("#ShopItem" + 6 + '_' + productKey)
-							sel.FindChildTraverse('DonateShopItemButtonGived').visible = true
-							sel.FindChildTraverse('DonateShopItemButtonHas').visible = false
-							sel.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#shop_lock')
+							sel.FindChildTraverse('RDAShopItemButtonGived').visible = true
+							sel.FindChildTraverse('RDAShopItemButtonHas').visible = false
+							sel.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#shop_lock')
 						}
 					}
 				}else{
 			//item	
-					$("#ShopItem" + i + '_' + n).FindChildTraverse('DonateShopItemButtonLabelGived').text =  $.Localize('#issued')
+					$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelGived').text =  $.Localize('#issued')
 					if($("#ShopItem_Inventory" + i + '_' + n)){
-						$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('DonateShopItemButtonLabelGived').text =  $.Localize('#issued')
+						$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelGived').text =  $.Localize('#issued')
 					}
 				}
 			//pets
 				if(type == 'pet'){
-					var shopPanel = $("#DonateShopContentPanel")
+					var shopPanel = $("#RDAShopContentPanel")
 					
 					for (const [categoryKey, categoryValue] of Object.entries(shopinfo)) {
 						if(typeof(categoryValue) == 'object'){
@@ -758,14 +785,14 @@ var give = (function(i, n, pan, consumabl)
 								if(typeof(productValue) == 'object' && productValue.type == "pet"){
 									if(shopinfo[1][1].now == 0){
 										singl = shopPanel.FindChildTraverse("ShopItem" + categoryKey + '_' + productKey)
-										singl.FindChildTraverse('DonateShopItemButtonHas').visible = false
-										singl.FindChildTraverse('DonateShopItemButtonGived').visible = true
-										singl.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#issued')
+										singl.FindChildTraverse('RDAShopItemButtonHas').visible = false
+										singl.FindChildTraverse('RDAShopItemButtonGived').visible = true
+										singl.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#issued')
 									}else if(shopinfo[1][1].now > 0){
 										singl = shopPanel.FindChildTraverse("ShopItem" + categoryKey + '_' + productKey)
-										singl.FindChildTraverse('DonateShopItemButtonHas').visible = false
-										singl.FindChildTraverse('DonateShopItemButtonGived').visible = true
-										singl.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#shop_sleep')
+										singl.FindChildTraverse('RDAShopItemButtonHas').visible = false
+										singl.FindChildTraverse('RDAShopItemButtonGived').visible = true
+										singl.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#shop_sleep')
 									}
 								}
 							}
@@ -788,8 +815,8 @@ var takeoff = (function(pan, i, n)
 		Game.EmitSound("ui_team_select_shuffle")
 		
 		//$.Msg("take off")
-		pan.FindChildTraverse('DonateShopItemButtonGived').visible = false
-		pan.FindChildTraverse('DonateShopItemButtonHas').visible = true
+		pan.FindChildTraverse('RDAShopItemButtonGived').visible = false
+		pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
 		GameEvents.SendCustomGameEventToServer("takeOffEffect", {i : i, n : n})
 	}
 });
@@ -803,36 +830,36 @@ function RefreshPet(t){
 		}
 	}
 	// $.Msg("issued:",issued)
-	var shopPanel = $("#DonateShopContentPanel")
+	var shopPanel = $("#RDAShopContentPanel")
 	if(t != null){
 		for (const [categoryKey, categoryValue] of Object.entries(t)) {
 			if(typeof(categoryValue) == 'object'){
 				for (const [productKey, productValue] of Object.entries(categoryValue)) {
 					if(typeof(productValue) == 'object' && productValue.type == "pet" && shopPanel){
 						singl = shopPanel.FindChildTraverse("ShopItem" + categoryKey + '_' + productKey)
-						singl.FindChildTraverse('DonateShopItemButtonBuy').visible = false
-						singl.FindChildTraverse('DonateShopItemButtonHas').visible = false
-						singl.FindChildTraverse('DonateShopItemButtonGived').visible = false
-						singl.FindChildTraverse('DonateShopItemButtonActive').visible = false
+						singl.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+						singl.FindChildTraverse('RDAShopItemButtonHas').visible = false
+						singl.FindChildTraverse('RDAShopItemButtonGived').visible = false
+						singl.FindChildTraverse('RDAShopItemButtonActive').visible = false
 						if(issued){
-							singl.FindChildTraverse('DonateShopItemButtonHas').visible = false
-							singl.FindChildTraverse('DonateShopItemButtonGived').visible = true
-							singl.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#issued')
+							singl.FindChildTraverse('RDAShopItemButtonHas').visible = false
+							singl.FindChildTraverse('RDAShopItemButtonGived').visible = true
+							singl.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#issued')
 						}else{
 							if(productValue.status == 'taik'){
-								singl.FindChildTraverse('DonateShopItemButtonHas').visible = true
-								singl.FindChildTraverse('DonateShopItemButtonLabel').text = $.Localize('#taik')
+								singl.FindChildTraverse('RDAShopItemButtonHas').visible = true
+								singl.FindChildTraverse('RDAShopItemButtonLabel').text = $.Localize('#taik')
 							}else if(productValue.status == 'buy'){
-								singl.FindChildTraverse('DonateShopItemButtonBuy').visible = true
+								singl.FindChildTraverse('RDAShopItemButtonBuy').visible = true
 							}else if(productValue.status == 'issued' && dr == null){
-								singl.FindChildTraverse('DonateShopItemButtonGived').visible = true
-								singl.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#issued')
+								singl.FindChildTraverse('RDAShopItemButtonGived').visible = true
+								singl.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#issued')
 							}else if(productValue.status == 'takeoff'){
-								singl.FindChildTraverse('DonateShopItemButtonGived').visible = true
-								singl.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#takeoff')
+								singl.FindChildTraverse('RDAShopItemButtonGived').visible = true
+								singl.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#takeoff')
 							}else if(productValue.status == 'active'){
-								singl.FindChildTraverse('DonateShopItemButtonActive').visible = true
-								singl.FindChildTraverse('DonateShopItemButtonLabelActive').text = $.Localize('#active')
+								singl.FindChildTraverse('RDAShopItemButtonActive').visible = true
+								singl.FindChildTraverse('RDAShopItemButtonLabelActive').text = $.Localize('#active')
 							}
 						}
 					}
@@ -845,184 +872,256 @@ function RefreshPet(t){
 function change_pet(t){
 	let pan = $("#ShopItem" + t[1] + '_' + t[2])
 	if(pan){
-		pan.FindChildTraverse('DonateShopItemButtonBuy').visible = false
-		pan.FindChildTraverse('DonateShopItemButtonHas').visible = false
-		pan.FindChildTraverse('DonateShopItemButtonGived').visible = false
-		pan.FindChildTraverse('DonateShopItemButtonActive').visible = false
-		pan.FindChildTraverse('DonateShopItemButtonHas').visible = true
-		pan.FindChildTraverse('DonateShopItemButtonLabel').text = $.Localize('#taik')
+		pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+		pan.FindChildTraverse('RDAShopItemButtonHas').visible = false
+		pan.FindChildTraverse('RDAShopItemButtonGived').visible = false
+		pan.FindChildTraverse('RDAShopItemButtonActive').visible = false
+		pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
+		pan.FindChildTraverse('RDAShopItemButtonLabel').text = $.Localize('#taik')
 	}
 }
 
+const QuickUseSpray = (value)=>{
+	return ()=>{
+		GameEvents.SendCustomGameEventToServer( "CastSpray", {sprayName : value.name} )
+		closeShop()
+	}
+}
+
+const SprayToggleActivate = (value, pan)=>{
+	return ()=>{
+		toggleState = pan.FindChildTraverse("ShopItemCheckBox").checked
+		if(toggleState){
+			for(let productKey in shopinfo[value.categoryKey]){
+				if(productKey == value.productKey) continue
+				const sprayItem = $("#ShopItem" + value.categoryKey + '_' + productKey)
+				if(sprayItem){ 
+					sprayItem.FindChildTraverse("ShopItemCheckBox").SetSelected(false)
+				}
+				const inventorySprayItem = $("#ShopItem_Inventory" + value.categoryKey + '_' + productKey)
+				if(inventorySprayItem){
+					inventorySprayItem.FindChildTraverse("ShopItemCheckBox").SetSelected(false)
+				}
+			}
+		}
+		GameEvents.SendCustomGameEventToServer("SprayToggleActivate", { 
+			toggleState : toggleState,
+			categoryKey : value.categoryKey,
+			productKey : value.productKey,
+		})
+	}
+}
+
+const SprayOnmouseover = (value, pan)=>{
+	return ()=>{
+		if(shopinfo[value.categoryKey][value.productKey].now > 0){
+			pan.FindChildTraverse("ShopItemCheckBox").style.opacity = "1"
+		}
+	}
+}
+const SprayOnmouseout = (value, pan)=>{
+	return ()=>{
+		if(shopinfo[value.categoryKey][value.productKey].now > 0){
+			pan.FindChildTraverse("ShopItemCheckBox").style.opacity = "0"
+		}
+	}
+}
 
 const CreateItem = function(value, parentPanel, newPanelId){
-	var pan = $.CreatePanelWithProperties("Panel", parentPanel, newPanelId, {class:"DonateShopItemPanel"})
+	var pan = $.CreatePanelWithProperties("Panel", parentPanel, newPanelId, {class:"RDAShopItemPanel"})
+	if(value.hidden != undefined) pan.visible = false
 	if(!value.layout){
-		pan.BLoadLayout("file://{resources}/layout/custom_game/DonateShopItem1.xml", false, false)
+		pan.BLoadLayout("file://{resources}/layout/custom_game/RDAShopItem1.xml", false, false)
 	}else{
 		pan.BLoadLayout("file://{resources}/layout/custom_game/"+value.layout+".xml", false, false)
 	}
 	// -----------------------------------------------------------------------------
-	if(pan.FindChildTraverse('DonateShopItemButtonBuy')){
-		pan.FindChildTraverse('DonateShopItemButtonBuy').visible = false
+	if(pan.FindChildTraverse('RDAShopItemButtonBuy')){
+		pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonHas')){
-		pan.FindChildTraverse('DonateShopItemButtonHas').visible = false
+	if(pan.FindChildTraverse('RDAShopItemButtonHas')){
+		pan.FindChildTraverse('RDAShopItemButtonHas').visible = false
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonGived')){
-		pan.FindChildTraverse('DonateShopItemButtonGived').visible = false
+	if(pan.FindChildTraverse('RDAShopItemButtonGived')){
+		pan.FindChildTraverse('RDAShopItemButtonGived').visible = false
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonActive')){
-		pan.FindChildTraverse('DonateShopItemButtonActive').visible = false
+	if(pan.FindChildTraverse('RDAShopItemButtonActive')){
+		pan.FindChildTraverse('RDAShopItemButtonActive').visible = false
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonInTreasuries')){
-		pan.FindChildTraverse('DonateShopItemButtonInTreasuries').visible = false
+	if(pan.FindChildTraverse('RDAShopItemButtonInTreasuries')){
+		pan.FindChildTraverse('RDAShopItemButtonInTreasuries').visible = false
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonSell')){
-		pan.FindChildTraverse('DonateShopItemButtonSell').visible = false
+	if(pan.FindChildTraverse('RDAShopItemButtonSell')){
+		pan.FindChildTraverse('RDAShopItemButtonSell').visible = false
 	}
 	if(pan.FindChildTraverse('ShopItemCheckBox')){
-		pan.FindChildTraverse('ShopItemCheckBox').visible = false
+		pan.FindChildTraverse('ShopItemCheckBox').style.opacity = "0"
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonLabelStockPanel') && !value.counter){
-		pan.FindChildTraverse('DonateShopItemButtonLabelStockPanel').visible = false
+	if(pan.FindChildTraverse("RDAShopItemButtonQuickUse")){
+		pan.FindChildTraverse('RDAShopItemButtonQuickUse').visible = false
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonPreview')){
-		pan.FindChildTraverse('DonateShopItemButtonPreview').visible = false
+	if(pan.FindChildTraverse('RDAShopItemButtonLabelStockPanel') && !value.counter){
+		pan.FindChildTraverse('RDAShopItemButtonLabelStockPanel').visible = false
+	}
+	if(pan.FindChildTraverse('RDAShopItemButtonPreview')){
+		pan.FindChildTraverse('RDAShopItemButtonPreview').visible = false
 	}
 	// -----------------------------------------------------------------------------------
 	//////////////////////			Расходники 
-	//////////////////////			DonateShopItem2
+	//////////////////////			RDAShopItem2
 	// -----------------------------------------------------------------------------------
 	// Текст кол-во расходников
-	if(pan.FindChildTraverse('DonateShopItemButtonLabelStock')){
-		pan.FindChildTraverse('DonateShopItemButtonLabelStock').text = value.now
+	if(pan.FindChildTraverse('RDAShopItemButtonLabelStock')){
+		pan.FindChildTraverse('RDAShopItemButtonLabelStock').text = value.now
 	}
 	// Кнопки расходников
-	if(pan.FindChildTraverse('DonateShopItemButtonBuyCon') && pan.FindChildTraverse('DonateShopItemButtonHasCon')){
+	if(pan.FindChildTraverse('RDAShopItemButtonBuyCon') && pan.FindChildTraverse('RDAShopItemButtonHasCon')){
 		if(value.price && value.price.rp){
-			pan.FindChildTraverse('DonateShopItemButtonBuyCon').SetPanelEvent("onmouseactivate",give(value.categoryKey, value.productKey, pan, true, true))
-			pan.FindChildTraverse('DonateShopItemButtonHasCon').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, true, true))
+			pan.FindChildTraverse('RDAShopItemButtonBuyCon').SetPanelEvent("onmouseactivate",give(value.categoryKey, value.productKey, pan, true, true))
+			// pan.FindChildTraverse('shop_button_price_container_don').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, true, true))
 		}else if(value.price && value.price.don){
-			pan.FindChildTraverse('DonateShopItemButtonBuyCon').SetPanelEvent("onmouseactivate",give(value.categoryKey, value.productKey, pan, true, false))
-			pan.FindChildTraverse('DonateShopItemButtonHasCon').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, true, false))
+			pan.FindChildTraverse('RDAShopItemButtonBuyCon').SetPanelEvent("onmouseactivate",give(value.categoryKey, value.productKey, pan, true, false))
+			// pan.FindChildTraverse('RDAShopItemButtonHasCon').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, true, false))
 		}
 	}
 	
 
 	if(pan.FindChildTraverse('shopButtonImg') && value.price && value.price.rp){
-		pan.FindChildTraverse('shopButtonImg').SetImage('file://{resources}/images/custom_game/DonateShop/protection.png')
+		pan.FindChildTraverse('shopButtonImg').SetImage('file://{resources}/images/custom_game/RDAShop/protection.png')
 		pan.FindChildTraverse('shopButtonImg').style.height ="20px";
 		pan.FindChildTraverse('shopButtonImg').style.width = "23px";
 	}
 
 	// -----------------------------------------------------------------------------------
 	//////////////////////			Обычный предмет 
-	//////////////////////			DonateShopItem2
+	//////////////////////			RDAShopItem2
 	// -----------------------------------------------------------------------------------
 	if(value.status == 'taik' && value.type != 'gem'){
-		if(pan.FindChildTraverse('DonateShopItemButtonHas')){
-			pan.FindChildTraverse('DonateShopItemButtonHas').visible = true
+		if(pan.FindChildTraverse('RDAShopItemButtonHas')){
+			pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
 		}
-		if(pan.FindChildTraverse('DonateShopItemButtonLabel')){
-			pan.FindChildTraverse('DonateShopItemButtonLabel').text = $.Localize('#taik')
+		if(pan.FindChildTraverse('RDAShopItemButtonLabel')){
+			pan.FindChildTraverse('RDAShopItemButtonLabel').text = $.Localize('#taik')
 		}
 	}else if(value.status == 'buy' || value.type == 'gem' ){
-		if(pan.FindChildTraverse('DonateShopItemButtonBuy')){
-			pan.FindChildTraverse('DonateShopItemButtonBuy').visible = true
+		if(pan.FindChildTraverse('RDAShopItemButtonBuy')){
+			pan.FindChildTraverse('RDAShopItemButtonBuy').visible = true
 		}
 	}else if(value.status == 'issued'){
-		if(pan.FindChildTraverse('DonateShopItemButtonGived')){
-			pan.FindChildTraverse('DonateShopItemButtonGived').visible = true
+		if(pan.FindChildTraverse('RDAShopItemButtonGived')){
+			pan.FindChildTraverse('RDAShopItemButtonGived').visible = true
 		}
-		if(pan.FindChildTraverse('DonateShopItemButtonLabelGived')){
-			pan.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#issued')
+		if(pan.FindChildTraverse('RDAShopItemButtonLabelGived')){
+			pan.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#issued')
 		}
 	}else if(value.status == 'takeoff'){
-		if(pan.FindChildTraverse('DonateShopItemButtonGived')){
-			pan.FindChildTraverse('DonateShopItemButtonGived').visible = true
-			pan.FindChildTraverse('DonateShopItemButtonGived').SetPanelEvent("onmouseactivate",takeoff(pan, value.categoryKey, value.productKey))
+		if(pan.FindChildTraverse('RDAShopItemButtonGived')){
+			pan.FindChildTraverse('RDAShopItemButtonGived').visible = true
+			pan.FindChildTraverse('RDAShopItemButtonGived').SetPanelEvent("onmouseactivate",takeoff(pan, value.categoryKey, value.productKey))
 		}
-		if(pan.FindChildTraverse('DonateShopItemButtonLabelGived')){
-			pan.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#takeoff')
+		if(pan.FindChildTraverse('RDAShopItemButtonLabelGived')){
+			pan.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#takeoff')
 		}
 	}else if(value.status == 'active'){
-		if(pan.FindChildTraverse('DonateShopItemButtonActive')){
-			pan.FindChildTraverse('DonateShopItemButtonActive').visible = true
+		if(pan.FindChildTraverse('RDAShopItemButtonActive')){
+			pan.FindChildTraverse('RDAShopItemButtonActive').visible = true
 		}
-		if(pan.FindChildTraverse('DonateShopItemButtonLabelActive')){
-			pan.FindChildTraverse('DonateShopItemButtonLabelActive').text = $.Localize('#active')
+		if(pan.FindChildTraverse('RDAShopItemButtonLabelActive')){
+			pan.FindChildTraverse('RDAShopItemButtonLabelActive').text = $.Localize('#active')
 		}
 	}else if(value.status == 'shop_lock'){
-		if(pan.FindChildTraverse('DonateShopItemButtonGived')){
-			pan.FindChildTraverse('DonateShopItemButtonGived').visible = true
+		if(pan.FindChildTraverse('RDAShopItemButtonGived')){
+			pan.FindChildTraverse('RDAShopItemButtonGived').visible = true
 		}
-		if(pan.FindChildTraverse('DonateShopItemButtonLabelGived')){
-			pan.FindChildTraverse('DonateShopItemButtonLabelGived').text = $.Localize('#shop_lock')
+		if(pan.FindChildTraverse('RDAShopItemButtonLabelGived')){
+			pan.FindChildTraverse('RDAShopItemButtonLabelGived').text = $.Localize('#shop_lock')
 		}
 	}else if(value.status == 'shop_select'){
-		if(pan.FindChildTraverse('DonateShopItemButtonHas')){
-			pan.FindChildTraverse('DonateShopItemButtonHas').visible = true
+		if(pan.FindChildTraverse('RDAShopItemButtonHas')){
+			pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
 		}
-		if(pan.FindChildTraverse('DonateShopItemButtonLabel')){
-			pan.FindChildTraverse('DonateShopItemButtonLabel').text = $.Localize('#shop_select')
+		if(pan.FindChildTraverse('RDAShopItemButtonLabel')){
+			pan.FindChildTraverse('RDAShopItemButtonLabel').text = $.Localize('#shop_select')
 		}
 	}
 	
-	if(pan.FindChildTraverse('DonateShopItemButtonHas')){
-		pan.FindChildTraverse('DonateShopItemButtonHas').SetPanelEvent("onmouseactivate",give(value.categoryKey, value.productKey, pan, false))
+	if(pan.FindChildTraverse('RDAShopItemButtonHas')){
+		pan.FindChildTraverse('RDAShopItemButtonHas').SetPanelEvent("onmouseactivate",give(value.categoryKey, value.productKey, pan, false))
 	}
-	if(pan.FindChildTraverse('shopButtonImgAndText1')){
-		pan.FindChildTraverse('shopButtonImgAndText1').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, false, false))
+	if(pan.FindChildTraverse('shop_button_price_container_don')){
+		pan.FindChildTraverse('shop_button_price_container_don').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, false, false))
 	}
-	if(pan.FindChildTraverse('shopButtonImgAndText2')){
-		pan.FindChildTraverse('shopButtonImgAndText2').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, false, true))
+	if(pan.FindChildTraverse('shop_button_price_container_rp')){
+		pan.FindChildTraverse('shop_button_price_container_rp').SetPanelEvent("onmouseactivate",buy(value.categoryKey, value.productKey, pan, false, true))
 	}
 	
-	if(pan.FindChildTraverse('DonateShopItemButtonLabelNotAlign1') && pan.FindChildTraverse('DonateShopItemButtonLabelNotAlign2') 
+	if(pan.FindChildTraverse('RDAShopItemButtonLabelNotAlign1') && pan.FindChildTraverse('RDAShopItemButtonLabelNotAlign2') 
 		&& pan.FindChildTraverse('shop_button_price_container_don') && pan.FindChildTraverse('shop_button_price_container_rp')){
 		if(value.price && value.price.don && value.price.rp){
-			pan.FindChildTraverse('DonateShopItemButtonLabelNotAlign1').text = value.price.don
-			pan.FindChildTraverse('DonateShopItemButtonLabelNotAlign2').text = value.price.rp
+			pan.FindChildTraverse('RDAShopItemButtonLabelNotAlign1').text = value.price.don
+			pan.FindChildTraverse('RDAShopItemButtonLabelNotAlign2').text = value.price.rp
 			pan.FindChildTraverse('shop_button_price_container_don').AddClass('shop_button_2_params')
 			pan.FindChildTraverse('shop_button_price_container_rp').AddClass('shop_button_2_params')
 		}else if(value.price.don){
-			pan.FindChildTraverse('DonateShopItemButtonLabelNotAlign1').text = value.price.don
+			pan.FindChildTraverse('RDAShopItemButtonLabelNotAlign1').text = value.price.don
 			pan.FindChildTraverse('shop_button_price_container_don').AddClass('shop_button_1_params')
 			pan.FindChildTraverse('shop_button_price_container_rp').visible = false
 		}else if(value.price.rp){
-			pan.FindChildTraverse('DonateShopItemButtonLabelNotAlign2').text = value.price.rp
+			pan.FindChildTraverse('RDAShopItemButtonLabelNotAlign2').text = value.price.rp
 			pan.FindChildTraverse('shop_button_price_container_rp').AddClass('shop_button_1_params')
 			pan.FindChildTraverse('shop_button_price_container_don').visible = false
 		}
 	}
 
-	if(pan.FindChildTraverse('DonateShopItemButtonInTreasuries')){
-		if(value.type == "spray"){
-			pan.FindChildTraverse('DonateShopItemButtonInTreasuries').visible = true
+	if(pan.FindChildTraverse('RDAShopItemButtonInTreasuries')){
+		if(value.type == "spray" && value.now == 0){
+			pan.FindChildTraverse('RDAShopItemButtonInTreasuries').visible = true
 		}
 	}
-	if(pan.FindChildTraverse('DonateShopItemButtonBuyCon') && pan.FindChildTraverse('DonateShopItemButtonPreview')){
+	if(pan.FindChildTraverse("RDAShopItemButtonQuickUse")){
+		if(value.type == "spray" && value.now > 0){
+			pan.FindChildTraverse('RDAShopItemButtonQuickUse').visible = true
+			pan.FindChildTraverse("RDAShopItemButtonQuickUse").SetPanelEvent("onactivate", QuickUseSpray(value))
+		}
+	}
+	if(pan.FindChildTraverse("ShopItemCheckBox")){
+		pan.FindChildTraverse("ShopItemCheckBox").SetPanelEvent("onmouseover", ()=>{
+			pan.FindChildTraverse("ShopItemCheckBox").style.opacity = "1"
+		})
+		pan.FindChildTraverse("ShopItemCheckBox").SetPanelEvent("onmouseout", ()=>{
+			pan.FindChildTraverse("ShopItemCheckBox").style.opacity = "0"
+		})
+		pan.FindChildTraverse("ShopItemCheckBox").SetPanelEvent("onactivate", SprayToggleActivate(value, pan))
+	}	
+	
+	if(pan.FindChildTraverse('RDAShopItemButtonBuyCon') && pan.FindChildTraverse('RDAShopItemButtonPreview')){
 		if(value.type == "treasuries"){
-			pan.FindChildTraverse('DonateShopItemButtonPreview').visible = true
-			pan.FindChildTraverse('DonateShopItemButtonBuyCon').visible = false
+			pan.FindChildTraverse('RDAShopItemButtonPreview').visible = true
+			pan.FindChildTraverse('RDAShopItemButtonBuyCon').visible = false
 		}
 	}
 
 	if( value.image ){
-		let img = pan.FindChildTraverse('DonateShopImg')
+		let img = pan.FindChildTraverse('RDAShopImg')
 		img.SetImage('file://{resources}/' + value.image);
-		img.SetPanelEvent("onmouseover",TipsOver2(value.tooltip, img))
-		img.SetPanelEvent("onmouseout",TipsOut2())
+		
+		if(value.type == "spray"){
+			img.SetPanelEvent("onmouseover",SprayOnmouseover(value, pan))
+			img.SetPanelEvent("onmouseout",SprayOnmouseout(value, pan))
+		}else{
+			img.SetPanelEvent("onmouseover",TipsOver2(value.tooltip, img))
+			img.SetPanelEvent("onmouseout",TipsOut2())
+		}
 	}else{
-		pan.FindChildTraverse('DonateShopItem').itemname = value.itemname
+		pan.FindChildTraverse('RDAShopItem').itemname = value.itemname
 	}
 	
-	pan.FindChildTraverse('DonateShopItemLabel').style.color = 'white'
+	pan.FindChildTraverse('RDAShopItemLabel').style.color = 'white'
 	// name 
-	pan.FindChildTraverse('DonateShopItemLabel').text = $.Localize("#"+value.name)
+	const itemName = value.panorama_name != undefined ? value.panorama_name : value.name
+	pan.FindChildTraverse('RDAShopItemLabel').text = $.Localize("#"+itemName)
 	if(value.text_color){
-		pan.FindChildTraverse('DonateShopItemLabel').style.color = value.text_color;
+		pan.FindChildTraverse('RDAShopItemLabel').style.color = value.text_color;
 	}
 
 
@@ -1035,7 +1134,7 @@ const CreateItem = function(value, parentPanel, newPanelId){
 			"",
 			{
 				style: `width:100%;height:100%;`,
-				camera: `camera_legendary`,
+				camera: `camera_immortal`,
 				particleonly: `false`,
 				map: `collection/spin_glow`,
 				hittest: `false`,
@@ -1047,44 +1146,28 @@ const CreateItem = function(value, parentPanel, newPanelId){
 		previewPanel.FindChildTraverse("TreasureImagePreview").SetImage("file://{resources}/"+value.image);
 		const openTreasureButton = previewPanel.FindChildTraverse("Preview_OpenTreasure");
 		const cancelTreasureButton = previewPanel.FindChildTraverse("Preview_Cancel");
+		const cancelTreasureButton2 = previewPanel.FindChildTraverse("CloseTreasuresPreviewWrap");
 
 		openTreasureButton.SetPanelEvent("onactivate", () => {
 			previewPanel.SetHasClass("show", false);
 			treasuresPreviewRoot.SetHasClass("show", false);
-			OpenTreasure(value);
-			// if (item.BHasClass("Availeble")) {
-			// 	OpenTreasure(itemName);
-			// } else {
-			// 	if (sourceValue > playerCoins) {
-			// 		SelectItemType("Treasures");
-			// 		StopSchelude(treasureGlowSchelude);
-			// 		item.AddClass("TreasureGlow");
-			// 		treasureGlowSchelude = $.Schedule(3.5, () => {
-			// 			treasureGlowSchelude = undefined;
-			// 			$("#ItemsList_Treasures")
-			// 				.FindChild("Items")
-			// 				.Children()
-			// 				.forEach((treasureItem) => {
-			// 					treasureItem.RemoveClass("TreasureGlow");
-			// 				});
-			// 		});
-			// 	} else {
-			// 		ACTIVATE_FUNCTUIONS[sourceName]({
-			// 			sourceValue: sourceValue,
-			// 			itemName: itemName,
-			// 			rarity: rarityName,
-			// 			category: categoryName,
-			// 		});
-			// 	}
-			// }
+			OpenTreasure(value.categoryKey, value.productKey);
 		});
 		cancelTreasureButton.SetPanelEvent("onactivate", () => {
 			previewPanel.SetHasClass("show", false);
 			treasuresPreviewRoot.SetHasClass("show", false);
 			lastPreviewPanel = "";
 		});
-		pan.FindChildTraverse("DonateShopItemButtonPreview").SetPanelEvent("onactivate", () => {
-			OpenTreasurePreview(value);
+		cancelTreasureButton2.SetPanelEvent("onactivate", () => {
+			previewPanel.SetHasClass("show", false);
+			treasuresPreviewRoot.SetHasClass("show", false);
+			lastPreviewPanel = "";
+		});
+		cancelTreasureButton2.SetPanelEvent("onmouseover", TipsOver2('close', cancelTreasureButton2));
+		cancelTreasureButton2.SetPanelEvent("onmouseover", TipsOut2());
+		
+		pan.FindChildTraverse("RDAShopItemButtonPreview").SetPanelEvent("onactivate", () => {
+			OpenTreasurePreview(value.categoryKey, value.productKey);
 		});
 	} else if (value.source != undefined && value.Blocked == undefined) {
 		const itemInPreview = $.CreatePanel(
@@ -1092,13 +1175,21 @@ const CreateItem = function(value, parentPanel, newPanelId){
 			$("#TreasurePreview_" + value.source.treasury).FindChildTraverse("ItemsPreviewList"),
 			"ItemPreview_" + value.name,
 		);
-		itemInPreview.AddClass("BW");
+		// itemInPreview.AddClass("BW");
 		itemInPreview.BLoadLayoutSnippet("ItemCHC");
 		const itemImagePreview = itemInPreview.FindChildTraverse("ItemImage");
 		itemImagePreview.SetImage("file://{resources}/"+value.image);
 		itemInPreview.FindChildTraverse("ItemActionButton").visible = false;
-		itemInPreview.AddClass("legendary");
-		// createItemTooltip(itemImagePreview, 0);
+		itemInPreview.AddClass("immortal");
+		for(let categoryKey in shopinfo){
+			for(let productKey in shopinfo[categoryKey]){
+				if(shopinfo[categoryKey][productKey].name == value.source.treasury){
+					pan.FindChildTraverse('RDAShopItemButtonInTreasuries').SetPanelEvent("onactivate", ()=>{
+						OpenTreasurePreview(categoryKey, productKey);
+					})
+				}
+			}
+		}
 	}
 }
 
@@ -1114,18 +1205,16 @@ const CreateItem = function(value, parentPanel, newPanelId){
 
 
 function initShop(tab){
-	const tableLength = 5
-	// tab[6][1].now = 10
 	shopinfo = tab
 	// деньги
-	if($('#DonateMoneyLabel')){
-		$('#DonateMoneyLabel').text = shopinfo.coins
+	if($('#RDAMoneyLabel')){
+		$('#RDAMoneyLabel').text = shopinfo.coins
 		$('#MMMRPointsLabel').text = shopinfo.mmrpoints
 	}
 
 	const CreateTabButton = (key, value)=>{
-		if($("#DonateShopTabsPanel")){
-			let TabPanel = $.CreatePanelWithProperties("Panel", $("#DonateShopTabsPanel"), "TabPanel_" + key, {class:"TabPanel TabPanelOnServ TabLabelOnServ tab-normal-style"});
+		if($("#RDAShopTabsPanel")){
+			let TabPanel = $.CreatePanelWithProperties("Panel", $("#RDAShopTabsPanel"), "TabPanel_" + key, {class:"TabPanel TabPanelOnServ TabLabelOnServ tab-normal-style"});
 			TabPanel.SetPanelEvent("onmouseactivate",opn(key));
 			let TabLabelImg = $.CreatePanelWithProperties("Image", TabPanel, "TabLabelImg_" + key, {class:'TabLabelImg'});
 			var TabPanelLabel = $.CreatePanelWithProperties("Label", TabPanel, "TabLabel_" + key, {class:"TabLabel", text:$.Localize("#"+value.name)});
@@ -1133,8 +1222,8 @@ function initShop(tab){
 				TabPanel.visible = false
 			}
 		}
-		if($("#DonateShopContentPanel")){
-			TabContent = $.CreatePanelWithProperties("Panel", $("#DonateShopContentPanel"), "DonateShopContentPanel_" + key, {class:"TabContent"});
+		if($("#RDAShopContentPanel")){
+			TabContent = $.CreatePanelWithProperties("Panel", $("#RDAShopContentPanel"), "RDAShopContentPanel_" + key, {class:"TabContent"});
 			TabContent.visible = false
 		}
 	}
@@ -1149,8 +1238,8 @@ function initShop(tab){
 			if(typeof(value) != 'object') continue
 			value.categoryKey = i
 			value.productKey = key
-			if($("#DonateShopContentPanel_" + value.categoryKey)){
-				CreateItem(value, $("#DonateShopContentPanel_" + value.categoryKey), "ShopItem" + value.categoryKey + '_' + value.productKey)
+			if($("#RDAShopContentPanel_" + value.categoryKey)){
+				CreateItem(value, $("#RDAShopContentPanel_" + value.categoryKey), "ShopItem" + value.categoryKey + '_' + value.productKey)
 			}
 		}
 	}
@@ -1174,8 +1263,8 @@ function initShop(tab){
 				$('#TabLabel_' + i).AddClass('TabLabelOnServ')
 				$('#TabLabel_' + i).AddClass('tab-normal-style')
 			}
-			if($("#DonateShopContentPanel_" + i)){
-				$("#DonateShopContentPanel_" + i).visible = false
+			if($("#RDAShopContentPanel_" + i)){
+				$("#RDAShopContentPanel_" + i).visible = false
 			}
 		}	
 	}
@@ -1197,6 +1286,43 @@ function initShop(tab){
 			$('#logotext3shop').text = rating[LocalPlayer+1].likes
 	})
 }
+
+function UpdateStore(t){
+	shopinfo = t.shopinfo
+	const Update = (itemInfo, pan)=>{
+		if(!pan) return
+		if(pan.FindChildTraverse("RDAShopItemButtonLabelStock")){ 
+			pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = shopinfo[itemInfo.categoryKey][itemInfo.productKey].now
+		}
+		if(pan.FindChildTraverse("RDAShopItemButtonQuickUse")){
+			if(shopinfo[itemInfo.categoryKey][itemInfo.productKey].type == "spray" && shopinfo[itemInfo.categoryKey][itemInfo.productKey].now > 0){
+				pan.FindChildTraverse('RDAShopItemButtonQuickUse').visible = true
+				pan.FindChildTraverse("RDAShopItemButtonQuickUse").SetPanelEvent("onactivate", QuickUseSpray(shopinfo[itemInfo.categoryKey][itemInfo.productKey]))
+			}
+		}
+	}
+	for(let i in t.updateCount){
+		const itemInfo = t.updateCount[i]
+		const pan = $("#ShopItem" + itemInfo.categoryKey + '_' + itemInfo.productKey)
+		const inventory = $("#ShopItem_Inventory" + itemInfo.categoryKey + '_' + itemInfo.productKey)
+		Update(itemInfo, pan)
+		Update(itemInfo, inventory)
+	}
+}
+
+GameEvents.Subscribe( "SetShopItemCount", (t)=>{
+	const categoryKey = t.categoryKey
+	const itemKey = t.itemKey
+	const count = t.count
+	shopinfo[categoryKey][itemKey].now = Number(count)
+	const pan = $("#ShopItem" + categoryKey + '_' + itemKey)
+	if(pan){ pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = count
+	}
+})
+
+
+
+
 
 function visibleOff(pan){
 	if($('#' + pan)){
@@ -1337,131 +1463,6 @@ function puls_bg_shop(){
 	})
 }
 
-// function rakurzia(i){
-// 	i++;
-
-// 	if(i <= 5){
-// 		if($('#element_'+i)){
-// 			$('#element_'+i).visible = true
-// 			$('#element_'+i).AddClass('box_animation_on'+i)
-// 		}
-// 	}else{
-// 		for(var l = 1; l <= 5;l++){
-// 			if($('#element_'+l)){
-// 				$('#element_'+l).visible = false
-// 				$('#element_'+l).RemoveClass('box_animation_on'+i)
-// 			}
-// 		}
-// 		return
-// 	}
-// 	$.Schedule(1, function(){
-// 		rakurzia(i)
-// 	});
-// }
-
-// for(var l = 1; l <= 5;l++){
-// 	if($('#element_'+l)){
-// 		$('#element_'+l).visible = false;
-// 	}
-// }
-
-// (function(){
-// 	rakurzia(0)
-// })();
-var ChangeOpen = false;
-function UpdateChangeHeresInfo(t){
-	// $.Msg(t)
-	marci = t[1]
-	pango = t[2]
-}
-function DeactivateShop(){
-	hide_change()
-}
-// class ChangeHero {
-// 	constructor(name, text1){
-//         this.pan = $.CreatePanel("Panel", p, "")
-//         this.amount = amount
-//         this.pan.BLoadLayoutSnippet("achievement")
-//         this.pan.FindChildTraverse("achi_task_des_lab").text = decription
-//         this.pan.FindChildTraverse("achi_task_amount_lab").text = `${progress}/${amount}`
-//         this.pan.FindChildTraverse("achi_line_filling").style.width = `${progress/amount*100}%`
-//     }
-// }
-
-var ChangeHeroEventButton = (function(ChangeHero){
-	return function(){
-		if(ChangeHero.available[playerID]){
-			hide_change()
-			GameEvents.SendCustomGameEventToServer("ChangeHeroLua", {hero_name : ChangeHero.hero_name})
-		}
-	}
-})
-function hide_change(){
-	if($("#ChangeHeroMainPanel") && ChangeOpen){
-		$('#ChangeHeroMainPanel').RemoveClass('show_change')
-		$('#ChangeHeroMainPanel').AddClass('hide_change')
-		Game.EmitSound("ui_team_select_shuffle")
-		$.Schedule(0.3, function(){
-			$('#ChangeHeroMainPanel').RemoveClass('hide_change')
-			$("#ChangeHeroMainPanel").visible = false
-		})
-		ChangeOpen = false
-	}
-}
-function open_quest_window(index){
-    var unit = Players.GetLocalPlayerPortraitUnit(),
-		vecunit = Entities.GetAbsOrigin(unit),
-		hero = Players.GetPlayerHeroEntityIndex(playerID),
-		vechero = Entities.GetAbsOrigin(hero),
-		length = Game.Length2D(vecunit,vechero),
-		ChangeHero = null,
-		i = 1
-	
-	if(index.index){
-		//$.Msg(index)
-		unit = Number(index.index)
-		vecunit = Entities.GetAbsOrigin(unit)
-	}
-	if(unit != hero){
-		//$.Msg('unit')
-		if(!pango || !marci){
-			return
-		}
-		if(pango && pango.index == unit){
-			ChangeHero = pango;
-		}else if(marci && marci.index == unit){
-			ChangeHero = marci;
-		}else{
-			return
-		}
-		if(ChangeHero){
-			GameUI.SelectUnit(unit, false)
-			if(length < 350){
-				if($("#ChangeHero_Text_2")){
-					$("#ChangeHero_Text_2").text = $.Localize("#"+ChangeHero.hero_name)
-				}
-				if($("#ChangeHeroButtonText")){
-					if(ChangeHero.selected[playerID]){
-						$("#ChangeHeroButtonText").text = $.Localize("#сharacter_change_selected")
-					}else if(ChangeHero.available[playerID]){
-						$("#ChangeHeroButtonText").text = $.Localize("#сharacter_change_can_select")
-					}else{
-						$("#ChangeHeroButtonText").text = $.Localize("#сharacter_change_not_available")
-					}
-					if($("#ChangeHeroButtonPanel")){
-						$("#ChangeHeroButtonPanel").SetPanelEvent("onmouseactivate",ChangeHeroEventButton(ChangeHero));
-					}
-				}
-				if($("#ChangeHeroMainPanel")){
-					$('#ChangeHeroMainPanel').RemoveClass('hide_change');
-					$('#ChangeHeroMainPanel').AddClass('show_change');
-					$("#ChangeHeroMainPanel").visible = true
-				}
-				ChangeOpen = true
-			}
-		}
-	}
-}
 
 function shopinfoed(table_name, key, data){
     if(key == Players.GetLocalPlayer() && shopinfo != null){
@@ -1469,8 +1470,8 @@ function shopinfoed(table_name, key, data){
 			shopinfo.coins = data["coins"]
 		if(shopinfo.mmrpoints)
 			shopinfo.mmrpoints = data["mmrpoints"]
-		if($('#DonateMoneyLabel'))
-        	$('#DonateMoneyLabel').text = shopinfo.coins
+		if($('#RDAMoneyLabel'))
+        	$('#RDAMoneyLabel').text = shopinfo.coins
 		if($('#MMMRPointsLabel'))
 			$('#MMMRPointsLabel').text = shopinfo.mmrpoints
 		if($('#RatingTeamPlayer'+key))
@@ -1502,17 +1503,12 @@ function FindChildTraverse(name){
 
 (function(){
 	GameEvents.Subscribe( "Noti", Noti)
+	GameEvents.Subscribe( "UpdateStore", UpdateStore)
 	GameEvents.Subscribe( "initRating", initRating)
 	GameEvents.Subscribe( "initShop", initShop)
 	GameEvents.Subscribe( "updateRatingCouter", updateRatingCouter)
 	GameEvents.Subscribe( "update_gems_js", update_gems_js)
 	GameEvents.Subscribe( "change_pet", change_pet)
-	GameEvents.Subscribe( "UpdateChangeHeresInfo", UpdateChangeHeresInfo)
-	GameEvents.Subscribe("dota_player_update_query_unit", open_quest_window);
-	GameEvents.Subscribe("DeactivateShop",DeactivateShop)
-	// GameEvents.Subscribe("shop_refresh_pets",RefreshPet)
-	// GameEvents.Subscribe('dota_player_update_selected_unit', open_quest_window);
-	GameEvents.Subscribe('open_quest_window', open_quest_window);
 	
 	CustomNetTables.SubscribeNetTableListener( "shopinfo", shopinfoed );
 	puls_bg_rating()
@@ -1629,7 +1625,7 @@ function OnMouseEvent(eventType, clickBehavior) {
 				closeRaiting()
 			}
 		}
-		let shopPanel = $("#DonateShopPanel")
+		let shopPanel = $("#RDAShopPanel")
 		if(shopPanel){
 			let cursorPos = GameUI.GetCursorPosition();
 			let panelPos = shopPanel.GetPositionWithinWindow();

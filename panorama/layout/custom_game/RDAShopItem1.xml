@@ -1,0 +1,58 @@
+<root>
+	<styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/RDAShop.css" />
+	</styles>
+	<Panel class = "RDAShopItem1">
+		
+
+		<DOTAItemImage id='RDAShopItem' class="RDAShopItem" hittest="true" itemname="">
+			<Image id='RDAShopImg' class="RDAShopImg" src=""/>
+			<Panel id="RDAShopItemButtonLabelStockPanel" class="RDAShopItemButtonLabelStockPanel">
+				<Label id ='RDAShopItemButtonLabelStock' class="RDAShopItemButtonLabelStock" text='50'/>
+			</Panel>
+			<ToggleButton id="ShopItemCheckBox" class="ShopItemCheckBox" text="" />
+		</DOTAItemImage>
+		<Panel id='RDAShopItemLabel_c'>
+			<Label id = "RDAShopItemLabel" class="RDAShopItemLabel" text='Аганим'/>
+		</Panel>
+
+		<Panel id = 'RDAShopItemButtonBuy' class="RDAShopItemButtonBuy">
+			<Panel id="buy_line_pn" >
+				<Panel id="shop_button_price_container_don" class="">
+					<Panel class='shopButtonImgAndText' id='shopButtonImgAndText1'>
+						<Label id='RDAShopItemButtonLabelNotAlign1' class="RDAShopItemButtonLabelNotAlign" text='500'/>
+						<Image class='shopButtonImg' id='shopButtonImg1' src="file://{resources}/images/custom_game/RDAShop/money_logo_3_mini.png" />
+					</Panel>
+				</Panel>
+				<Panel id="shop_button_price_container_rp" class="">
+					<Panel class='shopButtonImgAndText' id='shopButtonImgAndText2'>
+						<Label id='RDAShopItemButtonLabelNotAlign2' class="RDAShopItemButtonLabelNotAlign" text='500'/>
+						<Image class='shopButtonImg' id='shopButtonImg2' src="file://{resources}/images/custom_game/RDAShop/protection_mini.png" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id = "RDAShopItemButtonHas" class="RDAShopItemButtonHas">
+			<Label id = 'RDAShopItemButtonLabel' class="RDAShopItemButtonLabel" text='#taik'/>
+		</Panel>
+		<Panel id = "RDAShopItemButtonGived" class="RDAShopItemButtonGived">
+			<Label id = 'RDAShopItemButtonLabelGived' class="RDAShopItemButtonLabelGived" text='#taik'/>
+		</Panel>
+		<Panel id = "RDAShopItemButtonActive" class="RDAShopItemButtonActive">
+			<Label id = 'RDAShopItemButtonLabelActive' class="RDAShopItemButtonLabelActive" text='Выдано'/>
+		</Panel>
+		<Panel id = "RDAShopItemButtonInTreasuries" class="RDAShopItemButtonInTreasuries">
+			<Label id = 'RDAShopItemButtonInTreasuriesLabel' class="RDAShopItemButtonInTreasuriesLabel" text='#InTreasuriesLabel'/>
+		</Panel>
+		<Panel id = "RDAShopItemButtonQuickUse" class="RDAShopItemButtonQuickUse">
+			<Label id = 'RDAShopItemButtonQuickUseLabel' class="RDAShopItemButtonQuickUseLabel" text='#QuickUseLabel'/>
+		</Panel>
+		<Panel id = "RDAShopItemButtonSell" class="RDAShopItemButtonSell">
+			<Panel style="flow-children:right; align: center center; height:100%;">
+				<Label id='RDAShopItemButtonSellLabel' class="RDAShopItemButtonSellLabel" text='Продать за 10'/>
+				<Image class='RDAShopItemButtonSellImg' id='RDAShopItemButtonSellImg' src="file://{resources}/images/custom_game/RDAShop/protection_mini.png" />
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

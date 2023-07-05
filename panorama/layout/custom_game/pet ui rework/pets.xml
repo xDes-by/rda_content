@@ -12,7 +12,7 @@
     <snippet name="pet">
         <Panel id="" class="showcase_pet">
             <Label id="name_pet" class="" text="mok" />
-            <DOTAAbilityImage id="item_pet" class="" itemname="item_pet_donate_250_bkb" />
+            <DOTAAbilityImage id="item_pet" class="" itemname="item_pet_RDA_250_bkb" />
             <Panel id="buy_pet_button" class="button_bg">
                 <Panel id="buy_pet_center" class="center">
                     <Panel id="buy_gem_img" class="buy_gem_img"></Panel>
@@ -22,7 +22,7 @@
             </Panel>
             <Panel id="have_pet" class="">
                 <Label id="pet_level" class="" text="уровень 2" />
-                <ToggleButton id="auto_get" class="" checked="false" text="АВТО ВЫБОР" />
+                <ToggleButton id="auto_get" class="" checked="false" text="#auto_pet" />
             </Panel>
         </Panel>
     </snippet>
@@ -44,7 +44,7 @@
                     </Panel>
                 </Panel>
                 <Panel id="shop_active" class="">
-                    <Label id="" class="" text="активно" />
+                    <Label id="" class="" text="#active" />
                 </Panel>
             </Panel>
         </Panel>
@@ -101,6 +101,14 @@
                     </Panel>
                 </Panel>
             </Panel>
+            <Panel id="arrows2" class="">
+                <Button id="arrow2_left" class="">
+                        
+                </Button>
+                <Button id="arrow2_right" class="">
+                    
+                </Button>
+            </Panel>
             
             <!-- петы -->
             <Panel id="pet_showcase" class="">
@@ -113,13 +121,26 @@
             <!-- линия -->
             <Panel id="pet_line" class=""></Panel>
 
+            <Panel id="selected_pet_panel" class="">
+                <Label id="selected_tier_pet" class="" text="тир 5" />
+                <Label id="selected_name_pet" class="" text="name" />
+                <Label id="selected_level_pet_1" class="" text="уровень 2" />
+                <DOTAAbilityImage id="item_selected_pet" class="item_pet_selected" >
+                    <!-- <Label id="" class="" text="#pet_ui_auto" /> -->
+                </DOTAAbilityImage>
+            </Panel>
+
             <Panel id="interface_info_panel" class="">
                 <Label id="interface_tier_pet" class="" text="тир 5" />
                 <Label id="interface_name_pet" class="" text="name" />
                 <Label id="interface_level_pet_1" class="" text="уровень 2" />
                 <DOTAAbilityImage id="item_main_pet" class="" />
             </Panel>
-            
+
+            <Panel id="change_pet_button" class="button_bg">
+                <Label id="change_pet_label" class="" text="Надеть" />
+            </Panel>        
+
             <!-- интерфейс пета -->
             <Panel id="name_and_level_pet" class="">
                 <Label id="interface_-1level_pet" class="select_pet_description_label" text="уровень 3" />
@@ -146,7 +167,7 @@
                     <Label id="" class="" text="+1 ур" />
                 </Panel>
                 <Panel id="pet_update_button_2" class="pet_update_button_container button_bg">
-                    <Label id="" class="" text="макс" />
+                    <Label id="" class="" text="#max" />
                 </Panel>
                 <Panel id="feed_entry_container" class="">
                     <Panel id="feed_entry_img" class=""></Panel>
@@ -166,7 +187,7 @@
 
                 </Panel>
                 <Panel id="pet_update_button_3" class="pet_update_button_container button_bg">
-                    <Label id="" class="" text="улучшить" />
+                    <Label id="" class="" text="#improve" />
                 </Panel>
             </Panel>
 
@@ -186,19 +207,22 @@
             <Panel id="buy_coufirm_bg_pet" class="">
                 <Panel id="buy_confirm_panel" class="">
                     <Panel id="buy_description_panel" class="">
-                        <Label id="" class="buy_description_text" text="#pet_buy" />
-                        <Label id="buy_confirm_item_name" class="buy_description_text" text="корм" />
-                        <Label id="" class="buy_description_text" text="#pet_for" />
-                        <Label id="buy_confirm_price" class="buy_description_text" text="300" />
-                        <Panel id="rp_image_pet" class=""></Panel>
-                        <Panel id="gems_image_pet" class=""></Panel>
+                        <Panel id="" class="" style="flow-children: right; horizontal-align: center;">
+                            <Label id="" class="buy_description_text" text="#pet_buy" />
+                            <Label id="buy_confirm_item_name" class="buy_description_text" text="корм" />
+                        </Panel>
+                        <Panel id="" class="" style="flow-children: right; horizontal-align: center; margin-top:10px;">
+                            <Label id="buy_confirm_price" class="buy_description_text" text="300" />
+                            <Panel id="rp_image_pet" class=""></Panel>
+                            <Panel id="gems_image_pet" class=""></Panel>
+                        </Panel>
+                        <DropDown id="confirm_drop_down" class="">
+                            <Label text="1 шт" id="entry1"/>
+                            <Label text="2 шт" id="entry2"/>
+                            <Label text="3 шт" id="entry3"/>
+                            <Label text="4 шт" id="entry4"/>
+                        </DropDown>
                     </Panel>
-                    <DropDown id="confirm_drop_down" class="">
-                        <Label text="1 шт" id="entry1"/>
-                        <Label text="2 шт" id="entry2"/>
-                        <Label text="3 шт" id="entry3"/>
-                        <Label text="4 шт" id="entry4"/>
-                    </DropDown>
                     <Panel id="confirm_yes_panel" class="confirm_panel">
                         <Label id="" class="" text="#yes" />
                     </Panel>

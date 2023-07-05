@@ -344,7 +344,7 @@ var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 
 
 function OnMouseEvent(eventType, clickBehavior) {
-	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE || clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_MOVE) {
+	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
         let smithyPanel = $('#smithy_main_window_panel')
 		if(smithyPanel){
 			let cursorPos = GameUI.GetCursorPosition();

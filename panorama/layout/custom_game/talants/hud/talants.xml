@@ -38,6 +38,7 @@
                         </Panel>
                     </Image>
                     <Label id="players_have" class="players_have_result" text="есть у 23 игроков" />
+                    <Panel id="InfoIcon" class="" onload="$('#InfoIcon').visible = false"/>
                 </Panel>
             </Panel>
 
@@ -59,7 +60,7 @@
                     <Label id="red_line_label_gain" class="red_line_label_gain" text="" />
                 </Panel>
                 <Panel id="level_info_panel" class="level_info_panel">
-                    <Label id="donate_level_label" class="donate_level_label" text="" />
+                    <Label id="RDA_level_label" class="RDA_level_label" text="" />
                     <Label id="normal_level_label" class="normal_level_label" text="" />
                 </Panel>
                 <Image class='progress_line_bg' id='progress_line_bg' src="file://{resources}/images/custom_game/talants/exp_contur2.png" />
