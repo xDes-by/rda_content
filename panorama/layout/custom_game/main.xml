@@ -271,12 +271,6 @@
 							<Image class="avatar1" src="file://{images}/custom_game/discord-logo.png" />
 						</Button>		
 					</Panel>
-					
-					<Panel id="patreon">
-						<Button id="pat" onactivate="DOTADisplayURL('https://www.patreon.com/random_defense_adventure');">
-							<Image class="avatar1" src="file://{images}/custom_game/patreon.png" />
-						</Button>		
-					</Panel>
 				</Panel>
 			</Panel>
 			<Panel class="BuyControl" id='BuyControl'>

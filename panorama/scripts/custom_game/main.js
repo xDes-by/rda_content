@@ -615,14 +615,15 @@ var acceptBuy = (function(i, n, pan, consumabl, currency)
 		$('#BuyControl').visible = false;
 		$('#accept_shadow').visible = false
 		GameEvents.SendCustomGameEventToServer("buyItem", {i,n, amountBuy,currency})
+		var numb = Number(Number(shopinfo[i][n].now) + amountBuy)
+		shopinfo[i][n].now = numb
+		shopinfo[i][n].onStart = Number(shopinfo[i][n].onStart) + amountBuy
+		$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+		if($("#ShopItem_Inventory" + i + '_' + n)){
+			$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+		}
 		if(consumabl){
-			var numb = Number(Number(shopinfo[i][n].now) + amountBuy)
-			$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
-			if($("#ShopItem_Inventory" + i + '_' + n)){
-				$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
-			}
-			shopinfo[i][n].now = numb
-			shopinfo[i][n].onStart = Number(shopinfo[i][n].onStart) + amountBuy
+			
 		}else if(shopinfo[i][n].type == 'talant' || shopinfo[i][n].type == 'pet_change'){
 			pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
 			pan.FindChildTraverse('RDAShopItemButtonActive').visible = true
@@ -632,9 +633,12 @@ var acceptBuy = (function(i, n, pan, consumabl, currency)
 				// RefreshPet(shopinfo)
 			}
 		}else if(shopinfo[i][n].type != 'gem' && shopinfo[i][n].type != 'loot-box'){
-			pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
-			pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
-			pan.FindChildTraverse('RDAShopItemButtonLabel').text = $.Localize('#taik')
+			if(pan.FindChildTraverse('RDAShopItemButtonHas'))
+				pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
+			if(pan.FindChildTraverse('RDAShopItemButtonBuy'))
+				pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+			if(pan.FindChildTraverse('RDAShopItemButtonLabel'))
+				pan.FindChildTraverse('RDAShopItemButtonLabel').text = $.Localize('#taik')
 		}
 		if(currency){
 			shopinfo.mmrpoints = Number(Number(shopinfo.mmrpoints) - Number(shopinfo[i][n]['price']['rp']))
@@ -664,7 +668,7 @@ function OnDropDownChanged(){
 	// $.Msg()
 	for(let i = 1; i <= 10; i++){
 		let id = 'entry' + i
-		if($('#BuyControlDrop').GetChild(0).id == id){
+		if($('#BuyControlDrop') && $('#BuyControlDrop').GetChild(0) && $('#BuyControlDrop').GetChild(0).id == id){
 			amountBuy = i
 			$('#BuyControlTextLine3').text = priceBuy * i
 		}

@@ -357,6 +357,20 @@ function talantTreeInit(tab){
 
     
     asssd = true;
+    let abilitiesPanel =  FindDotaHudElement("abilities")
+    for(let i = 0; i < abilitiesPanel.GetChildCount(); i++){
+        let AbilityLevelContainer = abilitiesPanel.GetChild(i).GetChild(0).FindChildTraverse("AbilityLevelContainer")
+        const childCount =  AbilityLevelContainer.GetChildCount()
+        for(let j = 0; j < childCount; j++){
+            if(AbilityLevelContainer.GetChild(j) && childCount == 10){
+                AbilityLevelContainer.GetChild(j).style.width = "4px"
+                AbilityLevelContainer.GetChild(j).style.margin = "2px 1px 2px 1px"
+            }else if(AbilityLevelContainer.GetChild(j) && childCount > 10){
+                AbilityLevelContainer.GetChild(j).style.width = "3px"
+                AbilityLevelContainer.GetChild(j).style.margin = "2px 0px 2px 1px"
+            }
+        }
+    }
 }
 
 const selectTalantCheat = function(i, j){
@@ -394,7 +408,20 @@ function portrait(){
     }else if(idx != portIndex && talantbtn){
         talantbtn.visible = false;
     }
-
+    let abilitiesPanel =  FindDotaHudElement("abilities")
+    for(let i = 0; i < abilitiesPanel.GetChildCount(); i++){
+        let AbilityLevelContainer = abilitiesPanel.GetChild(i).GetChild(0).FindChildTraverse("AbilityLevelContainer")
+        const childCount =  AbilityLevelContainer.GetChildCount()
+        for(let j = 0; j < childCount; j++){
+            if(AbilityLevelContainer.GetChild(j) && childCount == 10){
+                AbilityLevelContainer.GetChild(j).style.width = "4px"
+                AbilityLevelContainer.GetChild(j).style.margin = "2px 1px 2px 1px"
+            }else if(AbilityLevelContainer.GetChild(j) && childCount > 10){
+                AbilityLevelContainer.GetChild(j).style.width = "3px"
+                AbilityLevelContainer.GetChild(j).style.margin = "2px 0px 2px 1px"
+            }
+        }
+    }
 }
 
 function GetPlayerIDByPortraitIndex(){
@@ -868,7 +895,6 @@ function opnShop(){
         //     FindDotaHudElement("RightContainerMain").visible = false;
         // }
     }
-
 })();
 
 (()=>{

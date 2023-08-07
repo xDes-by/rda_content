@@ -15,24 +15,6 @@
 					<Image class="avatar1" src="file://{images}/custom_game/discord-logo.png" />
 				</Button>		
 			</Panel>
-			
-		 	<Panel id="patreon">
-				<Button id="pat" onactivate="DOTADisplayURL('https://www.patreon.com/random_defense_adventure');">
-					<Image class="avatar1" src="file://{images}/custom_game/patreon.png" />
-				</Button>		
-			</Panel> 
-
-			<Panel id="qq">
-				<Image class="avatar1" src="file://{images}/qq.png" />	
-			</Panel> 
-			
-			<Panel id="telega">
-				<Image class="avatar1" src="file://{images}/QR_code.png" />
-			</Panel> 
-			
-			<!-- <Panel id="sale"> -->
-				<!-- <Image class="avatar1" src="file://{images}/sale.png" /> -->
-			<!-- </Panel>  -->
 		</Panel>
   	</Panel>
 </root>
