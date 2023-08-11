@@ -8,6 +8,7 @@
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 	<scripts>
+		<!-- <include src="file://{resources}/scripts/custom_game/scripts/custom_indicator.js" /> -->
 		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection_const.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection.js" />
@@ -15,6 +16,7 @@
     	<include src="file://{resources}/scripts/custom_game/ChangeHero.js" />
 	</scripts>
     
+
 	<snippets>
 		<snippet name="SnippetName">
 			<Panel id="" class="RatingSeasonBox">
@@ -133,10 +135,10 @@
     <Panel class="root" hittest="false">
 		
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/heros/silencer.png"/> -->
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/1.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/2.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/3.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_silencer/int/4.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_razor/agi/1.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_razor/agi/2.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_razor/agi/3.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_razor/agi/4.png"/> -->
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_award.png"/> -->
 
 		<Panel id = "Rating" class = "Rating" hittest = "false">
@@ -307,7 +309,7 @@
 		
 
 
-		<Panel class="TreasuresWheelBackground">
+		<Panel class="TreasuresWheelBackground" hittest = "false">
 			<Panel id="TreasuresWheelWrap" onactivate="">
 				<Image id="CloseTreasuresWheelWrap" class="" src="file://{images}/custom_game/ChangeHero/close.png" onactivate="CloseWheelCHC()" onmouseover="$.DispatchEvent( 'DOTAShowTextTooltip', $('#CloseTreasuresWheelWrap'), $.Localize('#close'));" onmouseout="$.DispatchEvent( 'DOTAHideTextTooltip')"/>
 				<Label id="SpinHeader" class="AdaptiveText_LightAndUpper BlueHeader" text="#spin_header" />
@@ -347,7 +349,7 @@
 		</Panel>
 		<Panel id="TreasuresPreviewRoot" />
 		
-		<Panel id="rating_info_panel" class="rating_info_panel">
+		<Panel id="rating_info_panel" class="rating_info_panel" hittest = "false">
 			<Panel id="rating_info_paadssdf23">
 				<Image id="rating_score_image_bg" class="rating_score_image_bg" src="file://{resources}/images/custom_game/rating/score.png" />
 				<Panel id="rating_info_panel_1" class="rating_info_panel_1">
@@ -370,7 +372,7 @@
 			</Panel>
 		</Panel>
 
-		<Panel id="ChangeHeroMainPanel">
+		<Panel id="ChangeHeroMainPanel" hittest = "false">
 			<Image id="ChangeHeroCloseButton" class="" src="file://{resources}/images/custom_game/changehero/close.png" onmouseactivate="hide_change()" onmouseover="TipsOver('close','ChangeHeroCloseButton')" onmouseout="TipsOut()" />
 			<Label id="ChangeHero_Text_1" class="ChangeHeroText" text="#character_change" />
 			<Label id="ChangeHero_Text_2" class="ChangeHeroText" text="#npc_dota_hero_marci" />

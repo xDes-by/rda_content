@@ -679,7 +679,7 @@ var selectTalant = (function(arg)
         var url = herotalant[portID][pan.i][pan.j]["url"];
         var name = herotalant[portID][pan.i][pan.j]["name"];
         var tooltip = herotalant[portID][pan.i][pan.j]["tooltip"] != undefined ? herotalant[portID][pan.i][pan.j]["tooltip"] : herotalant[portID][pan.i][pan.j]["name"] + "_tooltip";
-        var buff = herotalant[portID][pan.i][pan.j]["buff"];
+        var buff = herotalant[portID][pan.i][pan.j]["buff"] != undefined ? herotalant[portID][pan.i][pan.j]["buff"] : herotalant[portID][pan.i][pan.j]["name"] + "_description";
         talantpanel.FindChildTraverse("talant_img_description").visible = true;
         talantpanel.FindChildTraverse("talant_name_label").visible = true;
         talantpanel.FindChildTraverse("talant_description_buff_label").visible = true;
