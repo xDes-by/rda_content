@@ -135,10 +135,10 @@
     <Panel class="root" hittest="false">
 		
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/heros/silencer.png"/> -->
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_wisp/str/life_stealer_infest.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_razor/agi/2.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_razor/agi/3.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_razor/agi/4.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_riki/str/1.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_riki/str/2.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_riki/str/3.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_riki/str/4.png"/> -->
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_award.png"/> -->
 
 		<Panel id = "Rating" class = "Rating" hittest = "false">
