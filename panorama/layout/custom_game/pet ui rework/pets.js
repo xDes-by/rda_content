@@ -1,12 +1,6 @@
 var Pets = {}
 Pets.Pages = {}
 
-GameEvents.SendCustomGameEventToServer("GetPets", {})
-
-GameEvents.Subscribe("GetPets_Js",function(t){
-    CreatePetList(t)
-})
-
 Pets.PageTitle = []
 Pets.NamePage = {}
 Pets.PageTier = []
@@ -50,6 +44,7 @@ var TipsOut = (function()
 // созданеие списка петов
 var panel = {}
 function CreatePetList(t){
+    $.Msg("create pet list js")
     Pets.exp = t.exp
     $("#pet_showcase").RemoveAndDeleteChildren()
     Pets.pet = t.shop[1]
@@ -659,3 +654,10 @@ function OnMouseEvent(eventType, clickBehavior) {
     DotaHUD.ListenToMouseEvent(OnMouseEvent);
     GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
 })();
+
+
+GameEvents.SendCustomGameEventToServer("GetPets", {})
+
+GameEvents.Subscribe("GetPets_Js",function(t){
+    CreatePetList(t)
+})

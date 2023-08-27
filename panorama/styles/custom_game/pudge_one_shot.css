@@ -1,0 +1,274 @@
+.CustomHudRoot{
+
+     width: 100%;
+     height: 100%;
+}
+
+ .UseOneshot{
+
+     width: 400px;
+     height: 100px;
+     align: center bottom;
+     margin-bottom: 24%;
+     visibility: collapse;
+ }
+
+ .SkillIcon{
+
+     width: 90px;
+     height: 90px;
+     border-radius: 100px;
+     background-image: url("s2r://panorama/images/custom_game/wolverine_ultimate_png.vtex");
+     background-size: 100%;
+     border: 2px solid black;
+ }
+
+ .Line{
+
+     width: 90%;
+     height: 25px;
+     vertical-align: center;
+     background-color: black;
+     box-shadow: black 0px 0px 8px;
+     margin-left: 80px;
+     margin-bottom: 8px;
+     border-top-right-radius: 10px;
+     border-bottom-right-radius: 10px;
+ }
+
+ .back{
+
+     width: 100%;
+     height: 100%;
+     flow-children: right;
+ }
+
+ #back_min{
+
+     height: 100%;
+     width: 50%;
+ }
+
+ #back_max{
+
+     height: 100%;
+     width: 100%;
+     border-left: 2px solid red;
+ }
+
+ #LineProgress{
+
+     width: 100%;
+     height: 100%;
+     transition-duration: 0.1s;
+     transition-property: width;
+ }
+
+ #LineProgressColor{
+
+     width: 100%;
+     height: 100%;
+     background-color: gradient( linear, 0% 0%, 0% 100%, from( #ecff1a ), color-stop( 0.2, #d3d600 ), color-stop( .5, #8f852f), to( #a19c08) );
+     transition-duration: 3s;
+     transition-property: background-color, width;
+ }
+
+ #ProgressLabel{
+
+     align: center center;
+     color: white;
+     font-weight: bold;
+     margin-left: 0px;
+ }
+
+ .UpgradesPudge{
+
+     width: 400px;
+     height: 70%;
+     margin-top: 250px;
+     vertical-align: center;
+     horizontal-align: right;
+     flow-children: down;
+ }
+
+ .notification{
+
+     margin-top: 2px;
+     margin-bottom: 2px;
+     width: 100%;
+     height: 100px;
+     background-image: url("s2r://panorama/images/hud/reborn/item_purchase_bg_psd.vtex");
+     background-size: 100%;
+     opacity: 0;
+     transition-property: transform, opacity, position;
+     transition-duration: 1s;
+     transition-timing-function: ease-out;
+     transform: translateX(500px);
+     flow-children: right;
+     box-shadow: black 0px 0px 4px;
+ }
+
+ .skill_icon{
+
+     width: 64px;
+     height: 64px;
+     vertical-align: center;
+     margin-left: 20px;
+     background-color: red;
+     border: 1px solid black;
+ }
+
+ .skill_desc{
+
+     vertical-align: center;
+     margin-left: 20px;
+     color: white;
+     font-family: Reaver;
+     font-size: 14px;
+ }
+
+ .visible{
+
+     opacity: 1;
+     transform: translateX(0px);
+ }
+
+ .UseOneshot_flash{
+
+     width: 400px;
+     height: 100px;
+     align: center bottom;
+     margin-bottom: 24%;
+     visibility: collapse;
+ }
+
+ .SkillIcon_flash{
+
+     width: 90px;
+     height: 90px;
+     border-radius: 100px;
+     background-image: url("s2r://panorama/images/custom_game/flash_ultimate_png.vtex");
+     background-size: 100%;
+     border: 2px solid black;
+ }
+
+ #back_min_flash{
+
+     height: 100%;
+     width: 50%;
+ }
+
+ #back_max_flash{
+
+     height: 100%;
+     width: 100%;
+     border-left: 2px solid red;
+ }
+
+ #LineProgress_flash{
+
+     width: 100%;
+     height: 100%;
+     transition-duration: 0.1s;
+     transition-property: width;
+ }
+
+ #LineProgressColor_flash{
+
+     width: 100%;
+     height: 100%;
+     background-color: gradient( linear, 0% 0%, 0% 100%, from( #ecff1a ), color-stop( 0.2, #d3d600 ), color-stop( .5, #8f852f), to( #a19c08) );
+     transition-duration: 3s;
+     transition-property: background-color, width;
+ }
+
+ #ProgressLabel_flash{
+
+     align: center center;
+     color: white;
+     font-weight: bold;
+     margin-left: 0px;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+ #UseOneshot_ironman{
+     width: 400px;
+     height: 100px;
+     align: center bottom;
+     margin-bottom: 24%;
+     visibility: collapse;
+ }
+
+ .SkillIcon_ironman{
+     width: 90px;
+     height: 90px;
+     border-radius: 100px;
+     background-image: url("s2r://panorama/images/custom_game/iron_rocket_png.vtex");
+     background-size: 100%;
+     border: 2px solid black;
+ }
+
+ #back_min_ironman{
+     height: 100%;
+     width: 50%;
+ }
+
+ #back_max_ironman{
+     height: 100%;
+     width: 100%;
+ }
+
+ #LineProgress_ironman{
+     width: 20%;
+     height: 100%;
+     transition-duration: 0.25s;
+     transition-property: width;
+ }
+
+ #LineProgressColor_ironman{
+     width: 100%;
+     height: 100%;
+     background-color: gradient(linear, 0% 0%, 0% 100%, from(#ff1a1a), color-stop(0.2, #d60000), color-stop(.5, #8f2f2f), to(#a10808));
+     transition-duration: 3s;
+     transition-property: background-color, width;
+ }
+
+ #ProgressLabel_ironman{
+     align: center center;
+     color: white;
+     font-weight: bold;
+     margin-left: 0px;
+ }
+
+ .TextIron{
+
+     margin-left: 85px;
+     color: white;
+     font-weight: bold;
+     font-size: 14px;
+     text-shadow: 0px 0px 2px 3 black;
+     margin-top: 5px;
+     font-family: 'Radiance';
+ }
+
+ .Line2{
+
+     width: 90%;
+     height: 25px;
+     vertical-align: center;
+     background-color: black;
+     box-shadow: black 0px 0px 8px;
+     margin-left: 80px;
+     border-top-right-radius: 10px;
+     border-bottom-right-radius: 10px;
+}

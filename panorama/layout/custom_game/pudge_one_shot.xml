@@ -1,0 +1,54 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/pudge_one_shot.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/pudge_one_shot.vjs_c" />
+	</scripts>
+	<Panel hittest="false" class="CustomHudRoot">
+		<Panel id="UseOneshot" class="UseOneshot">
+			<Panel class="Line">
+				<Panel id="LineProgress">
+					<Panel id="LineProgressColor" />
+				</Panel>
+				<Panel class="back">
+					<Panel id="back_min" />
+					<Panel id="back_max" />
+				</Panel>
+				<Label id="ProgressLabel" text="0" />
+			</Panel>
+			<Panel class="SkillIcon" />
+		</Panel>
+		<Panel id="UseOneshot_flash" class="UseOneshot">
+			<Panel class="Line">
+				<Panel id="LineProgress_flash">
+					<Panel id="LineProgressColor_flash" />
+				</Panel>
+				<Panel class="back">
+					<Panel id="back_min_flash" />
+					<Panel id="back_max_flash" />
+				</Panel>
+				<Label id="ProgressLabel_flash" text="0" />
+			</Panel>
+			<Panel class="SkillIcon_flash" />
+		</Panel>
+		<Panel id="UseOneshot_ironman" class="UseOneshot">
+			<Panel style="flow-children:down;width:100%;vertical-align:center;margin-top:15px;">
+				<Panel class="Line2">
+					<Panel id="LineProgress_ironman">
+						<Panel id="LineProgressColor_ironman" />
+					</Panel>
+					<Panel class="back">
+						<Panel id="back_min_ironman" />
+						<Panel id="back_max_ironman" />
+					</Panel>
+					<Label id="ProgressLabel_ironman" text="Выберите цель для атаки" />
+				</Panel>
+			</Panel>
+			<Panel class="SkillIcon_ironman" />
+		</Panel>
+		<Panel hittest="false" id="UpgradesPudge" class="UpgradesPudge" />
+	</Panel>
+</root>
