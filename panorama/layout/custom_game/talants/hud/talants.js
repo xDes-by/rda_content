@@ -609,10 +609,9 @@ var pressShopBtn = (function(i, cur, pan)
 	{
         if(pan.BHasClass("btn-hover") == true){
             talantpanel.FindChildTraverse("button").visible = false;
-            Game.EmitSound("ui_rollover_today");
-            GameEvents.SendCustomGameEventToServer("talant_shop", {i : i, cur : cur})
         }
-        
+        Game.EmitSound("ui_rollover_today");
+        GameEvents.SendCustomGameEventToServer("talant_shop", {i : i, cur : cur})
 	}
 });
 

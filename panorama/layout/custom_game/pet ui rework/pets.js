@@ -408,6 +408,12 @@ Pets.Buy = (i,j, currency)=>{
         let money = CustomNetTables.GetTableValue("shopinfo", Players.GetLocalPlayer())
         if(!money){return}
         if((currency == "gems" && money.coins < obj.price.don) || (currency == "rp" && money.mmrpoints < obj.price.rp)){
+            GameEvents.SendEventClientSide("dota_hud_error_message",
+            {
+                "splitscreenplayer": 0,
+                "reason": 80,
+                "message": "#dota_don_shop_error"
+            })
             return
         }
         let pan = $("#buy_coufirm_bg_pet")
@@ -447,8 +453,10 @@ Pets.Buy = (i,j, currency)=>{
 
             $("#confirm_drop_down").SetPanelEvent("oninputsubmit", function(){
                 if(!$("#confirm_drop_down")){return}
-                dropdown_count = $("#confirm_drop_down").GetSelected().id
-                $("#buy_confirm_price").text = price * dropdown_count
+                if($("#confirm_drop_down").GetSelected()){
+                    dropdown_count = $("#confirm_drop_down").GetSelected().id
+                    $("#buy_confirm_price").text = price * dropdown_count
+                }
             })
         }else{
             $("#confirm_drop_down").visible = false

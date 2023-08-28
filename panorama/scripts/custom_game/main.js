@@ -721,9 +721,21 @@ var buy = (function(i, n, pan, consumabl, currency)
 			$('#BuyControl').visible = true;
 			$('#accept_shadow').visible = true;
 			$('#acceptButton').SetPanelEvent("onmouseactivate",acceptBuy(i, n, pan, consumabl, currency))
+		}else{
+			ErrorMessage({message : "#dota_don_shop_error"})
 		}
 	}
 });
+
+function ErrorMessage(data){
+	GameEvents.SendEventClientSide("dota_hud_error_message",
+	{
+		"splitscreenplayer": 0,
+		"reason": 80,
+		"message": data.message
+	})
+}
+GameEvents.Subscribe("CreateIngameErrorMessage", function(data) { ErrorMessage(data) })
 var give = (function(i, n, pan, consumabl)
 {
 	return function()
