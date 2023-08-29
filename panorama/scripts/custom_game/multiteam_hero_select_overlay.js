@@ -166,7 +166,7 @@ function UpdateTimer()
 		for(let i in t.rating){
 			let player = PlayersContainer.GetChild(i-1)
 			player.FindChildTraverse("PlayerRating").text = $.Localize("#pick_rating")+t.rating[i].points
-			player.FindChildTraverse("PlayerGames").text = `${$.Localize("#pick_game")}${t.rating[i].games > 100 ? "100+" : t.rating[i].games}`
+			player.FindChildTraverse("PlayerGames").text = `${$.Localize("#pick_game")}${t.rating[i].games > 1000 ? "1000+" : t.rating[i].games}`
 		}
 	})
 })();
