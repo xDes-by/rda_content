@@ -1,0 +1,82 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/settings/game_settings.js" />
+	</scripts>
+	<styles>
+		<include src="file://{resources}/layout/custom_game/settings/game_settings.css" />
+	</styles>
+	<Panel class="Hud" hittest="true">
+		<Panel id="GameSettings">
+			<Label id="Tittle" text="GAME SETTINGS" />
+			<Panel id="Complex" class="Container">
+				<Label class="SubtierText" text="#gs_diffic" />
+				<Panel id="ComplexSettings">
+					<Panel id="SettingsComplexTier1" class="SettingsComplexTier DifficultyNotSelected">
+						<!-- <Button id="SettingsComplexTier1" class="SettingsComplexTierButton" onactivate="OnDifficultySelected('1')" onmouseover="UIShowTextTooltip( '#gs_df_easy' )" onmouseout="UIHideTextTooltip()" /> -->
+						<Label text="#gs_easy" />
+					</Panel>
+					<Panel id="SettingsComplexTier2" class="SettingsComplexTier">
+						<!-- <Button id="SettingsComplexTier2" class="SettingsComplexTierButton" onactivate="OnDifficultySelected('2')" onmouseover="UIShowTextTooltip( '#gs_df_normal' )" onmouseout="UIHideTextTooltip()" /> -->
+						<Label text="#gs_normal" />
+					</Panel>
+					<Panel id="SettingsComplexTier3" class="SettingsComplexTier DifficultyNotSelected">
+						<!-- <Button id="SettingsComplexTier3" class="SettingsComplexTierButton" onactivate="OnDifficultySelected('3')" onmouseover="UIShowTextTooltip( '#gs_df_hard' )" onmouseout="UIHideTextTooltip()" /> -->
+						<Label text="#gs_hard" />
+					</Panel>
+					<Panel id="SettingsComplexTier4" class="SettingsComplexTier DifficultyNotSelected">
+						<!-- <Button id="SettingsComplexTier4" class="SettingsComplexTierButton" onactivate="OnDifficultySelected('4')" onmouseover="UIShowTextTooltip( '#gs_df_hardcore' )" onmouseout="UIHideTextTooltip()" /> -->
+						<Label text="#gs_ultra" />
+					</Panel>
+					<Panel id="SettingsComplexTier5" class="SettingsComplexTier DifficultyNotSelected">
+						<!-- <Button id="SettingsComplexTier5" class="SettingsComplexTierButton" onactivate="OnDifficultySelected('5')" onmouseover="UIShowTextTooltip( '#gs_df_hell' )" onmouseout="UIHideTextTooltip()" /> -->
+						<Label text="#gs_insane" />
+					</Panel>
+					<Panel id="SettingsComplexTier6" class="SettingsComplexTier DifficultyNotSelected">
+						<!-- <Button id="SettingsComplexTier5" class="SettingsComplexTierButton" onactivate="OnDifficultySelected('5')" onmouseover="UIShowTextTooltip( '#gs_df_hell' )" onmouseout="UIHideTextTooltip()" /> -->
+						<Label text="#gs_hell" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel id="Bonus" class="Container">
+				<Label class="SubtierText" text="#gs_bonus" />
+				<Panel id="BonusButtons" class="BonusSettingsPanel">
+					<Button class="BonusSettingsButton" onactivate="OnBonusSettingsSelected('0')" onmouseover="UIShowTextTooltip( '#enable_alliance' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#gs_ea" />
+						<SlottedSlider id="VideoPresetsSlider" class="HorizontalSlider" direction="horizontal" notches="4" />
+					</Button>
+					<Button class="BonusSettingsButton" onactivate="OnBonusSettingsSelected('1')" onmouseover="UIShowTextTooltip( '#bonus_gold' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#gs_bg" />
+					</Button>
+					<Button class="BonusSettingsButton" onactivate="OnBonusSettingsSelected('2')" onmouseover="UIShowTextTooltip( '#bonus_xp' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#gs_xp" />
+					</Button>
+					<Button class="BonusSettingsButton" onactivate="OnBonusSettingsSelected('3')" onmouseover="UIShowTextTooltip( '#fast_respawn' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#gs_fr" />
+					</Button>
+					<!-- <Button class="BonusSettingsButton" onactivate="OnBonusSettingsSelected('4')" onmouseover="UIShowTextTooltip( '#fast_neutals' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#gs_fnb" />
+					</Button> -->
+					<!-- <Button class="BonusSettingsButton" onactivate="OnBonusSettingsSelected('5')" onmouseover="UIShowTextTooltip( '#fast_bosses' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#gs_fb" />
+					</Button> -->
+				</Panel>
+			</Panel>
+			<!-- <Panel id="Misc" class="Container">
+				<Label class="SubtierText" text="#gs_misc" />
+				<Label class="SubtierTextAddition" text="#gs_aft" />
+				<Panel id="MiscButtons" class="MiscSettingClass">
+					<Button class="MiscSettingsButton Green" onactivate="SelectMode('0')" onmouseover="UIShowTextTooltip( '#exploration_tp' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#exploration" />
+					</Button>
+					<Button class="MiscSettingsButton" onactivate="SelectMode('1')" onmouseover="UIShowTextTooltip( '#mimicria_desc' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#mimicria" />
+					</Button>
+					<Button class="MiscSettingsButton Red" onactivate="SelectMode('2')" onmouseover="UIShowTextTooltip( '#boss_marathon_desc' )" onmouseout="UIHideTextTooltip()">
+						<Label text="#boss_marathon" />
+					</Button>
+				</Panel>
+			</Panel> -->
+		</Panel>
+	</Panel>
+</root>
