@@ -1,5 +1,6 @@
 "use strict";
 
+
 /* Initialisation - runs when the element is created
 =========================================================================*/
 (function () {
@@ -18,30 +19,42 @@
 	});
 })();
 
+const DIFFICULTY_PRIZE = 
+[
+	{name: "Turbo", mmr : 0, rp : 0},
+	{name: "Normal", mmr : 10, rp : 20},
+	{name: "Hard", mmr : 20, rp : 40},
+	{name: "Ultra", mmr : 30, rp : 60},
+	{name: "Insane", mmr : 40, rp : 80},
+	{name: "Hell", mmr : 50, rp : 100},
+]
+
 const DIFFICULTY_BUTTONS = 
 [
 	$("#ComplexSettings").GetChild(0),
 	$("#ComplexSettings").GetChild(1),
 	$("#ComplexSettings").GetChild(2),
-	$("#ComplexSettings").GetChild(3)
+	$("#ComplexSettings").GetChild(3),
+	$("#ComplexSettings").GetChild(4),
+	$("#ComplexSettings").GetChild(5),
 ]
 
 const BONUS_BUTTONS = 
 [
-	$("#BonusButtons").GetChild(0),
-	$("#BonusButtons").GetChild(1),
-	$("#BonusButtons").GetChild(2),
-	$("#BonusButtons").GetChild(3),
-	$("#BonusButtons").GetChild(4),
-	$("#BonusButtons").GetChild(5),
-	$("#BonusButtons").GetChild(6)
+	// $("#BonusButtons").GetChild(0),
+	// $("#BonusButtons").GetChild(1),
+	// $("#BonusButtons").GetChild(2),
+	// $("#BonusButtons").GetChild(3),
+	// $("#BonusButtons").GetChild(4),
+	// $("#BonusButtons").GetChild(5),
+	// $("#BonusButtons").GetChild(6)
 ]
 
 const MISC_BUTTONS = 
 [
-	$("#MiscButtons").GetChild(0),
-	$("#MiscButtons").GetChild(1),
-	$("#MiscButtons").GetChild(2)
+	// $("#MiscButtons").GetChild(0),
+	// $("#MiscButtons").GetChild(1),
+	// $("#MiscButtons").GetChild(2)
 ]
 
 const DATA_ENUM = 
@@ -67,6 +80,7 @@ function OnDifficultySelected(tier)
 	}
 
 	DIFFICULTY_BUTTONS[Number(tier)].SetHasClass("DifficultySelected", true)
+	GameEvents.SendCustomGameEventToServer("GameSettings", { mode : tier })
 }
 
 function OnBonusSettingsSelected(setting)
@@ -111,6 +125,7 @@ function OnMiscSettingsSelected(setting)
 
 // Checks if the local player has local privileges
 function CheckForHostPrivileges() {
+	return true
 	var player_info = Game.GetLocalPlayerInfo();
 	if ( !player_info ) {
 		return undefined;
@@ -118,3 +133,35 @@ function CheckForHostPrivileges() {
 		return player_info.player_has_host_privileges;
 	}
 }
+
+
+
+CustomNetTables.SubscribeNetTableListener( "difficultyVote", function(table_name, key, data){
+	let diff = [0, 0, 0, 0, 0, 0];
+	let count = 0;
+	for(var i = 0; i < 5; i++){
+		if(data[i] != undefined){
+			diff[data[i]] += 1;
+			count += 1;
+		}
+	}
+	let len = 100 / count;
+	const ProgressPanel = $("#VoteProgressBar_Panel");
+	let diff_index = 1;
+	let vote_count = 0;
+	for(let i = 0; i < 6; i++){
+		ProgressPanel.GetChild(i).style.width = `${diff[i] * len}%`;
+		if(diff[i] >= vote_count && diff[i] > 0){
+			diff_index = i;
+			vote_count =diff[i];
+		}
+	}
+	$("#WinPrize").GetChild(0).text = `+${DIFFICULTY_PRIZE[diff_index].mmr}MMR`
+	$("#WinPrize").GetChild(1).text = `+${DIFFICULTY_PRIZE[diff_index].rp}RP`
+	$("#DiffName").text = `${DIFFICULTY_PRIZE[diff_index].name}`
+} );
+
+$("#VoteProgressBar_Panel").GetChild(1).style.width = "100%"
+$("#WinPrize").GetChild(0).text = `+${DIFFICULTY_PRIZE[1].mmr}MMR`
+$("#WinPrize").GetChild(1).text = `+${DIFFICULTY_PRIZE[1].rp}RP`
+$("#DiffName").text = `${DIFFICULTY_PRIZE[1].name}`
