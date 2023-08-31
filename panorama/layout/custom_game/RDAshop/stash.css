@@ -4,10 +4,11 @@
     /* background-color: red; */
 }
 #CustomStash_Panel{
-    height: 200px;
+    /* height: 200px; */
     width: 215px;
     background-image: url("s2r://panorama/images/hud/reborn/inventory_bg_psd.vtex");
     vertical-align: bottom;
+    /* position: 0px 100px 0px; */
     horizontal-align: right;
     margin-right: 300px;
     background-repeat:no-repeat;
@@ -18,11 +19,48 @@
 .CustomInventoryList{
     padding: 0;
     width: 210px;
-    height: 50px;
-    flow-children: right;
+    flow-children: right-wrap;
 }
 .CustomInventorySlot{
-    width: 70px;
+    width: 67px;
+    height: 50px;
     margin-top: 2px;
     margin-left: 2px;
+}
+.CustomStashItemCount_Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #c0c5cc, to( #d5dae0));
+	font-size: 16px;
+	font-weight: normal;
+	horizontal-align: right;
+	vertical-align: bottom;
+	text-shadow: -1px 1px 2px 3.0 #000000;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: titleFont;
+	font-weight: semi-bold;
+    margin-bottom: 1px;
+    margin-right: 3px;
+}
+.CustomStashItemCd_Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff, to( #575757));
+	font-size: 21px;
+	font-weight: normal;
+	horizontal-align: center;
+	vertical-align: center;
+	text-shadow: -1px 1px 3px 3.0 #000000;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: titleFont;
+	font-weight: semi-bold;
+}
+.CustomStashTopContainerDescription_Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff, to( #575757));
+	font-size: 14px;
+	font-weight: normal;
+	horizontal-align: center;
+	vertical-align: center;
+	text-shadow: -1px 1px 2px 1.0 #000000;
+	/* letter-spacing: 1px; */
+	font-family: titleFont;
+	font-weight: semi-bold;
 }

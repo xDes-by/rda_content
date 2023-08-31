@@ -195,7 +195,7 @@ function ChangeHeroLoadTree(tab){
     talant_shop = tab.talant_shop;
     var pid = Players.GetLocalPlayer();
     // let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1])
-    const scenpanel = $("#talant_root").BLoadLayoutSnippet("heroModel")
+    let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1], {class:"HeroScenePanel", style:"width:800px;height:800px;margin-right:10px;", unit:pInfo[PlayerID][1], particleonly:false, allowrotation:true})
     // scenpanel
     // scenpanel.style.width = "800px"
     // scenpanel.style.height = "800px"
