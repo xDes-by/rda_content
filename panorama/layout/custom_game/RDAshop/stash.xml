@@ -1,0 +1,66 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/layout/custom_game/RDAshop/stash.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+	
+	<scripts>
+		<!-- <include src="file://{resources}/scripts/custom_game/RDAshop/stash.js" /> -->
+	</scripts>
+	
+	<snippets>
+	 
+		<snippet name="Player">
+			<Panel class="Player" onactivate="ToggleStyle(Toggled)">
+				<Label id="PlayerHeroSignal" text="Player Hero" />
+				<DOTAHeroImage id="hero_name" heroname="npc_dota_hero_zuus" />
+				<Panel id="Stats">
+					<Panel class="FlowRight">
+						<Panel class="StatContainer">
+							<Label class="LeftSide" id="PlayerDamageDealtSignal" text="DD" />
+							<Label class="RightSide" id="PlayerDamageDealt" text="Sample" />
+						</Panel>
+						<Panel class="StatContainer">
+							<Label class="LeftSide" id="PlayerDamageTakenSignal" text="DT" /> 
+							<Label class="RightSide" id="PlayerDamageTaken" text="Sample" /> 
+						</Panel>
+					</Panel>
+				</Panel>
+				<Panel id="PlayerDamageTypes"> 
+					<Panel class="PercentPanel" id="PlayerPhysical">
+						<Label id="Playerphysdamagepercent" text="0%" />
+					</Panel>
+					<Panel class="PercentPanel" id="PlayerMagical">
+						<Label id="Playermagdamagepercent" text="0%" />
+					</Panel>
+					<Panel class="PercentPanel" id="PlayerPure">
+						<Label id="Playerpuredamagepercent" text="0%" />
+					</Panel>
+				</Panel>
+			</Panel>
+			
+		</snippet> 
+		
+	</snippets>
+	
+	<Panel class ="root" hittest="false">
+        <Panel id="CustomStash_Panel" class="">
+            <Panel id="CustomInventoryList_1" class="CustomInventoryList">
+                <DOTAItemImage id="CustomInventorySlot_1" class="CustomInventorySlot" itemname="item_boss_summon" />
+                <DOTAItemImage id="CustomInventorySlot_2" class="CustomInventorySlot" itemname="item_ticket" />
+                <DOTAItemImage id="CustomInventorySlot_3" class="CustomInventorySlot" itemname="item_forever_ward" />
+            </Panel>
+            <Panel id="CustomInventoryList_2" class="CustomInventoryList">
+                <DOTAItemImage id="CustomInventorySlot_1" class="CustomInventorySlot" itemname="item_armor_aura" />
+                <DOTAItemImage id="CustomInventorySlot_2" class="CustomInventorySlot" itemname="item_base_damage_aura" />
+                <DOTAItemImage id="CustomInventorySlot_3" class="CustomInventorySlot" itemname="item_expiriance_aura" />
+            </Panel>
+            <Panel id="CustomInventoryList_3" class="CustomInventoryList">
+                <DOTAItemImage id="CustomInventorySlot_1" class="CustomInventorySlot" itemname="item_move_aura" />
+                <DOTAItemImage id="CustomInventorySlot_2" class="CustomInventorySlot" itemname="item_attack_speed_aura" />
+                <DOTAItemImage id="CustomInventorySlot_3" class="CustomInventorySlot" itemname="item_hp_aura" />
+            </Panel>
+        </Panel>
+	</Panel>
+</root>

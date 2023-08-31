@@ -1,0 +1,28 @@
+.root{
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+}
+#CustomStash_Panel{
+    height: 200px;
+    width: 215px;
+    background-image: url("s2r://panorama/images/hud/reborn/inventory_bg_psd.vtex");
+    vertical-align: bottom;
+    horizontal-align: right;
+    margin-right: 300px;
+    background-repeat:no-repeat;
+    background-size:100%;
+    border:1px solid #000e;
+    flow-children: down;
+}
+.CustomInventoryList{
+    padding: 0;
+    width: 210px;
+    height: 50px;
+    flow-children: right;
+}
+.CustomInventorySlot{
+    width: 70px;
+    margin-top: 2px;
+    margin-left: 2px;
+}
