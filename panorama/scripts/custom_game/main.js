@@ -140,17 +140,17 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 		profil.FindChildTraverse("profil_first_game_label").text = typeof(t.rating[i+1].first_game) == 'string' ? t.rating[i+1].first_game : "-"
 		profil.FindChildTraverse("last_games_profil").RemoveAndDeleteChildren()
 		for(let n in t.history[i+1]){
-			let pan = $.CreatePanelWithProperties("Panel", profil.FindChildTraverse("last_games_profil"), "", {class:"profil_game"})
-			let p1 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanelWithProperties("DOTAHeroImage", p1, "", {class:"last_game_hero_img", heroimagestyle:"landscape", heroname:t.history[i+1][n].hero_name})
-			let p2 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanelWithProperties("Label", p2, "", {text:$.Localize("#"+t.history[i+1][n].result), style: `color:${t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"};`})
-			let p3 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanelWithProperties("Label", p3, "", {text:$.Localize("#"+t.history[i+1][n].status), style: `color:${t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"};`})
-			let p4 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanelWithProperties("Label", p4, "", {text:Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")})
-			let p5 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanelWithProperties("Label", p5, "", {text:t.history[i+1][n].level, style:"color:yellow;"})
+			let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "", {class:"profil_game"})
+			let p1 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+			$.CreatePanel("DOTAHeroImage", p1, "", {class:"last_game_hero_img", heroimagestyle:"landscape", heroname:t.history[i+1][n].hero_name})
+			let p2 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+			$.CreatePanel("Label", p2, "", {text:$.Localize("#"+t.history[i+1][n].result), style: `color:${t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"};`})
+			let p3 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+			$.CreatePanel("Label", p3, "", {text:$.Localize("#"+t.history[i+1][n].status), style: `color:${t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"};`})
+			let p4 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+			$.CreatePanel("Label", p4, "", {text:Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")})
+			let p5 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+			$.CreatePanel("Label", p5, "", {text:t.history[i+1][n].level, style:"color:yellow;"})
 			let mode_color = "white"
 			if(t.history[i+1][n].mode == "hard"){
 				mode_color = "rgb(204, 68, 68)"
@@ -159,8 +159,8 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 			}else if(t.history[i+1][n].mode == 4){
 				mode_color = "rgb(46, 108, 201)"
 			}
-			let p6 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanelWithProperties("Label", p6, "", {text:$.Localize("#"+t.history[i+1][n].mode), style:"color:"+mode_color+";"})
+			let p6 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+			$.CreatePanel("Label", p6, "", {text:$.Localize("#"+t.history[i+1][n].mode), style:"color:"+mode_color+";"})
 			// pan.BLoadLayoutSnippet("profil_game_history")
 			// $.Msg(profil.FindChildTraverse("last_games_profil"))
 			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
@@ -283,17 +283,17 @@ function initRating(t){
 				profil.FindChildTraverse('logotext4').text = t.rating[i+1].reports
 				profil.FindChildTraverse("profil_first_game_label").text = t.rating[i+1].first_game
 				for(let n in t.history[i+1]){
-					let pan = $.CreatePanelWithProperties("Panel", profil.FindChildTraverse("last_games_profil"), "", {class:"profil_game"})
-					let p1 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanelWithProperties("DOTAHeroImage", p1, "", {class:"last_game_hero_img", heroimagestyle:"landscape", heroname:t.history[i+1][n].hero_name})
-					let p2 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanelWithProperties("Label", p2, "", {text:$.Localize("#"+t.history[i+1][n].result), style: `color:${t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"};`})
-					let p3 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanelWithProperties("Label", p3, "", {text:$.Localize("#"+t.history[i+1][n].status), style: `color:${t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"};`})
-					let p4 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanelWithProperties("Label", p4, "", {text:Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")})
-					let p5 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanelWithProperties("Label", p5, "", {text:t.history[i+1][n].level, style:"color:yellow;"})
+					let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "", {class:"profil_game"})
+					let p1 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+					$.CreatePanel("DOTAHeroImage", p1, "", {class:"last_game_hero_img", heroimagestyle:"landscape", heroname:t.history[i+1][n].hero_name})
+					let p2 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+					$.CreatePanel("Label", p2, "", {text:$.Localize("#"+t.history[i+1][n].result), style: `color:${t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"};`})
+					let p3 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+					$.CreatePanel("Label", p3, "", {text:$.Localize("#"+t.history[i+1][n].status), style: `color:${t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"};`})
+					let p4 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+					$.CreatePanel("Label", p4, "", {text:Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")})
+					let p5 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+					$.CreatePanel("Label", p5, "", {text:t.history[i+1][n].level, style:"color:yellow;"})
 					let mode_color = "white"
 					if(t.history[i+1][n].mode == "hard"){
 						mode_color = "rgb(204, 68, 68)"
@@ -302,8 +302,8 @@ function initRating(t){
 					}else if(t.history[i+1][n].mode == 4){
 						mode_color = "rgb(46, 108, 201)"
 					}
-					let p6 = $.CreatePanelWithProperties("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanelWithProperties("Label", p6, "", {text:$.Localize("#"+t.history[i+1][n].mode), style:"color:"+mode_color+";"})
+					let p6 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
+					$.CreatePanel("Label", p6, "", {text:$.Localize("#"+t.history[i+1][n].mode), style:"color:"+mode_color+";"})
 					// pan.BLoadLayoutSnippet("profil_game_history")
 					// $.Msg(profil.FindChildTraverse("last_games_profil"))
 					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
@@ -704,11 +704,11 @@ var buy = (function(i, n, pan, consumabl, currency)
 				for(let z = 1; z <= 10; z++){
 					if(currency){
 						if(z * shopinfo[i][n]['price']['rp'] <= shopinfo.mmrpoints){
-							dropdown.AddOption($.CreatePanelWithProperties("Label", dropdown, "entry"+z, {text:z}))
+							dropdown.AddOption($.CreatePanel("Label", dropdown, "entry"+z, {text:z}))
 						}
 					}else{
 						if(z * shopinfo[i][n]['price']['don'] <= shopinfo.coins){
-							dropdown.AddOption($.CreatePanelWithProperties("Label", dropdown, "entry"+z, {text:z}))
+							dropdown.AddOption($.CreatePanel("Label", dropdown, "entry"+z, {text:z}))
 						}
 					}
 					
@@ -932,7 +932,7 @@ const SprayOnmouseout = (value, pan)=>{
 }
 
 const CreateItem = function(value, parentPanel, newPanelId){
-	var pan = $.CreatePanelWithProperties("Panel", parentPanel, newPanelId, {class:"RDAShopItemPanel"})
+	var pan = $.CreatePanel("Panel", parentPanel, newPanelId, {class:"RDAShopItemPanel"})
 	if(value.hidden != undefined) pan.visible = false
 	if(!value.layout){
 		pan.BLoadLayout("file://{resources}/layout/custom_game/RDAShopItem1.xml", false, false)
@@ -1132,7 +1132,7 @@ const CreateItem = function(value, parentPanel, newPanelId){
 	if (value.type == "treasuries") {
 		const previewPanel = $.CreatePanel("Panel", $("#TreasuresPreviewRoot"), "TreasurePreview_" + value.name);
 		previewPanel.BLoadLayoutSnippet("TreasuresPreviewWrap");
-		$.CreatePanelWithProperties(
+		$.CreatePanel(
 			`DOTAScenePanel`,
 			previewPanel.FindChildTraverse(`PreviewParticleRoot`),
 			"",
@@ -1218,16 +1218,16 @@ function initShop(tab){
 
 	const CreateTabButton = (key, value)=>{
 		if($("#RDAShopTabsPanel")){
-			let TabPanel = $.CreatePanelWithProperties("Panel", $("#RDAShopTabsPanel"), "TabPanel_" + key, {class:"TabPanel TabPanelOnServ TabLabelOnServ tab-normal-style"});
+			let TabPanel = $.CreatePanel("Panel", $("#RDAShopTabsPanel"), "TabPanel_" + key, {class:"TabPanel TabPanelOnServ TabLabelOnServ tab-normal-style"});
 			TabPanel.SetPanelEvent("onmouseactivate",opn(key));
-			let TabLabelImg = $.CreatePanelWithProperties("Image", TabPanel, "TabLabelImg_" + key, {class:'TabLabelImg'});
-			var TabPanelLabel = $.CreatePanelWithProperties("Label", TabPanel, "TabLabel_" + key, {class:"TabLabel", text:$.Localize("#"+value.name)});
+			let TabLabelImg = $.CreatePanel("Image", TabPanel, "TabLabelImg_" + key, {class:'TabLabelImg'});
+			var TabPanelLabel = $.CreatePanel("Label", TabPanel, "TabLabel_" + key, {class:"TabLabel", text:$.Localize("#"+value.name)});
 			if(value.name == "gems"){
 				TabPanel.visible = false
 			}
 		}
 		if($("#RDAShopContentPanel")){
-			TabContent = $.CreatePanelWithProperties("Panel", $("#RDAShopContentPanel"), "RDAShopContentPanel_" + key, {class:"TabContent"});
+			TabContent = $.CreatePanel("Panel", $("#RDAShopContentPanel"), "RDAShopContentPanel_" + key, {class:"TabContent"});
 			TabContent.visible = false
 		}
 	}

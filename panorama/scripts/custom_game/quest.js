@@ -424,9 +424,9 @@ function changeHudPanel(table_name, key, data){
 							if(player_info[sid][name[g]][i]['tasks'][task]['active'] == true && mainPanel){
 								
 								let cont_panel = $.CreatePanel("Panel", mainPanel, "InfoBarPanel_" + cislo)
-								let questInfoBarLabel_3 = $.CreatePanelWithProperties("Label",cont_panel, "questInfoBarLabel_3", {class:"questInfoBarLabel_3", text:'!'})
-								let questInfoBarLabel_1 = $.CreatePanelWithProperties("Label",cont_panel, "questInfoBarLabel_1", {class:"questInfoBarLabel_1", text:$.Localize("#"+player_info[sid][name[g]][i]['tasks'][task]['TextName'])})
-								let questInfoBarLabel_2 = $.CreatePanelWithProperties("Label",cont_panel, "questInfoBarLabel_2", {class:"questInfoBarLabel_2", text:player_info[sid][name[g]][i]['tasks'][task]['have'] + '/' + player_info[sid][name[g]][i]['tasks'][task]['HowMuch']})
+								let questInfoBarLabel_3 = $.CreatePanel("Label",cont_panel, "questInfoBarLabel_3", {class:"questInfoBarLabel_3", text:'!'})
+								let questInfoBarLabel_1 = $.CreatePanel("Label",cont_panel, "questInfoBarLabel_1", {class:"questInfoBarLabel_1", text:$.Localize("#"+player_info[sid][name[g]][i]['tasks'][task]['TextName'])})
+								let questInfoBarLabel_2 = $.CreatePanel("Label",cont_panel, "questInfoBarLabel_2", {class:"questInfoBarLabel_2", text:player_info[sid][name[g]][i]['tasks'][task]['have'] + '/' + player_info[sid][name[g]][i]['tasks'][task]['HowMuch']})
 								cont_panel.style.horizontalAlign = "right";
 								cont_panel.style.flowChildren = "right";
 								questInfoBarLabel_1.style.fontSize = "17px";
@@ -523,13 +523,13 @@ function open_base_panel(name, unit){
 			var type = availableQuest[i][0],
 				number = availableQuest[i][1],
 				task = availableQuest[i][2]
-			let start_panel = $.CreatePanelWithProperties("Panel", $("#basepanel_working_space"), "task_" + i, {class: "task"})
+			let start_panel = $.CreatePanel("Panel", $("#basepanel_working_space"), "task_" + i, {class: "task"})
 			if(player_info[sid][type][number]['tasks'][task] == null){
-				let line_1 = $.CreatePanelWithProperties("Label", start_panel, "task_znak", {class: "task_znak", text:"?"})
+				let line_1 = $.CreatePanel("Label", start_panel, "task_znak", {class: "task_znak", text:"?"})
 			}else{
-				let line_1 = $.CreatePanelWithProperties("Label", start_panel, "task_znak", {class: "task_znak", text:"!"})
+				let line_1 = $.CreatePanel("Label", start_panel, "task_znak", {class: "task_znak", text:"!"})
 			}
-			let line_2 = $.CreatePanelWithProperties("Label", start_panel, "task_label", {class: "task_label", text:$.Localize('#zadanie_label')})
+			let line_2 = $.CreatePanel("Label", start_panel, "task_label", {class: "task_label", text:$.Localize('#zadanie_label')})
 			if(type != 'main'){
 				$("#task_" + i).FindChildTraverse('task_znak').style.color = "#0084ff";
 			}

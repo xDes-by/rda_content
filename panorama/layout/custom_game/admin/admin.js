@@ -13,13 +13,13 @@ Admin.UpdateView = (pid)=>{
     this.main.GetChild(4).FindChildTraverse("player_gold_label").text = shopinfo[pid].value.feed
     this.main.GetChild(5).FindChildTraverse("create_entity_drop_down").RemoveAllOptions()
     for(let name of this.creeps){
-        this.main.GetChild(5).FindChildTraverse("create_entity_drop_down").AddOption($.CreatePanelWithProperties("Label", this.main.GetChild(5).FindChildTraverse("create_entity_drop_down"), name, {text:$.Localize("#"+name)}))
+        this.main.GetChild(5).FindChildTraverse("create_entity_drop_down").AddOption($.CreatePanel("Label", this.main.GetChild(5).FindChildTraverse("create_entity_drop_down"), name, {text:$.Localize("#"+name)}))
     }
     this.main.GetChild(7).FindChildTraverse("create_entity_drop_down").RemoveAllOptions()
     for(let item of this.items){
-        var pan = $.CreatePanelWithProperties("Panel", this.main.GetChild(7).FindChildTraverse("create_entity_drop_down"), item, {class:"item_option"})
-        $.CreatePanelWithProperties("DOTAItemImage", pan, "", {class:"item_option_item_image", itemname : item})
-        $.CreatePanelWithProperties("Label", pan, "", {class:"item_option_item_text", text : $.Localize("#"+item)})
+        var pan = $.CreatePanel("Panel", this.main.GetChild(7).FindChildTraverse("create_entity_drop_down"), item, {class:"item_option"})
+        $.CreatePanel("DOTAItemImage", pan, "", {class:"item_option_item_image", itemname : item})
+        $.CreatePanel("Label", pan, "", {class:"item_option_item_text", text : $.Localize("#"+item)})
         
         this.main.GetChild(7).FindChildTraverse("create_entity_drop_down").AddOption(pan)
         pan.SetPanelEvent("onmouseactivate", function(){

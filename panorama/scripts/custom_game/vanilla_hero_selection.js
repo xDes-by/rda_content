@@ -157,7 +157,7 @@ function s(){
 GameEvents.Subscribe( "pickRating", function(t){
 	pickInit = true
 	for(let i in t.rating){
-		$.CreatePanelWithProperties("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "", {text:$.Localize("#pick_rating")+t.rating[i].points, style:"width:100%;text-align:center;margin-top:105px;color:white;"})
-		$.CreatePanelWithProperties("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "", {text:$.Localize("#pick_game")+t.rating[i].games, style:"width:100%;text-align:center;margin-top:125px;color:white;"})
+		$.CreatePanel("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "", {text:$.Localize("#pick_rating")+t.rating[i].points, style:"width:100%;text-align:center;margin-top:105px;color:white;"})
+		$.CreatePanel("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "", {text:$.Localize("#pick_game")+t.rating[i].games, style:"width:100%;text-align:center;margin-top:125px;color:white;"})
 	}
 })

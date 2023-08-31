@@ -566,7 +566,7 @@ function InitCollection(_data) {
 			if (isTreasureType) {
 				const previewPanel = $.CreatePanel("Panel", treasuresPreviewRoot, "TreasurePreview_" + itemName);
 				previewPanel.BLoadLayoutSnippet("TreasuresPreviewWrap");
-				$.CreatePanelWithProperties(
+				$.CreatePanel(
 					`DOTAScenePanel`,
 					previewPanel.FindChildTraverse(`PreviewParticleRoot`),
 					"",

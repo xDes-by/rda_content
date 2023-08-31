@@ -20,7 +20,7 @@ GameEvents.Subscribe('dota_player_update_selected_unit', open_quest_window);
 GameEvents.Subscribe('open_quest_window', open_quest_window);
 GameEvents.Subscribe('DummyPanoramaInit', function(t){
     dummy_index = t.index
-    let MainPanel = $.CreatePanelWithProperties("Panel", FindDotaHudElement("center_bg"), "dummy", {})
+    let MainPanel = $.CreatePanel("Panel", FindDotaHudElement("center_bg"), "dummy", {})
     MainPanel.BLoadLayout("file://{resources}/layout/custom_game/dummy/dummy.xml", false, false)
     MainPanel.style.visibility = "collapse"
     MainPanel.FindChildTraverse("Arrmor").GetChild(0).text = "+10 " + $.Localize("#Arrmor")

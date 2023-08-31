@@ -186,7 +186,7 @@ function ChangeHeroLoadTree(tab){
     lvls = tab.lvls;
     talant_shop = tab.talant_shop;
     var pid = Players.GetLocalPlayer();
-    let scenpanel = $.CreatePanelWithProperties("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1], {class:"HeroScenePanel", style:'width:800px;height:800px;margin-right:10px;', unit:pInfo[PlayerID][1], particleonly:false, allowrotation:true})
+    let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1], {class:"HeroScenePanel", style:'width:800px;height:800px;margin-right:10px;', unit:pInfo[PlayerID][1], particleonly:false, allowrotation:true})
     scenpanel.visible = false;
     if(PlayerID == pid){
         portID = PlayerID;
@@ -229,7 +229,7 @@ function talantTreeInit(tab){
     for(var i in pInfo){
         var heroname = pInfo[i][1]
         // $.Msg(heroname)
-        let scenpanel = $.CreatePanelWithProperties("DOTAScenePanel", $("#talant_root"), heroname, {class:"HeroScenePanel", style:'width:800px;height:800px;margin-right:10px;', unit:heroname, particleonly:false, allowrotation:true})
+        let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), heroname, {class:"HeroScenePanel", style:'width:800px;height:800px;margin-right:10px;', unit:heroname, particleonly:false, allowrotation:true})
         scenpanel.visible = false;
         if(i == pid){
             portID = i;
