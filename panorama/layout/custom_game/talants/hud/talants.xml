@@ -7,6 +7,15 @@
 	<scripts>
 		<include src="file://{resources}/layout/custom_game/talants/hud/talants.js" />
 	</scripts>
+
+    <snippets>
+		<snippet name="heroModel">
+            <Panel>
+                <DOTAScenePanel unit = "npc_dota_hero_axe" particleonly = "false" allowrotation ="true" class = "" />
+            </Panel>
+		</snippet>
+	</snippets>
+
 	<Panel class = "root" hittest="false">
 
         <Panel id="talant_root" class="talant_root">

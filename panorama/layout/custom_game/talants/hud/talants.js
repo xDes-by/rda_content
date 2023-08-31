@@ -194,15 +194,17 @@ function ChangeHeroLoadTree(tab){
     lvls = tab.lvls;
     talant_shop = tab.talant_shop;
     var pid = Players.GetLocalPlayer();
-    let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1])
-    scenpanel.style.width = "800px"
-    scenpanel.style.height = "800px"
-    scenpanel.style.marginRight = "10px"
-    scenpanel.SetUnit(pInfo[PlayerID][1], "", true)
+    // let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1])
+    const scenpanel = $("#talant_root").BLoadLayoutSnippet("heroModel")
+    // scenpanel
+    // scenpanel.style.width = "800px"
+    // scenpanel.style.height = "800px"
+    // scenpanel.style.marginRight = "10px"
+    // scenpanel.SetUnit(pInfo[PlayerID][1], "", true)
     // scenpanel.unit = pInfo[PlayerID][1]
-    scenpanel.particleonly = false
-    scenpanel.allowrotation = true
-    scenpanel.AddClass("HeroScenePanel")// scenpanel.SpawnHeroInScenePanelByPlayerSlotWithFullBodyView(tab.match ,PlayerID)
+    // scenpanel.particleonly = false
+    // scenpanel.allowrotation = true
+    // scenpanel.AddClass("HeroScenePanel")// scenpanel.SpawnHeroInScenePanelByPlayerSlotWithFullBodyView(tab.match ,PlayerID)
     scenpanel.visible = false;
     if(PlayerID == pid){
         portID = PlayerID;
@@ -245,15 +247,19 @@ function talantTreeInit(tab){
     for(var i in pInfo){
         var heroname = pInfo[i][1]
         // $.Msg(heroname)
-        let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), heroname)
-        scenpanel.AddClass("HeroScenePanel")
-        scenpanel.style.width = "800px"
-        scenpanel.style.height = "800px"
-        scenpanel.style.marginRight = "10px"
-        scenpanel.SetUnit(heroname, "", true)
-        // scenpanel.unit = heroname
-        scenpanel.particleonly = false
-        scenpanel.allowrotation = true
+        let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), heroname, {class:"HeroScenePanel", style:"width:800px;height:800px;margin-right:10px;", unit:heroname, particleonly:false, allowrotation:true})
+        // scenpanel.AddClass("HeroScenePanel")
+        // scenpanel.style.width = "800px"
+        // scenpanel.style.height = "800px"
+        // scenpanel.style.marginRight = "10px"
+        // scenpanel.SetUnit(heroname, "", true)
+        // // scenpanel.unit = heroname
+        // scenpanel.particleonly = false
+        // scenpanel.allowrotation = true
+        // const scenpanel = $.CreatePanel("Panel", $("#talant_root"), heroname)
+        // scenpanel.AddClass("HeroScenePanel")
+        // scenpanel.BLoadLayoutSnippet("heroModel")
+        // scenpanel.GetChild(0).SetUnit(heroname, "", false)
         scenpanel.visible = false;
         if(i == pid){
             portID = i;
