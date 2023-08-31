@@ -64,13 +64,14 @@ function CreatePetList(t){
         for(let z = 0; z < Math.ceil(tier[i].length/6); z++){
 
             Pets.PageTitle.push($.Localize("#pet_title") + i)
-            let pagePanel = $.CreatePanelWithProperties("Panel", $("#pet_showcase"), "", {class:"showcase"})
-            
+            let pagePanel = $.CreatePanel("Panel", $("#pet_showcase"), "")
+            pagePanel.AddClass("showcase")
             for(let j = z*6; j < 6+6*z; j++){
                 CreatePetPanel(tier, pagePanel, i, j, page)
             }
             let p = Pets.PageTitle.length - 1
-            let dot = $.CreatePanelWithProperties("Button", $("#ItemPips"), "" ,{class:"PaginationButtonCustom"})
+            let dot = $.CreatePanel("Button", $("#ItemPips"), "")
+            dot.AddClass("PaginationButtonCustom")
             dot.SetPanelEvent("onmouseactivate", ()=>{
                 SetPage(p)
             })
@@ -111,7 +112,8 @@ function CreatePetPanel(tier, pagePanel, i, j, pageNumber){
     if(tier[i][j]){
         pan_id = tier[i][j].name + "_panel"
     }
-    let petPanel = $.CreatePanelWithProperties("Panel", pagePanel, pan_id, {class:"showcase_pet"})
+    let petPanel = $.CreatePanel("Panel", pagePanel, pan_id)
+    petPanel.AddClass("showcase_pet")
     petPanel.BLoadLayoutSnippet("pet")
     if(tier[i][j]){
         panel[tier[i][j].name] = petPanel
@@ -441,7 +443,9 @@ Pets.Buy = (i,j, currency)=>{
                 }
             }
             for(let i = 1; i <= opCount; i++){
-                $("#confirm_drop_down").AddOption($.CreatePanelWithProperties("Label", $("#confirm_drop_down"), i, {text:i+$.Localize("#pet_pieces")}))
+                const new_panel = $.CreatePanel("Label", $("#confirm_drop_down"), i)
+                new_panel.text = i+$.Localize("#pet_pieces")
+                $("#confirm_drop_down").AddOption(new_panel)
             }
             $("#confirm_drop_down").SetSelected('1')
 
@@ -481,7 +485,7 @@ Pets.Buy = (i,j, currency)=>{
 
 $("#pet_shop_container").RemoveAndDeleteChildren()
 function CreatePetShop(i,j){
-    storePanel = $.CreatePanelWithProperties("Panel", $("#pet_shop_container"), "",{})
+    storePanel = $.CreatePanel("Panel", $("#pet_shop_container"), "")
     storePanel.BLoadLayoutSnippet("store")
     let obj = Pets.all[i][j]
     storePanel.FindChildTraverse("shop_1_img").style.backgroundImage = "url('file://{resources}/"+obj.image+"')"
@@ -545,7 +549,16 @@ $("#confirm_no_panel").SetPanelEvent("onmouseactivate", ()=>{
 })
 var isOpen = false
 
-var open_btn_panel = $.CreatePanelWithProperties("Panel", FindDotaHudElement("HUDElements"), "", {style:"height: 100px;width: 100px;background-image: url('file://{images}/custom_game/pet/cat.png');background-size: contain; background-position: 50%;background-repeat: no-repeat;margin-left: 325px;tooltip-position: bottom;"})
+var open_btn_panel = $.CreatePanel("Panel", FindDotaHudElement("HUDElements"), "")
+open_btn_panel.style.height = "100px"
+open_btn_panel.style.width = "100px"
+open_btn_panel.style.backgroundImage = "url('file://{images}/custom_game/pet/cat.png')"
+open_btn_panel.style.backgroundSize = "contain"
+open_btn_panel.style.backgroundPosition = "50%"
+open_btn_panel.style.backgroundRepeat = "no-repeat"
+open_btn_panel.style.marginLeft = "325px"
+open_btn_panel.style.tooltipPosition = "bottom"
+
 // open_btn_panel.BLoadLayout("file://{resources}/layout/custom_game/main/pets.xml", false, false)
 open_btn_panel.SetPanelEvent("onmouseover",TipsOver('pets',open_btn_panel));
 open_btn_panel.SetPanelEvent("onmouseout",TipsOut());
