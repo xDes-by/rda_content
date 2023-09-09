@@ -10,18 +10,6 @@ const ITEMS_TO_VIEW =
     "item_attack_speed_aura",
     "item_hp_aura",
 ]
-const BUFF_CD_MODIFIERS = 
-[
-    "",
-    "",
-    "",
-    "modifier_item_armor_aura_cd",
-    "modifier_item_base_damage_aura_cd",
-    "modifier_item_expiriance_aura_cd",
-    "modifier_item_move_aura_cd",
-    "modifier_item_attack_speed_aura_cd",
-    "modifier_item_hp_aura_cd",
-]
 
 function FindItemInShop(tab, itemname){
     for(let categoryKey in tab){
@@ -52,6 +40,7 @@ function InitStash(t){
             itemPanel.FindChildTraverse("ItemCount").text = ItemInfo.now
         }
     }
+    UpdateCooldowns()
 }
 
 function TakeItem(itemname){
@@ -92,17 +81,23 @@ function UpdateCooldowns(){
     }
 }
 
+function FindDotaHudElement(panel) {
+	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
+}
+
 (function(){
+    // $("#CustomStash_Panel").SetParent(FindDotaHudElement("shop_launcher_block"))
     GameEvents.Subscribe( "initShop", InitStash)
-    GameEvents.Subscribe( "SetShopItemCount", (t)=>{
-        const itemname = t.itemname
-        if(!itemname || !ITEMS_TO_VIEW.includes(itemname)) return
-        const categoryKey = t.categoryKey
-        const itemKey = t.itemKey
-        const count = t.count
-        const itemPanel = $(`#${itemname}_Panel`)
-        itemPanel.FindChildTraverse("ItemCount").text = count
-        itemPanel.visible = true
+    GameEvents.Subscribe( "UpdateStore", (tab)=>{
+        for(let i in tab){
+            const itemname = tab[i].itemname
+            if(!itemname || !ITEMS_TO_VIEW.includes(itemname)) continue
+            const categoryKey = tab[i].categoryKey
+            const itemKey = tab[i].itemKey
+            const count = tab[i].count
+            const itemPanel = $(`#${itemname}_Panel`)
+            itemPanel.FindChildTraverse("ItemCount").text = count
+            itemPanel.visible = true
+        }
     })
-    UpdateCooldowns()
 })();

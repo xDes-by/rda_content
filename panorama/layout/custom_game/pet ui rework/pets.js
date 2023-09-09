@@ -44,7 +44,6 @@ var TipsOut = (function()
 // созданеие списка петов
 var panel = {}
 function CreatePetList(t){
-    $.Msg("create pet list js")
     Pets.exp = t.exp
     $("#pet_showcase").RemoveAndDeleteChildren()
     Pets.pet = t.shop[1]
@@ -67,7 +66,7 @@ function CreatePetList(t){
             let pagePanel = $.CreatePanel("Panel", $("#pet_showcase"), "")
             pagePanel.AddClass("showcase")
             for(let j = z*6; j < 6+6*z; j++){
-                CreatePetPanel(tier, pagePanel, i, j, page)
+                CreatePetPanel(tier, pagePanel, i, j, page, t.pet_trial)
             }
             let p = Pets.PageTitle.length - 1
             let dot = $.CreatePanel("Button", $("#ItemPips"), "")
@@ -107,7 +106,7 @@ function CreatePetList(t){
 }
 
 // создание панели пета
-function CreatePetPanel(tier, pagePanel, i, j, pageNumber){
+function CreatePetPanel(tier, pagePanel, i, j, pageNumber, pet_trial){
     let pan_id = ""
     if(tier[i][j]){
         pan_id = tier[i][j].name + "_panel"
@@ -120,7 +119,7 @@ function CreatePetPanel(tier, pagePanel, i, j, pageNumber){
     }
     
     if(tier[i][j]){
-        AvailablePetFilling(tier[i][j],petPanel)
+        AvailablePetFilling(tier[i][j], petPanel, pet_trial)
     }else{
         petPanel.FindChildTraverse("name_pet").visible = false
         petPanel.FindChildTraverse("item_pet").visible = false
@@ -132,8 +131,17 @@ function CreatePetPanel(tier, pagePanel, i, j, pageNumber){
     }
 }
 
+function hasTrialPeriod(obj, str) {
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key) && typeof obj[key] === 'string' && obj[key] === str) {
+        return true;
+      }
+    }
+    return false;
+}
+
 // заполнение пета
-function AvailablePetFilling(obj,petPanel){
+function AvailablePetFilling(obj, petPanel, pet_trial){
     petPanel.FindChildTraverse("name_pet").visible = true
     petPanel.FindChildTraverse("item_pet").visible = true
     petPanel.FindChildTraverse("buy_pet_button").visible = true
@@ -150,7 +158,12 @@ function AvailablePetFilling(obj,petPanel){
     petPanel.FindChildTraverse("name_pet").text = $.Localize("#"+obj.name)
     if(obj.onStart == 0){
         petPanel.FindChildTraverse("have_pet").visible = false
-        if(obj.price.don){
+        if(pet_trial.available && hasTrialPeriod(pet_trial.affordable_pet, obj.name)){
+            petPanel.FindChildTraverse("buy_rp_img").visible = false
+            petPanel.FindChildTraverse("buy_gem_img").visible = false
+            petPanel.FindChildTraverse("buy_pet_label").text = $.Localize("#pet_trial_available")
+            petPanel.FindChildTraverse("buy_pet_button").SetPanelEvent("onmouseactivate", Pets.ActivateTrialPeriod(pet_trial.affordable_pet))
+        }else if(obj.price.don){
             petPanel.FindChildTraverse("buy_pet_label").text = obj.price.don
             petPanel.FindChildTraverse("buy_rp_img").visible = false
             petPanel.FindChildTraverse("buy_pet_button").SetPanelEvent("onmouseactivate", Pets.Buy(1, obj.i, "gems"))
@@ -162,8 +175,14 @@ function AvailablePetFilling(obj,petPanel){
     }else{
         petPanel.FindChildTraverse("buy_pet_button").visible = false
         petPanel.FindChildTraverse("pet_level").text = $.Localize("#pet_level") + " " + Level(obj.now)[0]
+        if(pet_trial.ends && hasTrialPeriod(pet_trial.affordable_pet, obj.name)){
+            petPanel.FindChildTraverse("trial_end_date").text = pet_trial.ends
+        }else{
+            petPanel.FindChildTraverse("trial_end_date").text = ""
+        }
     }
 }
+
 
 function AutoGet(pet){
     return ()=>{
@@ -177,6 +196,26 @@ function AutoGet(pet){
         }else{
             GameEvents.SendCustomGameEventToServer("AutoGetPetOprion", {})
         }
+    }
+}
+
+Pets.ActivateTrialPeriod = (affordable_pet)=>{
+    return ()=>{
+        for(let i in Pets.pet){
+            if(typeof(Pets.pet[i]) == 'object' && Pets.pet[i].type == 'pet'){
+                for (const key in affordable_pet) {
+                    if(Pets.pet[i].name == affordable_pet[key]){
+                        Pets.pet[i].onStart = 13501
+                        Pets.pet[i].now = 13501
+                        const pet_panel = $('#'+Pets.pet[i].name+"_panel")
+                        AvailablePetFilling(Pets.pet[i], pet_panel)
+                        let f = InterfaceFilling(Pets.pet[i])
+                        f()
+                    }
+                }
+            }
+        }
+        GameEvents.SendCustomGameEventToServer("ActivateTrialPeriod_Pet", {affordable_pet : affordable_pet})
     }
 }
 

@@ -26,7 +26,7 @@
 
             <Panel id="talant_tree_panel" class="talant_tree_panel" onmouseactivate="">
                 
-                <Image class='talante_bg_image_panel' id='talante_bg_image_panel' src="file://{resources}/images/custom_game/talants/tree5.png" />
+                <Image class='talante_bg_image_panel' id='talante_bg_image_panel' src="file://{resources}/images/custom_game/talants/talents_tree_v2.png" />
                 <Panel id="talant_tree_images_panel" class="talant_tree_images_panel"/>
 
             </Panel>
@@ -39,6 +39,7 @@
                     <Panel id="under_line_panel" class="under_line_panel">
                         <Label id="talant_description_label" class="talant_description_label" text="#tooltip_talant_30_level" />
                         <Label id="talant_description_buff_label" class="talant_description_buff_label" text="" />
+                        <Label id="talant_description_scale_label" class="talant_description_scale_label" text="200/250/300/350/400" html="true" />
                     </Panel>
                     <Image class='button' id='button' src="file://{resources}/images/custom_game/talants/button.png" >
                         <Panel id="" class="center flowRight">

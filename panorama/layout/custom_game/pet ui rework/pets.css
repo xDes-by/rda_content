@@ -35,6 +35,10 @@
 #gems_container_pet{
 
 }
+#trial_end_date{
+    horizontal-align: center;
+    color: white;
+}
 #change_pet_button{
     margin-top: 340px;
     margin-left: 770px;

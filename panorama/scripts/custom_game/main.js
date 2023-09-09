@@ -135,8 +135,8 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 		profil.FindChildTraverse('RatingProfilRank').SetImage(rankUrl)
 		profil.FindChildTraverse("RatingProfilLike").visible = false
 		profil.FindChildTraverse("RatingProfilDislike").visible = false
-		profil.FindChildTraverse("RatingProfilLike").SetPanelEvent("onmouseactivate",function(){сommenBut(i,'likes')})
-		profil.FindChildTraverse("RatingProfilDislike").SetPanelEvent("onmouseactivate",function(){сommenBut(i,'reports')})
+		profil.FindChildTraverse("RatingProfilLike").SetPanelEvent("onmouseactivate",function(){commenBut(i,'likes')})
+		profil.FindChildTraverse("RatingProfilDislike").SetPanelEvent("onmouseactivate",function(){commenBut(i,'reports')})
 		profil.FindChildTraverse("profil_first_game_label").text = typeof(t.rating[i+1].first_game) == 'string' ? t.rating[i+1].first_game : "-"
 		profil.FindChildTraverse("last_games_profil").RemoveAndDeleteChildren()
 		for(let n in t.history[i+1]){
@@ -206,7 +206,7 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 	}
 });
 
-var сommenBut = (function(i, type)
+var commenBut = (function(i, type)
 {
 	return function(){
 		Game.EmitSound("ui_team_select_shuffle")
@@ -273,8 +273,8 @@ function initRating(t){
 				pan.FindChildTraverse("besthero").visible = false;
 			}
 			if(i!=playerID){ // !=
-				pan.FindChildTraverse("likeimg").SetPanelEvent("onmouseactivate",сommenBut(i,'likes'))
-				pan.FindChildTraverse("dislikeimg").SetPanelEvent("onmouseactivate",сommenBut(i,'reports'))
+				pan.FindChildTraverse("likeimg").SetPanelEvent("onmouseactivate",commenBut(i,'likes'))
+				pan.FindChildTraverse("dislikeimg").SetPanelEvent("onmouseactivate",commenBut(i,'reports'))
 			}else{
 				pan.FindChildTraverse("likeimg").visible = false;
 				pan.FindChildTraverse("dislikeimg").visible = false;
@@ -1354,9 +1354,9 @@ function initShop(tab){
 	})
 }
 
-function UpdateStore(t){
-	shopinfo = t.shopinfo
+function UpdateStore(tab){
 	const Update = (itemInfo, pan)=>{
+		$.Msg(shopinfo[itemInfo.categoryKey][itemInfo.productKey].name)
 		if(!pan) return
 		if(pan.FindChildTraverse("RDAShopItemButtonLabelStock")){ 
 			pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = shopinfo[itemInfo.categoryKey][itemInfo.productKey].now
@@ -1367,25 +1367,37 @@ function UpdateStore(t){
 				pan.FindChildTraverse("RDAShopItemButtonQuickUse").SetPanelEvent("onactivate", QuickUseSpray(shopinfo[itemInfo.categoryKey][itemInfo.productKey]))
 			}
 		}
+		if(shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_1" || shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_2" || shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_3" || shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_4" && shopinfo[itemInfo.categoryKey][itemInfo.productKey].onStart == 0 && shopinfo[itemInfo.categoryKey][itemInfo.productKey].now == 1){
+			if(pan.FindChildTraverse('RDAShopItemButtonBuy')){
+				pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+			}
+			if(pan.FindChildTraverse('RDAShopItemButtonHas')){
+				pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
+			}
+		}
 	}
-	for(let i in t.updateCount){
-		const itemInfo = t.updateCount[i]
+	for(let i in tab){
+		const itemInfo = tab[i]
 		const pan = $("#ShopItem" + itemInfo.categoryKey + '_' + itemInfo.productKey)
 		const inventory = $("#ShopItem_Inventory" + itemInfo.categoryKey + '_' + itemInfo.productKey)
+		if(!shopinfo || !itemInfo.categoryKey || !shopinfo[itemInfo.categoryKey] || !itemInfo.productKey || !shopinfo[itemInfo.categoryKey][itemInfo.productKey]) continue
+		shopinfo[itemInfo.categoryKey][itemInfo.productKey].now = Number(itemInfo.count)
 		Update(itemInfo, pan)
 		Update(itemInfo, inventory)
 	}
 }
 
-GameEvents.Subscribe( "SetShopItemCount", (t)=>{
-	const categoryKey = t.categoryKey
-	const itemKey = t.itemKey
-	const count = t.count
-	shopinfo[categoryKey][itemKey].now = Number(count)
-	const pan = $("#ShopItem" + categoryKey + '_' + itemKey)
-	if(pan){ pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = count
-	}
-})
+// function SetShopItemCount(t){
+// 	const categoryKey = t.categoryKey
+// 	const itemKey = t.itemKey
+// 	const count = t.count
+// 	if(!shopinfo || categoryKey || !shopinfo[categoryKey] || itemKey || shopinfo[categoryKey][itemKey])return
+// 	shopinfo[categoryKey][itemKey].now = Number(count)
+// 	const pan = $("#ShopItem" + categoryKey + '_' + itemKey)
+// 	if(pan){ 
+// 		pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = count
+// 	}
+// }
 
 
 
@@ -1571,6 +1583,7 @@ function FindChildTraverse(name){
 (function(){
 	GameEvents.Subscribe( "Noti", Noti)
 	GameEvents.Subscribe( "UpdateStore", UpdateStore)
+	// GameEvents.Subscribe( "SetShopItemCount", SetShopItemCount)
 	GameEvents.Subscribe( "initRating", initRating)
 	GameEvents.Subscribe( "initShop", initShop)
 	GameEvents.Subscribe( "updateRatingCouter", updateRatingCouter)

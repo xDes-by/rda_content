@@ -2,7 +2,7 @@
 function FindDotaHudElement(panel) {
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
 }
-
+var lastLearnedTalent = ""
 //$.DispatchEvent( "DOTAGlobalSceneFireEntityInput", "HeroScenePanel", "sven", "SetAnimation", "death" );
 
 var asssd = false;
@@ -12,7 +12,6 @@ var isShop = false;
 var talantpanel = $("#talant_root");
 var portID = null, portIndex, portName;
 var imbalist = {
-
     "int" : ["border_blue"],//border_red
     //6 9 / 7 10/ 8 11
     "int1" : ["talant_icon_6_panel","talant_icon_panel_size_3"],//6
@@ -26,7 +25,7 @@ var imbalist = {
     "int10" : ["talant_icon_7_panel","talant_icon_panel_size_1"],//7  
     "int8" : ["talant_icon_3_panel","talant_icon_panel_size_1"],//3
     "int11" : ["talant_icon_4_panel","talant_icon_panel_size_1"],//4 
-    "int12" : ["talant_icon_45_panel","talant_icon_panel_size_3"],//4 
+    "int12" : ["talant_icon_45_panel","talant_icon_panel_size_1"],//4 
 
     "str" : ["border_red"],//border_green
 
@@ -41,7 +40,7 @@ var imbalist = {
     "str10" : ["talant_icon_14_panel","talant_icon_panel_size_1"],//14
     "str8" : ["talant_icon_21_panel","talant_icon_panel_size_1"],//21
     "str11" : ["talant_icon_20_panel","talant_icon_panel_size_1"],//20
-    "str12" : ["talant_icon_46_panel","talant_icon_panel_size_3"],//4 
+    "str12" : ["talant_icon_46_panel","talant_icon_panel_size_1"],//4 
 
     "don" : ["border_gold"],//border_blue
     
@@ -56,7 +55,7 @@ var imbalist = {
     "don10" : ["talant_icon_27_panel","talant_icon_panel_size_1"],//27
     "don8" : ["talant_icon_25_panel","talant_icon_panel_size_1"],//25
     "don11" : ["talant_icon_24_panel","talant_icon_panel_size_1"],//24
-    "don12" : ["talant_icon_47_panel","talant_icon_panel_size_3"],//4 
+    "don12" : ["talant_icon_47_panel","talant_icon_panel_size_1"],//4 
 
     "agi" : ["border_green"],//border_gold
 
@@ -71,9 +70,30 @@ var imbalist = {
     "agi10" : ["talant_icon_43_panel","talant_icon_panel_size_1"],//43
     "agi8" : ["talant_icon_37_panel","talant_icon_panel_size_1"],//37
     "agi11" : ["talant_icon_36_panel","talant_icon_panel_size_1"],//36
-    "agi12" : ["talant_icon_48_panel","talant_icon_panel_size_3"],//4 
-
+    "agi12" : ["talant_icon_48_panel","talant_icon_panel_size_1"],//4 
 };
+
+const EnhancedTalentValues = {
+    "int1" : [8, 10, 12, 14, 16],
+    "int2" : [2.5, 3.0, 3.5, 4.0, 4.5],
+    "int3" : [15, 20, 25, 30, 35],
+    "int4" : [0.1, 0.125, 0.15, 0.175, 0.2],
+    "int5" : [0.15, 0.2, 0.25, 0.3, 0.35],
+
+    "str1" : [200, 250, 300, 350, 400],
+    "str2" : [2, 3, 4, 5, 6],
+    "str3" : [7.5, 10.0, 12.5, 15.0, 17.5, 20.0],
+    "str4" : [0.75, 1.0, 1.25, 1.5, 2.0],
+    "str5" : [0.15, 0.2, 0.25, 0.3, 0.35],
+
+    "agi1" : [0.12, 0.14, 1.16, 0.18, 0.20],
+    "agi2" : [8, 10, 12, 14, 16],
+    "agi3" : ["10%", "13%", "16%", "19%", "22%"],
+    "agi4" : [0.1, 0.125, 0.15, 0.175, 0.2],
+    "agi5" : [0.15, 0.2, 0.25, 0.3, 0.35],
+}
+
+
 var heroes, pInfo, lvls;
 
 var talantbtn;
@@ -142,16 +162,11 @@ function pickInit(tab){
                 pan.AddClass(imbalist[arg][k])
             }
             pan.AddClass(imbalist[cat[i]][0])
-            pan.SetPanelEvent("onmouseover",prepareDescription(arg));
-            pan.SetPanelEvent("onmouseout",hiddeDescription(arg));
+            pan.SetPanelEvent("onmouseover",OnMouseOverTalentCircle(arg));
+            pan.SetPanelEvent("onmouseout",OnMouseOutTalentCircle(arg));
             // pan.SetPanelEvent("onmouseactivate",selectTalant(arg));
             pan.SetPanelEvent("ondblclick", ()=>{
-                $.Msg("selectTalantButton")
-                // Game.EmitSound("ui_team_select_shuffle")
-                // let selectTalantButton = selectTalantButton(
-                //     talantpanel.FindChildTraverse(arg))
-                // selectTalantButton()
-                
+
             });
             pan.i = cat[i];
             pan.j = j;
@@ -194,17 +209,7 @@ function ChangeHeroLoadTree(tab){
     lvls = tab.lvls;
     talant_shop = tab.talant_shop;
     var pid = Players.GetLocalPlayer();
-    // let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1])
     let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), pInfo[PlayerID][1], {class:"HeroScenePanel", style:"width:800px;height:800px;margin-right:10px;", unit:pInfo[PlayerID][1], particleonly:false, allowrotation:true})
-    // scenpanel
-    // scenpanel.style.width = "800px"
-    // scenpanel.style.height = "800px"
-    // scenpanel.style.marginRight = "10px"
-    // scenpanel.SetUnit(pInfo[PlayerID][1], "", true)
-    // scenpanel.unit = pInfo[PlayerID][1]
-    // scenpanel.particleonly = false
-    // scenpanel.allowrotation = true
-    // scenpanel.AddClass("HeroScenePanel")// scenpanel.SpawnHeroInScenePanelByPlayerSlotWithFullBodyView(tab.match ,PlayerID)
     scenpanel.visible = false;
     if(PlayerID == pid){
         portID = PlayerID;
@@ -246,20 +251,7 @@ function talantTreeInit(tab){
     // $.Msg("talantTreeInit")
     for(var i in pInfo){
         var heroname = pInfo[i][1]
-        // $.Msg(heroname)
         let scenpanel = $.CreatePanel("DOTAScenePanel", $("#talant_root"), heroname, {class:"HeroScenePanel", style:"width:800px;height:800px;margin-right:10px;", unit:heroname, particleonly:false, allowrotation:true})
-        // scenpanel.AddClass("HeroScenePanel")
-        // scenpanel.style.width = "800px"
-        // scenpanel.style.height = "800px"
-        // scenpanel.style.marginRight = "10px"
-        // scenpanel.SetUnit(heroname, "", true)
-        // // scenpanel.unit = heroname
-        // scenpanel.particleonly = false
-        // scenpanel.allowrotation = true
-        // const scenpanel = $.CreatePanel("Panel", $("#talant_root"), heroname)
-        // scenpanel.AddClass("HeroScenePanel")
-        // scenpanel.BLoadLayoutSnippet("heroModel")
-        // scenpanel.GetChild(0).SetUnit(heroname, "", false)
         scenpanel.visible = false;
         if(i == pid){
             portID = i;
@@ -303,14 +295,14 @@ function talantTreeInit(tab){
                 pan.AddClass(imbalist[arg][k])
             }
             pan.AddClass(imbalist[cat[i]][0])
-            pan.SetPanelEvent("onmouseover",prepareDescription(arg));
-            pan.SetPanelEvent("onmouseout",hiddeDescription(arg));
+            pan.SetPanelEvent("onmouseover",OnMouseOverTalentCircle(arg));
+            pan.SetPanelEvent("onmouseout",OnMouseOutTalentCircle(arg));
             pan.SetPanelEvent("onmouseactivate",selectTalant(arg));
             pan.SetPanelEvent("ondblclick", selectTalantCheat(cat[i], j));
             pan.i = cat[i];
             pan.j = j;
-            
             $.CreatePanel("Image", pan, "img"+arg);
+            const lab = $.CreatePanel("Label",pan,"Level_Label", {text:"", class:"talentTreeIconLevel_Label"})
         }
     }
     
@@ -505,7 +497,11 @@ function talantsUpdate(table_name, key, data){
 
 
     setIconParam(data);
-
+    if(lastLearnedTalent != ""){
+        const s = selectTalant(lastLearnedTalent)
+        s()
+        lastLearnedTalent = ""
+    }
 }
 
 function shopinfo(table_name, key, data){
@@ -635,7 +631,7 @@ var pressShopBtn = (function(i, cur, pan)
 	}
 });
 
-var prepareDescription = (function(arg)
+var OnMouseOverTalentCircle = (function(arg)
 {
 	return function()
 	{
@@ -650,11 +646,12 @@ var prepareDescription = (function(arg)
         }else{
             pan.AddClass("brightness5");
         }
-        
+        var message = herotalant[portID][pan.i][pan.j]["buff"] != undefined ? herotalant[portID][pan.i][pan.j]["buff"] : herotalant[portID][pan.i][pan.j]["name"] + "_description";
+        $.DispatchEvent( "DOTAShowTextTooltip", pan, $.Localize("#"+message));
 	}
 });
 
-var hiddeDescription = (function(arg)
+var OnMouseOutTalentCircle = (function(arg)
 {
 	return function()
 	{
@@ -668,6 +665,7 @@ var hiddeDescription = (function(arg)
         if(pan.selected){
             pan.AddClass("selected");
         }
+        $.DispatchEvent( "DOTAHideTextTooltip");
 	}
 });
 
@@ -717,6 +715,20 @@ var selectTalant = (function(arg)
             });
             $("#InfoIcon").visible = true
         }else $("#InfoIcon").visible = false
+        if(pan.j <= 5 && pan.i != "don"){
+            let updateValuesText = ""
+            const data = EnhancedTalentValues[arg]
+            for(let i = 0; i < 5; i++){
+                if(lastdata[arg] == i+1){
+                    updateValuesText += `<font color='red'>${data[i]}</font>`
+                }else updateValuesText += data[i]
+                if(i < 4){
+                    updateValuesText += "/"
+                }
+            }
+            $("#talant_description_scale_label").text = updateValuesText
+            $("#talant_description_scale_label").visible = true
+        }else $("#talant_description_scale_label").visible = false
         let progress = CustomNetTables.GetTableValue( "talants", GetPlayerIDByPortraitIndex() )
         if(talantpanel.FindChildTraverse("players_have")){
             if(!progress[pan.i+pan.j+"count"]){
@@ -726,11 +738,27 @@ var selectTalant = (function(arg)
             }
             talantpanel.FindChildTraverse("players_have").SetPanelEvent("onmouseactivate",MoreInformation(pan))
         }
-        if(Game.GetState() >= DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME && talantpanel.FindChildTraverse("button") && pid == portID && !pan.selected && ((pan.i == 'don' && progress['freedonpoints'] >= LevelNeed(pan.i, pan.j, progress)) || (pan.i != 'don' && progress['freepoints'] >= LevelNeed(pan.i, pan.j, progress)) ) && 
-            (pan.j != 12 || pan.available) && ((pan.j != 6 && pan.j != 7 && pan.j != 8) || (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0)) && ((pan.j != 9 && pan.j != 10 && pan.j != 11) || ((progress[pan.i+9] + progress[pan.i+10] + progress[pan.i+11] == 0) && (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0 || ((pan.j == 9 && progress[pan.i+6] == 1) || (pan.j == 10 && progress[pan.i+7] == 1) || (pan.j == 11 && progress[pan.i+8] == 1))))) && 
-            (pan.i == "don" || (progress["int1"] + progress["agi1"] + progress["str1"] < progress["cout"] || progress[pan.i+1] == 1))){
-            
+        const IsShowUpdateButton = ()=>{
+            if(Game.GetState() < DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME || !talantpanel.FindChildTraverse("button") || pid != portID) return false;
+            if(pan.selected && (pan.j > 5 || pan.i == "don" || progress[arg] >= 5)) return false;
+            if((pan.i == 'don' && progress['freedonpoints'] < LevelNeed(pan.i, pan.j, progress)) || (pan.i != 'don' && progress['freepoints'] < LevelNeed(pan.i, pan.j, progress))) return false;
+            if(pan.j == 12 && !pan.available) return false
+            if(!((pan.j != 6 && pan.j != 7 && pan.j != 8) || (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0))) return false;
+            if(!((pan.j != 9 && pan.j != 10 && pan.j != 11) || ((progress[pan.i+9] + progress[pan.i+10] + progress[pan.i+11] == 0) && (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0 || ((pan.j == 9 && progress[pan.i+6] == 1) || (pan.j == 10 && progress[pan.i+7] == 1) || (pan.j == 11 && progress[pan.i+8] == 1)))))) return false;
+            let tal1 = 0
+            tal1 += progress["int1"] > 0 ? 1 : 0
+            tal1 += progress["agi1"] > 0 ? 1 : 0
+            tal1 += progress["str1"] > 0 ? 1 : 0
+            if(pan.i != "don" && (tal1 >= progress["cout"] && progress[pan.i+1] == 0)) return false;
+            return true;
+        }
+        if(IsShowUpdateButton()){
             talantpanel.FindChildTraverse("button").visible = true;
+            if(pan.j <= 5 && progress[arg] > 0){
+                $("#button_label").text = $.Localize("#talant_button_update")
+            }else{
+                $("#button_label").text = $.Localize("#talant_button_examine")
+            }
             if((pan.i == "don" && lastdata["freedonpoints"] > 0) || (pan.i != "don" && lastdata["freepoints"] > 0)){
                 talantpanel.FindChildTraverse("button").RemoveClass("brightness02");
             }else{
@@ -753,7 +781,7 @@ var selectTalant = (function(arg)
 
 function LevelNeed(cat, n, progress){
     let levelNeed = 5
-    if(n <5 ){
+    if(n < 5 ){
         levelNeed = n
     }
     if(n == 6 || n == 7 || n == 8){
@@ -768,7 +796,7 @@ function LevelNeed(cat, n, progress){
 
     let branch_count = 0
     for(let i = 1; i <= 5; i++){
-        if(progress[cat+i] == 1){
+        if(progress[cat+i] > 0){
             branch_count += 1
         }
     }
@@ -791,8 +819,16 @@ var selectTalantButton = (function(pan)
 	{
         Game.EmitSound("ui_generic_button_click")
         if((pan.i == "don" && lastdata["freedonpoints"] > 0) || (pan.i != "don" && lastdata["freepoints"] > 0)){
+            lastLearnedTalent = pan.i+pan.j
             GameEvents.SendCustomGameEventToServer("selectTalantButton", {i : pan.i, j : pan.j})
-            talantpanel.FindChildTraverse("button").visible = false;
+            // const arg = pan.i+pan.j
+            // if(pan.j > 5){
+            //     lastdata[arg] = 1
+            // }else if(lastdata[arg] < 5){
+            //     lastdata[arg] += 1
+            // }
+            // const update = selectTalant(arg)
+            // update()
         }
 	}
 });
@@ -981,7 +1017,7 @@ function setIconParam(data){
         if(data[cat[n]+8] == 1 && talantpanel.FindChildTraverse(cat[n]+8)){
             talantpanel.FindChildTraverse(cat[n]+8).selected = true;
             talantpanel.FindChildTraverse(cat[n]+8).available = false;
-        }else if(data[cat[n]+7] == 0 && data[cat[n]+6] == 0 && data[cat[n]+8] == 0 && data[cat[n]+5] == 1 && talantpanel.FindChildTraverse(cat[n]+8)){
+        }else if(data[cat[n]+7] == 0 && data[cat[n]+6] == 0 && data[cat[n]+8] == 0 && data[cat[n]+5] > 0 && talantpanel.FindChildTraverse(cat[n]+8)){
             talantpanel.FindChildTraverse(cat[n]+8).selected = false;
             talantpanel.FindChildTraverse(cat[n]+8).available = true;
         }
@@ -989,7 +1025,7 @@ function setIconParam(data){
         if(data[cat[n]+7] == 1 && talantpanel.FindChildTraverse(cat[n]+7)){
             talantpanel.FindChildTraverse(cat[n]+7).selected = true;
             talantpanel.FindChildTraverse(cat[n]+7).available = false;
-        }else if(data[cat[n]+7] == 0 && data[cat[n]+6] == 0 && data[cat[n]+8] == 0 && data[cat[n]+5] == 1 && talantpanel.FindChildTraverse(cat[n]+7)){
+        }else if(data[cat[n]+7] == 0 && data[cat[n]+6] == 0 && data[cat[n]+8] == 0 && data[cat[n]+5] > 0 && talantpanel.FindChildTraverse(cat[n]+7)){
             talantpanel.FindChildTraverse(cat[n]+7).selected = false;
             talantpanel.FindChildTraverse(cat[n]+7).available = true;
         }
@@ -997,44 +1033,44 @@ function setIconParam(data){
         if(data[cat[n]+6] == 1 && talantpanel.FindChildTraverse(cat[n]+6)){
             talantpanel.FindChildTraverse(cat[n]+6).selected = true;
             talantpanel.FindChildTraverse(cat[n]+6).available = false;
-        }else if(data[cat[n]+7] == 0 && data[cat[n]+6] == 0 && data[cat[n]+8] == 0 && data[cat[n]+5] == 1 && talantpanel.FindChildTraverse(cat[n]+6)){
+        }else if(data[cat[n]+7] == 0 && data[cat[n]+6] == 0 && data[cat[n]+8] == 0 && data[cat[n]+5] > 0 && talantpanel.FindChildTraverse(cat[n]+6)){
             talantpanel.FindChildTraverse(cat[n]+6).selected = false;
             talantpanel.FindChildTraverse(cat[n]+6).available = true;
         }
 
-        if(data[cat[n]+5] == 1 && talantpanel.FindChildTraverse(cat[n]+5)){
+        if(data[cat[n]+5] > 0 && talantpanel.FindChildTraverse(cat[n]+5)){
             talantpanel.FindChildTraverse(cat[n]+5).selected = true;
             talantpanel.FindChildTraverse(cat[n]+5).available = false;
-        }else if(data[cat[n]+5] == 0 && data[cat[n]+4] == 1 && talantpanel.FindChildTraverse(cat[n]+5)){
+        }else if(data[cat[n]+5] == 0 && data[cat[n]+4] > 0 && talantpanel.FindChildTraverse(cat[n]+5)){
             talantpanel.FindChildTraverse(cat[n]+5).selected = false;
             talantpanel.FindChildTraverse(cat[n]+5).available = true;
         }
 
-        if(data[cat[n]+4] == 1 && talantpanel.FindChildTraverse(cat[n]+4)){
+        if(data[cat[n]+4] > 0 && talantpanel.FindChildTraverse(cat[n]+4)){
             talantpanel.FindChildTraverse(cat[n]+4).selected = true;
             talantpanel.FindChildTraverse(cat[n]+4).available = false;
-        }else if(data[cat[n]+4] == 0 && data[cat[n]+3] == 1 && talantpanel.FindChildTraverse(cat[n]+4)){
+        }else if(data[cat[n]+4] == 0 && data[cat[n]+3] > 0 && talantpanel.FindChildTraverse(cat[n]+4)){
             talantpanel.FindChildTraverse(cat[n]+4).selected = false;
             talantpanel.FindChildTraverse(cat[n]+4).available = true;
         }
 
-        if(data[cat[n]+3] == 1 && talantpanel.FindChildTraverse(cat[n]+3)){
+        if(data[cat[n]+3] > 0 && talantpanel.FindChildTraverse(cat[n]+3)){
             talantpanel.FindChildTraverse(cat[n]+3).selected = true;
             talantpanel.FindChildTraverse(cat[n]+3).available = false;
-        }else if(data[cat[n]+3] == 0 && data[cat[n]+2] == 1 && talantpanel.FindChildTraverse(cat[n]+3)){
+        }else if(data[cat[n]+3] == 0 && data[cat[n]+2] > 0 && talantpanel.FindChildTraverse(cat[n]+3)){
             talantpanel.FindChildTraverse(cat[n]+3).selected = false;
             talantpanel.FindChildTraverse(cat[n]+3).available = true;
         }
 
-        if(data[cat[n]+2] == 1 && talantpanel.FindChildTraverse(cat[n]+2)){
+        if(data[cat[n]+2] > 0 && talantpanel.FindChildTraverse(cat[n]+2)){
             talantpanel.FindChildTraverse(cat[n]+2).selected = true;
             talantpanel.FindChildTraverse(cat[n]+2).available = false;
-        }else if(data[cat[n]+2] == 0 && data[cat[n]+1] == 1 && talantpanel.FindChildTraverse(cat[n]+2)){
+        }else if(data[cat[n]+2] == 0 && data[cat[n]+1] > 0 && talantpanel.FindChildTraverse(cat[n]+2)){
             talantpanel.FindChildTraverse(cat[n]+2).selected = false;
             talantpanel.FindChildTraverse(cat[n]+2).available = true;
         }
 
-        if(data[cat[n]+1] == 1 && talantpanel.FindChildTraverse(cat[n]+1)){
+        if(data[cat[n]+1] > 0 && talantpanel.FindChildTraverse(cat[n]+1)){
             talantpanel.FindChildTraverse(cat[n]+1).selected = true;
             talantpanel.FindChildTraverse(cat[n]+1).available = false;
         }else if(cat[n] == "don" && data["freedonpoints"] > 0 && talantpanel.FindChildTraverse(cat[n]+1)){
@@ -1042,9 +1078,9 @@ function setIconParam(data){
             talantpanel.FindChildTraverse(cat[n]+1).available = true;
         }else if(data["freepoints"] > 0 && talantpanel.FindChildTraverse(cat[n]+1)){
             var boo = 1;
-            if(data["int1"] == 1){ boo++; }
-            if(data["str1"] == 1){ boo++; }
-            if(data["agi1"] == 1){ boo++; }
+            boo += data["int1"] > 0 ? 1 : 0
+            boo += data["agi1"] > 0 ? 1 : 0
+            boo += data["str1"] > 0 ? 1 : 0
             if(boo <= data["cout"]){
                 talantpanel.FindChildTraverse(cat[n]+1).selected = false;
                 talantpanel.FindChildTraverse(cat[n]+1).available = true;
@@ -1065,6 +1101,10 @@ function setIconParam(data){
                     }
                 }else{
                     pan.AddClass("available-0");
+                }
+                pan.FindChildTraverse("Level_Label").text = ""
+                if(cat[n] != "don" && data[cat[n]+pos] > 1){
+                    pan.FindChildTraverse("Level_Label").text = data[cat[n]+pos]
                 }
             }
         }

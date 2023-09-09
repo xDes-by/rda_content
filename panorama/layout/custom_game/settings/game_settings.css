@@ -99,7 +99,6 @@
     margin-left: 10px;
     margin-bottom: 10px;
 
-    flow-children: down;
 
 	/* border:1px solid red; */
 }
@@ -119,6 +118,22 @@
 	font-weight: semi-bold;
 	transition-property: text-shadow;
 	transition-duration: 0.2s;
+}
+.SettingsComplexVote_Label{
+	color: gradient( linear, 0% 0%, 0% 100%, from( #4d4747, to( #3f3f3f));
+	font-size: 19px;
+	horizontal-align: center;
+	vertical-align: center;
+	font-weight: bold;
+}
+.diff_lock{
+	background-image: url("file://panorama/images/custom_game/free-icon-lock-483408.png");
+	height: 40px;
+	width: 40px;
+	background-size: 100%;
+	horizontal-align: left;
+	vertical-align: center;
+	margin-left: 5px;
 }
 #ComplexSettings
 {
@@ -154,7 +169,7 @@
 #VoteProgressBar_Panel{
 	flow-children: right;
 	width: 400px;
-	height: 15px;
+	height: 20px;
 	horizontal-align: center;
 	margin-top: 35px;
 }

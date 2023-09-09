@@ -162,7 +162,7 @@
     width: 100%;
     height: 100%;
 }
-.talant_name_label,.talant_description_label,.talant_description_buff_label{
+.talant_name_label,.talant_description_label,.talant_description_buff_label, .talant_description_scale_label{
     font-size: 25px;
     width: 100%;
     text-align: center;
@@ -173,12 +173,14 @@
     text-decoration: underline;
     margin-top: 270px;
 }
-.talant_description_label,.talant_description_buff_label{
+.talant_description_label,.talant_description_buff_label,.talant_description_scale_label{
     color: rgb(187, 133, 33);
     font-size: 21px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .talant_description_label{
-    margin-top: 50px;
+    margin-top: 35px;
 }
 .talant_img_description{
     height: 165px;
@@ -200,6 +202,12 @@
 .talant_description_buff_label{
     color: #DB9200;
     vertical-align: center;
+}
+.talant_description_scale_label{
+    color: #DB9200;
+    letter-spacing: 1px;
+    vertical-align: bottom;
+    margin-bottom: 30px;
 }
 .ScenePanel{
     width: 500px;
@@ -223,7 +231,7 @@
 .under_line_panel{
     width: 300px;
     height: 200px;
-    flow-children:down;
+    /* flow-children:down; */
     margin-top: 300px;
     horizontal-align:center;
 }
@@ -522,7 +530,14 @@
 .flowRight{
     flow-children: right;
 }
-
+.talentTreeIconLevel_Label{
+    horizontal-align: center;
+    vertical-align: center;
+    color: gold;
+    font-size: 21;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
+}
 
 
 
@@ -583,65 +598,65 @@
 
 
 .talant_icon_panel_size_1{
-    height: 47px;
-    width: 47px;
+    height: 50px;
+    width: 50px;
     border-radius: 30px;
 }
 .talant_icon_panel_size_2{
-    height: 53px;
-    width: 53px;
+    height: 50px;
+    width: 50px;
     border-radius: 30px;
 }
 .talant_icon_panel_size_3{
-    height: 60px;
-    width: 60px;
+    height: 59px;
+    width: 59px;
     border-radius: 30px;
 }
 
 
 .talant_icon_1_panel{
-    margin-top: 44.0%;
-    margin-left: 0.1%;
+    margin-top: 48.1%;
+    margin-left: 1.8%;
 }
 .talant_icon_2_panel{
-    margin-top: 39.5%;
-    margin-left: 6.3%;
+    margin-top: 38.8%;
+    margin-left: 3.6%;
 }
 .talant_icon_3_panel{
-    margin-top: 45.6%;
+    margin-top: 43.4%;
     margin-left: 18.8%;
 }
 .talant_icon_4_panel{
-    margin-top: 52.9%;
-    margin-left: 20.6%;
+    margin-top: 51.3%;
+    margin-left: 17.0%;
 }
 .talant_icon_5_panel{
-    margin-top: 34.8%;
-    margin-left: 34.5%;
+    margin-top: 34.2%;
+    margin-left: 35.3%;
 }
 .talant_icon_6_panel{
-    margin-top: 40.1%;
-    margin-left: 40.0%;
+    margin-top: 39.9%;
+    margin-left: 40.1%;
 }
 .talant_icon_7_panel{
-    margin-top: 53.6%;
-    margin-left: 10.3%;
+    margin-top: 53.4%;
+    margin-left: 8.7%;
 }
 .talant_icon_8_panel{
-    margin-top: 46.1%;
-    margin-left: 9.8%;
+    margin-top: 45.1%;
+    margin-left: 10.1%;
 }
 .talant_icon_9_panel{
-    margin-top: 40.0%;
-    margin-left: 14.0%;
+    margin-top: 36.6%;
+    margin-left: 13.0%;
 }
 .talant_icon_10_panel{
-    margin-top: 35.5%;
-    margin-left: 20.1%;
+    margin-top: 32.9%;
+    margin-left: 19.6%;
 }
 .talant_icon_11_panel{
-    margin-top: 33.9%;
-    margin-left: 27.3%;
+    margin-top: 32.0%;
+    margin-left: 27.5%;
 }
 
 
@@ -789,8 +804,8 @@
     margin-left: 93.2%;
 }
 .talant_icon_45_panel{
-    margin-top: 65.0%;
-    margin-left: 7.0%;
+    margin-top: 63.5%;
+    margin-left: 8.5%;
 }
 .talant_icon_46_panel{
     margin-top: 5.0%;

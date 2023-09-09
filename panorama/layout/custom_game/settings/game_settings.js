@@ -17,6 +17,8 @@
 			}
 		}
 	});
+	$("#SettingsComplexTier1").diff_available = true
+	$("#SettingsComplexTier2").diff_available = true
 })();
 
 const DIFFICULTY_PRIZE = 
@@ -73,6 +75,7 @@ let DATA =
 
 function OnDifficultySelected(tier)
 {
+	if(!DIFFICULTY_BUTTONS[Number(tier)].diff_available) return
 	DATA[DATA_ENUM[0]] = Number(tier)
 
 	for (let button of DIFFICULTY_BUTTONS) {
@@ -151,6 +154,7 @@ CustomNetTables.SubscribeNetTableListener( "difficultyVote", function(table_name
 	let vote_count = 0;
 	for(let i = 0; i < 6; i++){
 		ProgressPanel.GetChild(i).style.width = `${diff[i] * len}%`;
+		ProgressPanel.GetChild(i).GetChild(0).text = diff[i] > 0 ? diff[i] : ""
 		if(diff[i] >= vote_count && diff[i] > 0){
 			diff_index = i;
 			vote_count =diff[i];
@@ -165,3 +169,24 @@ $("#VoteProgressBar_Panel").GetChild(1).style.width = "100%"
 $("#WinPrize").GetChild(0).text = `+${DIFFICULTY_PRIZE[1].mmr}MMR`
 $("#WinPrize").GetChild(1).text = `+${DIFFICULTY_PRIZE[1].rp}RP`
 $("#DiffName").text = `${DIFFICULTY_PRIZE[1].name}`
+
+GameEvents.SendCustomGameEventToServer("GameSettingsInit", {})
+GameEvents.Subscribe("GameSettingsMaxDifficulty", function(params) {
+	$.Msg("maximum_passed_difficulty: ", params.maximum_passed_difficulty)
+	if(params.maximum_passed_difficulty >= 1){
+		$("#SettingsComplexTier3").diff_available = true
+		$("#SettingsComplexTier3").GetChild(1).visible = false
+	}
+	if(params.maximum_passed_difficulty >= 2){
+		$("#SettingsComplexTier4").diff_available = true
+		$("#SettingsComplexTier4").GetChild(1).visible = false
+	}
+	if(params.maximum_passed_difficulty >= 3){
+		$("#SettingsComplexTier5").diff_available = true
+		$("#SettingsComplexTier5").GetChild(1).visible = false
+	}
+	if(params.maximum_passed_difficulty >= 4){
+		$("#SettingsComplexTier6").diff_available = true
+		$("#SettingsComplexTier6").GetChild(1).visible = false
+	}
+})

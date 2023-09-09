@@ -12,7 +12,9 @@
     <snippet name="pet">
         <Panel id="" class="showcase_pet">
             <Label id="name_pet" class="" text="mok" />
-            <DOTAAbilityImage id="item_pet" class="" itemname="item_pet_RDA_250_bkb" />
+            <DOTAAbilityImage id="item_pet" class="" itemname="item_pet_RDA_250_bkb" >
+                <Label id="trial_end_date" class="" text="" />
+            </DOTAAbilityImage>
             <Panel id="buy_pet_button" class="button_bg">
                 <Panel id="buy_pet_center" class="center">
                     <Panel id="buy_gem_img" class="buy_gem_img"></Panel>

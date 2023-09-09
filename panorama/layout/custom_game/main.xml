@@ -134,7 +134,6 @@
 
     <Panel class="root" hittest="false">
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/heros/silencer.png"/> -->
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/1.png"/>
 		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/2.png"/>
 		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/3.png"/>
