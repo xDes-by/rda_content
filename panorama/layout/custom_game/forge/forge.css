@@ -19,6 +19,7 @@
     width: 100%;
     height: 35px;
     align: center top;
+    margin-top: 220px;
 }
 
 .TabButtonClass{
@@ -35,6 +36,9 @@
     opacity: 1;
 }
 
+#NeutralShopButtonTab{
+    margin-left: 25px;
+}
 #NeutralShopButtonTab:hover{
 
     border: 2px solid #000000f5;
@@ -43,7 +47,7 @@
 #UpgradeButtonTab{
 
 
-    margin-left: 150px;
+    margin-left: 175px;
 }
 
 #UpgradeButtonTab:hover{
@@ -138,7 +142,7 @@
 #UpgradeInfoPanel #ItemIconBorderNew{
 
     align: center top;
-    margin-top: 76px;
+    margin-top: 60px;
     height: 110px;
     width: 146px;
     opacity: 0.2;
@@ -157,7 +161,7 @@
 
     color:rgba(155, 155, 155, 0.9);
     align: center top;
-    margin-top: 38px;
+    margin-top: 24px;
     margin-right: 78px;
     font-size:22px;
 }
@@ -166,15 +170,15 @@
 
     color:rgba(155, 155, 155, 0.9);
     align: center top;
-    margin-top: 38px;
-    margin-left: 75px;
+    margin-top: 25px;
+    margin-left: 80px;
     font-size:22px;
 }
 
 #UpgradeInfoPanel #chanceArrow{
 
     align: center top;
-    margin-top: 42px;
+    margin-top: 30px;
     opacity: 0.3;
 }
 
@@ -183,7 +187,7 @@
     align: center bottom;
     margin-bottom: 155px;
     width: 100%;
-    height: 145px;
+    height: 190px;
     border-top: 2px solid rgba(70, 69, 69, 0.705);
     border-bottom: 2px solid rgba(70, 69, 69, 0.705);
 }
@@ -368,7 +372,20 @@
     border: 2px solid rgba(70, 69, 69, 0.705);
     border-radius: 5px;
 }
+#UpgradeGemsButtonPanel{
 
+    align: center bottom;
+    width:  150px;
+    height: 45px;
+    border: 2px solid rgba(70, 69, 69, 0.705);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#UpgradeGemsButtonPanel:hover{
+
+    border: 2px solid rgba(180, 175, 175, 0.705);
+    background-color: rgba(70, 69, 69, 0.205);
+}
 #Item:hover{
 
     border: 2px solid rgba(70, 69, 69, 0.705);
@@ -403,21 +420,32 @@
 }
 #SliderContainer_Panel{
     width: 100%;
-    border: 1px solid white;
     margin-top: 70px;
     /* overflow:noclip; */
 }
 #InsertingStonesSlider{
-    horizontal-align: center;
+    horizontal-align: left;
+    width: 200px;
+    height: 70px;
+    margin-left: 15px;
 }
 #InsertingStonesSlider #SliderTrack{
-    /* width: 10px;
-    height: 120px; */
+    width: 200px;
+    height: 16px;
 }
-
+#InsertingStonesSlider #SliderThumb{
+    width: 16px;
+    height: 30px;
+    margin-top: 10px;
+}
+#InsertingStonesSlider #SliderTrackProgress{
+    width: 200px;
+    height: 10px;
+}
 
 #GemsMainContainer_Panel{
     flow-children: right;
+    horizontal-align: center;
 }
 .GemContainer_Panel{
     height: 65px;
@@ -426,11 +454,18 @@
     border-radius: 5px;
     margin: 2.5px;
 }
+.GemLock_Panel{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.815);
+}
 .GemLock_Image{
-    vertical-align: center;
+    vertical-align: top;
     horizontal-align: center;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
+    wash-color: white;
+    margin-top: 8px;
 }
 .GemAmount_Label{
     color:rgba(155, 155, 155, 0.9);
@@ -446,9 +481,8 @@
 #GemUpdateAmount{
     text-shadow: 1px 1px 2px 3.0 #333333b0;
     color:rgba(155, 155, 155, 0.9);
-    border: 1px solid white;
     width: 120px;
     horizontal-align: right;
-    margin-top: 20px;
+    margin-top: 22px;
     text-align: center;
 }
