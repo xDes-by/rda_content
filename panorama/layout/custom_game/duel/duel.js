@@ -29,7 +29,6 @@ function part_3_btn(t) {
 GameEvents.Subscribe("ivint23", part_3_btn);
 
 function rekurzia(i, v) {
-	$.Msg(i)
     if (i > 0 && isopen == true) {
         $('#polosk2').style.width = (100 / v * i) + '%'
     } if (i == 0 ) {

@@ -44,15 +44,16 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/main.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" /> 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet ui rework/pets.xml" />
-	  <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/vanilla_hero_selection.xml" />
+	  <!-- <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/vanilla_hero_selection.xml" /> -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud_config.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/Wave/wave.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/quest.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ziv.xml" />
 	  <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/global_events_notifications.xml" />
-	  <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/talants/hud/talant_heroselection.xml" />
+	  <!-- <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/talants/hud/talant_heroselection.xml" /> -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RDAshop/stash.xml"/>
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/smithy/smithy.xml" style="z-index:1;"/> -->
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/forge.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/talants/hud/talants.xml" style="z-index:2;"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/duel/duel.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/teleport/tpspot.xml" />

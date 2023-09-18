@@ -1,0 +1,128 @@
+<root>
+	<styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/layout/custom_game/forge/forge.css" />
+		<!-- <include src="s2r://panorama/styles/custom_game/custom_shop/custom_shop_neutral_shop.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/custom_shop/custom_shop_upgrade_item.vcss_c" /> -->
+	</styles>
+	<scripts>
+		<!-- <include src="file://{resources}/layout/custom_game/forge/forge.js" /> -->
+		<!-- <include src="s2r://panorama/scripts/custom_game/custom_shop/custom_shop_neutral_shop.vjs_c" /> -->
+	</scripts>
+	<!-- <snippets>
+		<snippet name="NeutralShopItemSnippet">
+			<Panel id="ShopItem" class="ShopItemClass" hittest="true">
+				<DOTAItemImage id="ItemImage" itemname="item_spy_gadget" />
+				<Panel id="ItemCostPanel" class="PanelClass" hittest="false">
+					<Label id="ItemCost" text="123" />
+					<Image id="ItemCostImage" src="" scaling="stretch-to-cover-preserve-aspect" />
+				</Panel>
+			</Panel>
+		</snippet>
+		<snippet name="UpgradeItemSnippet">
+			<Panel>
+				<DOTAItemImage id="ItemIcon" itemname="" />
+				<Label id="ItemName" text="name" />
+			</Panel>
+		</snippet>
+		<snippet name="YourNeutralShopItemSnippet">
+			<Panel id="YourNeutralItem">
+				<DOTAItemImage id="YourNeutralItemIcon" itemname="" />
+			</Panel>
+		</snippet>
+	</snippets> -->
+	<Panel class="root" hittest="false">
+        <Label id="" class="" text="${444!}" />
+		<Panel id="ShopMenuPanel" class="ShopMenuPanel">
+			<Panel id="UpgradePanel" hittest="true">
+				<!-- <Panel id="StatusPanel">
+					<Label id="Status" text="#ui_custom_shop_upgrade_item_status_lable" />
+				</Panel> -->
+				<Panel id="UpgradeItemPanel" hittest="false" />
+				<Panel id="UpgradeInfoPanel">
+					<DOTAItemImage id="ItemIconNew" itemname="" />
+					<Image id="ItemIconBorderNew" src="file://{resources}/images/custom_game/forge/item_border_png.png" />
+					<Image id="chanceArrow" src="file://{resources}/images/custom_game/forge/chance_arrow_png.png" />
+					<Label id="OldLevelItem" text="1 lvl" />
+					<Label id="NewLevelItem" text="2 lvl" />
+					<Panel id="ExtensionsPanel">
+						<!-- <Panel id="LifeCrystal">
+							<Image id="CrystalIcon" src="file://{resources}/images/custom_game/forge/lifecrystal_png.png" />
+							<Label id="CrystalName" text="#ui_custom_shop_upgrade_item_crystal_name1" />
+							<Panel id="CrystalCounter">
+								<Label id="UsedCrystals" text="999" />
+								<Label id="Separation" text="/" />
+								<Label id="CurrentCrystals" text="999" />
+							</Panel>
+							<Button id="ButtonMinus" class="ZoomButtonClass" onactivate="OnButtonPressed()">
+								<Image src="file://{resources}/images/custom_game/forge/minus_png.png" scaling="stretch-to-fit-preserve-aspect" />
+							</Button>
+							<Slider id="UsedCrystalsSlider" onvaluechanged="" direction="horizontal" />
+							<Button id="ButtonPlus" class="ZoomButtonClass" onactivate="OnButtonPressed()">
+								<Image src="file://{resources}/images/custom_game/forge/plus_png.png" scaling="stretch-to-fit-preserve-aspect" />
+							</Button>
+						</Panel>
+						<Panel id="DeathCrystal">
+							<Image id="CrystalIcon" src="file://{resources}/images/custom_game/forge/deathcrystal_png.png" />
+							<Label id="CrystalName" text="#ui_custom_shop_upgrade_item_crystal_name2" />
+							<Panel id="CrystalCounter">
+								<Label id="UsedCrystals" text="999" />
+								<Label id="Separation" text="/" />
+								<Label id="CurrentCrystals" text="999" />
+							</Panel>
+							<Button id="ButtonMinus" class="ZoomButtonClass" onactivate="OnButtonPressed()">
+								<Image src="file://{resources}/images/custom_game/forge/minus_png.png" scaling="stretch-to-fit-preserve-aspect" />
+							</Button>
+							<Slider id="UsedCrystalsSlider" onvaluechanged="" direction="horizontal" />
+							<Button id="ButtonPlus" class="ZoomButtonClass" onactivate="OnButtonPressed()">
+								<Image src="file://{resources}/images/custom_game/forge/plus_png.png" scaling="stretch-to-fit-preserve-aspect" />
+							</Button>
+						</Panel> -->
+                        <Panel id="GemsMainContainer_Panel" class="">
+                            <Panel id="" class="GemContainer_Panel">
+                                <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/purple_gem.png" />
+                                <Label id="" class="GemAmount_Label" text="4847" />
+                                <!-- <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/free-icon-lock-483408.png" /> -->
+                            </Panel>
+                            <Panel id="" class="GemContainer_Panel">
+                                <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/blue_gem.png" />
+                                <Label id="" class="GemAmount_Label" text="4847" />
+                                <!-- <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/free-icon-lock-483408.png" /> -->
+                            </Panel>
+                            <Panel id="" class="GemContainer_Panel">
+                                <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/orange_gem.png" />
+                                <Label id="" class="GemAmount_Label" text="4847" />
+                                <!-- <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/free-icon-lock-483408.png" /> -->
+                            </Panel>
+                            <Panel id="" class="GemContainer_Panel">
+                                <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/red_gem.png" />
+                                <Label id="" class="GemAmount_Label" text="4847" />
+                                <!-- <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/free-icon-lock-483408.png" /> -->
+                            </Panel>
+                            <Panel id="" class="GemContainer_Panel">
+                                <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/green_gem.png" />
+                                <Label id="" class="GemAmount_Label" text="4847" />
+                                <!-- <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/free-icon-lock-483408.png" /> -->
+                            </Panel>
+                        </Panel>
+                        <Panel id="SliderContainer_Panel" class="">
+                            <Label id="GemUpdateAmount" class="" text="648/5000" />
+                            <Slider id="InsertingStonesSlider" onvaluechanged=""/>
+                        </Panel>
+                        
+					</Panel>
+					<Panel id="UpgradeItemCostPanel">
+						<Label id="CostText" text="#ui_custom_shop_upgrade_item_cost" />
+						<Label id="GoldCostNumber" text="0" />
+						<Image id="GoldIcon" src="s2r://panorama/images/hud/reborn/gold_small_psd.vtex" />
+						<Label id="PointBossCostNumber" text="0" />
+						<Image id="PointBossIcon" src="file://{resources}/images/custom_game/forge/gold_small_png.png" />
+					</Panel>
+					<Button id="UpgradeButtonPanel">
+						<Label class="UpgradeButtonClass" text="#ui_custom_shop_upgrade_item_upgrade_button" />
+					</Button>
+				</Panel>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
