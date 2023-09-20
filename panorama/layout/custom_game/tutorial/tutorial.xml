@@ -1,0 +1,33 @@
+<root>
+    <styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://{resources}/layout/custom_game/tutorial/tutorial.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/tutorial/tutorial.js" />
+    </scripts>
+    <Panel class="root" hittest="false" style="height: 100%; width:100%;">
+        <Label id="panel_id" class="PanelClass" text="${123456789!}" />
+        <Panel id="Main" class="">
+            <Panel id="TutorialLabelsMainPanel" class="">
+                <Panel id="TutorialLabelsVerticalPanel" class="">
+                    <Label id="" class="" text="a" />
+                    <Label id="" class="" text="s" />
+                    <Label id="" class="" text="d" />
+                    <Label id="" class="" text="f" />
+                    <Label id="" class="" text="g" />
+                </Panel>
+            </Panel>
+            <Panel id="TutorialDontShowAgain" class="">
+                <ToggleButton id="TutorialDontShowAgainToggle" text="Больше не показывать" />
+                <Label id="TutorialDontShowAgainLabel" class="" text="Подсказки будут высвечиватся до первой победы" />
+            </Panel>
+            <Panel id="TutorialButtonPanel" class="">
+                <Panel id="TutorialButtonLabelPanel" class="">
+                    <Label id="TutorialButtonLabel" class="LabelColorWhite" text="ЯСНО" />
+                    <Label id="TutorialButtonTimerLabel" class="" text="(5)" />
+                </Panel>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>
