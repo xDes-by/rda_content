@@ -1,16 +1,16 @@
 <!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
 <root>
 	<styles>
-		<include src="s2r://panorama/styles/custom_game/custom_shop/custom_shop_button.vcss_c" />
+		<include src="file://{resources}/layout/custom_game/forge/forge_button.css" />
 	</styles>
 	<scripts>
-		<include src="s2r://panorama/scripts/custom_game/custom_shop/custom_shop_button.vjs_c" />
+		
 	</scripts>
 	<Panel class="MainPanel">
-		<Button id="OpenButton" onactivate="OpenShopPanel()">
-			<Image id="background-image" src="s2r://panorama/images/custom_game/ui/custom_shop/shop_button_png.vtex" />
-			<Label id="BossPoint" text="0" />
-			<Image id="GoldIcon" src="s2r://panorama/images/custom_game/ui/custom_shop/gold_small_png.vtex" />
-		</Button>
+		<Button id="ExampleButton2ID" class="ExampleButton2Class">
+            <Panel class="Contents">
+              <Label id="ExampleButton2Label" text="#ForgeButton_Label"/>
+            </Panel>
+        </Button>
 	</Panel>
 </root>

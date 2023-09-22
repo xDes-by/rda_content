@@ -1,12 +1,31 @@
 var selectedItemName = ""
 var gems = undefined
 var viewMode = ""
+
+function Openview(){
+    const data = CustomNetTables.GetTableValue( "forge", Players.GetLocalPlayer());
+    if(selectedItemName != ""){
+        for(let i in data){
+            if(data[i].itemname == selectedItemName){
+                UpdateUpgradeItemPanel(data[i])
+                break
+            }
+        }
+    }else if(data != undefined && Object.keys(data).length > 0){
+        UpdateUpgradeItemPanel(data[1])
+    }
+}
+
 function UpdateItemList(data){
     if(!data){
         data = CustomNetTables.GetTableValue( "forge", Players.GetLocalPlayer());
     }
     $("#UpgradeItemPanel").RemoveAndDeleteChildren()
+    $("#UpgradeInfoPanel").visible = false
+    $("#StatusPanel").visible = true
     for(var i in data){
+        $("#UpgradeInfoPanel").visible = true
+        $("#StatusPanel").visible = false
         const new_panel = $.CreatePanel("Panel", $("#UpgradeItemPanel"), "", {class:"itemListPanel"})
         new_panel.BLoadLayoutSnippet("UpgradeItemSnippet")
         new_panel.FindChildTraverse("ItemIcon").itemname = data[i].itemname
@@ -24,15 +43,8 @@ function UpdateItemList(data){
     }
 }
 
-function UpdateUpgradeTabPanel(){
+function UpdateUpgradeTabPanel(item){
     viewMode = "upgrade"
-    $("#ExtensionsPanel").visible = false
-    $("#UpgradeItemCostPanel").visible = true
-}
-function UpdateGemsTabPanel(item){
-    $("#UpgradeItemCostPanel").visible = false
-    if(selectedItemName == "") return
-    viewMode = "gems"
     if(!item){
         const data = CustomNetTables.GetTableValue( "forge", Players.GetLocalPlayer());
         for(let i in data){
@@ -41,6 +53,28 @@ function UpdateGemsTabPanel(item){
                 break
             }
         }
+    }
+    $("#ExtensionsPanel").visible = false
+    $("#UpgradeItemCostPanel").visible = true
+    if(item.itemLevel >= 8){
+        $("#UpgradeItemCostPanel").visible = false
+        UpdateGemsTabPanel(item)
+    }
+}
+function UpdateGemsTabPanel(item){
+    if(selectedItemName == "") return
+    if(!item){
+        const data = CustomNetTables.GetTableValue( "forge", Players.GetLocalPlayer());
+        for(let i in data){
+            if(data[i].itemname == selectedItemName){
+                item = data[i]
+                break
+            }
+        }
+    }
+    if(item.itemLevel < 8){
+        viewMode = "gems"
+        $("#UpgradeItemCostPanel").visible = false
     }
     UpdateGems()
     $("#ExtensionsPanel").visible = true
@@ -82,7 +116,7 @@ function UpdateUpgradeItemPanel(t){
     if(viewMode == "gems"){
         UpdateGemsTabPanel(t)
     }else{
-        UpdateUpgradeTabPanel()
+        UpdateUpgradeTabPanel(t)
     }
     const ItemIconPanel = $("#ItemIconNew")
     $("#GemBuffDescription").visible = false
@@ -119,6 +153,7 @@ function PressUpdgradeButton(){
 
 function OpenButton(){
     if($("#ShopMenuPanel").style.visibility == "collapse"){
+        Openview()
         $("#ShopMenuPanel").style.visibility = "visible"
     }else{
         $("#ShopMenuPanel").style.visibility = "collapse"
@@ -210,9 +245,26 @@ function HideGemTooltip(){
     $.DispatchEvent( "DOTAHideTextTooltip");
 }
 
+function CreateOpenButton(){
+    const ShopPanel = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("shop_launcher_block")
+    const CustomButton = ShopPanel.FindChildTraverse("CustomButton")
+    if(CustomButton == null){
+        const NewButtonPanel = $.CreatePanel("Panel", ShopPanel, "CustomButton")
+        NewButtonPanel.BLoadLayout("file://{resources}/layout/custom_game/forge/forge_button.xml", false, false)
+        NewButtonPanel.style.align = "right bottom"
+        NewButtonPanel.style.margin = "5px"
+        NewButtonPanel.SetPanelEvent("onactivate", OpenButton)
+    }else{
+        CustomButton.SetPanelEvent("onactivate", OpenButton)
+    }
+}
+
 (()=>{
     UpdateItemList()
     var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
     DotaHUD.ListenToMouseEvent(OnMouseEvent);
     CustomNetTables.SubscribeNetTableListener( "forge", OnUpadteForge );
+    $("#ShopMenuPanel").style.visibility = "collapse"
+    CreateOpenButton()
 })()
+

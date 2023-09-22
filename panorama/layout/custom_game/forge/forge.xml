@@ -25,12 +25,11 @@
 		</snippet>
 	</snippets>
 	<Panel class="root" hittest="false">
-        <Label id="" class="" text="${444!}" />
 		<Panel id="ShopMenuPanel" class="ShopMenuPanel">
 			<Panel id="UpgradePanel" hittest="true">
-				<!-- <Panel id="StatusPanel">
+				<Panel id="StatusPanel">
 					<Label id="Status" text="#ui_custom_shop_upgrade_item_status_lable" />
-				</Panel> -->
+				</Panel>
 				<Panel id="UpgradeItemPanel" hittest="false" />
 				<Panel id="UpgradeInfoPanel">
 					<DOTAItemImage id="ItemIconNew" itemname="" >
@@ -110,10 +109,5 @@
 				</Panel>
 			</Panel>
 		</Panel>
-
-
-        <Panel id="ForgeButton_Panel" class="" onactivate="OpenButton()">
-            <Label id="ForgeButton_Label" class="" text="#ForgeButton_Label" />
-        </Panel>
 	</Panel>
 </root>
