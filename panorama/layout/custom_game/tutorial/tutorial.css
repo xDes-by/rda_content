@@ -1,3 +1,6 @@
+.root{
+
+}
 #Main{
     height: 200px;
     width: 700px;
@@ -30,10 +33,12 @@
     text-shadow: 2px 2px 6px 2.0 black;
 }
 .LabelColorWhite{
-    color:white;
+    color:rgba(155, 155, 155, 0.9);
+    text-shadow: 1px 1px 2px 3.0 #333333b0;
 }
 .LabelColorGray{
-    color:gray;
+    color:rgba(155, 155, 155, 0.9);
+    text-shadow: 1px 1px 2px 3.0 #333333b0;
 }
 #TutorialButtonTimerLabel{
     color:white;
@@ -62,6 +67,7 @@
     margin: 10px;
     /* border: 1px solid white; */
     background-color: rgba(0, 0, 0, 0);
+    overflow: clip scroll;
 }
 #TutorialLabelsVerticalPanel{
     vertical-align: center;
