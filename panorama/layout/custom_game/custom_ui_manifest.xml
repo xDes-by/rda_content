@@ -59,6 +59,7 @@
 	  <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/soul_stash/souls.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/dummy/init.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tutorial/tutorial.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/daily/daily.xml" />
     
   <!-- <CustomUIElement type="FlyoutScoreboard" layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" /> -->
     

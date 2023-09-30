@@ -128,18 +128,18 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 		var profil = $("#RatingProfilPlayerByIdPanel")
 		profil.FindChildTraverse('profavatar').steamid = plysteamid
 		profil.FindChildTraverse('RatingProfilName').steamid = plysteamid
-		profil.FindChildTraverse('logotext1').text = t.rating[i+1].points
-		profil.FindChildTraverse('logotext2').text = t.rating[i+1].games
-		profil.FindChildTraverse('logotext3').text = t.rating[i+1].likes
-		profil.FindChildTraverse('logotext4').text = t.rating[i+1].reports
+		profil.FindChildTraverse('logotext1').text = t.rating[i].points
+		profil.FindChildTraverse('logotext2').text = t.rating[i].games
+		profil.FindChildTraverse('logotext3').text = t.rating[i].likes
+		profil.FindChildTraverse('logotext4').text = t.rating[i].reports
 		profil.FindChildTraverse('RatingProfilRank').SetImage(rankUrl)
 		profil.FindChildTraverse("RatingProfilLike").visible = false
 		profil.FindChildTraverse("RatingProfilDislike").visible = false
 		profil.FindChildTraverse("RatingProfilLike").SetPanelEvent("onmouseactivate",function(){commenBut(i,'likes')})
 		profil.FindChildTraverse("RatingProfilDislike").SetPanelEvent("onmouseactivate",function(){commenBut(i,'reports')})
-		profil.FindChildTraverse("profil_first_game_label").text = typeof(t.rating[i+1].first_game) == 'string' ? t.rating[i+1].first_game : "-"
+		profil.FindChildTraverse("profil_first_game_label").text = typeof(t.rating[i].first_game) == 'string' ? t.rating[i].first_game : "-"
 		profil.FindChildTraverse("last_games_profil").RemoveAndDeleteChildren()
-		for(let n in t.history[i+1]){
+		for(let n in t.history[i]){
 			let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "")
 			pan.AddClass("profil_game")
 			let p1 = $.CreatePanel("Panel", pan, "")
@@ -147,45 +147,45 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 			let p11 = $.CreatePanel("DOTAHeroImage", p1, "")
 			p11.AddClass("last_game_hero_img")
 			p11.heroimagestyle = landscape
-			p11.heroname = t.history[i+1][n].hero_name
+			p11.heroname = t.history[i][n].hero_name
 			let p2 = $.CreatePanel("Panel", pan, "")
 			p2.AddClass("profil_game_colun_des_panel")
 			const p22 = $.CreatePanel("Label", p2, "")
-			p22.text = $.Localize("#"+t.history[i+1][n].result)
-			p22.style.color = t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"
+			p22.text = $.Localize("#"+t.history[i][n].result)
+			p22.style.color = t.history[i][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"
 			let p3 = $.CreatePanel("Panel", pan, "")
 			p3.AddClass("profil_game_colun_des_panel")
 			const p33 = $.CreatePanel("Label", p3, "")
-			p33.text = $.Localize("#"+t.history[i+1][n].status)
-			p33.style.color = t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"
+			p33.text = $.Localize("#"+t.history[i][n].status)
+			p33.style.color = t.history[i][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"
 			let p4 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
 			p4.AddClass("profil_game_colun_des_panel")
 			const p44 = $.CreatePanel("Label", p4, "")
-			p44.text = Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")
+			p44.text = Math.ceil(t.history[i][n].in_game_time/60) + " " + $.Localize("#min")
 			let p5 = $.CreatePanel("Panel", pan, "")
 			p5.AddClass("profil_game_colun_des_panel")
 			const p55 = $.CreatePanel("Label", p5, "")
-			p55.text = t.history[i+1][n].level
+			p55.text = t.history[i][n].level
 			p55.style.color = "yellow"
 			let mode_color = "white"
-			if(t.history[i+1][n].mode == "hard"){
+			if(t.history[i][n].mode == "hard"){
 				mode_color = "rgb(204, 68, 68)"
-			}else if(t.history[i+1][n].mode == "ultra"){
+			}else if(t.history[i][n].mode == "ultra"){
 				mode_color = "rgb(159, 68, 212)"
-			}else if(t.history[i+1][n].mode == 4){
+			}else if(t.history[i][n].mode == 4){
 				mode_color = "rgb(46, 108, 201)"
 			}
 			let p6 = $.CreatePanel("Panel", pan, "")
 			p6.AddClass("profil_game_colun_des_panel")
 			const p66 = $.CreatePanel("Label", p6, "")
-			p66.text = $.Localize("#"+t.history[i+1][n].mode)
+			p66.text = $.Localize("#"+t.history[i][n].mode)
 			p66.style.color = mode_color
 			// pan.BLoadLayoutSnippet("profil_game_history")
 			// $.Msg(profil.FindChildTraverse("last_games_profil"))
-			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 			// let children_count = profil.FindChildTraverse("last_games_profil").GetChildCount()
 			// let pan = profil.FindChildTraverse("last_games_profil").GetChild(children_count-1)
-			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 		}
 		if(playerconf){
 			if(playerconf["color"] != '' && playerconf["color"] != null){
@@ -211,14 +211,14 @@ var commenBut = (function(i, type)
 	return function(){
 		Game.EmitSound("ui_team_select_shuffle")
 		var loc = Players.GetLocalPlayer();
-		// $.Msg(rating[loc+1]);
-		if(rating[loc+1].commens > 0 && commented[i] != true){
+		// $.Msg(rating[loc]);
+		if(rating[loc].commens > 0 && commented[i] != true){
 			$("#RatingTeamPlayer"+i).FindChildTraverse("comens").visible = false;
 			// $.Msg("1");
-			rating[loc+1].commens -= 1;
+			rating[loc].commens -= 1;
 			commented[i] = true;
 			GameEvents.SendCustomGameEventToServer("CommentChange", {type:type,pid:i});
-			$("#RatingCommentCout").text = rating[loc+1].commens;
+			$("#RatingCommentCout").text = rating[loc].commens;
 		}
 	}
 });
@@ -240,7 +240,7 @@ function initRating(t){
 		}
 		// init all team
 		var plysteamid = Game.GetPlayerInfo(i).player_steamid
-		var rankUrl = 'file://{resources}/images/custom_game/ranks/' + rank(t.rating[i+1].points) + '.png';
+		var rankUrl = 'file://{resources}/images/custom_game/ranks/' + rank(t.rating[i].points) + '.png';
 		
 		
 		if($("#RatingTeamPanel")){
@@ -249,14 +249,14 @@ function initRating(t){
 			pan.FindChildTraverse("RatingPlayerAvatar").heroname = Players.GetPlayerSelectedHero(i)
 			pan.FindChildTraverse("RatingPlayerName").steamid = plysteamid
 			pan.FindChildTraverse("RatingPlayerAvatar").SetPanelEvent("onmouseactivate",playerProfil(t,i,plysteamid,rankUrl,playerconf))
-			pan.FindChildTraverse("RatingPlayerLikes2").text = t.rating[i+1].likes
-			pan.FindChildTraverse("RatingPlayerReports2").text = t.rating[i+1].reports
-			pan.FindChildTraverse("RatingPlayergames").text = t.rating[i+1].games
-			pan.FindChildTraverse("RatingPlayerrait").text = t.rating[i+1].points
+			pan.FindChildTraverse("RatingPlayerLikes2").text = t.rating[i].likes
+			pan.FindChildTraverse("RatingPlayerReports2").text = t.rating[i].reports
+			pan.FindChildTraverse("RatingPlayergames").text = t.rating[i].games
+			pan.FindChildTraverse("RatingPlayerrait").text = t.rating[i].points
 			pan.FindChildTraverse("RatingPlayerRank").SetImage(rankUrl)
 			
-			if(t.rating[i+1].last_heros){
-				var last_heros = JSON.parse( t.rating[i+1].last_heros );
+			if(t.rating[i].last_heros){
+				var last_heros = JSON.parse( t.rating[i].last_heros );
 				for(var z = 0; z < 3; z++){
 					if(last_heros[z]){
 						pan.FindChildTraverse("heroicon_"+z).heroname = last_heros[z]["name"];
@@ -296,12 +296,12 @@ function initRating(t){
 				profil.BLoadLayout("file://{resources}/layout/custom_game/RatingProfil.xml", false, false)
 				profil.FindChildTraverse('profavatar').steamid = plysteamid
 				profil.FindChildTraverse('RatingProfilName').steamid = plysteamid
-				profil.FindChildTraverse('logotext1').text = t.rating[i+1].points
-				profil.FindChildTraverse('logotext2').text = t.rating[i+1].games
-				profil.FindChildTraverse('logotext3').text = t.rating[i+1].likes
-				profil.FindChildTraverse('logotext4').text = t.rating[i+1].reports
-				profil.FindChildTraverse("profil_first_game_label").text = t.rating[i+1].first_game
-				for(let n in t.history[i+1]){
+				profil.FindChildTraverse('logotext1').text = t.rating[i].points
+				profil.FindChildTraverse('logotext2').text = t.rating[i].games
+				profil.FindChildTraverse('logotext3').text = t.rating[i].likes
+				profil.FindChildTraverse('logotext4').text = t.rating[i].reports
+				profil.FindChildTraverse("profil_first_game_label").text = t.rating[i].first_game
+				for(let n in t.history[i]){
 					let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "")
 					pan.AddClass("profil_game")
 					let p1 = $.CreatePanel("Panel", pan, "")
@@ -309,45 +309,45 @@ function initRating(t){
 					const p11 = $.CreatePanel("DOTAHeroImage", p1, "")
 					p11.AddClass("last_game_hero_img")
 					p11.heroimagestyle = "landscape"
-					p11.heroname = t.history[i+1][n].hero_name
+					p11.heroname = t.history[i][n].hero_name
 					let p2 = $.CreatePanel("Panel", pan, "")
 					p2.AddClass("profil_game_colun_des_panel")
 					const p22 = $.CreatePanel("Label", p2, "")
-					p22.text = $.Localize("#"+t.history[i+1][n].result)
-					p22.style.color = t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"
+					p22.text = $.Localize("#"+t.history[i][n].result)
+					p22.style.color = t.history[i][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"
 					let p3 = $.CreatePanel("Panel", pan, "")
 					p3.AddClass("profil_game_colun_des_panel")
 					const p33 = $.CreatePanel("Label", p3, "")
-					p33.text = $.Localize("#"+t.history[i+1][n].status)
-					p33.style.color = t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"
+					p33.text = $.Localize("#"+t.history[i][n].status)
+					p33.style.color = t.history[i][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"
 					let p4 = $.CreatePanel("Panel", pan, "")
 					p4.AddClass("profil_game_colun_des_panel")
 					const p44 =  $.CreatePanel("Label", p4, "")
-					p44.text = Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")
+					p44.text = Math.ceil(t.history[i][n].in_game_time/60) + " " + $.Localize("#min")
 					let p5 = $.CreatePanel("Panel", pan, "")
 					p5.AddClass("profil_game_colun_des_panel")
 					const p55 = $.CreatePanel("Label", p5, "")
-					p55.text = t.history[i+1][n].level
+					p55.text = t.history[i][n].level
 					p55.style.color = "yellow"
 					let mode_color = "white"
-					if(t.history[i+1][n].mode == "hard"){
+					if(t.history[i][n].mode == "hard"){
 						mode_color = "rgb(204, 68, 68)"
-					}else if(t.history[i+1][n].mode == "ultra"){
+					}else if(t.history[i][n].mode == "ultra"){
 						mode_color = "rgb(159, 68, 212)"
-					}else if(t.history[i+1][n].mode == 4){
+					}else if(t.history[i][n].mode == 4){
 						mode_color = "rgb(46, 108, 201)"
 					}
 					let p6 = $.CreatePanel("Panel", pan, "")
 					p6.AddClass("profil_game_colun_des_panel")
 					const p66 = $.CreatePanel("Label", p6, "")
-					p66.text = $.Localize("#"+t.history[i+1][n].mode)
+					p66.text = $.Localize("#"+t.history[i][n].mode)
 					p66.style.color = mode_color
 					// pan.BLoadLayoutSnippet("profil_game_history")
 					// $.Msg(profil.FindChildTraverse("last_games_profil"))
-					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 					// let children_count = profil.FindChildTraverse("last_games_profil").GetChildCount()
 					// let pan = profil.FindChildTraverse("last_games_profil").GetChild(children_count-1)
-					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 				}
 				profil.FindChildTraverse('RatingProfilRank').SetImage(rankUrl)
 				profil.FindChildTraverse('RatingProfilLikeDislikePanel').visible = false
@@ -363,7 +363,7 @@ function initRating(t){
 		}
 	}
 	if($("#RatingCommentCout")){
-		$("#RatingCommentCout").text = rating[LocalPlayer+1].commens
+		$("#RatingCommentCout").text = rating[LocalPlayer].commens
 	}
 	if($("#RatingProfilPlayerByIdPanel")){
 		$("#RatingProfilPlayerByIdPanel").BLoadLayout("file://{resources}/layout/custom_game/RatingProfil.xml", false, false)
@@ -1346,11 +1346,11 @@ function initShop(tab){
 	// -------------------------------------------------------------
 	$.Schedule(0.5, function(){
 		if($('#logotext1shop'))
-			$('#logotext1shop').text = rating[LocalPlayer+1].points
+			$('#logotext1shop').text = rating[LocalPlayer].points
 		if($('#logotext2shop'))
-			$('#logotext2shop').text = rating[LocalPlayer+1].games
+			$('#logotext2shop').text = rating[LocalPlayer].games
 		if($('#logotext3shop'))
-			$('#logotext3shop').text = rating[LocalPlayer+1].likes
+			$('#logotext3shop').text = rating[LocalPlayer].likes
 	})
 }
 
@@ -1486,8 +1486,8 @@ function updateRatingCouter(t){
             $('#rating_nadez').text = t.b
             $('#rating_doom').text = t.c
 
-        $('#rating_your_mmr').text = rating[LocalPlayer+1].points
-        $('#rating_info_panel_img').SetImage('file://{resources}/images/custom_game/ranks/' + rank(rating[LocalPlayer+1].points) + '.png')
+        $('#rating_your_mmr').text = rating[LocalPlayer].points
+        $('#rating_info_panel_img').SetImage('file://{resources}/images/custom_game/ranks/' + rank(rating[LocalPlayer].points) + '.png')
     }
 }
 
