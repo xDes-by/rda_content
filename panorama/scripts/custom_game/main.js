@@ -398,7 +398,7 @@ function initRating(t){
 				}
 			}
 			if(top["last_heros"]){
-				var last_heros = JSON.parse( top["last_heros"] );
+				var last_heros = top["last_heros"];
 				for(var z = 0; z < 3; z++){
 					if(last_heros[z]){
 						pan.FindChildTraverse("heroicon_"+z).heroname = last_heros[z]["name"];
