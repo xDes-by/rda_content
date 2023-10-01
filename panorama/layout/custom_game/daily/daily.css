@@ -1,0 +1,50 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+#MainPanel{
+    align: right bottom;
+    min-width: 200px;
+    margin-bottom: 705px;
+    flow-children: down;
+}
+.DailyFont_Class{
+    color:rgba(233, 233, 233, 0.9);
+    text-shadow: 1px 1px 2px 3.0 #333333b0;
+}
+#Main_Label{
+    font-size: 24;
+}
+.TaskDescription_Panel{
+    horizontal-align: right;
+    flow-children: right;
+}
+.TaskDescription_Label{
+    horizontal-align: right;
+}
+.DailyTaskGetAward_Label{
+    color: gold;
+    text-shadow: 1px 1px 2px 3.0 #333333b0;
+    margin-right: 5px;
+}
+.DailyTaskDone_Image{
+    height: 20px;
+    margin-right: 5px;
+}
+.Line_Panel{
+    width: 100%;
+    border-bottom: 2px solid rgba(138, 138, 138, 0.705);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.TaskDescriptionZnak_Label{
+    font-size: 20;
+    font-weight: bold;
+}
+.DailyTaskZnak_Image{
+    margin-right: 5px;
+}
+#DailyQuests_Panel, #MainQuests_Panel{
+    flow-children: down;
+    horizontal-align: right;
+}
