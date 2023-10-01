@@ -1,0 +1,68 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	"Dota_Boss.bara_charge_return"  =
+	{
+		type = "dota_src1_3d"
+		volume = 1
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		vsnd_files = "sounds/game_sounds_boss_bara/bara_charge_return.vsnd"
+	}
+
+	"Dota_Boss.bara_death"  =
+	{
+		type = "dota_src1_3d"
+		volume = 1
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		vsnd_files = "sounds/game_sounds_boss_bara/bara_death.vsnd"
+	}
+
+	"Dota_Boss.bara_spawn"  =
+	{
+		type = "dota_src1_3d"
+		volume = 1
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		vsnd_files = "sounds/game_sounds_boss_bara/bara_spawn.vsnd"
+	}
+
+	"Dota_Boss.bara_start_charge"  =
+	{
+		type = "dota_src1_3d"
+		volume = 1
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		vsnd_files = "sounds/game_sounds_boss_bara/bara_start_charge.vsnd"
+	}
+
+	"Dota_Boss.bara_start_charge_alt"  =
+	{
+		type = "dota_src1_3d"
+		volume = 1
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		vsnd_files = "sounds/game_sounds_boss_bara/bara_start_charge_alt.vsnd"
+	}
+
+	"Dota_Boss.bara_swap_model"  =
+	{
+		type = "dota_src1_3d"
+		volume = 1
+		pitch_rand_min = -0.050000
+		pitch_rand_max = 0.050000
+		pitch = 1.000000
+		soundlevel = 100.000000
+		vsnd_files = "sounds/game_sounds_boss_bara/bara_swap_model.vsnd"
+	}
+}
