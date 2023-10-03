@@ -11,9 +11,9 @@
 			<Panel id="" class="TaskDescription_Panel"> 
                 <Image id="" class="DailyTaskZnak_Image" src="file://{resources}/images/custom_game/quest/znak4.png" />
                 <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" />
-                <Label id="" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" />
+                <Label id="" class="DailyTaskGetAward_Label box_animation_on" text="#DailyTaskGetAward" />
                 <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable3" />
-                <Label id="" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" />
+                <Label id="" class="DailyTaskGetAward_Label box_animation_on" text="#DailyTaskGetAward" />
             </Panel>
 		</snippet>
 	</snippets>
@@ -65,6 +65,6 @@
                 </Panel>
             </Panel>
         </Panel>
-        <Label id="panel_id" class="PanelClass" text="${Hello world!}" />
+        <Label id="panel_id" class="box_animation_on" text="${Hello world!}" />
     </Panel>
 </root>

@@ -164,7 +164,7 @@ function UpdateTimer()
 	GameEvents.Subscribe( "pickRating", function(t){
 		let PlayersContainer = teamsContainer.FindChildTraverse("PlayersContainer")
 		for(let i in t.rating){
-			let player = PlayersContainer.GetChild(i-1)
+			const player = PlayersContainer.GetChild(Number(i))
 			player.FindChildTraverse("PlayerRating").text = $.Localize("#pick_rating")+t.rating[i].points
 			player.FindChildTraverse("PlayerGames").text = `${$.Localize("#pick_game")}${t.rating[i].games > 1000 ? "1000+" : t.rating[i].games}`
 		}

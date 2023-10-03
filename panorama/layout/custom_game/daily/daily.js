@@ -7,13 +7,21 @@ function BuildDaily(table_name, key, data){
     const Panel = $("#DailyQuests_Panel")
     Panel.RemoveAndDeleteChildren()
     for(let i = 0; i < 3; i++){
+        const qData = data[i+1]
         const newPanel = $.CreatePanel("Panel", Panel, "", {})
         newPanel.BLoadLayoutSnippet("TaskSnippet")
         newPanel.GetChild(0).visible = false
         newPanel.GetChild(1).visible = false
         newPanel.GetChild(2).visible = false
         newPanel.GetChild(4).visible = false
-        newPanel.GetChild(3).text = `${$.Localize("#DailyTaskDescription_"+data[i+1]['index'])} <font color='green'>${data[i+1]['now']}/${data[i+1]['count']}</font>`
+        newPanel.GetChild(3).text = `${$.Localize("#DailyTaskDescription_"+qData['index'])} <font color='green'>${qData['now']}/${qData['count']}</font>`
+        if(qData['now'] >= qData['count'] && qData['received'] == false){
+            newPanel.GetChild(2).visible = true
+            newPanel.GetChild(2).SetPanelEvent("onactivate", AwardButton(qData['index']))
+        }
+        if(qData['received'] == true){
+            newPanel.GetChild(1).visible = true
+        }
     }
 }
 
@@ -78,6 +86,13 @@ function GetUniverseSteamID32(PID)
     steamID32 = String(steamIDPart - 61197960265728);
 
     return steamID32;
+}
+
+function AwardButton(index){
+    return ()=>{
+        Game.EmitSound("General.ButtonClick");
+        GameEvents.SendCustomGameEventToServer("GetDailyAwardButton", { index : index})
+    }
 }
 
 (function(){
