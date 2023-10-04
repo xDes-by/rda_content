@@ -1576,6 +1576,26 @@ const update_gems_js = (t) => {
     	$('#smithy_green_label').text = t[5]
 }
 
+function ReceivingRPAlert(t){
+	Game.EmitSound("Quickbuy.Confirmation");
+	const Panel = $("#ReceivingRPNotification_Panel")
+	Panel.GetChild(0).text = `+${t.value}`
+	Panel.visible = true
+	$.Schedule(5,()=>{
+		Panel.visible = false
+	})
+}
+
+function ReceivingCoinsAlert(t){
+	Game.EmitSound("Quickbuy.Confirmation");
+	const Panel = $("#ReceivingCoinsNotification_Panel")
+	Panel.GetChild(0).text = `+${t.value}`
+	Panel.visible = true
+	$.Schedule(5,()=>{
+		Panel.visible = false
+	})
+}
+
 function FindChildTraverse(name){
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(name)
 }
@@ -1589,7 +1609,12 @@ function FindChildTraverse(name){
 	GameEvents.Subscribe( "updateRatingCouter", updateRatingCouter)
 	GameEvents.Subscribe( "update_gems_js", update_gems_js)
 	GameEvents.Subscribe( "change_pet", change_pet)
-	
+	GameEvents.Subscribe( "ReceivingRPAlert", ReceivingRPAlert)
+	GameEvents.Subscribe( "ReceivingCoinsAlert", ReceivingCoinsAlert)
+	if($("#ReceivingRPNotification_Panel") && $("#ReceivingCoinsNotification_Panel")){
+		$("#ReceivingRPNotification_Panel").visible = false
+		$("#ReceivingCoinsNotification_Panel").visible = false
+	}
 	CustomNetTables.SubscribeNetTableListener( "shopinfo", shopinfoed );
 	puls_bg_rating()
 	puls_bg_shop()

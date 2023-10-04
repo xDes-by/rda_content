@@ -890,3 +890,33 @@
     color:white;
     font-weight: bold;
 }
+
+#ReceivingCurrencyNotification_Panel{
+	align: center top;
+	margin-top: 15%;
+	z-index: 2;
+}
+#ReceivingCoinsNotificationImage_Panel{
+	height: 40px;
+	width: 50px;
+	background-image: url("file://{resources}/images/custom_game/RDAShop/money_logo_3.png");
+	background-size: contain;
+}
+#ReceivingRPNotificationImage_Panel{
+	height: 40px;
+	width: 40px;
+	background-image: url("file://{resources}/images/custom_game/RDAShop/protection.png");
+	background-size: contain;
+}
+.ReceivingNotification_Panel{
+	flow-children: right;
+	background-color: rgba(0, 0, 0, 0.9);
+	padding: 10px;
+	border-radius: 10px;
+}
+.ReceivingNotification_Label{
+	font-size: 30;
+	vertical-align: center;
+	color:white;
+	margin-right: 5px;
+}

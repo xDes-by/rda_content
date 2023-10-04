@@ -394,6 +394,17 @@
 			
 		</Panel>
 
+		<Panel id="ReceivingCurrencyNotification_Panel" class="">
+			<Panel id="ReceivingCoinsNotification_Panel" class="ReceivingNotification_Panel">
+				<Label id="" class="ReceivingNotification_Label" text="+1" />
+				<Panel id="ReceivingCoinsNotificationImage_Panel" class=""/>
+			</Panel>
+			<Panel id="ReceivingRPNotification_Panel" class="ReceivingNotification_Panel">
+				<Label id="" class="ReceivingNotification_Label" text="+1" />
+				<Panel id="ReceivingRPNotificationImage_Panel" class=""/>
+			</Panel>
+		</Panel>
+
 	</Panel>
      
 </root>
