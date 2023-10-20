@@ -78,7 +78,6 @@ function ShowDamage()
 
 function open1()
 {
-	$.Msg("open")
 	Game.EmitSound('ui_team_select_shuffle')
 	open = true;
 	$("#heroinfo").style['position'] = "0% 0px 0px";
@@ -87,7 +86,6 @@ function open1()
 
 function close2()
 {
-	$.Msg("close")
 	Game.EmitSound('ui_team_select_shuffle')
 	open = false;
 	$("#heroinfo").style['position'] = "140px 0px 0px";
@@ -107,7 +105,6 @@ function ExitButton(){
 
 function ban()
 {
-	$.Msg("BAN")
 	$("#ban").visible = true
 }
 

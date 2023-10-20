@@ -15,7 +15,6 @@ function FindDotaHudElement(panel) {
 ///////////////////////////////////////////////
 
 function OnClickSpray() {
-	$.Msg('OnClickSpray')
 	// Game.CreateCustomKeyBind(keybind_courier, "UsePet");
 	// var button_text = FindDotaHudElement("CosmeticAbility_text2");
 	// button_text.text = keybind_courier

@@ -118,7 +118,6 @@ function buildTree(){
 var lastdata;
 var heroname, progress, herotalant = [];
 function pickInit(tab){
-    $.Msg("pickInit")
     // $.Msg(tab)
     var pid = Players.GetLocalPlayer();
     portID = pid;
@@ -195,13 +194,11 @@ function ChangeHero(){
     RightContainer.FindChildTraverse()
 }
 function talant_replace_hero(t){
-    $.Msg("talant_replace_hero")
     if($("#talant_root")){
         $("#talant_root").FindChildTraverse(t.hero_name).visible = false
     }
 }
 function ChangeHeroLoadTree(tab){
-    $.Msg("ChangeHeroLoadTree")
     // buildTree();
     PlayerID = tab.PlayerID;
     herotalant[PlayerID] = tab.info[PlayerID];
@@ -598,7 +595,6 @@ function updateExpInfo(data){
     text = percent + "%";
     $("#red_line_panel").style.width = text;
     if(data["gave_exp"]){
-        $.Msg(data["gave_exp"])
         const gave_exp = isBonusExpAvailable(Number(portID)) ? Number(data["gave_exp"]) * 1.15 : Number(data["gave_exp"])
         var gain = (Math.ceil( gave_exp * 10 ) / 10).toFixed(1)
         $("#blue_line_label_gain").text = "+" + gain;
@@ -673,7 +669,6 @@ function MoreInformation(pan){
     return function(){
         talantpanel.FindChildTraverse("players_have").text = $.Localize('#talents_loading')
         let portID = GetPlayerIDByPortraitIndex()
-        $.Msg("portID:",portID)
         GameEvents.SendCustomGameEventToServer("HeroesAmountInfo", {i : pan.i, j : pan.j, portID:Number(portID)})
     }
 }

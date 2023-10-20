@@ -29,7 +29,6 @@ function InitializeUI() {
 	AnimatePanel(game_options_panel, { "transform": "translateX(250px);", "opacity": "1;" }, 1.0, "ease-out"); 
 
 	let amount = Game.GetAllPlayerIDs().length
-	$.Msg('Player counts = ' + amount)
 
 	game_options_panel.BLoadLayout('file://{resources}/layout/custom_game/settings/game_settings.xml', false, false)
 

@@ -186,13 +186,10 @@ function HideAll(){
 		}
 		i++;
 	}
-	$.Msg(HeroPanels);
 	GameEvents.SendCustomGameEventToServer("LoadHeroListReady", {})
 }
 
 function LoadHeroList(tab){
-	$.Msg("LoadHeroList");
-	$.Msg(tab);
 	for (const [key, value] of Object.entries(tab)) {
 		if(value == 1){
 			HeroPanels[key].visible = true;

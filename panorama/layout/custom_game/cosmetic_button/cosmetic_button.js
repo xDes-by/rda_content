@@ -130,7 +130,6 @@ function CtrlTimer(){
 }
 
 (function () {
-	$.Msg("cosmetic_button")
 	const centerBlock = FindDotaHudElement("center_block");
 	let cosmetics = centerBlock.FindChildTraverse("BarOverItems");
 

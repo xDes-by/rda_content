@@ -25,7 +25,6 @@ function part_4_btn() {
 
 function part_3_btn(t) {
     $('#bg_victory').visible = true;
-    $.Msg("pokazat")
     isopen = true
 }
 
@@ -35,4 +34,3 @@ function tp_check_js(t) {
 
 GameEvents.Subscribe("ivint23", part_3_btn);
 GameEvents.Subscribe("tp_check_js", tp_check_js);
-$.Msg("12")

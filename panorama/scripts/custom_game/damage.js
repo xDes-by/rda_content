@@ -8,7 +8,6 @@ function AddDebugPlayer(color)
 	panel.FindChildTraverse('PlayerNameSignal').text = "assbutt";
 	panel.FindChildTraverse('PlayerDamageDealth').text = "666"
 	panel.FindChildTraverse('PlayerDamageTaken').text = "666";
-	$.Msg("hello")
 }  
 function InitPlayer(name)
 {
@@ -25,7 +24,6 @@ function Delete()
 {
 	for (i = 0; i <= length; i++) {
 	  players[i].RemoveAndDeleteChildren();
-	  $.Msg(i)
 	}
 	length = -1;
 }
@@ -71,7 +69,6 @@ function debug()
 	GameEvents.Subscribe("damage_taken_update", SetDamageTaken);
 	GameEvents.Subscribe("damage_type_update", SetDamageTypes);
 	GameEvents.Subscribe("delete", Delete);
-	$.Msg("Debug");
 }
 
 debug();

@@ -596,34 +596,58 @@ $("#confirm_no_panel").SetPanelEvent("onmouseactivate", ()=>{
 })
 var isOpen = false
 
-var open_btn_panel = $.CreatePanel("Panel", FindDotaHudElement("HUDElements"), "")
-open_btn_panel.style.height = "100px"
-open_btn_panel.style.width = "100px"
-open_btn_panel.style.backgroundImage = "url('file://{images}/custom_game/pet/cat.png')"
-open_btn_panel.style.backgroundSize = "contain"
-open_btn_panel.style.backgroundPosition = "50%"
-open_btn_panel.style.backgroundRepeat = "no-repeat"
-open_btn_panel.style.marginLeft = "325px"
-open_btn_panel.style.tooltipPosition = "bottom"
+// var open_btn_panel = $.CreatePanel("Panel", FindDotaHudElement("HUDElements"), "")
+// open_btn_panel.style.height = "100px"
+// open_btn_panel.style.width = "100px"
+// open_btn_panel.style.backgroundImage = "url('file://{images}/custom_game/pet/cat.png')"
+// open_btn_panel.style.backgroundSize = "contain"
+// open_btn_panel.style.backgroundPosition = "50%"
+// open_btn_panel.style.backgroundRepeat = "no-repeat"
+// open_btn_panel.style.marginLeft = "325px"
+// open_btn_panel.style.tooltipPosition = "bottom"
 
-// open_btn_panel.BLoadLayout("file://{resources}/layout/custom_game/main/pets.xml", false, false)
-open_btn_panel.SetPanelEvent("onmouseover",TipsOver('pets',open_btn_panel));
-open_btn_panel.SetPanelEvent("onmouseout",TipsOut());
-open_btn_panel.SetPanelEvent("onmouseactivate",()=>{
-    if(isOpen){
-        isOpen = false
-        $("#PetWindowMain").style.opacity = "0";
-        $("#PetWindowMain").style.transform = "translate3d(0px, 300px, 0px)";
-        $("#PetWindowMain").style.preTransformScale2d = "0.8";
-    }else{
-        isOpen = true
-        $("#PetWindowMain").style.opacity = "1";
-        $("#PetWindowMain").style.transform = "translate3d(0px, 0px, 0px)";
-        $("#PetWindowMain").style.preTransformScale2d = "1";
-    }
+// // open_btn_panel.BLoadLayout("file://{resources}/layout/custom_game/main/pets.xml", false, false)
+// open_btn_panel.SetPanelEvent("onmouseover",TipsOver('pets',open_btn_panel));
+// open_btn_panel.SetPanelEvent("onmouseout",TipsOut());
+// open_btn_panel.SetPanelEvent("onmouseactivate",()=>{
+//     if(isOpen){
+//         isOpen = false
+//         $("#PetWindowMain").style.opacity = "0";
+//         $("#PetWindowMain").style.transform = "translate3d(0px, 300px, 0px)";
+//         $("#PetWindowMain").style.preTransformScale2d = "0.8";
+//     }else{
+//         isOpen = true
+//         $("#PetWindowMain").style.opacity = "1";
+//         $("#PetWindowMain").style.transform = "translate3d(0px, 0px, 0px)";
+//         $("#PetWindowMain").style.preTransformScale2d = "1";
+//     }
 
     
-})
+// })
+const topBar = FindDotaHudElement("ButtonBar")
+if(topBar){
+    let pan = $.CreatePanel('Panel', topBar, '')
+    pan.BLoadLayout("file://{resources}/layout/custom_game/pet ui rework/pets_button.xml", false, false)
+    pan.SetPanelEvent("onmouseactivate",()=>{
+            Game.EmitSound("General.ButtonClick");
+            if(isOpen){
+                isOpen = false
+                $("#PetWindowMain").style.opacity = "0";
+                $("#PetWindowMain").style.transform = "translate3d(0px, 300px, 0px)";
+                $("#PetWindowMain").style.preTransformScale2d = "0.8";
+            }else{
+                isOpen = true
+                $("#PetWindowMain").style.opacity = "1";
+                $("#PetWindowMain").style.transform = "translate3d(0px, 0px, 0px)";
+                $("#PetWindowMain").style.preTransformScale2d = "1";
+            }
+        
+            
+        });
+    pan.SetPanelEvent("onmouseover",TipsOver('pets',pan));
+    pan.SetPanelEvent("onmouseout",TipsOut());
+    pan.style.tooltipPosition = 'bottom';
+}
 $("#close_pet").SetPanelEvent("onmouseactivate",()=>{
     isOpen = false
     $("#PetWindowMain").style.opacity = "0";
