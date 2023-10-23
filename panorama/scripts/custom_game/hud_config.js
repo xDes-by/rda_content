@@ -10,7 +10,6 @@ function quickstatsPos(){
     quickstats.style.marginTop = "230px";
     var QuickStatsContainer = FindDotaHudElement("QuickStatsContainer");
     QuickStatsContainer.style.backgroundColor = "gradient( linear, 0% 0%, 100% 0%, from( #0000 ), color-stop( .5, #42566355 ), to( #425663cc ) )";
-    $.Msg(123)
 }
 function minimapPos(){
     var minimap_container = FindDotaHudElement("minimap_container");

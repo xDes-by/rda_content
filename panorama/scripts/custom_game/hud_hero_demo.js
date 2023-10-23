@@ -89,7 +89,6 @@ function SwitchToNewHero( nHeroID )
 {
 	Game.EmitSound( "UI.Button.Pressed" );
 
-	$.Msg( 'Hero = ' + nHeroID );
 
 	if ( $( '#SelectHeroContainer' ).BHasClass( 'PickMainHero' ) )
 	{
@@ -107,7 +106,6 @@ function SwitchToNewHero( nHeroID )
 
 function OnSetPlayerHeroID( event_data )
 {
-	$.Msg( "OnSetPlayerHeroID: ", event_data );
 	var PlayerHeroImage = $( '#PlayerHeroImage' );
 	if ( PlayerHeroImage != null )
 	{
@@ -118,7 +116,6 @@ function OnSetPlayerHeroID( event_data )
 	if ( HeroDemoButton != null )
 	{
 		var heroName = Players.GetPlayerSelectedHero( 0 );
-		$.Msg( 'HERO NAME = ' + heroName );
 		HeroDemoButton.SetDialogVariable( "hero_name", $.Localize( '#'+heroName ) );
 	}
 }
@@ -126,7 +123,6 @@ GameEvents.Subscribe( "set_player_hero_id", OnSetPlayerHeroID );
 
 function OnSetMainHeroID( event_data )
 {
-	$.Msg( "OnSetMainHeroID: ", event_data );
 
 	$.DispatchEvent( "DOTADemoHeroEquippedItems", event_data.hero_name );
 }
@@ -134,7 +130,6 @@ GameEvents.Subscribe( "set_main_hero_id", OnSetMainHeroID );
 
 function OnSetSpawnHeroID( event_data )
 {
-	$.Msg( "OnSetSpawnHeroID: ", event_data );
 	var HeroPickerImage = $( '#HeroPickerImage' );
 	if ( HeroPickerImage != null )
 	{
@@ -144,7 +139,6 @@ function OnSetSpawnHeroID( event_data )
 	var SpawnHeroButton = $( '#SpawnHeroButton' );
 	if ( SpawnHeroButton != null )
 	{
-		$.Msg( 'HERO NAME = ' + event_data.hero_name );
 		SpawnHeroButton.SetDialogVariable( "hero_name", $.Localize( '#'+event_data.hero_name ) );
 	}
 }
@@ -159,10 +153,8 @@ function ToggleCategoryVisibility( str )
 function RemoveSelectedHeroes()
 {
 	var entities = Players.GetSelectedEntities( 0 );
-	$.Msg( "Entities = " + entities );
 
 	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
 
 	var bDeletionAttempted = false;
     for ( var i = 0; i < numEntities; i++ )

@@ -1,0 +1,10 @@
+<root>
+
+    <styles>
+        <include src="file://{resources}/layout/custom_game/pet ui rework/pets.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <Panel class="pets_button">
+        
+    </Panel>
+</root>

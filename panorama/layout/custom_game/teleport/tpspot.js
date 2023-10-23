@@ -32,12 +32,10 @@ function part_7_btn() {
 }
 
 function part_8_btn(t) {
-    $.Msg("pokazat")
     $("#bg_victory").visible = true
 }
 
 function tp_check_js(t) {
-    $.Msg(t)
     if (t.successfully > 0) { // оно закрывается при условии что закрывается телепорт. (successfully Возвращает состаеля или нет телепорт) Если нет предмета тогда successfully 0 и если нет предмета тп не происходит.  
         $("#bg_victory").visible = false
     }

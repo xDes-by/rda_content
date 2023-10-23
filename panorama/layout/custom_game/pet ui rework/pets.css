@@ -2,6 +2,17 @@
     height: 100%;
     width: 100%;
 }
+.pets_button{
+    height: 100px;
+    width: 100px;
+    background-image: url("file://{images}/custom_game/pet/cat.png");
+    background-size: contain;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+.pets_button:hover{
+    brightness: 1.5;
+}
 #OpenButton{
     height: 100px;
     width: 100px;

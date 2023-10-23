@@ -172,13 +172,11 @@ function ChangeHero(){
     RightContainer.FindChildTraverse()
 }
 function talant_replace_hero(t){
-    $.Msg("talant_replace_hero")
     if($("#talant_root")){
         $("#talant_root").FindChildTraverse(t.hero_name).visible = false
     }
 }
 function ChangeHeroLoadTree(tab){
-    $.Msg("ChangeHeroLoadTree")
     // buildTree();
     PlayerID = tab.PlayerID;
     herotalant[PlayerID] = tab.info[PlayerID];
@@ -397,23 +395,15 @@ function open(){
     $("#talant_root").visible = true;
     Game.EmitSound("ui_rollover_today");
     //Game.EmitSound("ui_custom_lobby_quit_slide");
-    $.Msg("portID:",portID)
-    $.Msg("portIndex:",portIndex)
-    $.Msg("portName:",portName)
-    $.Msg("lvls:",lvls)
-    $.Msg("portID:",portID)
-    $.Msg("herotalant[portID]:",herotalant[portID])
     if(portID == null || !portIndex || !portName || !pInfo || !lvls || !herotalant[portID]){
         return;
     }
     for(var i in herotalant[portID]){
         for(var j in herotalant[portID][i]){
             var arg = i + j;
-            $.Msg("talantpanel:",talantpanel)
             var img = $("#talant_root").FindChildTraverse("img"+arg);
 
             if(img){
-                $.Msg("img"+arg," == ",herotalant[portID][i][j]["url"])
                 img.SetImage("file://{resources}" + herotalant[portID][i][j]["url"])
             }
         }

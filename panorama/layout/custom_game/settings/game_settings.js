@@ -4,14 +4,12 @@
 /* Initialisation - runs when the element is created
 =========================================================================*/
 (function () {
-	$.Msg("Init")
 
 	GameEvents.Subscribe("game_rules_state_change", function(params) {
 		if (Game.GetState() == DOTA_GameState.DOTA_GAMERULES_STATE_STRATEGY_TIME)
 		{
 			if (CheckForHostPrivileges()) 
 			{
-				$.Msg(DATA)
 
 				GameEvents.SendCustomGameEventToServer( "selected_game_settings", DATA)
 			}

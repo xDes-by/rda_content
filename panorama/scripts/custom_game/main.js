@@ -1631,17 +1631,17 @@ function FindChildTraverse(name){
 		FindChildTraverse("ToggleScoreboardButton").visible = false
 	let topBar = FindChildTraverse("ButtonBar")
 	if(topBar)
-		topBar.style.height = "75px";
+		topBar.style.height = "55px";
 	let btn1 = FindChildTraverse("DashboardButton")
 	if(btn1){
-		btn1.style.height = "65px";
-		btn1.style.width = "65px";	
+		btn1.style.height = "55px";
+		btn1.style.width = "55px";	
 	}
 	let btn2 = FindChildTraverse("SettingsButton")
 	if(btn2){
-		btn2.style.height = "65px";
-		btn2.style.width = "65px";
-		btn2.style.backgroundSize = "65px"
+		btn2.style.height = "55px";
+		btn2.style.width = "55px";
+		btn2.style.backgroundSize = "55px"
 	}
 	if(topBar){
 		let pan = $.CreatePanel('Panel', topBar, '')

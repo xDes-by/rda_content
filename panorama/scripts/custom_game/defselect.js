@@ -1,5 +1,4 @@
 function OnClickEasy() {
-	$.Msg("easy");
 	
 	var panel = $('#defselect'); 
 	panel.SetHasClass('Visible', !panel.BHasClass('Visible'))
@@ -7,7 +6,6 @@ function OnClickEasy() {
 }
 
 function OnClickMedium() {
-	$.Msg("medium");
 	
 	var panel = $('#defselect'); 
 	panel.SetHasClass('Visible', !panel.BHasClass('Visible'))	
@@ -16,7 +14,6 @@ function OnClickMedium() {
 }
 
 function OnClickHard() {
-	$.Msg("hard");
 	
 	var panel = $('#defselect'); 
 	panel.SetHasClass('Visible', !panel.BHasClass('Visible'))	
@@ -25,7 +22,6 @@ function OnClickHard() {
 } 
 
 function closeVote() {
-	$.Msg("close");
 	var panel = $('#defselect'); 
 	panel.SetHasClass('Vis', !panel.BHasClass('Vis'))	
 }

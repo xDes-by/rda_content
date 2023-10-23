@@ -212,8 +212,7 @@ var HideTooldip = (function(panel)
 var BuyItem = (function(shop,itemid,goldcost,woodcost)//покупаем айтем при нажатии
 {	
 return function()
-	{	$.Msg(gold)
-		$.Msg(goldcost)
+	{	
 		if (gold > goldcost)
 		{
 			Game.EmitSound('General.Buy')

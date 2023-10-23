@@ -20,51 +20,9 @@
     <Panel class="root" hittest="false">
         <Panel id="MainPanel" class="">
             <Label id="Main_Label" class="DailyFont_Class" text="#DailyMainLabel" />
-            <Panel id="DailyQuests_Panel" class="">
-                <Panel id="" class="TaskDescription_Panel"> 
-                    <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" />
-                    <!-- <Label id="DailyTaskGetAward_Label" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" /> -->
-                    <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable1" />   
-                </Panel>
-                <Panel id="" class="TaskDescription_Panel"> 
-                    <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" />
-                    <!-- <Label id="DailyTaskGetAward_Label" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" /> -->
-                    <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable2" />   
-                </Panel>
-                <Panel id="" class="TaskDescription_Panel"> 
-                    <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" />
-                    <!-- <Label id="DailyTaskGetAward_Label" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" /> -->
-                    <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable3" />   
-                </Panel>
-            </Panel>
+            <Panel id="DailyQuests_Panel" class=""/>
             <Panel id="" class="Line_Panel"/> <!--  LINE -->
-            <Panel id="MainQuests_Panel" class="PanelClass">
-                <Panel id="" class="TaskDescription_Panel"> 
-                    <Image id="" class="DailyTaskZnak_Image" src="file://{resources}/images/custom_game/quest/znak1.png" />
-                    <!-- <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" /> -->
-                    <!-- <Label id="DailyTaskGetAward_Label" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" /> -->
-                    <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable3" />   
-                </Panel>
-                <Panel id="" class="TaskDescription_Panel"> 
-                    <Image id="" class="DailyTaskZnak_Image" src="file://{resources}/images/custom_game/quest/znak2.png" />
-                    <!-- <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" /> -->
-                    <!-- <Label id="DailyTaskGetAward_Label" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" /> -->
-                    <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable3" />   
-                </Panel>
-                <Panel id="" class="TaskDescription_Panel"> 
-                    <Image id="" class="DailyTaskZnak_Image" src="file://{resources}/images/custom_game/quest/znak3.png" />
-                    <!-- <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" /> -->
-                    <!-- <Label id="DailyTaskGetAward_Label" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" /> -->
-                    <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable3" />   
-                </Panel>
-                <Panel id="" class="TaskDescription_Panel"> 
-                    <Image id="" class="DailyTaskZnak_Image" src="file://{resources}/images/custom_game/quest/znak4.png" />
-                    <!-- <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.com (1).png" /> -->
-                    <!-- <Label id="DailyTaskGetAward_Label" class="DailyTaskGetAward_Label" text="#DailyTaskGetAward" /> -->
-                    <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable3" />   
-                </Panel>
-            </Panel>
+            <Panel id="MainQuests_Panel" class=""/>
         </Panel>
-        <Label id="panel_id" class="box_animation_on" text="${Hello world!}" />
     </Panel>
 </root>

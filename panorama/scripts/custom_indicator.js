@@ -67,6 +67,5 @@ function UpdateMousePosition() {
 }
 
 (function() {
-	$.Msg( "Hello from custom_indicator, World!" );
 	UpdateMousePosition();
 })();
