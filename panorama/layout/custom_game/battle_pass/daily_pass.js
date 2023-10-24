@@ -100,8 +100,8 @@ DaysPass.BuildNextBigAward = function(position){
     basePanel.FindChildTraverse("AwardDayCounterLabel").text = "День " + position
 }
 
-DaysPass.init = function(){
-    let t = CustomNetTables.GetTableValue("BattlePass", "reward")
+DaysPass.init = function(t){
+    $.Msg(t)
     let pan2 = $("#DeysAwardLinePanel")
     pan2.RemoveAndDeleteChildren()
     for(let i = 1; i <= 30; i++){
@@ -150,7 +150,7 @@ function OnMouseEvent(eventName, arg) {
 
 DotaHUD.ListenToMouseEvent(OnMouseEvent);
 
-DaysPass.init()
+DaysPass.init(CustomNetTables.GetTableValue("BattlePass", "reward"))
 
 function DaysTableListener(_, key, data){
     if(key != Players.GetLocalPlayer()) return

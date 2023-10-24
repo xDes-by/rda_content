@@ -3,7 +3,7 @@ function FindDotaHudElement(panel) {
 }
 GameEvents.Subscribe( "updateSoulsInventory", function(t){
     var pan = $("#souls_stash")
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < 13; i++){
         pan.GetChild(i).FindChildTraverse("label").text = t[i]
         if(t[i] == 0){
             pan.GetChild(i).visible = false
@@ -70,25 +70,49 @@ $("#souls_stash").GetChild(6).SetPanelEvent("oncontextmenu", function(){
 
 $("#souls_stash").GetChild(7).visible = false
 $("#souls_stash").GetChild(7).SetPanelEvent("onmouseactivate", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_cemetery_soul"})
 })
 $("#souls_stash").GetChild(7).SetPanelEvent("oncontextmenu", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_cemetery_soul"})
 })
 
 $("#souls_stash").GetChild(8).visible = false
 $("#souls_stash").GetChild(8).SetPanelEvent("onmouseactivate", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_2"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_magma_soul"})
 })
 $("#souls_stash").GetChild(8).SetPanelEvent("oncontextmenu", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_2"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_magma_soul"})
 })
 
 $("#souls_stash").GetChild(9).visible = false
 $("#souls_stash").GetChild(9).SetPanelEvent("onmouseactivate", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_3"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_antimage_soul"})
 })
 $("#souls_stash").GetChild(9).SetPanelEvent("oncontextmenu", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_antimage_soul"})
+})
+
+$("#souls_stash").GetChild(10).visible = false
+$("#souls_stash").GetChild(10).SetPanelEvent("onmouseactivate", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul"})
+})
+$("#souls_stash").GetChild(10).SetPanelEvent("oncontextmenu", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul"})
+})
+
+$("#souls_stash").GetChild(11).visible = false
+$("#souls_stash").GetChild(11).SetPanelEvent("onmouseactivate", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_2"})
+})
+$("#souls_stash").GetChild(11).SetPanelEvent("oncontextmenu", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_2"})
+})
+
+$("#souls_stash").GetChild(12).visible = false
+$("#souls_stash").GetChild(12).SetPanelEvent("onmouseactivate", function(){
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_3"})
+})
+$("#souls_stash").GetChild(12).SetPanelEvent("oncontextmenu", function(){
     GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_dragon_soul_3"})
 })
 var isOpen = true

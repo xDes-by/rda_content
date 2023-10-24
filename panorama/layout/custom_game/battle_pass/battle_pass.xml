@@ -5,7 +5,7 @@
     </styles>
     <scripts>
         <include src="file://{resources}/layout/custom_game/battle_pass/daily_pass.js" />
-        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass.js" />
+        <!-- <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass.js" /> -->
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_general.js" />
     </scripts>
 

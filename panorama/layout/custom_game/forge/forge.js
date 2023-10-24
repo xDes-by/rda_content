@@ -1,6 +1,7 @@
 var selectedItemName = ""
 var gems = undefined
 var viewMode = ""
+const maxLevel = 11
 
 function Openview(){
     const data = CustomNetTables.GetTableValue( "forge", Players.GetLocalPlayer());
@@ -56,7 +57,7 @@ function UpdateUpgradeTabPanel(item){
     }
     $("#ExtensionsPanel").visible = false
     $("#UpgradeItemCostPanel").visible = true
-    if(item.itemLevel >= 8){
+    if(item.itemLevel >= maxLevel){
         $("#UpgradeItemCostPanel").visible = false
         UpdateGemsTabPanel(item)
     }
@@ -72,7 +73,7 @@ function UpdateGemsTabPanel(item){
             }
         }
     }
-    if(item.itemLevel < 8){
+    if(item.itemLevel < maxLevel){
         viewMode = "gems"
         $("#UpgradeItemCostPanel").visible = false
     }
