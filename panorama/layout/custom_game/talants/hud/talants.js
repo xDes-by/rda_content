@@ -26,6 +26,7 @@ var imbalist = {
     "int8" : ["talant_icon_3_panel","talant_icon_panel_size_1"],//3
     "int11" : ["talant_icon_4_panel","talant_icon_panel_size_1"],//4 
     "int12" : ["talant_icon_45_panel","talant_icon_panel_size_1"],//4 
+    "int13" : ["talant_icon_49_panel","talant_icon_panel_size_1"],//4 
 
     "str" : ["border_red"],//border_green
 
@@ -41,6 +42,7 @@ var imbalist = {
     "str8" : ["talant_icon_21_panel","talant_icon_panel_size_1"],//21
     "str11" : ["talant_icon_20_panel","talant_icon_panel_size_1"],//20
     "str12" : ["talant_icon_46_panel","talant_icon_panel_size_1"],//4 
+    "str13" : ["talant_icon_50_panel","talant_icon_panel_size_1"],//4 
 
     "don" : ["border_gold"],//border_blue
     
@@ -56,6 +58,7 @@ var imbalist = {
     "don8" : ["talant_icon_25_panel","talant_icon_panel_size_1"],//25
     "don11" : ["talant_icon_24_panel","talant_icon_panel_size_1"],//24
     "don12" : ["talant_icon_47_panel","talant_icon_panel_size_1"],//4 
+    "don13" : ["talant_icon_51_panel","talant_icon_panel_size_1"],//4 
 
     "agi" : ["border_green"],//border_gold
 
@@ -71,6 +74,7 @@ var imbalist = {
     "agi8" : ["talant_icon_37_panel","talant_icon_panel_size_1"],//37
     "agi11" : ["talant_icon_36_panel","talant_icon_panel_size_1"],//36
     "agi12" : ["talant_icon_48_panel","talant_icon_panel_size_1"],//4 
+    "agi13" : ["talant_icon_52_panel","talant_icon_panel_size_1"],//4 
 };
 
 const EnhancedTalentValues = {
@@ -149,7 +153,7 @@ function pickInit(tab){
     
 
     for(var i in cat = ["str","agi","int","don"]){
-        for(var j = 1; j <= 12; j++){
+        for(var j = 1; j <= 13; j++){
             var arg = cat[i] + j;
             var container = talantpanel.FindChildTraverse("talant_tree_images_panel");
             var pan = $.CreatePanel("Panel", container, arg) 
@@ -281,7 +285,7 @@ function talantTreeInit(tab){
         herotalant[id] = arr;
     }
     for(var i in cat = ["str","agi","int","don"]){
-        for(var j = 1; j <= 12; j++){
+        for(var j = 1; j <= 13; j++){
             var arg = cat[i] + j;
             var pan = $.CreatePanel("Panel", container, arg)
             for(var k in imbalist[arg]){
@@ -306,7 +310,7 @@ function talantTreeInit(tab){
         shop.AddClass("shop")
         var shop_image = $.CreatePanel('Image',shop,'shop_image'+i)
         shop_image.AddClass("shop-image")
-        shop_image.SetImage("file://{resources}/images/custom_game/talants/img" + talant_shop[i]["url"])
+        shop_image.SetImage("file://{resources}" + talant_shop[i]["url"])
         shop_image.SetPanelEvent("onmouseover",TipsOver(talant_shop[i]["description"],'shop_image'+i));
         shop_image.SetPanelEvent("onmouseout",TipsOut());
         var shop_text_panel = $.CreatePanel('Panel',shop,'shop_text_panel'+i)
@@ -963,18 +967,25 @@ function setIconParam(data){
     }
     for(var n in cat = ["str","agi","int","don"]){
         
-        for(var pos = 1; pos <= 12; pos++){
+        for(var pos = 1; pos <= 13; pos++){
             if(talantpanel.FindChildTraverse(cat[n]+pos)){
                 talantpanel.FindChildTraverse(cat[n]+pos).selected = false;
                 talantpanel.FindChildTraverse(cat[n]+pos).available = false;
             }
         }
 
+        if(data[cat[n]+13] == 1 && talantpanel.FindChildTraverse(cat[n]+13)){
+            talantpanel.FindChildTraverse(cat[n]+13).selected = true;
+            talantpanel.FindChildTraverse(cat[n]+13).available = false;
+        }else if(data[cat[n]+13] == 0 && data[cat[n]+12] == 1 && talantpanel.FindChildTraverse(cat[n]+13)){
+            talantpanel.FindChildTraverse(cat[n]+13).selected = false;
+            talantpanel.FindChildTraverse(cat[n]+13).available = true;
+        }
+
         if(data[cat[n]+12] == 1 && talantpanel.FindChildTraverse(cat[n]+12)){
             talantpanel.FindChildTraverse(cat[n]+12).selected = true;
             talantpanel.FindChildTraverse(cat[n]+12).available = false;
         }else if(data[cat[n]+12] == 0 && (data[cat[n]+11] == 1 || data[cat[n]+10] == 1 || data[cat[n]+9] == 1) && talantpanel.FindChildTraverse(cat[n]+12)){
-            // 3 == don
             if(n == 3 && data['donlevel'] >= 30 || data["str12"] == 0 && data["int12"] == 0 && data["agi12"] == 0 && data['level'] >= 30){
                 talantpanel.FindChildTraverse(cat[n]+12).selected = false;
                 talantpanel.FindChildTraverse(cat[n]+12).available = true;
@@ -1078,7 +1089,7 @@ function setIconParam(data){
             }
         }
 
-        for(var pos = 1; pos <= 12; pos++){
+        for(var pos = 1; pos <= 13; pos++){
             var pan = talantpanel.FindChildTraverse(cat[n]+pos);
             if(pan){
                 pan.RemoveClass("available-0");
