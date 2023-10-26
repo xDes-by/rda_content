@@ -1,0 +1,82 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+#TasksPanel{
+    align: right bottom;
+    min-width: 200px;
+    margin-bottom: 705px;
+    flow-children: down;
+}
+.DailyFont_Class{
+    color:rgba(233, 233, 233, 0.9);
+    text-shadow: 1px 1px 2px 3.0 #333333b0;
+}
+
+.box_animation_on{
+	animation-name: box_animation_on;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* background-image: url(""); */
+    /* background-color: black; */
+}
+#test{
+    height: 100px;
+    width: 100px;
+    /* background-color: red; */
+    background-image: url("file://{images}/1.png");
+    background-size: contain;
+}
+
+@keyframes 'box_animation_on'
+{
+	0%{
+        color:#FFD700;
+    }
+    50%{
+        color:	#FFA500;
+    }
+    100%{
+        color:#FFD700;
+    }
+}
+
+
+
+#Main_Label{
+    font-size: 24;
+}
+.TaskDescription_Panel{
+    horizontal-align: right;
+    flow-children: right;
+}
+.TaskDescription_Label{
+    horizontal-align: right;
+}
+.DailyTaskGetAward_Label{
+    color: rgba(255, 217, 0, 0.8);
+    text-shadow: 1px 1px 2px 3.0 #333333b0;
+    margin-right: 5px;
+}
+.DailyTaskDone_Image{
+    height: 20px;
+    margin-right: 5px;
+}
+.Line_Panel{
+    width: 100%;
+    border-bottom: 2px solid rgba(138, 138, 138, 0.705);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.TaskDescriptionZnak_Label{
+    font-size: 20;
+    font-weight: bold;
+}
+.DailyTaskZnak_Image{
+    margin-right: 5px;
+}
+#DailyQuests_Panel, #MainQuests_Panel{
+    flow-children: down;
+    horizontal-align: right;
+}

@@ -26,6 +26,7 @@ function load_npc(t){
 function npcInfo(t){
 	list = t.list
 	mode = t.mode
+    $.Schedule(0.5, BuildLine)
 }
 function isBonusExpAvailable() {
 	const player = Players.GetPlayerHeroEntityIndex(playerID);
@@ -445,7 +446,7 @@ function open_quest_window(index){
 		i = 1
 	
 	if(index.index){
-		//$.Msg(index)
+		$.Msg(index)
 		unit = Number(index.index)
 		vecunit = Entities.GetAbsOrigin(unit)
 		if(index.sound == true){
@@ -459,7 +460,6 @@ function open_quest_window(index){
 				if(list[i].index == unit){
 					name = list[i].name;
 				}
-				Entities.SetMinimapIcon( list[i].index, 'minimap_questgiver' )
 				i++;
 			}
 		}
@@ -542,7 +542,7 @@ function open_base_panel(name, unit){
 	GameEvents.Subscribe('dota_player_update_hero_selection', open_quest_window);
 	GameEvents.Subscribe('dota_player_update_selected_unit', open_quest_window);
 	GameEvents.Subscribe('open_quest_window', open_quest_window);
-	CustomNetTables.SubscribeNetTableListener( "player_info", changeHudPanel );
+	// CustomNetTables.SubscribeNetTableListener( "player_info", changeHudPanel );
 	if($.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("HUDElements")){
 		$.CreatePanel("Panel", $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("HUDElements"), 'questInfoBarPanel')
 	}

@@ -134,10 +134,7 @@
 
     <Panel class="root" hittest="false">
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/1.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/2.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/3.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/4.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_spirit_breaker/int/1.png"/> -->
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_award.png"/> -->
 
 		<Panel id = "Rating" class = "Rating" hittest = "false">

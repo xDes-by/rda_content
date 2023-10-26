@@ -1,0 +1,380 @@
+.root{
+	height:100%;
+	width:100%;
+}
+.questPanel{
+	height:509px;
+	width:316px;
+	margin-left:10px;
+	margin-top:10%;
+	background-image:url('file://{resources}/images/custom_game/quest/quest.png');
+}
+.questScrollPanel{
+	overflow: clip scroll;
+}
+.questScrollPanel, .basepanel{
+	height:405px;
+	width:280px;
+	vertical-align:bottom;
+	margin-left:25px;
+	margin-bottom:30px;
+	flow-children:down;
+	
+}
+.basepanel_working_space{
+	height: 100%;
+	width: 100%;
+	flow-children:down;
+}
+.questIgnoreButtonPanel{
+	height:36px;
+	width:130px;
+	vertical-align:bottom;
+	margin-left:15px;
+	margin-bottom:13px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #a90303 ), to( #490101 ) );
+	border-radius:10px;
+	border:1px solid black;
+	
+}
+.questIgnoreButtonPanel:hover, .questAcceptButtonPanel:hover{
+	box-shadow: inset #3f021475 0px 0px 8px 12px;
+}
+.questAcceptButtonPanel{
+	height:36px;
+	width:130px;
+	border:1px solid black;
+	vertical-align:bottom;
+	horizontal-align:right;
+	margin-right:15px;
+	margin-bottom:13px;
+	background-color: gradient( radial, 50% 50%, 0% 0%, 80% 80%, from( #a90303 ), to( #490101 ) );
+	border-radius:10px;
+	
+}
+#TrialPeriod{
+	color:rgb(208, 255, 0);
+	vertical-align: bottom;
+	margin-left: 50px;
+	margin-bottom: 100px;
+	text-shadow: 2px 2px 8px 3.0 #444242;
+}
+#auto_quest_toggle{
+	vertical-align: bottom;
+	margin-bottom: 60px;
+	horizontal-align: left;
+	margin-left: 20px;
+}
+#auto_quest_toggle Label{
+	color:white;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.tasks_label{
+	color:white;
+	font-size:21px;
+	width:100%;
+	letter-spacing:2px;
+	margin-top: 5px;
+	text-align:center;
+	vertical-align:center;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.questButtonLabel{
+	color:yellow;
+	font-size:16px;
+	width:100%;
+	text-align:center;
+	vertical-align:center;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.questTextDesc{
+	color:white;
+	font-size:17px;
+	width:100%;
+	margin-left:5px;
+	margin-top: 5px;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.questReward{
+	width:100%;
+	flow-children:down;
+	margin-left:10px;
+	margin-right:10px;
+}
+.questRewardLabel{
+	color:white;
+	font-size:18px;
+	margin-left:10px;
+	margin-top:5px;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.questExpRewardPanel, .questGoldRewardPanel, .questTalantRewardPanel{
+	flow-children:right;
+}
+.questExpRewardPanel{
+	margin-left:15px;
+}
+.questGoldRewardWord, .questGoldRewardNumber, .questExpRewardWord, .questExpRewardNumber, .questTalantRewardWord, .questTalantRewardNumber{
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	font-size:17px;
+	color:white;
+}
+.questRewardExpAndGoldPanel{
+	border-top:1px solid black;
+	padding-top:5px;
+	flow-children:right;
+	width:100%;
+}
+.questRewardItemPanel,.questTaskItemPanel,.questRewardChoosItemPanel{
+	width:100%;
+	flow-children:down;
+}
+.questTaskItemPanel{
+	margin-top:10px;
+	margin-left:10px;
+	margin-right:10px;
+}
+.questRewardChoosItemPanel{
+	padding-bottom:5px;
+}
+.questTaskItemLabel,.questRewardItemLabel,.questRewardChoosItemLabel,.questTaskKillLabel,.GiveItemLabel{
+	border-top:1px solid black;
+	padding-top:3px;
+	color:white;
+	font-size:18px;
+	margin-top:5px;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	width:100%;
+}
+.taskItemsPanel,.GiveItemPanel{
+	width:100%;
+}
+.ItemPanel{
+	flow-children:right;
+	height:40px;
+	margin-top:5px;
+}
+.ItemsNumber{
+	vertical-align:center;
+	color:white;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	font-size:19px;
+}
+.ItemName,.KillName{
+	vertical-align:center;
+	color:white;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	font-size:17px;
+	margin-left:5px;
+}
+
+
+.QuestCloseButton{
+	flow-children: right;
+	horizontal-align:right;
+	margin-top:11px;
+	margin-right:5px;
+}
+.QuestCloseButtonIcon{
+	vertical-align:center;
+	margin-right:5px;
+}
+.QuestCloseButtonText{
+	color:white;
+	font-size:16px;
+	vertical-align:center;
+}
+.QuestCloseButtonText:hover{
+	color:#c2c2c2;
+}
+.shopbuttonhud
+{
+	border-radius:6px;
+	z-index: -100;
+	background-size: cover;
+	background-color: #000000da;
+	vertical-align: bottom;
+	horizontal-align: center;
+	margin-left: 0px;
+	margin-bottom: 250px;
+	width: 200px;
+	height: 60px;
+}
+#shopbutton
+{
+	height: 50px;
+	width: 190px;
+	align: center center;
+	background-image: url("file://{resources}/images/custom_game/quest/button/buttonBG1.png");
+	background-size: 100%;
+	box-shadow: #000000aa 0px 0px 2px 2px;
+	transition-property: background-image;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+#shopbutton:hover
+{
+	background-image: url("file://{resources}/images/custom_game/quest/button/buttonBG2.png");
+}
+#shopbutton:active
+{
+	sound: "ui_friends_slide_in";
+}
+#shopbuttonname
+{
+	color: white;
+	align: center center;
+	text-align: left;
+	text-shadow: 0px 0px 15px 2 #00000099;
+	font-weight:bold;
+	text-transform: uppercase;
+	font-size: 12;
+	text-overflow: ellipsis;
+	font-family: defaultFont;
+}
+.questInfoBarPanel{
+	flow-children:down;
+	horizontal-align:right;
+	margin-top:35%;
+}
+.questInfoBar{
+	horizontal-align:right;
+	flow-children:right;
+}
+.questInfoBarLabel_1,.questInfoBarLabel_2{
+	font-size:17px;
+	margin-right:10px;
+}
+#questInfoBarLabel_1:hover{
+	color:gray;
+}
+.questInfoBarLabel_1{
+	color:white;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.questInfoBarLabel_2{
+	color:gold;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.questInfoBarLabel_3{
+	font-size:20px;
+	color:gold;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	margin-right:5px;
+	font-weight:bold;
+}
+.ItemPanel{
+	width:100%;
+}
+
+.show_quest{
+	animation-name: show_quest;
+	animation-duration: .5s;
+}
+@keyframes 'show_quest'
+{
+	from{
+		opacity:0;
+		transform: translate3d(0px, 0px, 500px);
+		pre-transform-scale2d: 0.1;
+	}
+	
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.hide_quest{
+	animation-name: hide_quest;
+	animation-duration: .5s;
+}
+@keyframes 'hide_quest'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(0px, 0px, 500px);
+		pre-transform-scale2d: 0.1;
+	}
+}
+.show_button{
+	animation-name: show_button;
+	animation-duration: .5s;
+}
+@keyframes 'show_button'
+{
+	from{
+		opacity:0;
+		transform: translate3d(-750px, 200px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+	
+	to{
+		opacity: 1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+}
+.hide_button{
+	animation-name: hide_button;
+	animation-duration: .5s;
+}
+@keyframes 'hide_button'
+{
+	from{
+		opacity:1;
+		transform: translate3d(0px, 0px, 0px);
+		pre-transform-scale2d: 1;
+	}
+	
+	to{
+		opacity: 0;
+		transform: translate3d(750px, 200px, 0px);
+		pre-transform-scale2d: 0.1;
+	}
+}
+
+.task{
+	margin-top: 10px;
+	width: 100%;
+	height: 50px;
+	flow-children: right;
+	border:1px solid inherit;
+}
+.task:hover{
+	background-color: rgba(0, 0, 0, .5);
+	border-radius: 5px;
+	border:1px solid black;
+}
+.task_znak{
+	font-size: 35px;
+	width: 40px;
+	margin-left: 20px;
+	color:gold;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+	vertical-align: center;
+}
+.task_label{
+	font-size: 21px;
+	width: 100%;
+	vertical-align: center;
+	margin-left: 10px;
+	color:white;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}
+.tasks_nichego_net{
+	color:white;
+	margin-top: 20px;
+	font-size:18px;
+	width:100%;
+	letter-spacing:2px;
+	text-align:center;
+	vertical-align:center;
+	text-shadow: 2px 2px 8px 3.0 #000000;
+}

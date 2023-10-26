@@ -1,0 +1,103 @@
+<root>
+    <styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://{resources}/layout/custom_game/quests/quests.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/quests/quests.js" />
+        <include src="file://{resources}/layout/custom_game/quests/mapOverlay.js" />
+        <include src="file://{resources}/layout/custom_game/quests/tasks.js" />
+    </scripts>
+    <Panel class="root" hittest="false">
+        <Panel class="shopbuttonhud" id="shopbuttonhud" hittest="false">
+			<Panel id="shopbutton" hittest="true">
+				<Label id="shopbuttonname" text="РљСѓР·РЅРµС†" />
+			</Panel>
+		</Panel>
+		<Panel id="questPanel" class="questPanel">
+			<Panel id="basepanel" class="basepanel">
+				<Label class="tasks_label" text="#spisok_zadanii"/>
+				<Label id="tasks_nichego_net" class="tasks_nichego_net" text="#nichego_net"/>
+				<Panel id="basepanel_working_space" class="basepanel_working_space">
+					
+				</Panel> 
+			</Panel>
+			<Panel id="questScrollPanel" class="questScrollPanel">
+				<Label id="questTextDesc" class="questTextDesc" text="Фух…Ели ноги умотал…Хмм…На кого-то ты смахиваешь…Ладно, пойди-ка разберись с этими Живими Мертвецами! Не забудь забрать у них хребты и это , я там был не один, принеси мне лопату моего друга , буду очень благодарен тебе!Фух…Ели ноги умотал…Хмм…На кого-то ты смахиваешь…Ладно, пойди-ка разберись с этими Живими Мертвецами! Не забудь забрать у них хребты и это , я там был не один, принеси мне лопату моего друга , буду очень благодарен тебе!"/>
+				<Panel id="questTaskItemPanel" class="questTaskItemPanel">
+					<Label id="GiveItemLabel" class="GiveItemLabel" text="#quest_xml_give_item_label"/>
+					<Panel id='GiveItemPanel' class="GiveItemPanel">
+						<Panel class="ItemPanel">
+							<Label class="ItemsNumber" text="x2"/>
+							<DOTAItemImage class="questRewardItem" hittest="true" itemname="item_ultimate_scepter"/>
+							<Label class="ItemName" text="Aghanim's scepter"/>
+						</Panel>
+					</Panel>
+					<Label id="questTaskKillLabel" class="questTaskKillLabel" text="#quest_xml_kill_label"/>
+					<Panel id="killPanel" class="killPanel">
+						<Label id='KillName' class="KillName" text="x2 Beer"/>  
+					</Panel>
+					<Label id="questTaskItemLabel" class="questTaskItemLabel" text="#quest_xml_give_me_items_label"/>
+					<Panel id='taskItemsPanel' class="taskItemsPanel">
+						<Panel class="ItemPanel">
+							<Label class="ItemsNumber" text="x2"/>
+							<DOTAItemImage class="questRewardItem" hittest="true" itemname="item_ultimate_scepter"/>
+							<Label class="ItemName" text="Aghanim's scepter"/>
+						</Panel>
+					</Panel>
+				</Panel>
+				<Label id="questRewardLabel" class="questRewardLabel" text="#quest_xml_reward_label"/>
+				<Panel id="questReward" class="questReward">
+					<Panel id="questRewardExpAndGoldPanel" class="questRewardExpAndGoldPanel">
+						<Panel id="questGoldRewardPanel" class="questGoldRewardPanel">
+							<Label id="questGoldRewardWord" class="questGoldRewardWord" text="#quest_xml_reward_gold_label"/>
+							<Label id="questGoldRewardNumber" class="questGoldRewardNumber" text="1000"/>
+						</Panel>
+						<Panel id="questExpRewardPanel" class="questExpRewardPanel">
+							<Label id="questExpRewardWord" class="questExpRewardWord" text="#quest_xml_reward_exp_label"/>
+							<Label id="questExpRewardNumber" class="questExpRewardNumber" text="1500"/>
+						</Panel>
+					</Panel>
+					<Panel id="questTalantRewardPanel" class="questTalantRewardPanel">
+						<Label id="questTalantRewardWord" class="questTalantRewardWord" text="#quest_talent_exp"/>
+						<Label id="questTalantRewardNumber" class="questTalantRewardNumber" text="1500"/>
+					</Panel>
+					<Label id="questRewardItemLabel" class="questRewardItemLabel" text="#quest_xml_reward_items_label"/>
+					<Panel id="questRewardItemPanel" class="questRewardItemPanel">
+						<Panel class="ItemPanel">
+							<Label class="ItemsNumber" text=""/>
+							<DOTAItemImage class="questRewardItem" hittest="true" itemname="item_ultimate_scepter"/>
+							<Label class="ItemName" text="Aghanim's scepter"/>
+						</Panel>
+						<Panel class="ItemPanel">
+							<Label class="ItemsNumber" text="x2"/>
+							<DOTAItemImage class="questRewardItem" hittest="true" itemname="item_ultimate_scepter"/>
+							<Label class="ItemName" text="Aghanim's scepter"/>
+						</Panel>
+					</Panel>
+					<Label id="questRewardChoosItemLabel" class="questRewardChoosItemLabel" text="#quest_xml_reward_select_items_label"/>
+					<Panel id="questRewardChoosItemPanel" class="questRewardChoosItemPanel">
+						<Panel class="ItemPanel">
+							<Label class="ItemsNumber" text=""/>
+							<DOTAItemImage class="questRewardItem" hittest="true" itemname="item_ultimate_scepter"/>
+							<Label class="ItemName" text="Aghanim's scepter"/>
+						</Panel>
+						<Panel class="ItemPanel">
+							<Label class="ItemsNumber" text="x2"/>
+							<DOTAItemImage class="questRewardItem" hittest="true" itemname="item_ultimate_scepter"/>
+							<Label class="ItemName" text="Aghanim's scepter"/>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel id="questAcceptButtonPanel" class="questAcceptButtonPanel">
+				<Label id="questAcceptButtonLabel" class="questButtonLabel" text="#Quest_Accept"/>
+			</Panel>
+			<Panel id="questIgnoreButtonPanel" class="questIgnoreButtonPanel">
+				<Label id="questIgnoreButtonLabel" class="questButtonLabel" text="#Ignore" onmouseactivate="DeactivateShop(true)"/>
+			</Panel>
+			<Label id="TrialPeriod" class="" text="Вам доступно 20 игр" />
+			<ToggleButton id="auto_quest_toggle" class="" checked="false" text="#quest_automatic_surrender" onmouseover="$.DispatchEvent( 'DOTAShowTextTooltip', $('#auto_quest_toggle'), $.Localize('#quest_automatic_surrender_tooltip'));" onmouseout="$.DispatchEvent( 'DOTAHideTextTooltip');" />
+		</Panel>
+    </Panel>
+</root>

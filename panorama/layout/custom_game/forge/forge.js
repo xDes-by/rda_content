@@ -248,15 +248,22 @@ function HideGemTooltip(){
 
 function CreateOpenButton(){
     const ShopPanel = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("shop_launcher_block")
-    const CustomButton = ShopPanel.FindChildTraverse("CustomButton")
+    var CustomButton = ShopPanel.FindChildTraverse("CustomButtonForge")
     if(CustomButton == null){
-        const NewButtonPanel = $.CreatePanel("Panel", ShopPanel, "CustomButton")
-        NewButtonPanel.BLoadLayout("file://{resources}/layout/custom_game/forge/forge_button.xml", false, false)
-        NewButtonPanel.style.align = "right bottom"
-        NewButtonPanel.style.margin = "5px"
-        NewButtonPanel.SetPanelEvent("onactivate", OpenButton)
+        CustomButton = $.CreatePanel("Panel", ShopPanel, "CustomButtonForge")
+        CustomButton.BLoadLayout("file://{resources}/layout/custom_game/forge/forge_button.xml", false, false)
+        CustomButton.style.align = "right bottom"
+        CustomButton.style.margin = "5px"
+        CustomButton.SetPanelEvent("onactivate", OpenButton)
     }else{
         CustomButton.SetPanelEvent("onactivate", OpenButton)
+    }
+    if(Game.IsHUDFlipped()){
+        CustomButton.style.marginRight = "130px"
+        CustomButton.style.transform = "scaleX(-1)"
+    }else{
+        CustomButton.style.marginRight = "5px"
+        CustomButton.style.transform = "scaleX(1)"
     }
 }
 

@@ -1,0 +1,27 @@
+/* .mapoverlay{
+    height: 296px;
+    width: 296px;
+    border: 1px solid black;
+} */
+.overlayImage{
+    animation-name: overlayAnimation;
+	animation-duration: 5.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    height: 296px;
+    width: 296px;
+    /* background-color: red; */
+}
+
+@keyframes 'overlayAnimation'
+{
+	0%{
+        opacity: 0.2;
+    }
+    50%{
+        opacity: 0.1;
+    }
+    100%{
+        opacity: 0.2;
+    }
+}

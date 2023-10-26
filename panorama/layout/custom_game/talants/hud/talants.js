@@ -110,11 +110,7 @@ function buildTree(){
     });
     
 }
-/*
-{"lvls":{"0":0,"1":1000,"2":2500,"3":5000,"4":8000,"5":12000,"6":18000,"7":22000,"8":25000,"9":30000,"10":35000,"11":40000,"12":45000,"13":50000,"14":60000},
-"info":{"npc_dota_hero_axe":{"int":{"startnumber":1,"form":".png","url":"/images/custom_game/talants/img/npc_dota_hero_naga_siren/don/don-talant-","buff":"Talant_npc_dota_hero_axe_INT_buff_","name":"Talant_npc_dota_hero_axe_INT_name_","description":"Talant_npc_dota_hero_axe_INT_text_"},"agi":{"startnumber":1,"form":".png","url":"/images/custom_game/talants/img/npc_dota_hero_naga_siren/str/str-talant-","buff":"Talant_npc_dota_hero_axe_AGI_buff_","name":"Talant_npc_dota_hero_axe_AGI_name_","description":"Talant_npc_dota_hero_axe_AGI_text_"},"don":{"startnumber":1,"form":".png","url":"/images/custom_game/talants/img/npc_dota_hero_naga_siren/int/int-talant-","buff":"Talant_npc_dota_hero_axe_DON_buff_","name":"Talant_npc_dota_hero_axe_DON_name_","description":"Talant_npc_dota_hero_axe_DON_text_"},"str":{"startnumber":1,"form":".png","url":"/images/custom_game/talants/img/npc_dota_hero_naga_siren/agi/agi-talant-","buff":"Talant_npc_dota_hero_axe_STR_buff_","name":"Talant_npc_dota_hero_axe_STR_name_","description":"Talant_npc_dota_hero_axe_STR_text_"}},"npc_dota_hero_naga_siren":{"int":{"startnumber":1,"form":".png","url":"/images/custom_game/talants/img/npc_dota_hero_naga_siren/int/int-talant-","buff":"Talant_npc_dota_hero_naga_siren_INT_buff_","name":"Talant_npc_dota_hero_naga_siren_INT_name_","description":"Talant_npc_dota_hero_naga_siren_INT_text_"},"agi":{"startnumber":1,"form":".png","url":"/images/custom_game/talants/img/npc_dota_hero_naga_siren/agi/agi-talant-","buff":"Talant_npc_dota_hero_naga_siren_AGI_buff_","name":"Talant_npc_dota_hero_naga_siren_AGI_name_","description":"Talant_npc_dota_hero_naga_siren_AGI_text_"},"don":{"startnumber":1,"form":".png","url":"/images/custom_game/talants/img/npc_dota_hero_naga_siren/don/don-talant-","buff":"Talant_npc_dota_hero_naga_siren_DON_buff_","name":"Talant_npc_dota_hero_naga_siren_DON_name_",
-"description":"Talant_{"0":{"1":"npc_dota_hero_naga_siren","2":1262},"1":{"1":"npc_dota_hero_axe","2":891}}
-*/
+
 var lastdata;
 var heroname, progress, herotalant = [];
 function pickInit(tab){
@@ -178,7 +174,7 @@ function pickInit(tab){
             var arg = i + j;
             var img = talantpanel.FindChildTraverse("img"+arg);
             if(img){
-                img.SetImage("file://{resources}" + herotalant[pid][i][j]["url"])
+                img.SetImage("file://{resources}/images/custom_game/talants/img" + herotalant[pid][i][j]["url"])
             }
         }
     }
@@ -310,7 +306,7 @@ function talantTreeInit(tab){
         shop.AddClass("shop")
         var shop_image = $.CreatePanel('Image',shop,'shop_image'+i)
         shop_image.AddClass("shop-image")
-        shop_image.SetImage("file://{resources}" + talant_shop[i]["url"])
+        shop_image.SetImage("file://{resources}/images/custom_game/talants/img" + talant_shop[i]["url"])
         shop_image.SetPanelEvent("onmouseover",TipsOver(talant_shop[i]["description"],'shop_image'+i));
         shop_image.SetPanelEvent("onmouseout",TipsOut());
         var shop_text_panel = $.CreatePanel('Panel',shop,'shop_text_panel'+i)
@@ -458,7 +454,7 @@ function open(){
             var arg = i + j;
             var img = $("#img"+arg);
             if(img){
-                img.SetImage("file://{resources}" + herotalant[portID][i][j]["url"])
+                img.SetImage("file://{resources}/images/custom_game/talants/img" + herotalant[portID][i][j]["url"])
             }
         }
     }
@@ -696,7 +692,7 @@ var selectTalant = (function(arg)
         talantpanel.FindChildTraverse("talant_name_label").visible = true;
         talantpanel.FindChildTraverse("talant_description_buff_label").visible = true;
         talantpanel.FindChildTraverse("button").visible = true;
-        talantpanel.FindChildTraverse("talant_img_description").SetImage("file://{resources}" + url);
+        talantpanel.FindChildTraverse("talant_img_description").SetImage("file://{resources}/images/custom_game/talants/img" + url);
         talantpanel.FindChildTraverse("talant_name_label").text = $.Localize("#"+name);
         talantpanel.FindChildTraverse("talant_name_label").i = pan.i;
         talantpanel.FindChildTraverse("talant_description_buff_label").text = $.Localize("#"+buff);

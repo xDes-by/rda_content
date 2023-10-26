@@ -1,0 +1,9 @@
+<root>
+    <styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://{resources}/layout/custom_game/quests/mapOverlayTemplate.css" />
+    </styles>
+    <Panel class="mapoverlay" hittest="false">
+        <Image id="" class="overlayImage" src="file://{images}/custom_game/quest/map_overlay/16.png" />
+    </Panel>
+</root>
