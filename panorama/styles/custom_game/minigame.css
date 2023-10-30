@@ -1,0 +1,19 @@
+.minigame{
+	horizontal-align: center;
+	vertical-align: center;
+	height: 100%;
+	width: 100%;
+	background-color:black;
+}
+
+#minigame_container{
+	horizontal-align: center;
+	vertical-align: center;
+	height: 600px;
+	width: 800px;
+	background-color:rgb(59, 109, 68);
+}
+
+#ball{
+	border-radius: 50%;
+}
