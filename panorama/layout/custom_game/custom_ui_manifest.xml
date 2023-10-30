@@ -3,42 +3,11 @@
 <root>
   <scripts>
     <include src="file://{resources}/scripts/custom_game/api/dota_hud.js" />
+    <include src="file://{resources}/scripts/custom_indicator/custom_indicator.js" />
+    <include src="file://{resources}/scripts/teams.js" />
   </scripts>
-  <script><![CDATA[
-		GameUI.CustomUIConfig().multiteam_top_scoreboard =
-		{
-			shouldSort: false
-		};
-
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, true );
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FLYOUT_SCOREBOARD, true );
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_FIGHT_RECAP, false );
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_TEAMS, true );
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_GAME_NAME, true );
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_CLOCK, true );
-		GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_HERO_SELECTION_HEADER, true );
-
-		GameUI.CustomUIConfig().team_colors = {}
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_GOODGUYS] = "#65d413;"; // { 61, 210, 150 }	--		Teal
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_BADGUYS ] = "#fa0000;"; // { 243, 201, 9 }		--		Yellow
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_1] = "#c54da8;"; // { 197, 77, 168 }	--		Pink
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_2] = "#FF6C00;"; // { 255, 108, 0 }		--		Orange
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_3] = "#3455FF;"; // { 52, 85, 255 }		--		Blue
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_4] = "#65d413;"; // { 101, 212, 19 }	--		Green
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_5] = "#815336;"; // { 129, 83, 54 }		--		Brown
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_6] = "#1bc0d8;"; // { 27, 192, 216 }	--		Cyan
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_7] = "#c7e40d;"; // { 199, 228, 13 }	--		Olive
-		GameUI.CustomUIConfig().team_colors[DOTATeam_t.DOTA_TEAM_CUSTOM_8] = "#8c2af4;"; // { 140, 42, 244 }	--		Purple
-
-        var dotaHud = $.GetContextPanel().GetParent().GetParent().GetParent()
-        dotaHud.FindChildTraverse("AvailableItemsContainer").style.visibility = "collapse";
-	]]></script>
   <Panel>
-  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RDAShopItem1.xml" /> -->
-  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RDAShopItem2.xml" /> -->
-    <!-- <CustomUIElement type="HudTopBar" layoutfile="file://{resources}/layout/custom_game/multiteam_top_scoreboard.xml"/> -->
     <CustomUIElement type="PregameStrategy" layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
-
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage/damage.xml" />
     <CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/damage/end_screen.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/main.xml" />
@@ -46,10 +15,8 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet ui rework/pets.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud_config.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/Wave/wave.xml" />
-    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/quest.xml" /> -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ziv.xml" />
 	  <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/global_events_notifications.xml" />
-	  <!-- <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/talants/hud/talant_heroselection.xml" /> -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RDAshop/stash.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/forge.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/talants/hud/talants.xml" style="z-index:2;"/>
@@ -62,25 +29,27 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/quests/quests.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/battle_pass/battle_pass.xml" />
     
-  <!-- <CustomUIElement type="FlyoutScoreboard" layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" /> -->
-    
-  
-  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/collection/collection.xml" /> -->
 
+
+
+
+
+
+
+
+
+    
+    <!-- <CustomUIElement type="FlyoutScoreboard" layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" /> -->
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/collection/collection.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/smithy/smithy.xml" style="z-index:1;"/> -->
 	  <!-- <CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/vanilla_hero_selection.xml" /> -->
-
-<!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/boss_shop/shop.xml" /> -->
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/boss_shop/shop.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RatingProfil.xml" /> -->
-
-	<!-- <CustomUIElement type="GameInfo" layoutfile="file://{resources}/layout/custom_game/gameinfo.xml" /> -->
+	  <!-- <CustomUIElement type="GameInfo" layoutfile="file://{resources}/layout/custom_game/gameinfo.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/uploadimg.xml" /> 	 -->
-
-	
-  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/admin/admin.xml" /> -->
-    	<!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/defselect.xml" /> -->
-    
-	 <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage.xml"/> -->
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/admin/admin.xml" /> -->
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/defselect.xml" /> -->
+	  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage.xml"/> -->
 	
   </Panel>
 </root>
