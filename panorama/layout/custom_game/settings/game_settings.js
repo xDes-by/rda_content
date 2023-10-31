@@ -170,21 +170,24 @@ $("#DiffName").text = `${DIFFICULTY_PRIZE[1].name}`
 
 GameEvents.SendCustomGameEventToServer("GameSettingsInit", {})
 GameEvents.Subscribe("GameSettingsMaxDifficulty", function(params) {
-	$.Msg("maximum_passed_difficulty: ", params.maximum_passed_difficulty)
-	if(params.maximum_passed_difficulty >= 1){
-		$("#SettingsComplexTier3").diff_available = true
-		$("#SettingsComplexTier3").GetChild(1).visible = false
+	for(let i = 3; i <= 6;i++){
+		$("#SettingsComplexTier" + i).diff_available = true
+		$("#SettingsComplexTier" + i).GetChild(1).visible = false
 	}
-	if(params.maximum_passed_difficulty >= 2){
-		$("#SettingsComplexTier4").diff_available = true
-		$("#SettingsComplexTier4").GetChild(1).visible = false
-	}
-	if(params.maximum_passed_difficulty >= 3){
-		$("#SettingsComplexTier5").diff_available = true
-		$("#SettingsComplexTier5").GetChild(1).visible = false
-	}
-	if(params.maximum_passed_difficulty >= 4){
-		$("#SettingsComplexTier6").diff_available = true
-		$("#SettingsComplexTier6").GetChild(1).visible = false
-	}
+	// if(params.maximum_passed_difficulty >= 1){
+	// 	$("#SettingsComplexTier3").diff_available = true
+	// 	$("#SettingsComplexTier3").GetChild(1).visible = false
+	// }
+	// if(params.maximum_passed_difficulty >= 2){
+	// 	$("#SettingsComplexTier4").diff_available = true
+	// 	$("#SettingsComplexTier4").GetChild(1).visible = false
+	// }
+	// if(params.maximum_passed_difficulty >= 3){
+	// 	$("#SettingsComplexTier5").diff_available = true
+	// 	$("#SettingsComplexTier5").GetChild(1).visible = false
+	// }
+	// if(params.maximum_passed_difficulty >= 4){
+	// 	$("#SettingsComplexTier6").diff_available = true
+	// 	$("#SettingsComplexTier6").GetChild(1).visible = false
+	// }
 })
