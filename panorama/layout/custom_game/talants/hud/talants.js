@@ -78,23 +78,23 @@ var imbalist = {
 };
 
 const EnhancedTalentValues = {
-    "int1" : [8, 10, 12, 14, 16],
-    "int2" : [2.5, 3.0, 3.5, 4.0, 4.5],
-    "int3" : [15, 20, 25, 30, 35],
-    "int4" : [0.1, 0.125, 0.15, 0.175, 0.2],
-    "int5" : [0.15, 0.2, 0.25, 0.3, 0.35],
+    "int1" : [6, 8, 10, 12, 14, 16],
+    "int2" : [2, 2.5, 3.0, 3.5, 4.0, 4.5],
+    "int3" : [10, 15, 20, 25, 30, 35],
+    "int4" : [0.75, 0.1, 0.125, 0.15, 0.175, 0.2],
+    "int5" : [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
 
-    "str1" : [200, 250, 300, 350, 400],
-    "str2" : [2, 3, 4, 5, 6],
+    "str1" : [150, 200, 250, 300, 350, 400],
+    "str2" : [1, 2, 3, 4, 5, 6],
     "str3" : [7.5, 10.0, 12.5, 15.0, 17.5, 20.0],
-    "str4" : [0.75, 1.0, 1.25, 1.5, 2.0],
-    "str5" : [0.15, 0.2, 0.25, 0.3, 0.35],
+    "str4" : [0.5, 0.75, 1.0, 1.25, 1.5, 2.0],
+    "str5" : [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
 
-    "agi1" : [0.12, 0.14, 1.16, 0.18, 0.20],
-    "agi2" : [8, 10, 12, 14, 16],
-    "agi3" : ["10%", "13%", "16%", "19%", "22%"],
-    "agi4" : [0.1, 0.125, 0.15, 0.175, 0.2],
-    "agi5" : [0.15, 0.2, 0.25, 0.3, 0.35],
+    "agi1" : [0.1, 0.12, 0.14, 1.16, 0.18, 0.20],
+    "agi2" : [6, 8, 10, 12, 14, 16],
+    "agi3" : ["10%", "15%", "20%", "25%", "30%", "35%"],
+    "agi4" : [0.075, 0.1, 0.125, 0.15, 0.175, 0.2],
+    "agi5" : [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
 }
 
 
@@ -713,7 +713,7 @@ var selectTalant = (function(arg)
         if(pan.j <= 5 && pan.i != "don"){
             let updateValuesText = ""
             const data = EnhancedTalentValues[arg]
-            for(let i = 0; i < 5; i++){
+            for(let i = 0; i < 6; i++){
                 if(lastdata[arg] == i+1){
                     updateValuesText += `<font color='red'>${data[i]}</font>`
                 }else updateValuesText += data[i]
@@ -735,7 +735,7 @@ var selectTalant = (function(arg)
         }
         const IsShowUpdateButton = ()=>{
             if(Game.GetState() < DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME || !talantpanel.FindChildTraverse("button") || pid != portID) return false;
-            if(pan.selected && (pan.j > 5 || pan.i == "don" || progress[arg] >= 5)) return false;
+            if(pan.selected && (pan.j > 5 || pan.i == "don" || progress[arg] >= 6)) return false;
             if((pan.i == 'don' && progress['freedonpoints'] < LevelNeed(pan.i, pan.j, progress)) || (pan.i != 'don' && progress['freepoints'] < LevelNeed(pan.i, pan.j, progress))) return false;
             if(pan.j == 12 && !pan.available) return false
             if(!((pan.j != 6 && pan.j != 7 && pan.j != 8) || (progress[pan.i+6] + progress[pan.i+7] + progress[pan.i+8] == 0))) return false;
@@ -745,6 +745,7 @@ var selectTalant = (function(arg)
             tal1 += progress["agi1"] > 0 ? 1 : 0
             tal1 += progress["str1"] > 0 ? 1 : 0
             if(pan.i != "don" && (tal1 >= progress["cout"] && progress[pan.i+1] == 0)) return false;
+            if(pan.j == 13 && progress[pan.i+12] == 0) return;
             return true;
         }
         if(IsShowUpdateButton()){
@@ -802,6 +803,9 @@ function LevelNeed(cat, n, progress){
         branch_count += 1
     }
     if(progress[cat+12] == 1){
+        branch_count += 1
+    }
+    if(progress[cat+13] == 1){
         branch_count += 1
     }
     return  levelNeed - branch_count

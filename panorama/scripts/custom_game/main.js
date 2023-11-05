@@ -1477,20 +1477,6 @@ function UpdateButtonInWorld(name) {
 		pan.SetHasClass("shopbuttonvisible",false)
 }
 
-
-function updateRatingCouter(t){
-    t.a = Number(t.a);
-    if($('#rating_zar') != null && $('#rating_nadez') != null && $('#rating_doom') != null && $('#rating_your_mmr') != null && $('#rating_info_panel_img') != null){
-        
-            $('#rating_zar').text = t.a
-            $('#rating_nadez').text = t.b
-            $('#rating_doom').text = t.c
-
-        $('#rating_your_mmr').text = rating[LocalPlayer].points
-        $('#rating_info_panel_img').SetImage('file://{resources}/images/custom_game/ranks/' + rank(rating[LocalPlayer].points) + '.png')
-    }
-}
-
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
@@ -1606,7 +1592,6 @@ function FindChildTraverse(name){
 	// GameEvents.Subscribe( "SetShopItemCount", SetShopItemCount)
 	GameEvents.Subscribe( "initRating", initRating)
 	GameEvents.Subscribe( "initShop", initShop)
-	GameEvents.Subscribe( "updateRatingCouter", updateRatingCouter)
 	GameEvents.Subscribe( "update_gems_js", update_gems_js)
 	GameEvents.Subscribe( "change_pet", change_pet)
 	GameEvents.Subscribe( "ReceivingRPAlert", ReceivingRPAlert)

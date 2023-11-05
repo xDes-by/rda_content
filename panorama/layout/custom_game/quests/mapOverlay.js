@@ -1,5 +1,5 @@
 const DotaHUD = GameUI.CustomUIConfig().DotaHUD;
-
+var map_hints = true
 function FindUnitIndexByName(name){
     for(let i in list){
         if(list[i]['name'] == name){
@@ -78,6 +78,7 @@ function UpdateMinimapNpcIcons(data){
 function UpdateMinimapOverlay(data){
     const minimapPanel = DotaHUD.Get().FindChildTraverse("minimap")
     minimapPanel.RemoveAndDeleteChildren()
+    if(!map_hints.FindChildTraverse("maptogglebutton").checked) return
     for(let typeIndex of ['main', 'bonus']){
         for(let questNumber in data[typeIndex]){
             if(data[typeIndex][questNumber]['active']){
@@ -95,10 +96,26 @@ function UpdateMinimapOverlay(data){
 }
 
 (()=>{
-    
-    
-    // const questOverlay = $.CreatePanel("Image", miniMapPanel, "", {style:"height:100%;width:100%;align:center center;opacity:0.2;", src:"file://{images}/custom_game/quest/map_overlay/1.png", hittest:false})
-    // MinimapEvent(DOTATeam_t.DOTA_TEAM_GOODGUYS, getPlayerHero() as CBaseEntity, -1329, 2425.698730, DOTAMinimapEvent_t.DOTA_MINIMAP_EVENT_TUTORIAL_TASK_FINISHED, 0.1);
-    // Entities.SetMinimapIcon( 614, 'minimap_sword' )
-    // CustomNetTables.SubscribeNetTableListener( "player_info", OnQuestDataChange );
+    map_hints = $.CreatePanel("Panel", DotaHUD.Get().FindChildTraverse("minimap_container"), "", {style:"z-index:-10;"})
+    map_hints.BLoadLayout("file://{resources}/layout/custom_game/quests/mapToggleButton.xml", false, false)
+    if(Game.IsHUDFlipped()){
+        map_hints.style.transform = "scaleX(-1)"
+    }else{
+        map_hints.style.transform = "scaleX(1)"
+    }
+    const GameInfo = CustomNetTables.GetTableValue( "GameInfo", Game.GetLocalPlayerID())
+    map_hints.FindChildTraverse("maptogglebutton").SetSelected(GameInfo["map_hints"])
+    map_hints.FindChildTraverse("maptogglebutton").SetPanelEvent("onactivate", ()=>{
+        if(map_hints.FindChildTraverse("maptogglebutton").checked){
+            const sid = GetUniverseSteamID32(Players.GetLocalPlayer())
+            const player_info = CustomNetTables.GetTableValue( "player_info", sid);
+            UpdateMinimapOverlay(player_info[sid])
+        }else{
+            const minimapPanel = DotaHUD.Get().FindChildTraverse("minimap")
+            minimapPanel.RemoveAndDeleteChildren()
+        }
+        GameEvents.SendCustomGameEventToServer ("MapOverlay_Hints", {
+            hints : map_hints.FindChildTraverse("maptogglebutton").checked
+        })
+    })
 })()

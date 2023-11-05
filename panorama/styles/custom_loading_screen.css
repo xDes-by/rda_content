@@ -51,7 +51,11 @@ flow-children: down;
 	margin-left:300px;
 
 } */
-
+#test{
+	height: 100px;
+	width: 100px;
+	background-color: red;
+}
 .invisible
 {
 	opacity: 0;

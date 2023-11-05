@@ -10,21 +10,45 @@
     vertical-align: bottom;
     /* position: 0px 100px 0px; */
     horizontal-align: right;
-    margin-right: 300px;
+    margin-right: 330px;
     background-repeat:no-repeat;
     background-size:100%;
     border:1px solid #000e;
     flow-children: down;
+    transition-property: transform;
+	transition-duration: 0.2s;
+	transform: translate3d(0px, 0px, 0px);
+}
+#CustomStashTopContainer_Panel{
+    height: 60px;
 }
 .CustomInventoryList{
     padding: 0;
     width: 210px;
     flow-children: right-wrap;
 }
+#PanelForScrollButton{
+    width: 100%;
+}
+#PanelForScrollButton:hover{
+    brightness: 0.5;
+}
+#ScrollButton{
+    horizontal-align: center;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #25282b, to( #1b1d20));
+    height: 30px;
+    width: 90%;
+}
+#ScrollButton Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #c0c5cc, to( #d5dae0));
+    font-size: 21;
+    align: center center;
+}
 .CustomInventorySlot{
     width: 67px;
     height: 50px;
-    margin-top: 2px;
+    margin-top: 1px;
+    margin-bottom: 1px;
     margin-left: 2px;
 }
 .CustomStashItemCount_Label{

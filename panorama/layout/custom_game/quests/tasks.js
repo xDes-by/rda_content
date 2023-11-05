@@ -16,11 +16,11 @@ function BuildDaily(table_name, key, data){
         newPanel.GetChild(0).GetChild(4).visible = false
         newPanel.GetChild(0).GetChild(3).text = `${$.Localize("#DailyTaskDescription_"+qData['index'])} <font color='green'>${qData['now']}/${qData['count']}</font>`
         if(qData['now'] >= qData['count'] && qData['received'] == false){
-            newPanel.GetChild(2).visible = true
-            newPanel.GetChild(2).SetPanelEvent("onactivate", AwardButton(qData['index']))
+            newPanel.GetChild(0).GetChild(2).visible = true
+            newPanel.GetChild(0).GetChild(2).SetPanelEvent("onactivate", AwardButton(qData['index']))
         }
         if(qData['received'] == true){
-            newPanel.GetChild(1).visible = true
+            newPanel.GetChild(0).GetChild(1).visible = true
         }
     }
 }

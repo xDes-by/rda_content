@@ -25,3 +25,17 @@
         opacity: 0.2;
     }
 }
+
+.maptogglebutton{
+    height: 307px;
+    width: 280px;
+    vertical-align: bottom;
+    /* background-color: gradient(linear, 0% 100%, 100% 0%, from(#0b1431), to(#242d35)); */
+    background-color: black;
+}
+#maptogglebutton{
+    margin-left: 20px;
+} 
+#maptogglebutton Label{
+    color:white;
+}

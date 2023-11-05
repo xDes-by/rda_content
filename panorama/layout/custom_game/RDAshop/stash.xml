@@ -4,31 +4,24 @@
 		<include src="file://{resources}/layout/custom_game/RDAshop/stash.css" />
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
-	
 	<scripts>
 		<include src="file://{resources}/layout/custom_game/RDAshop/stash.js" />
 	</scripts>
-	
-	<snippets>
-		<snippet name="CustomInventorySlot">
-			<Panel>
-				<Panel id="" class="CustomInventorySlot">
-                    <DOTAItemImage id="ItemImage" class="" itemname="item_boss_summon" />
-                    <Label id="ItemCD" class="CustomStashItemCd_Label" text="48" hittest="false" />
-                    <Label id="ItemCount" class="CustomStashItemCount_Label" text="12" hittest="false" />
-                </Panel>
-			</Panel>
-		</snippet> 
-	</snippets>
 	
 	<Panel class ="root" hittest="false">
         <Panel id="CustomStash_Panel" class="">
             <Panel id="CustomStashTopContainer_Panel" class="">
                 <Label id="" class="CustomStashTopContainerDescription_Label" text="#panorama_custon_stash_description" />
             </Panel>
-            <Panel id="CustomInventoryList" class="CustomInventoryList">
-                
-            </Panel>
+            <Panel id="CustomInventoryFirstLine" class="CustomInventoryList">
+			</Panel>
+			<Panel id="PanelForScrollButton" class="">
+				<Panel id="ScrollButton" class="">
+					<Label id="" class="" text="#panorama_custon_stash_use_all" />
+				</Panel>
+			</Panel>
+            <Panel id="CustomInventorySecondLine" class="CustomInventoryList">
+			</Panel>
         </Panel>
 	</Panel>
 </root>

@@ -36,6 +36,9 @@
                     <DOTAItemImage id="" class="soul_item" itemname="item_dust_soul" >
                         <Label id="label" class="" text="1" />    
                     </DOTAItemImage>
+                    <DOTAItemImage id="" class="soul_item" itemname="item_cemetery_soul" >
+                        <Label id="label" class="" text="1" />    
+                    </DOTAItemImage>
                     <DOTAItemImage id="" class="soul_item" itemname="item_swamp_soul" >
                         <Label id="label" class="" text="1" />    
                     </DOTAItemImage>
@@ -43,9 +46,6 @@
                         <Label id="label" class="" text="1" />    
                     </DOTAItemImage>
                     <DOTAItemImage id="" class="soul_item" itemname="item_divine_soul" >
-                        <Label id="label" class="" text="1" />    
-                    </DOTAItemImage>
-                    <DOTAItemImage id="" class="soul_item" itemname="item_cemetery_soul" >
                         <Label id="label" class="" text="1" />    
                     </DOTAItemImage>
                     <DOTAItemImage id="" class="soul_item" itemname="item_magma_soul" >

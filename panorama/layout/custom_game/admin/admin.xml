@@ -12,458 +12,64 @@
     <Panel class ="root" hittest="false">
         
         <Panel id="main_panel" class="">
-            <Label id="admin_panel_label" class="" text="Admin Panel" />
-            <Label id="close_button" class="" text="закрыть" />
-
-            <Panel id="admin_page" class="admin_page">
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="золото" />
+            <Label id="admin_panel_label" class="" text="Cheat Panel" />
+            <Panel id="parameter_panel" class="">
+                <Panel id="" class="parameter_lines">
+                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-1000)" onmouseactivate = "ChangeGold(1000)">
+                        <Label id="" class="font_class font_align" text="10K золота"/>
                     </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
+                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-10000)" onmouseactivate = "ChangeGold(10000)">
+                        <Label id="" class="font_class font_align" text="100K золота"/>
                     </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <Panel id="" class="center flow-children-right">
-                            <Label id="player_gold_label" class="base_label" text="" />
-                            <Panel id="" class="gold_icon"></Panel>
-                        </Panel>
-                        
+                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-500000)" onmouseactivate = "ChangeGold(500000)">
+                        <Label id="" class="font_class font_align" text="500K золота"/>
                     </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="добавить" />
-                        </Panel>
+                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-1000000)" onmouseactivate = "ChangeGold(1000000)">
+                        <Label id="" class="font_class font_align" text="1M золота"/>
                     </Panel>
                 </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="опыт" />
+                <Panel id="" class="parameter_lines">
+                    <Panel id="" class="button_panel" onmouseactivate = "ChangeLevel(10)">
+                        <Label id="" class="font_class font_align" text="+10 уровней" />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "ChangeLevel(100)">
+                        <Label id="" class="font_class font_align" text="+100 уровней"  />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <Panel id="" class="center flow-children-right">
-                            <Label id="player_gold_label" class="base_label" text="" />
-                            <Label id="" class="base_label" text=" ур" />
-                        </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "Talents()">
+                        <Label id="" class="font_class font_align" text="Таланты"  />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="добавить" />
-                        </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "TalentsDrop()">
+                        <Label id="" class="font_class font_align" text="Сброс Талантов"  />
                     </Panel>
                 </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="рп" />
+                <Panel id="" class="parameter_lines">
+                    <Panel id="" class="button_panel" onmouseactivate = "DropItems(8)">
+                        <Label id="" class="font_class font_align" text="Предметы LVL 8"  />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "DropItems(11)">
+                        <Label id="" class="font_class font_align" text="Предметы LVL 11"  />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <Panel id="" class="center flow-children-right">
-                            <Label id="player_gold_label" class="base_label" text="" />
-                            <Panel id="" class="rp_image"></Panel>
-                        </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "GiveSouls()">
+                        <Label id="" class="font_class font_align" text="Души"  />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="добавить" />
-                        </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "GiveBooks()">
+                        <Label id="" class="font_class font_align" text="Книги"  />
                     </Panel>
                 </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="коины" />
+                <!-- <Panel id="" class="parameter_lines">
+                    <Panel id="" class="button_panel">
+                        <Label id="" class="font_class font_align" text="Книги" />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
+                    <Panel id="" class="button_panel">
+                        <Label id="" class="font_class font_align" text="" />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <Panel id="" class="center flow-children-right">
-                            <Label id="player_gold_label" class="base_label" text="" />
-                            <Panel id="" class="coins_image"></Panel>
-                        </Panel>
+                    <Panel id="" class="button_panel">
+                        <Label id="" class="font_class font_align" text="" />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
+                    <Panel id="" class="button_panel">
+                        <Label id="" class="font_class font_align" text="" />
                     </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="добавить" />
-                        </Panel>
-                    </Panel>
-                </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="корм" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <Panel id="" class="center flow-children-right">
-                            <Label id="player_gold_label" class="base_label" text="" />
-                            <Panel id="" class="feed_image"></Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="добавить" />
-                        </Panel>
-                    </Panel>
-                </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="крип" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <DropDown id="create_entity_drop_down" class="create_entity_drop_down" oninputsubmit="">
-                            <Label text="#npc_forest_boss" id="npc_forest_boss"/>
-                            <Label text="#npc_village_boss" id="npc_village_boss"/>
-                            <Label text="#npc_mines_boss" id="npc_mines_boss"/>
-                            <Label text="#npc_dust_boss" id="npc_dust_boss"/>
-                            <Label text="#npc_swamp_boss" id="npc_swamp_boss"/>
-                            <Label text="#npc_snow_boss" id="npc_snow_boss"/>
-                            <Label text="#npc_boss_location8" id="npc_boss_location8"/>
-                        </DropDown>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-4" style="height:100%;">
-                        <Panel id="" class="center flow-children-right" >
-                            <ToggleButton id="" class="" checked="true" text="Enemy" />
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="создать" />
-                        </Panel>
-                    </Panel>
-                </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="крип" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <TextEntry id="" class="" maxchars="5" oninputsubmit="" text="1" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-4" style="height:100%;">
-                        <Panel id="" class="center flow-children-right" >
-                            <ToggleButton id="" class="" checked="true" text="Enemy" />
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="создать" />
-                        </Panel>
-                    </Panel>
-                </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="предмет" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <DropDown id="create_entity_drop_down" class="create_entity_drop_down" oninputsubmit="">
-                            <!-- <Panel id="item_forest_soul" class="item_option">
-                                <DOTAItemImage id="" class="item_option_item_image" itemname="item_forest_soul" />
-                                <Label id="" class="item_option_item_text" text="#item_forest_soul" />
-                            </Panel> -->
-                            <Panel id="item_village_soul" class="item_option">
-                                <DOTAItemImage id="" class="item_option_item_image" itemname="item_village_soul" />
-                                <Label id="" class="item_option_item_text" text="#item_village_soul" />
-                            </Panel>
-                            <Label id="item_forest_soul" class="" text="#item_forest_soul" />
-                            <!-- <Label text="#npc_forest_boss" id="npc_forest_boss"/>
-                            <Label text="#npc_village_boss" id="npc_village_boss"/>
-                            <Label text="#npc_mines_boss" id="npc_mines_boss"/>
-                            <Label text="#npc_dust_boss" id="npc_dust_boss"/>
-                            <Label text="#npc_swamp_boss" id="npc_swamp_boss"/>
-                            <Label text="#npc_snow_boss" id="npc_snow_boss"/>
-                            <Label text="#npc_boss_location8" id="npc_boss_location8"/> -->
-                        </DropDown>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="дать" />
-                        </Panel>
-                    </Panel>
-                </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="предмет" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <TextEntry id="" class="" maxchars="5" oninputsubmit="" text="1" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="дать" />
-                        </Panel>
-                    </Panel>
-                </Panel>
-                <Panel id="" class="option_line">
-                    <Panel id="" class="auto-width width-style-1">
-                        <Label id="" class="base_label" text="статы" />
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-2">
-                        <DOTAHeroImage id="" class="" heroname="npc_dota_hero_pudge" heroimagestyle="icon" />
-                        <TextEntry id="player_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                        <Panel id="" class="feed_entry_buttons">
-                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                                <Panel id="feed_entry_line_2" class="center"></Panel>
-                            </Panel>
-                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                <Panel id="feed_entry_line_1" class="center"></Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-3">
-                        <DropDown id="create_entity_drop_down" class="create_entity_drop_down" oninputsubmit="">
-                            <Label text="#npc_forest_boss" id="npc_forest_boss"/>
-                            <Label text="#npc_village_boss" id="npc_village_boss"/>
-                            <Label text="#npc_mines_boss" id="npc_mines_boss"/>
-                            <Label text="#npc_dust_boss" id="npc_dust_boss"/>
-                            <Label text="#npc_swamp_boss" id="npc_swamp_boss"/>
-                            <Label text="#npc_snow_boss" id="npc_snow_boss"/>
-                            <Label text="#npc_boss_location8" id="npc_boss_location8"/>
-                        </DropDown>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-4">
-                        <Panel id="" class="center flow-children-right">
-                            <TextEntry id="count_entry_text" class="" maxchars="5" oninputsubmit="" text="1" textmode="numeric" />
-                            <Panel id="" class="feed_entry_buttons">
-                                <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                    <Panel id="feed_entry_line_2" class="center"></Panel>
-                                </Panel>
-                                <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
-                                    <Panel id="feed_entry_line_1" class="center"></Panel>
-                                </Panel>
-                            </Panel>
-                        </Panel>
-                    </Panel>
-                    <Panel id="" class="auto-width width-style-5">
-                        <Panel id="" class="base_button">
-                            <Label id="" class="base_label" text="добавить" />
-                        </Panel>
-                    </Panel>
-                </Panel>
-                <Panel id="admin_buttons_line" class="option_line">
-                    <Panel id="" class="admin_buttons_panel">
-                        <Label id="" class="" text="God Mode On" />
-                    </Panel>
-                    <Panel id="" class="admin_buttons_panel">
-                        <Label id="" class="" text="God Mode Off" />
-                    </Panel>
-                    <Panel id="" class="admin_buttons_panel">
-                        <Label id="" class="" text="Gey Cock" />
-                    </Panel>
-                    <Panel id="" class="admin_buttons_panel">
-                        <Label id="" class="" text="Drop Book" />
-                    </Panel>
-                    <Panel id="" class="admin_buttons_panel">
-                        <Label id="" class="" text="Game End" />
-                    </Panel>
-                </Panel>
+                </Panel> -->
             </Panel>
         </Panel>
 	</Panel>

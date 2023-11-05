@@ -2,25 +2,20 @@
 	<styles>
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="file://{resources}/layout/custom_game/forge/forge.css" />
-		<!-- <include src="s2r://panorama/styles/custom_game/custom_shop/custom_shop_neutral_shop.vcss_c" />
-		<include src="s2r://panorama/styles/custom_game/custom_shop/custom_shop_upgrade_item.vcss_c" /> -->
 	</styles>
 	<scripts>
-		<include src="file://{resources}/layout/custom_game/forge/forge.js" />
-		<!-- <include src="s2r://panorama/scripts/custom_game/custom_shop/custom_shop_neutral_shop.vjs_c" /> -->
+		<include src="file://{resources}/layout/custom_game/forge/forge_variables.js" />
+        <include src="file://{resources}/layout/custom_game/forge/forge_view_processing.js" />
+		<include src="file://{resources}/layout/custom_game/forge/forge_functions.js" />
 	</scripts>
 	<snippets>
 		<snippet name="UpgradeItemSnippet">
 			<Panel>
-				<DOTAItemImage id="ItemIcon" itemname="" >
-                    <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/purple_gem.png" />
-                    <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/blue_gem.png" />
-                    <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/orange_gem.png" />
-                    <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/red_gem.png" />
-                    <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/green_gem.png" />
-                </DOTAItemImage>
+				<!-- <DOTAItemImage id="ItemIcon" itemname="" >
+                </DOTAItemImage> -->
+                <Image id="ItemIcon" class="" src="" />
 				<Label id="ItemName" text="name" />
-                <Label id="GemBuff" class="" text="+10000 чего-то там" />
+                <Label id="GemBuff" class="" text="+10000 чего-то там" html="true" />
 			</Panel>
 		</snippet>
 	</snippets>
@@ -32,57 +27,58 @@
 				</Panel>
 				<Panel id="UpgradeItemPanel" hittest="false" />
 				<Panel id="UpgradeInfoPanel">
-					<DOTAItemImage id="ItemIconNew" itemname="" >
+					<!-- <DOTAItemImage id="ItemIconNew" itemname="" >
                         <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/purple_gem.png" />
                         <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/blue_gem.png" />
                         <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/orange_gem.png" />
                         <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/red_gem.png" />
                         <Image id="" class="ItemIconGem_Image" src="file://{resources}/images/custom_game/smithy/green_gem.png" />
-                    </DOTAItemImage>
+                    </DOTAItemImage> -->
+                    <Image id="ItemIconNew" class="" src="" />
 					<Image id="ItemIconBorderNew" hittest="false" src="file://{resources}/images/custom_game/forge/item_border_png.png" />
 					<Image id="chanceArrow" src="file://{resources}/images/custom_game/forge/chance_arrow_png.png" />
-					<Label id="OldLevelItem" text="1 lvl" />
-					<Label id="NewLevelItem" text="2 lvl" />
+					<Label id="OldLevelItem" text="1 LVL" />
+					<Label id="NewLevelItem" text="2 LVL" />
                     <Panel class="TabContainerClass">
-                        <Button id="UpdateButtonTab" class="TabButtonClass" onactivate="UpdateUpgradeTabPanel()">
+                        <Button id="UpdateButtonTab" class="TabButtonClass" onactivate="SwitchDisplayMode('levelup')">
                             <Label class="TabLabelClass" text="#ui_custom_shop_upgrade_item_1" />
                         </Button>
-                        <Button id="GemsButtonTab" class="TabButtonClass" onactivate="UpdateGemsTabPanel()">
+                        <Button id="GemsButtonTab" class="TabButtonClass" onactivate="SwitchDisplayMode('stones')">
                             <Label class="TabLabelClass" text="#ui_custom_shop_upgrade_item_2" />
                         </Button>
                     </Panel>
-                    <Label id="GemBuffDescription" class="" text="+10000 чего-то там" />
+                    <Label id="GemBuffDescription" class="" text="+10000 чего-то там" html="true" />
 					<Panel id="ExtensionsPanel">
                         <Panel id="GemsMainContainer_Panel" class="">
-                            <Panel id="" class="GemContainer_Panel" onactivate="GemButton(1)" onmouseover="ShowGemTooltip(1)" onmouseout="HideGemTooltip()">
+                            <Panel id="" class="GemContainer_Panel" onactivate="ProcessGemSelectionButtonPress(1)" onmouseover="ShowGemTooltip(1)" onmouseout="HideGemTooltip()">
                                 <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/purple_gem.png" />
                                 <Label id="" class="GemAmount_Label" text="4847" />
                                 <Panel id="" class="GemLock_Panel">
                                     <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/lock_white.png" />
                                 </Panel>
                             </Panel>
-                            <Panel id="" class="GemContainer_Panel" onactivate="GemButton(2)" onmouseover="ShowGemTooltip(2)" onmouseout="HideGemTooltip()">
+                            <Panel id="" class="GemContainer_Panel" onactivate="ProcessGemSelectionButtonPress(2)" onmouseover="ShowGemTooltip(2)" onmouseout="HideGemTooltip()">
                                 <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/blue_gem.png" />
                                 <Label id="" class="GemAmount_Label" text="4847" />
                                 <Panel id="" class="GemLock_Panel">
                                     <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/lock_white.png" />
                                 </Panel>
                             </Panel>
-                            <Panel id="" class="GemContainer_Panel" onactivate="GemButton(3)" onmouseover="ShowGemTooltip(3)" onmouseout="HideGemTooltip()">
+                            <Panel id="" class="GemContainer_Panel" onactivate="ProcessGemSelectionButtonPress(3)" onmouseover="ShowGemTooltip(3)" onmouseout="HideGemTooltip()">
                                 <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/orange_gem.png" />
                                 <Label id="" class="GemAmount_Label" text="4847" />
                                 <Panel id="" class="GemLock_Panel">
                                     <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/lock_white.png" />
                                 </Panel>
                             </Panel>
-                            <Panel id="" class="GemContainer_Panel" onactivate="GemButton(4)" onmouseover="ShowGemTooltip(4)" onmouseout="HideGemTooltip()">
+                            <Panel id="" class="GemContainer_Panel" onactivate="ProcessGemSelectionButtonPress(4)" onmouseover="ShowGemTooltip(4)" onmouseout="HideGemTooltip()">
                                 <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/red_gem.png" />
                                 <Label id="" class="GemAmount_Label" text="4847" />
                                 <Panel id="" class="GemLock_Panel">
                                     <Image id="" class="GemLock_Image" src="file://{resources}/images/custom_game/lock_white.png" />
                                 </Panel>
                             </Panel>
-                            <Panel id="" class="GemContainer_Panel" onactivate="GemButton(5)" onmouseover="ShowGemTooltip(5)" onmouseout="HideGemTooltip()">
+                            <Panel id="" class="GemContainer_Panel" onactivate="ProcessGemSelectionButtonPress(5)" onmouseover="ShowGemTooltip(5)" onmouseout="HideGemTooltip()">
                                 <Image id="" class="GemImage_Image" src="file://{resources}/images/custom_game/smithy/green_gem.png" />
                                 <Label id="" class="GemAmount_Label" text="4847" />
                                 <Panel id="" class="GemLock_Panel">
@@ -92,7 +88,7 @@
                         </Panel>
                         <Panel id="SliderContainer_Panel" class="">
                             <Label id="GemUpdateAmount" class="" text="648/5000" />
-                            <Slider id="InsertingStonesSlider" onvaluechanged="SliderValueChanged()" direction="horizontal"/>
+                            <Slider id="InsertingStonesSlider" direction="horizontal" increment = "1"/>
                             <Image id="info_Image" src="s2r://panorama/images/status_icons/information_psd.vtex" onmouseover="$.DispatchEvent( 'DOTAShowTextTooltip', $('#info_Image'), $.Localize('#smithy_tooltip_vopros'))" onmouseout="HideGemTooltip()"/>
                         </Panel>
 					</Panel>
@@ -103,7 +99,7 @@
 						<Label id="PointBossCostNumber" text="1" />
                         <DOTAItemImage id="PointBossIcon" itemname="" />
 					</Panel>
-					<Button id="UpgradeButtonPanel" onactivate="PressUpdgradeButton()">
+					<Button id="UpgradeButtonPanel">
 						<Label class="UpgradeButtonClass" text="#ui_custom_shop_upgrade_item_upgrade_button" />
 					</Button>
 				</Panel>

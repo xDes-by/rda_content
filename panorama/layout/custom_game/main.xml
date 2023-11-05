@@ -134,7 +134,7 @@
 
     <Panel class="root" hittest="false">
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_jakiro/str/1.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_zuus/agi/6.png"/> -->
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_award.png"/> -->
 
 		<Panel id = "Rating" class = "Rating" hittest = "false">
@@ -344,29 +344,6 @@
 			</Panel>
 		</Panel>
 		<Panel id="TreasuresPreviewRoot" />
-		
-		<Panel id="rating_info_panel" class="rating_info_panel" hittest = "false">
-			<Panel id="rating_info_paadssdf23">
-				<Image id="rating_score_image_bg" class="rating_score_image_bg" src="file://{resources}/images/custom_game/rating/score.png" />
-				<Panel id="rating_info_panel_1" class="rating_info_panel_1">
-					<Panel id="rating_info_panel_3" class="rating_info_panel_3">
-						<Panel id="rating_info_panel_9" class="rating_info_panel_9" onmouseover="TipsOver('rating_zar','rating_info_panel_9')" onmouseout="TipsOut()">
-							<Label id="rating_zar" class="rating_info_label" text="0" />
-						</Panel>
-						<Panel id="rating_info_panel_10" class="rating_info_panel_10" onmouseover="TipsOver('rating_nadez','rating_info_panel_10')" onmouseout="TipsOut()">
-							<Label id="rating_nadez" class="rating_info_label" text="0" />
-						</Panel>
-						<Panel id="rating_info_panel_11" class="rating_info_panel_11" onmouseover="TipsOver('rating_doom','rating_info_panel_11')" onmouseout="TipsOut()">
-							<Label id="rating_doom" class="rating_info_label" text="0" />
-						</Panel>
-						<Panel id="rating_info_panel_12" class="rating_info_panel_12" onmouseover="TipsOver('rating_your_mmr','rating_info_panel_12')" onmouseout="TipsOut()">
-							<Label id="rating_your_mmr" class="rating_info_label" text="0" />
-						</Panel>
-					</Panel>
-				</Panel>
-				<Image id="rating_info_panel_img" class = "rating_info_panel_img" src="" />
-			</Panel>
-		</Panel>
 
 		<Panel id="ChangeHeroMainPanel" hittest = "false">
 			<Image id="ChangeHeroCloseButton" class="" src="file://{resources}/images/custom_game/changehero/close.png" onmouseactivate="hide_change()" onmouseover="TipsOver('close','ChangeHeroCloseButton')" onmouseout="TipsOut()" />

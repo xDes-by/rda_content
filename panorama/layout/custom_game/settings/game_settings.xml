@@ -56,6 +56,7 @@
 				<Panel id="WinPrize" class="WinPrize">
 					<Label id="" class="WinPrizeElement" text="+30MMR" />
 					<Label id="" class="WinPrizeElement" text="+30RP" />
+					<Label id="" class="WinPrizeElement" text="+30TALENT" />
 				</Panel>
 			</Panel>
 			<!-- <Panel id="Bonus" class="Container">

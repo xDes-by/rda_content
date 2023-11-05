@@ -7,12 +7,15 @@
     <include src="file://{resources}/scripts/teams.js" />
   </scripts>
   <Panel>
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_score/ingame_score.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/admin/admin.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/battle_pass/battle_pass.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet ui rework/pets.xml" />
     <CustomUIElement type="PregameStrategy" layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage/damage.xml" />
     <CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/damage/end_screen.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/main.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" /> 
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet ui rework/pets.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud_config.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/Wave/wave.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ziv.xml" />
@@ -27,10 +30,8 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/dummy/init.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tutorial/tutorial.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/quests/quests.xml" />
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/battle_pass/battle_pass.xml" />
     
-
-
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minigame/minigame.xml" /> -->
 
 
 
@@ -47,7 +48,7 @@
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RatingProfil.xml" /> -->
 	  <!-- <CustomUIElement type="GameInfo" layoutfile="file://{resources}/layout/custom_game/gameinfo.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/uploadimg.xml" /> 	 -->
-    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/admin/admin.xml" /> -->
+    
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/defselect.xml" /> -->
 	  <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage.xml"/> -->
 	

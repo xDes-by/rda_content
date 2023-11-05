@@ -43,9 +43,13 @@
 }
 
 
-
+.taskSnippet{
+    horizontal-align: right;
+}
 #Main_Label{
     font-size: 24;
+    horizontal-align: right;
+    margin-right: 25px;
 }
 .TaskDescription_Panel{
     horizontal-align: right;
@@ -59,15 +63,19 @@
     text-shadow: 1px 1px 2px 3.0 #333333b0;
     margin-right: 5px;
 }
+.DailyTaskGetAward_Label:hover{
+    brightness: 1.5;
+}
 .DailyTaskDone_Image{
     height: 20px;
     margin-right: 5px;
 }
 .Line_Panel{
-    width: 100%;
+    width: 260px;
     border-bottom: 2px solid rgba(138, 138, 138, 0.705);
     margin-top: 5px;
     margin-bottom: 5px;
+    horizontal-align: right;
 }
 .TaskDescriptionZnak_Label{
     font-size: 20;

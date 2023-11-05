@@ -43,7 +43,12 @@
 
     border: 2px solid #000000f5;
 }
-
+.UpdateButtonTabSelected{
+    border: 2px solid #000000f5;
+}
+.item_list_selected_glow{
+    background-color: rgba(0, 0, 0, 0.6);
+}
 #GemsButtonTab{
 
 
@@ -118,6 +123,7 @@
     background-color: rgba(0, 0, 0, 0.363);
     border-radius:  5px;
     flow-children: down;
+    overflow: scroll;
 }
 
 .itemListPanel{
@@ -143,6 +149,8 @@
 
     align: center top;
     margin-top: 100px;
+    height: 64px;
+    width: 88px;
 }
 
 
@@ -169,7 +177,7 @@
     color:rgba(155, 155, 155, 0.9);
     align: center top;
     margin-top: 24px;
-    margin-right: 78px;
+    margin-right: 100px;
     font-size:22px;
 }
 
@@ -178,7 +186,7 @@
     color:rgba(155, 155, 155, 0.9);
     align: center top;
     margin-top: 25px;
-    margin-left: 80px;
+    margin-left: 100px;
     font-size:22px;
 }
 
@@ -416,6 +424,8 @@
     border-radius:  2px;
     margin-left: 5px;
     align: left center;
+    height: 64px;
+    width: 88px;
 }
 #UpgradeItemPanel #ItemName{
     color:rgba(155, 155, 155, 0.9);

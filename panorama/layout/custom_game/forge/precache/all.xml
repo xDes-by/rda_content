@@ -1,0 +1,458 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+	<Panel style="height:100%;width:100%;" hittest="false">
+
+
+
+
+
+
+
+        <Image src="file://{images}/custom_game/forge/all/agility1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/agility11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/aquila_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/aquila_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/bloodstone_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/boots_of_bearing_lua11.jpg"/>
+        
+        <Image src="file://{images}/custom_game/forge/all/butterfly_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/butterfly_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/crimson_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/crimson_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/cuirass_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/cuirass_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/desolator_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/desolator_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/ethereal_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ethereal_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/fury_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/fury_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/greater_crit1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/greater_crit11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/heart_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/heart_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/hex_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hex_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/hood_sword1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hood_sword11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/hurricane_pike_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_meteor_hammer_lua11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/item_midas1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/item_midas11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/kaya_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/kaya_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/lance1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/lance11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/mage1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mage11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/magic_staff_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/mjolner1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mjolner11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/mkb_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/mkb_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/moon1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/moon11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/octarin_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/octarin_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/pipe_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pipe_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/pudge1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/pudge11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/rad_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/rad_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/ring1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/ring11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/sabre_blade11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/satanic1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/satanic11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/shivas_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/shivas_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/skadix_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/skadix_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/triumviratus_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vampir_sword11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/veil_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/veil_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/all/vladmir_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vladmir_11.jpg"/>
+
+	</Panel>
+</root>

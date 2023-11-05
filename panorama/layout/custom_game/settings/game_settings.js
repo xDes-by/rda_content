@@ -21,12 +21,12 @@
 
 const DIFFICULTY_PRIZE = 
 [
-	{name: "Turbo", mmr : 0, rp : 0},
-	{name: "Normal", mmr : 10, rp : 20},
-	{name: "Hard", mmr : 20, rp : 40},
-	{name: "Ultra", mmr : 30, rp : 60},
-	{name: "Insane", mmr : 40, rp : 80},
-	{name: "Hell", mmr : 50, rp : 100},
+	{name: "Turbo", mmr : 0, rp : 0, talent : 50},
+	{name: "Normal", mmr : 100, rp : 100, talent : 100},
+	{name: "Hard", mmr : 200, rp : 200, talent : 125},
+	{name: "Ultra", mmr : 300, rp : 300, talent : 150},
+	{name: "Insane", mmr : 400, rp : 400, talent : 175},
+	{name: "Hell", mmr : 500, rp : 500, talent : 200},
 ]
 
 const DIFFICULTY_BUTTONS = 
@@ -158,36 +158,41 @@ CustomNetTables.SubscribeNetTableListener( "difficultyVote", function(table_name
 			vote_count =diff[i];
 		}
 	}
-	$("#WinPrize").GetChild(0).text = `+${DIFFICULTY_PRIZE[diff_index].mmr}MMR`
-	$("#WinPrize").GetChild(1).text = `+${DIFFICULTY_PRIZE[diff_index].rp}RP`
+	$("#WinPrize").GetChild(0).text = `${DIFFICULTY_PRIZE[diff_index].mmr}%\n${$.Localize("#game_settings_mmr")}`
+	$("#WinPrize").GetChild(1).text = `${DIFFICULTY_PRIZE[diff_index].rp}%\n${$.Localize("#game_settings_rp")}`
+	$("#WinPrize").GetChild(2).text = `${DIFFICULTY_PRIZE[diff_index].talent}%\n${$.Localize("#game_settings_talent")}`
 	$("#DiffName").text = `${DIFFICULTY_PRIZE[diff_index].name}`
 } );
 
 $("#VoteProgressBar_Panel").GetChild(1).style.width = "100%"
-$("#WinPrize").GetChild(0).text = `+${DIFFICULTY_PRIZE[1].mmr}MMR`
-$("#WinPrize").GetChild(1).text = `+${DIFFICULTY_PRIZE[1].rp}RP`
+$("#WinPrize").GetChild(0).text = `${DIFFICULTY_PRIZE[1].mmr}%\n${$.Localize("#game_settings_mmr")}`
+$("#WinPrize").GetChild(1).text = `${DIFFICULTY_PRIZE[1].rp}%\n${$.Localize("#game_settings_rp")}`
+$("#WinPrize").GetChild(2).text = `${DIFFICULTY_PRIZE[1].talent}%\n${$.Localize("#game_settings_talent")}`
 $("#DiffName").text = `${DIFFICULTY_PRIZE[1].name}`
 
 GameEvents.SendCustomGameEventToServer("GameSettingsInit", {})
 GameEvents.Subscribe("GameSettingsMaxDifficulty", function(params) {
-	for(let i = 3; i <= 6;i++){
-		$("#SettingsComplexTier" + i).diff_available = true
-		$("#SettingsComplexTier" + i).GetChild(1).visible = false
+	// for(let i = 3; i <= 6;i++){
+	// 	$("#SettingsComplexTier" + i).diff_available = true
+	// 	$("#SettingsComplexTier" + i).GetChild(1).visible = false
+	// }
+	if(params.maximum_passed_difficulty >= 1){
+		$("#SettingsComplexTier3").diff_available = true
+		$("#SettingsComplexTier3").GetChild(1).visible = false
 	}
-	// if(params.maximum_passed_difficulty >= 1){
-	// 	$("#SettingsComplexTier3").diff_available = true
-	// 	$("#SettingsComplexTier3").GetChild(1).visible = false
-	// }
-	// if(params.maximum_passed_difficulty >= 2){
-	// 	$("#SettingsComplexTier4").diff_available = true
-	// 	$("#SettingsComplexTier4").GetChild(1).visible = false
-	// }
-	// if(params.maximum_passed_difficulty >= 3){
-	// 	$("#SettingsComplexTier5").diff_available = true
-	// 	$("#SettingsComplexTier5").GetChild(1).visible = false
-	// }
-	// if(params.maximum_passed_difficulty >= 4){
-	// 	$("#SettingsComplexTier6").diff_available = true
-	// 	$("#SettingsComplexTier6").GetChild(1).visible = false
-	// }
+	if(params.maximum_passed_difficulty >= 2){
+		$("#SettingsComplexTier4").diff_available = true
+		$("#SettingsComplexTier4").GetChild(1).visible = false
+	}
+	if(params.maximum_passed_difficulty >= 3){
+		$("#SettingsComplexTier5").diff_available = true
+		$("#SettingsComplexTier5").GetChild(1).visible = false
+	}
+	if(params.maximum_passed_difficulty >= 4){
+		$("#SettingsComplexTier6").diff_available = true
+		$("#SettingsComplexTier6").GetChild(1).visible = false
+	}
+})
+$("#SettingsComplexTier1").SetPanelEvent("onmouseover", ()=>{
+	$.Msg("12334333")
 })

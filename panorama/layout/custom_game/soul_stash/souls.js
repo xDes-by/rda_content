@@ -46,34 +46,34 @@ $("#souls_stash").GetChild(3).SetPanelEvent("oncontextmenu", function(){
 
 $("#souls_stash").GetChild(4).visible = false
 $("#souls_stash").GetChild(4).SetPanelEvent("onmouseactivate", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_swamp_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_cemetery_soul"})
 })
 $("#souls_stash").GetChild(4).SetPanelEvent("oncontextmenu", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_swamp_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_cemetery_soul"})
 })
 
 $("#souls_stash").GetChild(5).visible = false
 $("#souls_stash").GetChild(5).SetPanelEvent("onmouseactivate", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_snow_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_swamp_soul"})
 })
 $("#souls_stash").GetChild(5).SetPanelEvent("oncontextmenu", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_snow_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_swamp_soul"})
 })
 
 $("#souls_stash").GetChild(6).visible = false
 $("#souls_stash").GetChild(6).SetPanelEvent("onmouseactivate", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_divine_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_snow_soul"})
 })
 $("#souls_stash").GetChild(6).SetPanelEvent("oncontextmenu", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_divine_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_snow_soul"})
 })
 
 $("#souls_stash").GetChild(7).visible = false
 $("#souls_stash").GetChild(7).SetPanelEvent("onmouseactivate", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_cemetery_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_divine_soul"})
 })
 $("#souls_stash").GetChild(7).SetPanelEvent("oncontextmenu", function(){
-    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_cemetery_soul"})
+    GameEvents.SendCustomGameEventToServer("GetSoul", {name:"item_divine_soul"})
 })
 
 $("#souls_stash").GetChild(8).visible = false
