@@ -216,6 +216,10 @@
 							</Panel>
 						</Panel>
 						<DOTAUserName id="RatingProfilNameShop" class="RatingProfilName" steamid="local" />
+						<Panel id="rp_booster_container" class="">
+							<Label id="rp_booster_label_1" class="" text="Осталось 8 игр" />
+							<Label id="rp_booster_label_2" class="" text="x2.5" />
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel id="shop_gems_panel" class="">

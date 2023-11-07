@@ -32,6 +32,22 @@ function ChangeLevel(amount){
     ClickButton()
     GameEvents.SendCustomGameEventToServer("AdminPanelHeroLevel", { amount : amount })
 }
+function ChangeGems(amount){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelChangeGems", { amount : amount })
+}
+function BattlePassAddExperience(amount){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelBattlePassAddExperience", { amount : amount })
+}
+function BattlePassDrop(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelBattlePassDrop", {})
+}
+function BattlePassPremium(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelBattlePassPremium", {})
+}
 
 (()=>{
     const topBar = FindDotaHudElement("ButtonBar")

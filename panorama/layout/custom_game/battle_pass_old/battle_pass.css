@@ -1,0 +1,314 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+.battle_pass_button{
+    height: 55px;
+    width: 55px;
+    background-color: yellow;
+    opacity: 0.8;
+    border:5px solid blue;
+}
+.battle_pass_button Label{
+    align: center center;
+    font-size: 30;
+    font-weight: bold;
+    text-shadow: 0px 0px 2px 1.0 black;
+    color:red;
+}
+.battle_pass_button:hover{
+    brightness: 1.5;
+}
+#GameBPPanel{
+    width: 1280px;
+    height: 780px;
+    background-image: url("file://{resources}/images/custom_game/bp/page_bg.png");
+    margin-top: 30px;
+    align: center center;
+    transition-property: transform, opacity, pre-transform-scale2d;
+    opacity: 0;
+    pre-transform-scale2d: 0.8;
+	transform: translate3d(0px, 0px, 0px);
+}
+#bp_level_line{
+    width: 100%;
+    height: 48px;
+    background-image: url("file://{resources}/images/custom_game/bp/line_1.png");
+    margin-top: 29px;
+}
+#RewardTypePanel{
+    flow-children: down;
+    z-index: 2;
+}
+#Reward1LeftCon{
+    width: 187px;
+    height: 125px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_1_left.png");
+    background-size: 100% 100%;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+}
+#Reward2LeftCon{
+    width: 187px;
+    height: 280px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_2_left.png");
+    background-size: 100% 100%;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
+}
+#bp_rewards_line{
+    width: 100%;
+    margin-top: 76px;
+    flow-children: none;
+}
+#deys_level_line{
+    width: 100%;
+    height: 48px;
+    background-image: url("file://{resources}/images/custom_game/bp/line_1.png");
+    margin-top: 480px;
+}
+#DeysRewardLine{
+    margin-top: 528px;
+    width: 100%;
+}
+#DeysRewardNemePanel{
+    width: 192px;
+    height: 221px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_3_left.png");
+    background-size: 100% 100%;
+    border-top: 1px solid black;
+    border-bottom:1px solid black;
+    z-index: 2;
+}
+#BPLevelLabel{
+    color:#ffd6a3;
+    font-size: 21px;
+    font-weight: bold;
+    vertical-align: center;
+    margin-left: 20px;
+    text-shadow: 0px 0px 4px 2.0 black;
+}
+#BPExpCounterLabel{
+    color:white;
+    font-size: 21px;
+    font-weight: bold;
+    vertical-align: center;
+    horizontal-align: right;
+    margin-right: 150px;
+    text-shadow: 0px 0px 4px 2.0 black;
+}
+#BPLevelProgressBar{
+    width: 880px;
+    height: 20px;
+    border:1px solid black;
+    vertical-align: center;
+    margin-left: 150px;
+}
+#BPLevelProgressBar .ProgressBarLeft{
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #705b3d ), color-stop( 0.5, #ceaa7d ), to( #705b3d ) );
+}
+#CircularProgressBar{
+    height: 100px;
+    width: 100px;
+}
+#BPGetAllPanel{
+    background-color: #222461;
+    height: 30px;
+    width: 120px;
+    border-radius: 20px;
+    border:1px solid black;
+    vertical-align: center;
+    horizontal-align: right;
+    margin-right: 20px;
+}
+#BPGetAllPanel Label{
+    vertical-align: center;
+    horizontal-align: center;
+    text-shadow: 0px 0px 4px 2.0 black;
+    color:white;
+}
+#DayContLabel, #DaysLabel{
+    font-size: 21px;
+    font-weight: bold;
+    text-shadow: 0px 0px 4px 2.0 black;
+    color:white;
+    vertical-align: center;
+}
+#DayContLabel{
+    margin-left: 20px;
+}
+#DaysLabel{
+    horizontal-align: center;
+}
+
+.RewardBox1{
+    width: 121px;
+    height: 125px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_1.png");
+    border:1px solid black;
+}
+.RewardBox2{
+    width: 121px;
+    height: 280px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_2.png");
+    border:1px solid black;
+}
+.RewardPosition{
+    width: 75px;
+    height: 75px;
+    border:1px solid black;
+    background-color: #222461;
+    border-radius: 5px;
+    horizontal-align: center;
+    vertical-align: center;
+    box-shadow: #111111e5 0px 0px 8px 0px;
+    margin: 10px;
+}
+#RewardPositionLine1{
+    vertical-align: top;
+}
+#RewardPositionLine2{
+    vertical-align: bottom;
+}
+#CounterPanel{
+    width: 100%;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.95);
+    vertical-align: bottom;
+}
+#CounterPanel Label{
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+#RewardPositionGold{
+    height: 200px;
+    flow-children: none;
+    horizontal-align: center;
+}
+#LevelCounterLabel{
+    font-size: 21px;
+    text-shadow: 0px 0px 4px 2.0 black;
+    color:white;
+    vertical-align: bottom;
+    horizontal-align: center;
+    margin-bottom: 20px;
+}
+#LevelsGone{
+    width: 100%;
+    height: 10px;
+    background-image: url("file://{images}/custom_game/bp/line_2.png");
+    vertical-align: bottom;
+}
+#BPCallAwardPanel{
+    width: 100%;
+    height: 100%;
+    overflow: clip;
+    margin-left: 162px;
+}
+.AwardPanel{
+    flow-children: down;
+    width: 121px;
+    height: 100%;
+    position: 100px 0 0;
+    transition-property:position, opacity;
+    transition-duration:.3s;
+}
+#BPNextBigAward{
+    height: 100%;
+    width: 170px;
+    horizontal-align: right;
+    flow-children: down;
+}
+#BPNextBigBaseAward{
+    width: 170px;
+    height: 125px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_1_right.png");
+    border-bottom:1px solid black;
+    border-top:1px solid black;
+    background-size: 100% 100%;
+}
+#BPNextBigGoldAward{
+    width: 170px;
+    height: 280px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_2_right.png");
+    background-size: 100% 100%;
+    border-top:1px solid black;
+    border-bottom: 1px solid black;
+}
+#Reward1LeftCon Label, #Reward2LeftCon Label{
+    vertical-align: center;
+    horizontal-align: center;
+    margin-right: 25px;
+    color:white;
+    font-size: 21;
+    text-shadow: 0px 0px 4px 2.0 black;
+}
+#RewardPositionBase{
+    background-size: contain;
+}
+#DeysAwardLinePanel{
+    width: 100%;
+    margin-left: 165px;
+    height: 100%;
+    overflow: clip;
+}
+.DaysAwardContainer{
+    height: 100%;
+    width: 121px;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_3.png");
+    border:1px solid black;
+    transition-property:position, opacity;
+    transition-duration:.3s;
+    transition-timing-function: linear;
+}
+#DaysGone{
+    width: 100%;
+    height: 10px;
+    background-image: url("file://{resources}/images/custom_game/bp/line_3.png");
+    vertical-align: top;
+}
+#AwardDayCounterLabel{
+    font-size: 21px;
+    text-shadow: 0px 0px 4px 2.0 black;
+    color:white;
+    vertical-align: top;
+    horizontal-align: center;
+    margin-top: 20px;
+}
+#DaysAwardItemContainer{
+    margin-top: 15px;
+}
+#DaysNextAwardPanel{
+    width: 170px;
+    height: 100%;
+    background-image: url("file://{resources}/images/custom_game/bp/reward_box_3_right.png");
+    background-size: 100% 100%;
+    horizontal-align: right;
+    border-top:1px solid black;
+    border-bottom: 1px solid black;
+}
+#GalkaPanel{
+    height: 50px;
+    width: 50px;
+    background-size: contain;
+    background-image: url("file://{resources}/images/custom_game/bp/galka.png");
+    vertical-align: center;
+    horizontal-align: center;
+    margin-left: 6px;
+    margin-bottom: 10px;
+    img-shadow: 2px 2px 8px 3.0 #000000b0;
+}
+#HaveAwardPanel{
+    background-image: url("file://{resources}/images/custom_game/bp/HaveAward.png");
+    height: 32px;
+    width: 32px;
+    background-size: contain;
+    horizontal-align: right;
+    margin: 1px;
+    img-shadow: 2px 2px 8px 3.0 #000000b0;
+    /* wash-color: rgb(211, 31, 31); */
+}
+.BPNextBigAwardMargin{
+    position: 10px 0 0;
+}

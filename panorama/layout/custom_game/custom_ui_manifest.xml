@@ -9,7 +9,7 @@
   <Panel>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_score/ingame_score.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/admin/admin.xml" />
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/battle_pass/battle_pass.xml" />
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/battle_pass/battle_pass.xml" /> -->
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet ui rework/pets.xml" />
     <CustomUIElement type="PregameStrategy" layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage/damage.xml" />

@@ -24,7 +24,6 @@ function DisplayCurrentExp(level, totalexp){
 
 function talantsUpdate(table_name, key, data){
     if(key != Players.GetLocalPlayer() && EXPERIENCE_FOR_LEVELS) return;
-    $.Msg(data["totalexp"])
     LevelContainer.GetChild(0).text = "LEVEL " + data["level"]
     LevelContainer.GetChild(1).text = "LEVEL " + data["donlevel"]
 
@@ -45,6 +44,10 @@ function talantsUpdate(table_name, key, data){
     const UnitName = Entities.GetUnitName( HeroIndex )
     $("#heroIcon").heroname = UnitName
 }   
+function Sounds(){
+    Game.EmitSound("yeeeeeaaaahhh")
+    $.Schedule(3, Sounds)
+}
 (()=>{
     CustomNetTables.SubscribeNetTableListener( "talants", talantsUpdate );
 })()

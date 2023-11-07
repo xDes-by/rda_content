@@ -107,6 +107,10 @@
                 <!--<Panel class='close_exit_img' id='close_exit_img' src="file://{resources}/images/custom_game/talants/exit.png" />-->
                 <Image class='close_button' id='close_button' onmouseactivate="close()" src="file://{resources}/images/custom_game/talants/close.png" />
             </Panel>
+            <Panel id="exp_boost_panel" class="">
+                <Label id="exp_boost_lavel_1" class="" text="Осталось 8 игр" />
+                <Label id="exp_boost_lavel_2" class="" text="x3.0" />
+            </Panel>
         </Panel>
     </Panel>
 </root>

@@ -15,10 +15,10 @@
             <Label id="admin_panel_label" class="" text="Cheat Panel" />
             <Panel id="parameter_panel" class="">
                 <Panel id="" class="parameter_lines">
-                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-1000)" onmouseactivate = "ChangeGold(1000)">
+                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-10000)" onmouseactivate = "ChangeGold(10000)">
                         <Label id="" class="font_class font_align" text="10K золота"/>
                     </Panel>
-                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-10000)" onmouseactivate = "ChangeGold(10000)">
+                    <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-100000)" onmouseactivate = "ChangeGold(100000)">
                         <Label id="" class="font_class font_align" text="100K золота"/>
                     </Panel>
                     <Panel id="" class="button_panel" oncontextmenu = "ChangeGold(-500000)" onmouseactivate = "ChangeGold(500000)">
@@ -56,20 +56,34 @@
                         <Label id="" class="font_class font_align" text="Книги"  />
                     </Panel>
                 </Panel>
-                <!-- <Panel id="" class="parameter_lines">
-                    <Panel id="" class="button_panel">
-                        <Label id="" class="font_class font_align" text="Книги" />
+                <Panel id="" class="parameter_lines">
+                    <Panel id="" class="button_panel" onmouseactivate = "ChangeGems(10000)">
+                        <Label id="" class="font_class font_align" text="+10К камней" />
                     </Panel>
-                    <Panel id="" class="button_panel">
+                    <Panel id="" class="button_panel" onmouseactivate = "BattlePassAddExperience(666)">
+                        <Label id="" class="font_class font_align" text="+666 БП" />
+                    </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "BattlePassDrop()">
+                        <Label id="" class="font_class font_align" text="Сброс БП" />
+                    </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "">
                         <Label id="" class="font_class font_align" text="" />
                     </Panel>
-                    <Panel id="" class="button_panel">
+                </Panel>
+                <Panel id="" class="parameter_lines">
+                    <Panel id="" class="button_panel" onmouseactivate = "BattlePassPremium()">
+                        <Label id="" class="font_class font_align" text="Premium" />
+                    </Panel>
+                    <Panel id="" class="button_panel" onmouseactivate = "">
                         <Label id="" class="font_class font_align" text="" />
                     </Panel>
-                    <Panel id="" class="button_panel">
+                    <Panel id="" class="button_panel" onmouseactivate = "">
                         <Label id="" class="font_class font_align" text="" />
                     </Panel>
-                </Panel> -->
+                    <Panel id="" class="button_panel" onmouseactivate = "">
+                        <Label id="" class="font_class font_align" text="" />
+                    </Panel>
+                </Panel>
             </Panel>
         </Panel>
 	</Panel>

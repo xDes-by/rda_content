@@ -920,3 +920,35 @@
 	color:white;
 	margin-right: 5px;
 }
+#rp_booster_container{
+	flow-children: down;
+	margin-top: 60px;
+	margin-left: 400px;
+}
+#rp_booster_label_1{
+	color: white;
+    font-size: 16;
+    text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
+}
+#rp_booster_label_2{
+	color: gold;
+    font-size: 21;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
+    animation-name: rp_booster_label_2_animation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes 'rp_booster_label_2_animation'
+{
+	0%{
+        color:#FFD700;
+    }
+    50%{
+        color:	#FFA500;
+    }
+    100%{
+        color:#FFD700;
+    }
+}
