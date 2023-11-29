@@ -1,0 +1,79 @@
+#buy_coufirm_bg{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+#buy_confirm_panel{
+    height: 300px;
+    width: 491px;
+    vertical-align: center;
+    horizontal-align: center;
+    background-image: url("file://{images}/custom_game/pet/dashboard_background_armory_update_psd.png");
+    background-size: contain;
+    background-size: 100%;
+    box-shadow: black 0px 0px 50px 0px;
+}
+#buy_description_panel{
+    flow-children: down;
+    horizontal-align: center;
+    margin-top: 90px;
+}
+.buy_description_text{
+    color: white;
+    text-transform: uppercase;
+    font-size: 25;
+    vertical-align: center;
+    text-shadow: 0px 1px 8px 3.0 black;
+}
+#rp_image_pet, #coufirm_rp_image_pet{
+    background-image: url("file://{images}/custom_game/RDAShop/protection_mini.png");
+    height: 24px;
+    width: 25px;
+    background-size: contain;
+    margin-left: 8px;
+}
+#gems_image_pet, #coufirm_gems_image_pet{
+    background-image: url("file://{images}/custom_game/RDAShop/money_logo_3_mini.png");
+    height: 28px;
+    width: 25px;
+    background-size: contain;
+    margin-left: 8px;
+}
+.button_bg:active, .confirm_panel:active, #item_pet:active{
+    sound: "ui_rollover_today";   
+}
+#confirm_yes_panel{
+    margin-left: 40px;
+    background-image: url("file://{images}/custom_game/pet/muerta_point_counter_bg_radiant_png.png");
+    background-size: 100%;
+}
+#confirm_no_panel{
+    margin-right: 40px;
+    horizontal-align: right;
+    background-image: url("file://{images}/custom_game/pet/muerta_point_counter_bg_dire_png.png");
+    background-size: 100%;
+}
+#confirm_drop_down{
+    width: 100px;
+    horizontal-align: center;
+    margin-top: 10px;
+}
+.confirm_panel{
+    height: 40px;
+    width: 150px;
+    margin-top: 230px;
+    box-shadow: black 0px 2px 6px 0px;
+}
+.confirm_panel:hover{
+    box-shadow: white 0px 0px 4px 0px;
+    sound: "ui_select_arrow";
+}
+.confirm_panel Label{
+    color:white;
+    vertical-align: center;
+    horizontal-align: center;
+    text-transform: uppercase;
+}
+.hidden{
+    visibility: collapse;
+}

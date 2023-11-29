@@ -134,8 +134,30 @@
 
     <Panel class="root" hittest="false">
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_zuus/agi/6.png"/> -->
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_award.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_riki/int/5.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/60.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/61.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/62.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/63.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/64.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/65.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/66.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/67.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/68.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/69.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/70.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/71.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_50.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_100.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_500.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_50.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_100.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_500.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_1000.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_1500.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/rp_reward_1000.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/rp_reward_1500.png"/> -->
+
 
 		<Panel id = "Rating" class = "Rating" hittest = "false">
 			<Panel id='RatingPanel' class='RatingPanel'>
@@ -217,7 +239,6 @@
 						</Panel>
 						<DOTAUserName id="RatingProfilNameShop" class="RatingProfilName" steamid="local" />
 						<Panel id="rp_booster_container" class="">
-							<Label id="rp_booster_label_1" class="" text="Осталось 8 игр" />
 							<Label id="rp_booster_label_2" class="" text="x2.5" />
 						</Panel>
 					</Panel>

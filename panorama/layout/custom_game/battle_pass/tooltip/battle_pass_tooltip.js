@@ -1,6 +1,7 @@
 const name_label = $("#MainLabel")
 const image = $("#MainImage")
 const description_label = $("#Description")
+const rarity_label = $("#RarityLabel")
 function setupTooltip()
 {
     const name = $.GetContextPanel().GetAttributeString( "name", "" );

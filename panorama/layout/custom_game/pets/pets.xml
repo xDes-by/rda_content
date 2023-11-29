@@ -1,0 +1,221 @@
+<root>
+
+    <styles>
+        <include src="file://{resources}/layout/custom_game/pets/pets.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <scripts>
+        <!-- <include src="file://{resources}/layout/custom_game/pets/pets.js" /> -->
+        <include src="file://{resources}/layout/custom_game/pets/pets_variables.js" />
+        <include src="file://{resources}/layout/custom_game/pets/pets_view_processing.js" />
+        <include src="file://{resources}/layout/custom_game/pets/pets_functions.js" />
+        <include src="file://{resources}/layout/custom_game/pets/SendToPlayerError.js" />
+    </scripts>
+
+<snippets>
+    <snippet name="pet">
+        <Panel id="" class="showcase_pet">
+            <Label id="name_pet" class="" text="mok" />
+            <DOTAAbilityImage id="item_pet" class="" itemname="item_pet_RDA_250_bkb" >
+                <Label id="trial_end_date" class="" text="" hittest="false" />
+            </DOTAAbilityImage>
+            <Panel id="buy_pet_button" class="button_bg">
+                <Panel id="buy_pet_center" class="center">
+                    <Panel id="buy_gem_img" class="buy_gem_img"></Panel>
+                    <Panel id="buy_rp_img" class="buy_rp_img"></Panel>
+                    <Label id="buy_pet_label" class="" text="222" />
+                    <Label id="buy_unavailible_label" class="" text="#pets_buy_unavailible" />
+                </Panel>
+            </Panel>
+            <Panel id="have_pet" class="">
+                <Label id="pet_level" class="" text="уровень 2" />
+                <ToggleButton id="auto_get" class="" checked="false" text="#auto_pet" />
+            </Panel>
+            <Panel id="status_loading_panel" class="">
+                <Label id="status_loading_label" class="" text="#pets_status_loading" />
+            </Panel>
+        </Panel>
+    </snippet>
+    <snippet name="pet_empty">
+        <Panel id="" class="showcase_pet">
+            <!-- <Panel id="" class="empty_pet_image"/> -->
+        </Panel>
+    </snippet>
+    <snippet name="store">
+        <Panel id="" class="pet_shop_panel">
+            <Label id="shop_name_label" class="shop_name_label" text="смена питомца вов ремя игры" />
+            <Panel id="shop_1_img" class=""></Panel>
+            <Panel id="shop_buttons_container" class="">
+                <Panel id="shop_gems_button" class="button_bg">
+                    <Panel id="" class="center button_container">
+                        <Panel id="" class="buy_gem_img"></Panel>
+                        <Label id="shop_gems_button_label" class="shop_button_label" text="22" />
+                    </Panel>
+                </Panel>
+                <Panel id="shop_rp_button" class="button_bg">
+                    <Panel id="" class="center button_container">
+                        <Panel id="" class="buy_rp_img"></Panel>
+                        <Label id="shop_rp_button_label" class="shop_button_label" text="222" />
+                    </Panel>
+                </Panel>
+            </Panel>
+            <Panel id="shop_active" class="">
+                <Label id="" class="" text="#active" />
+            </Panel>
+        </Panel>
+    </snippet>
+    <snippet name="page_button_panel">
+        <Panel id="" class="page_button_panel">
+            <Label id="" class="page_button_label" text="1" />
+        </Panel>
+    </snippet>
+</snippets>
+
+    <Panel class="root" hittest="false">
+        
+
+        <Panel id="PetWindowMain" class="">
+            <!-- ДЕНЬГИ -->
+            <Panel id="MoneyPanelContaner" class="">
+                <Panel id="gems_container_pet" class="money_container_pet" onmouseover="UIShowTextTooltip( '#gems_image_pet' )" onmouseout="UIHideTextTooltip()">
+                    <Panel id="gems_image_pet" class="money_container_pet_image"></Panel>
+                    <Label id="gems_label_pet" class="money_container_pet_label" text="0" />
+                </Panel>
+                <Panel id="rp_container_pet" class="money_container_pet" onmouseover="UIShowTextTooltip( '#rp_image_pet' )" onmouseout="UIHideTextTooltip()">
+                    <Panel id="rp_image_pet" class="money_container_pet_image"></Panel>
+                    <Label id="rp_label_pet" class="money_container_pet_label" text="0" />
+                </Panel>
+                <Panel id="feed_container_pet" class="money_container_pet" onmouseover="UIShowTextTooltip( '#feed_image_pet' )" onmouseout="UIHideTextTooltip()">
+                    <Panel id="feed_image_pet" class="money_container_pet_image"></Panel>
+                    <Label id="feed_label_pet" class="money_container_pet_label" text="0" />
+                </Panel>
+            </Panel>
+            <!-- /ДЕНЬГИ -->
+
+            <!-- линия информации -->
+            <Panel id="page_name_container_pet" class="">
+                <Label id="page_name_pet" class="" text="#pet_title" />
+                <Panel id="pages_pet" class=""/>
+            </Panel>
+            <Panel id="arrows2" class="">
+                <Button id="arrow2_left" class=""/>
+                <Button id="arrow2_right" class=""/>
+            </Panel>
+            <!-- петы -->
+            <Panel id="pet_showcase" class=""/>
+            
+            <!-- линия -->
+            <Panel id="pet_line" class=""></Panel>
+
+            <Panel id="selected_pet_panel" class="">
+                <Label id="selected_tier_pet" class="" text="" />
+                <Label id="selected_name_pet" class="" text="" />
+                <Label id="selected_level_pet_1" class="" text="" />
+                <DOTAAbilityImage id="item_selected_pet" class="item_pet_selected" >
+                    <Label id="trial_end_date" class="" text="" hittest="false" />
+                </DOTAAbilityImage>
+            </Panel>
+
+            <Panel id="interface_info_panel" class="">
+                <Label id="interface_tier_pet" class="" text="" />
+                <Label id="interface_name_pet" class="" text="" />
+                <Label id="interface_level_pet_1" class="" text="" />
+                <DOTAAbilityImage id="item_main_pet" class="" >
+                    <Label id="trial_end_date" class="" text="" hittest="false" />
+                </DOTAAbilityImage>
+            </Panel>
+
+            <Panel id="change_pet_button" class="button_bg hidden">
+                <Label id="change_pet_label" class="" text="#pet_equip" />
+            </Panel>        
+
+            <!-- интерфейс пета -->
+            <Panel id="name_and_level_pet" class="">
+                <Label id="interface_-1level_pet" class="select_pet_description_label" text="уровень 3" />
+                <Label id="interface_level_pet" class="select_pet_description_label" text="уровень 2"/>
+            </Panel>
+
+            <!-- опыт -->
+            
+            
+            
+            <Panel id="exp_container_pet" class="">
+                <ProgressBar id="exp_progress_bar_pet" min="0" max="1000" value="600"/>
+                <Label id="exp_counter_pet" class="exp_font_style" text="3454/5000" />
+            </Panel>
+            
+            
+            <!-- прокачка -->
+            <!-- <Label id="pet_upgrade_label" class="" text="улучшение питомца" /> -->
+            <Panel id="pet_upgrade_container" class="hidden">
+                <Panel id="InfoIcon" class="" onmouseover="UIShowTextTooltip( '#pets_info' )" onmouseout="UIHideTextTooltip()"/>
+                <Panel id="pet_update_button_1" class="pet_update_button_container button_bg">
+                    <Label id="" class="" text="#pet_plus_one_level" />
+                </Panel>
+                <Panel id="pet_update_button_2" class="pet_update_button_container button_bg">
+                    <Label id="" class="" text="#max" />
+                </Panel>
+                <Panel id="feed_entry_container" class="">
+                    <Panel id="feed_entry_img" class="" onmouseover="UIShowTextTooltip( '#feed_image_pet' )" onmouseout="UIHideTextTooltip()"></Panel>
+                    <Panel id="feed_entry_panel" class="">
+                        <TextEntry id="feed_entry_text" class="" maxchars="5" oninputsubmit="" text="0" textmode="numeric" />
+                        <Panel id="feed_entry_buttons" class="text_entry_small">
+                            <Panel id="feed_entry_plus_panel" class="feed_entry_buttons_panels">
+                                <Panel id="feed_entry_line_1" class="center"></Panel>
+                                <Panel id="feed_entry_line_2" class="center"></Panel>
+                            </Panel>
+                            <Panel id="feed_entry_minus_panel" class="feed_entry_buttons_panels">
+                                <Panel id="feed_entry_line_1" class="center"></Panel>
+                            </Panel>
+                        </Panel>
+                    </Panel>
+                    
+
+                </Panel>
+                <Panel id="pet_update_button_3" class="pet_update_button_container button_bg">
+                    <Label id="" class="" text="#improve" />
+                </Panel>
+            </Panel>
+
+            <Panel id="buy_pet_button_2" class="button_bg hidden">
+                <Panel id="buy_pet_center" class="center">
+                    <Panel id="buy_gem_img" class="buy_gem_img"></Panel>
+                    <Panel id="buy_rp_img" class="buy_rp_img"></Panel>
+                    <Label id="buy_pet_label" class="" text="222" />
+                </Panel>
+            </Panel>
+
+            <!-- магазин -->
+            <Panel id="pet_shop_container" class="">
+                
+                
+            </Panel>
+        </Panel>
+        <Panel id="buy_coufirm_bg_pet" class="" onactivate="HideConfirmPanel()">
+            <Panel id="buy_confirm_panel" class="" onactivate="">
+                <Panel id="buy_description_panel" class="">
+                    <Panel id="" class="" style="flow-children: right; horizontal-align: center;">
+                        <Label id="buy_confirm_item_name" class="buy_description_text" text="корм" />
+                    </Panel>
+                    <Panel id="" class="" style="flow-children: right; horizontal-align: center; margin-top:10px;">
+                        <Label id="buy_confirm_price" class="buy_description_text" text="300" />
+                        <Panel id="coufirm_rp_image_pet" class=""></Panel>
+                        <Panel id="coufirm_gems_image_pet" class=""></Panel>
+                    </Panel>
+                    <DropDown id="confirm_drop_down" class="">
+                        <Label text="1 шт" id="entry1"/>
+                        <Label text="2 шт" id="entry2"/>
+                        <Label text="3 шт" id="entry3"/>
+                        <Label text="4 шт" id="entry4"/>
+                    </DropDown>
+                </Panel>
+                <Panel id="confirm_yes_panel" class="confirm_panel">
+                    <Label id="" class="" text="#yes" />
+                </Panel>
+                <Panel id="confirm_no_panel" class="confirm_panel" onactivate="HideConfirmPanel()">
+                    <Label id="" class="" text="#no" />
+                </Panel>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

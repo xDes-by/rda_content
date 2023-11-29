@@ -99,6 +99,7 @@ function UpdateTimer()
 
 (function()
 {
+	const DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 	var localPlayerTeamId = Game.GetLocalPlayerInfo().player_team_id;
 	var first = true;
 	var teamsContainer = $("#HeroSelectTeamsContainer");
@@ -169,4 +170,8 @@ function UpdateTimer()
 			player.FindChildTraverse("PlayerGames").text = `${$.Localize("#pick_game")}${t.rating[i].games > 1000 ? "1000+" : t.rating[i].games}`
 		}
 	})
+	const mode = CustomNetTables.GetTableValue( "GameInfo", "mode")
+	// #PickModeSubtitleInfo
+	$.Msg(DotaHUD.Get().FindChildTraverse("PickModeSubtitleInfo"))
+	$.CreatePanel("Label", DotaHUD.Get().FindChildTraverse("PickModeSubtitleInfo"), "", {text:mode.name, style:"align: center center;color:white;text-shadow: 2px 2px 2px 3.0 black;font-size: 30;"})
 })();

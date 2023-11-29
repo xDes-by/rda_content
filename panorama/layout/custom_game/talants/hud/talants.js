@@ -536,7 +536,7 @@ function isBonusExpAvailable(playerID) {
 	  }
 	}
 	return false;
-  }
+}
 function updateExpInfo(data){
     if(asssd == false){
         asssd = true;
@@ -912,8 +912,30 @@ function opnShop(){
     }
 }
 
+function UpdateExperienceMultiplier(){
+    const talent_multiplier_panel = $("#exp_boost_lavel_2")
+    const data = CustomNetTables.GetTableValue( "GameInfo", Game.GetLocalPlayerID())
+    talent_multiplier_panel.text = "x" + data.talent_multiplier.multiplier
+    talent_multiplier_panel.visible = data.talent_multiplier.multiplier > 1
+    let multiplier_text = ""
+    for(let i in data.talent_multiplier.list){
+        if(i > 1){
+            multiplier_text += "<br>"
+        }
+        multiplier_text += $.Localize("#quest_multiplier_text")
+        multiplier_text = multiplier_text.replace("##multiplier##", data.talent_multiplier.list[i].multiplier)
+        multiplier_text = multiplier_text.replace("##games##", data.talent_multiplier.list[i].remaining_games_count)
+    }
+    talent_multiplier_panel.SetPanelEvent("onmouseover",()=>{
+        $.DispatchEvent( "DOTAShowTextTooltip", talent_multiplier_panel, multiplier_text);
+    });
+    talent_multiplier_panel.SetPanelEvent("onmouseout",()=>{
+        $.DispatchEvent( "DOTAHideTextTooltip");
+    });
+}
+
 (function() {
-    
+    UpdateExperienceMultiplier()
     GameEvents.Subscribe('pickInit', pickInit);
     GameEvents.Subscribe('updatetab', updatetab);
     if($("#talant_description_label")){
@@ -928,6 +950,7 @@ function opnShop(){
         GameEvents.Subscribe('talantTreeInit', talantTreeInit);
         CustomNetTables.SubscribeNetTableListener( "talants", talantsUpdate );
         CustomNetTables.SubscribeNetTableListener( "shopinfo", shopinfo ); 
+        CustomNetTables.SubscribeNetTableListener( "GameInfo", UpdateExperienceMultiplier );
         GameEvents.Subscribe( "talant_replace_hero", talant_replace_hero ); 
         GameEvents.Subscribe( "ChangeHeroLoadTree", ChangeHeroLoadTree ); 
         

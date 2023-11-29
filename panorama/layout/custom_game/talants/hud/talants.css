@@ -541,7 +541,7 @@
 #exp_boost_panel{
     align: right bottom;
     margin-bottom: 70px;
-    margin-right: 5px;
+    margin-right: 50px;
     flow-children: down;
 }
 #exp_boost_lavel_1{
@@ -551,7 +551,7 @@
 }
 #exp_boost_lavel_2{
     color: gold;
-    font-size: 21;
+    font-size: 30;
     font-weight: bold;
     text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
     animation-name: exp_boost_lavel_2_animation;

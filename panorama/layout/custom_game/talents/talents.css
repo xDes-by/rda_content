@@ -1,0 +1,1064 @@
+.root,.talant_root{
+    width: 100%;
+    height: 100%;
+    z-index:2;
+}
+.smoke_movie_panel{
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+.talant_tree_images_panel{
+    height: 720px;
+    width: 720px;
+    horizontal-align: center;
+    vertical-align: center;
+    z-index: 1;
+}
+.talant_tree_panel{
+    height: 750px;
+    width: 750px;
+    margin-left: 120px;
+    horizontal-align: center;
+    vertical-align: center;
+    z-index: 1;
+}
+.panel_bg{
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-color: rgb(39, 39, 88);
+}
+.talante_bg_image_panel{
+    width: 100%;
+    height: 100%;
+}
+.talante_circle_image_panel{
+    width: 500px;
+    height: 500px;
+    vertical-align: center;
+    horizontal-align:center;
+}
+.img_shadow{
+    img-shadow: 2px 2px 8px 3.0 #333333b0;
+}
+#InfoIcon{
+    background-image:url("s2r://panorama/images/status_icons/information_psd.vtex");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    tooltip-body-position: 50% 50%;
+    transition-property: wash-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+    wash-color: #ffffff;
+    width: 22px;
+    height: 22px;
+    margin-top: 90px;
+    margin-left: 70px;
+    tooltip-position: left;
+
+}
+.hidden{
+    visibility: collapse;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.border_red{
+    border:1px solid rgb(255, 0, 0);
+}
+.border_green{
+    border:1px solid rgb(21, 223, 2);
+}
+.border_blue{
+    border:1px solid rgb(32, 35, 224);
+}
+.border_gold{
+    border:1px solid rgb(214, 195, 23);
+}
+.border_red_large{
+    border:5px solid rgb(255, 0, 0);
+}
+.border_green_large{
+    border:5px solid rgb(21, 223, 2);
+}
+.border_blue_large{
+    border:5px solid rgb(32, 35, 224);
+}
+.border_gold_large{
+    border:5px solid rgb(214, 195, 23);
+}
+
+
+.description_gradient_border_red{
+    background-color: gradient( radial, 0% 0%, 100% 100%, 100% 100%, from( red ), to( blanchedalmond ) );
+}
+.description_gradient_border_blue{
+    background-color: gradient( radial, 0% 0%, 100% 100%, 100% 100%, from( blue ), to( blanchedalmond ) );
+}
+.description_gradient_border_green{
+    background-color: gradient( radial, 0% 0%, 100% 100%, 100% 100%, from( green ), to( blanchedalmond ) );
+}
+.description_gradient_border_gold{
+    background-color: gradient( radial, 0% 0%, 100% 100%, 100% 100%, from( gold ), to( blanchedalmond ) );
+}
+
+
+.available-0{
+    brightness: 0.05;
+}
+.available-1{
+    brightness: 0.5;
+}
+.brightness15{
+    brightness: 3.0;
+}
+.brightness25{
+    brightness: 3.5;
+}
+.brightness5{
+    brightness: 0.5;
+}
+.selected{
+    brightness: 1.2;
+}
+.brightness02{
+    brightness: 0.2;
+}
+.description_panel{
+    height: 680px;
+    width: 400px;
+    horizontal-align:right;
+    vertical-align: center;
+    margin-right: 5%;
+    overflow: clip;
+}
+.description_info_panel{
+    width: 100%;
+    height: 100%;
+}
+.description_info_label{
+    color: black;
+    font-size: 32px;
+    text-shadow: 2px 2px 8px 1.5 #333333b0;
+    margin: 4%;
+    width: 100%;
+    text-align: center;
+}
+.description{
+    width: 380px;
+    height: 680px;
+    margin: 10px;
+    background-color: black;
+}
+.description_gradient_border_out{
+    width: 100%;
+    height: 100%;
+    transition-property: position;
+    transition-duration: 0.2s;
+}
+.talant_name_label,.talant_description_label,.talant_description_buff_label, .talant_description_scale_label{
+    font-size: 25px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 8px 3.5 #333333b0;
+}
+.talant_name_label{
+    color: rgb(187, 133, 33);
+    text-decoration: underline;
+    margin-top: 270px;
+}
+.talant_description_label,.talant_description_buff_label,.talant_description_scale_label{
+    color: rgb(187, 133, 33);
+    font-size: 21px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.talant_description_label{
+    margin-top: 62px;
+}
+.talant_img_description{
+    height: 165px;
+    width: 172px;
+    border-radius: 100px;
+    horizontal-align:center;
+    margin-top: 97px;
+}
+.description_gradient_border_image{
+    height: 220px;
+    width: 220px;
+    horizontal-align:center;
+    border-radius: 110px;
+    margin-top: 20px;
+}
+.talant_line_under_name{
+    horizontal-align:center;
+}
+.talant_description_buff_label{
+    color: #DB9200;
+    vertical-align: center;
+}
+.talant_description_scale_label{
+    color: #DB9200;
+    letter-spacing: 1px;
+    vertical-align: bottom;
+    margin-bottom: 30px;
+}
+.ScenePanel{
+    width: 500px;
+    height: 100%;
+}
+.HeroScenePanel{
+    margin-top: 150px;
+    z-index: 0;
+    width:800px;
+    height:800px;
+    margin-right:10px;
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.description_gradient_border_in{
+    margin-top: 10px;
+    width: 340px;
+    horizontal-align:center;
+}
+.under_line_panel{
+    width: 300px;
+    height: 200px;
+    /* flow-children:down; */
+    margin-top: 300px;
+    horizontal-align:center;
+}
+.background-image-description{
+    horizontal-align:center;
+    z-index: -1;
+}
+.button{
+    horizontal-align:center;
+    vertical-align: bottom;
+    margin-bottom: 60px;
+    width: 250px;
+    height: 50px;
+    brightness:1;
+}
+.button:hover{
+    brightness:1.8;
+    sound: "ui_select_arrow";
+}
+.button_label{
+    text-align: center;
+    font-size: 21px;
+    color: white;
+    text-shadow: 2px 2px 8px 1.5 #333333b0;
+}
+.progress_line_panel{
+    width: 100%;
+    height: 86px;
+    vertical-align: bottom;
+}
+.red_line_panel{
+    height: 20px;
+    width: 56%;
+    background-image: url("file://{resources}/images/custom_game/talants/yellow_line.png");
+    background-size: 100% 100%;
+}
+.blue_line_panel{
+    height: 20px;
+    width: 45%;
+    background-image: url("file://{resources}/images/custom_game/talants/blue_line.png");
+    background-size: 100% 100%;
+}
+.exp_line_container{
+    width: 96%;
+    flow-children:down;
+    horizontal-align:center;
+    vertical-align: bottom;
+    margin-bottom: 4px;
+    background-image: url("file://{resources}/images/custom_game/talants/exp_bg.png");
+    background-size: 100% 100%;
+    margin-bottom: 12px;
+}
+.progress_line_bg{
+    height: 100%;
+    width: 100%;
+}
+.level_info_panel{
+    flow-children:right;
+    z-index: 1;
+    height: 30px;
+    width: 230px;
+    margin-left: 260px;
+    tooltip-position: top;
+}
+.normal_level_label,.RDA_level_label{
+    vertical-align: center;
+    width: 50%;
+    text-align: center;
+    vertical-align: center;
+    font-size: 20px;
+}
+.normal_level_label{
+    color: #cdd83a;
+    text-shadow: 2px 2px 3px 3.0 #000000;
+}
+.RDA_level_label{
+    color: #1a8d23;
+    text-shadow: 2px 2px 3px 3.0 #000000;
+}
+.SceneLoaded{
+    width: 100%;
+    height: 100%;
+    color: tomato;
+}
+#top_burner{
+    hue-rotation: 0deg;
+}
+#botton_burner{
+    hue-rotation: 250deg;
+}
+.exp_line_container2{
+    width: 96%;
+    flow-children:down;
+    horizontal-align:center;
+    vertical-align: bottom;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+.blue_line_label,.red_line_label{
+    color: rgb(255, 255, 255);
+    margin-left: 20px;
+}
+.blue_line_label{
+    text-shadow: 2px 2px 2px 3.0 black;
+}
+.red_line_label{
+    text-shadow: 2px 2px 2px 3.0 black;
+}
+.close_panel_bg{
+    width: 200px;
+    height: 50px;
+    align: center bottom;
+    /* vertical-align: bottom; */
+    /* margin-left: 10px; */
+    margin-bottom: 100px;
+    /* background-color: rgba(0, 0, 0, 0), gradient( radial, 100% -0%, 10px 0px, 1320% 500%, from( rgba(0, 0, 0, 0.2) ), color-stop( 0.8, rgba(0, 0, 0, 0.2) ), to( rgba(0, 0, 0, 0.8) ) ); */
+}
+.close_panel_bg Label{
+    font-size: 25;
+    align: center center;
+    color:white;
+    text-shadow: 2px 2px 2px 3.0 black;
+}
+.close_exit_img{
+    horizontal-align:center;
+    width: 1000px;
+    height: 100px;
+    background-image: url("file://{resources}/images/custom_game/talants/exit.png");
+    background-size: 100% 100%;
+    margin-top: 50px;
+    brightness: 0.5;
+}
+
+.talant_tree{
+    background-image: url("file://{resources}/images/custom_game/talants/tree_icon_1.png");
+    width: 62px;
+    height: 62px;
+}
+.icon_bg{
+    width: 55px;
+    height: 55px;
+    vertical-align: bottom;
+    margin-bottom: 30px;
+    img-shadow: 2px 3px 8px 3.0 #000000b0;
+    horizontal-align:right;
+    tooltip-position: top;
+}
+.icon_bg:hover{
+    brightness: 2.0;
+    sound: "ui_select_arrow";
+}
+.test{
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+}
+
+.close_button{
+    height: 249px;
+    width: 302px;
+    brightness: 0.7;
+}
+.close_panel_bg:hover{
+    brightness: 1.5;
+    sound: "ui_select_arrow";
+}
+.gain_container{
+    flow-children:down;
+    z-index: 1;
+    horizontal-align:right;
+    vertical-align: bottom;
+    margin-right: 45px;
+    margin-bottom: 9px;
+    width: 50px;
+}
+#talant-bg-img-shop{
+    z-index: -1;
+
+}
+.blue_line_label_gain,.red_line_label_gain{
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+.openbtn{
+    width: 100px;
+    height: 100px;
+    vertical-align: center;
+    margin-left: 10px;
+    margin-top: 450px;
+    z-index: 3;
+    brightness: 0.7;
+}
+.openbtn:hover{
+    brightness: 1.1;
+}
+.talant-2nd-window{
+    height: 680px;
+    width: 400px;
+    vertical-align: center;
+    z-index:3;
+    position: -400px 0px 0;
+    transition-property: position;
+    transition-duration: 0.2s;
+}
+.player-state{
+    width: 300px;
+    horizontal-align:center;
+    margin-top: 45px;
+    flow-children:down;
+    overflow: clip scroll;
+}
+.player-state-1{
+    height: 190px;
+}
+.player-state-2{
+    height: 590px;
+}
+.state{
+    width: 100%;
+    flow-children:down;
+    margin-left: 15px;
+    margin-top: 2px;
+}
+.state-text{
+    color: rgb(255, 255, 255);
+}
+.talant-shop{
+    height: 575px;
+    width: 300px;
+    horizontal-align:center;
+    margin-top: 48px;
+    flow-children:down;
+    overflow: clip scroll;
+}
+.shop{
+    width: 100%;
+    height: 120px;
+}
+.shop-image{
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.shop-text-panel{
+    margin-left: 80px;
+    margin-top: 10px;
+    height: 50px;
+    width: 200px;
+}
+.shop-text{
+    color: rgb(255, 255, 255);
+    vertical-align: center;
+}
+.shop-gem-btn-panel{
+    height: 48px;
+    width: 118px;
+    vertical-align: bottom;
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+.shop-rait-btn-panel{
+    height: 48px;
+    width: 118px;
+    vertical-align: bottom;
+    horizontal-align:right;
+    margin-right: 10px;
+}
+.price{
+    height: 25px;
+    vertical-align: center;
+    flow-children:right;
+    horizontal-align:center;
+}
+.gem-image{
+    width: 35px;
+}
+.rait-image{
+    width: 28px;
+}
+.price-text{
+    color: rgb(255, 255, 255);
+    vertical-align: center;
+}
+.price-rait{
+    margin-bottom: 10px;
+}
+.no-money{
+    brightness: 0.2;
+}
+.btn-hover:hover{
+    brightness: 2;
+}
+#players_have{
+    horizontal-align: center;
+    font-size: 21;
+    color:white;
+    margin-top: 490px;
+}
+#players_have:hover{
+    text-decoration:underline;
+}
+.center{
+    vertical-align: center;
+    horizontal-align: center;
+}
+.flowRight{
+    flow-children: right;
+}
+.talentTreeIconLevel_Label{
+    horizontal-align: center;
+    vertical-align: center;
+    color: gold;
+    font-size: 21;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
+}
+#exp_boost_panel{
+    align: right bottom;
+    margin-bottom: 70px;
+    margin-right: 50px;
+    flow-children: down;
+}
+#exp_boost_lavel_1{
+    color: white;
+    font-size: 16;
+    text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
+}
+#exp_boost_lavel_2{
+    color: gold;
+    font-size: 30;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
+    animation-name: exp_boost_lavel_2_animation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes 'exp_boost_lavel_2_animation'
+{
+	0%{
+        color:#FFD700;
+    }
+    50%{
+        color:	#FFA500;
+    }
+    100%{
+        color:#FFD700;
+    }
+}
+#arrow_left{
+    vertical-align: center;
+    horizontal-align: right;
+    height: 110px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: 90px;
+}
+#arrow_left:hover{
+    brightness: 1.8;
+    sound: "ui_select_arrow";
+}
+#arrow_left:active{
+    sound: "ui_team_select_shuffle";
+}
+#arrow_right{
+    vertical-align: center;
+    horizontal-align: right;
+    height: 110px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 40px;
+    margin-right: 5px;
+    margin-bottom: 90px;
+}
+#arrow_right:hover{
+    brightness: 1.8;
+    sound: "ui_select_arrow";
+}
+#arrow_right:active{
+    sound: "ui_team_select_shuffle";
+}
+.item_image{
+    height: 60px;
+    width: 60px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    tooltip-position: left;
+}
+.item_Panel{
+    /* border:1px solid white; */
+    width: 100%;
+    height: 80px;
+    overflow: clip;
+}
+.store_refresh{
+    height: 125px;
+}
+.item_name{
+    color:white;
+    text-shadow: 2px 2px 2px 3.0 rgb(0, 0, 0);
+    margin-left: 80px;
+    margin-top: 5px;
+}
+.item_count{
+    color:white;
+    text-shadow: 2px 2px 2px 3.0 rgb(0, 0, 0);
+    margin-top: 85px;
+    margin-left: 10px;
+    width: 55px;
+    text-align: center;
+    tooltip-position: left;
+}
+.item_use_button_panel{
+    background-image: url('file://{resources}/images/custom_game/talants/button_thin_secondary_png.png');
+    background-size: 100%;
+    height: 35px;
+    width: 200px;
+    horizontal-align: right;
+    margin-top: 80px;
+    margin-right: 17px;
+}
+.item_use_button_panel:hover{
+    brightness: 1.8;
+    sound: "ui_select_arrow";
+}
+.item_use_button_panel Label{
+    color:white;
+    text-shadow: 2px 2px 2px 3.0 rgb(0, 0, 0);
+    align: center center;
+}
+.buy_button{
+    width: 100px;
+    height: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    tooltip-position: top;
+}
+.buy_button:hover{
+    brightness: 1.8;
+    sound: "ui_select_arrow";
+}
+.buy_buttons_panel{
+    flow-children: right;
+    horizontal-align: left;
+    margin-top: 30px;
+    margin-left: 70px;
+}
+#don_button{
+    background-image: url('file://{resources}/images/custom_game/talants/1.png');
+    background-size: 100%;
+}
+#rp_button{
+    background-image: url('file://{resources}/images/custom_game/talants/2.png');
+    background-size: 100%;
+}
+.buy_button_label{
+    color:white;
+    text-shadow: 2px 2px 2px 3.0 rgb(0, 0, 0);
+    vertical-align: center;
+}
+#don_icon{
+    background-image: url('file://{resources}/images/custom_game/RDAShop/money_logo_3_mini.png');
+    height: 25px;
+    width: 25px;
+    background-size: contain;
+}
+#rp_icon{
+    background-image: url('file://{resources}/images/custom_game/RDAShop/protection_mini.png');
+    height: 20px;
+    width: 20px;
+    background-size: contain;
+}
+#player_state_panel{
+    height: 680px;
+    width: 400px;
+    background-image: url('file://{resources}/images/custom_game/talants/2w3s.png');
+    background-size: 100%;
+}
+#player_state{
+    border: 1px solid white;
+    width: 300px;
+    height: 100px;
+    margin-top: 45px;
+    horizontal-align: center;
+}
+#cheat_mode_panel{
+    z-index: 2;
+}
+#cheat_mode_label{
+    align: center bottom;
+    color: gold;
+    font-size: 30;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
+    animation-name: exp_boost_lavel_2_animation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#button_cheat_drop{
+    height: 50px;
+    width: 200px;
+    background-image: url("file://{resources}/images/custom_game/talants/button_thin_secondary_png.png");
+    background-size: 100%;
+    align: center bottom;
+    margin-bottom: 50px;
+}
+#button_cheat_drop:hover{
+    brightness:1.8;
+    sound: "ui_select_arrow";
+}
+#button_cheat_drop Label{
+    color:white;
+    text-shadow: 2px 2px 2px 3.0 rgb(0, 0, 0);
+    align: center center;
+    font-size: 21;
+}
+#activate_second_branch_panel{
+    z-index: 2;
+}
+#activate_second_branch_button_background{
+    background-image: url("file://{resources}/images/custom_game/talants/button_thin_secondary_png.png");
+    background-size: 100%;
+    height: 45px;
+    width: 200px;
+    align: center bottom;
+}
+#activate_second_branch_label{
+    text-shadow: 2px 2px 2px 3.0 black;
+    font-size: 21;
+    align: center bottom;
+    margin-bottom: 60px;
+    animation-name: exp_boost_lavel_2_animation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#activate_second_branch_button_don{
+    tooltip-position: top;
+}
+#activate_second_branch_button_rp{
+    tooltip-position: top;
+}
+#activate_second_branch_button_don:hover{
+    ui-scale: 120%;
+    sound: "ui_select_arrow";
+}
+#activate_second_branch_button_rp:hover{
+    ui-scale: 120%;
+    sound: "ui_select_arrow";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.talant_icon_panel_size_1{
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+.talant_icon_panel_size_2{
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+}
+.talant_icon_panel_size_3{
+    height: 59px;
+    width: 59px;
+    border-radius: 30px;
+}
+
+
+.talant_icon_1_panel{
+    margin-top: 48.1%;
+    margin-left: 1.8%;
+}
+.talant_icon_2_panel{
+    margin-top: 38.8%;
+    margin-left: 3.6%;
+}
+.talant_icon_3_panel{
+    margin-top: 43.4%;
+    margin-left: 18.8%;
+}
+.talant_icon_4_panel{
+    margin-top: 51.3%;
+    margin-left: 17.0%;
+}
+.talant_icon_5_panel{
+    margin-top: 34.2%;
+    margin-left: 35.3%;
+}
+.talant_icon_6_panel{
+    margin-top: 39.9%;
+    margin-left: 40.1%;
+}
+.talant_icon_7_panel{
+    margin-top: 53.4%;
+    margin-left: 8.7%;
+}
+.talant_icon_8_panel{
+    margin-top: 45.1%;
+    margin-left: 10.1%;
+}
+.talant_icon_9_panel{
+    margin-top: 36.6%;
+    margin-left: 13.0%;
+}
+.talant_icon_10_panel{
+    margin-top: 32.9%;
+    margin-left: 19.6%;
+}
+.talant_icon_11_panel{
+    margin-top: 32.0%;
+    margin-left: 27.5%;
+}
+
+
+
+
+.talant_icon_12_panel{
+    margin-top: 1.4%;
+    margin-left: 41.5%;
+}
+.talant_icon_13_panel{
+    margin-top: 39.4%;
+    margin-left: 51.5%;
+}
+.talant_icon_14_panel{
+    margin-top: 8.5%;
+    margin-left: 36.7%;
+}
+.talant_icon_15_panel{
+    margin-top: 9.4%;
+    margin-left: 45.0%;
+}
+.talant_icon_16_panel{
+    margin-top: 2.4%;
+    margin-left: 50.7%;
+}
+.talant_icon_17_panel{
+    margin-top: 18.0%;
+    margin-left: 57.9%;
+}
+.talant_icon_18_panel{
+    margin-top: 26.0%;
+    margin-left: 59.4%;
+}
+.talant_icon_19_panel{
+    margin-top: 11.3%;
+    margin-left: 53.5%;
+}
+.talant_icon_20_panel{
+    margin-top: 16.6%;
+    margin-left: 39.7%;
+}
+.talant_icon_21_panel{
+    margin-top: 18.0%;
+    margin-left: 47.5%;
+}
+.talant_icon_22_panel{
+    margin-top: 33.7%;
+    margin-left: 58.0%;
+}
+
+
+
+.talant_icon_23_panel{
+    margin-top: 89.3%;
+    margin-left: 41.6%;
+}
+.talant_icon_24_panel{
+    margin-top: 75.1%;
+    margin-left: 53.0%;
+}
+.talant_icon_25_panel{
+    margin-top: 73.6%;
+    margin-left: 45.3%;
+}
+.talant_icon_26_panel{
+    margin-top: 90.5%;
+    margin-left: 51.0%;
+}
+.talant_icon_27_panel{
+    margin-top: 83.4%;
+    margin-left: 55.6%;
+}
+.talant_icon_28_panel{
+    margin-top: 82.4%;
+    margin-left: 47.6%;
+}
+.talant_icon_29_panel{
+    margin-top: 80.1%;
+    margin-left: 39.1%;
+}
+.talant_icon_30_panel{
+    margin-top: 73.5%;
+    margin-left: 34.9%;
+}
+.talant_icon_31_panel{
+    margin-top: 65.5%;
+    margin-left: 33.5%;
+}
+.talant_icon_32_panel{
+    margin-top: 57.6%;
+    margin-left: 35.2%;
+}
+.talant_icon_33_panel{
+    margin-top: 51.0%;
+    margin-left: 40.5%;
+}
+
+
+
+
+
+
+.talant_icon_34_panel{
+    margin-top: 51.2%;
+    margin-left: 51.7%;
+}
+.talant_icon_35_panel{
+    margin-top: 57.8%;
+    margin-left: 58.0%;
+}
+.talant_icon_36_panel{
+    margin-top: 40.0%;
+    margin-left: 75.9%;
+}
+.talant_icon_37_panel{
+    margin-top: 47.9%;
+    margin-left: 74.1%;
+}
+.talant_icon_38_panel{
+    margin-top: 51.8%;
+    margin-left: 89.5%;
+}
+.talant_icon_39_panel{
+    margin-top: 59.6%;
+    margin-left: 66.0%;
+}
+.talant_icon_40_panel{
+    margin-top: 58.5%;
+    margin-left: 73.8%;
+}
+.talant_icon_41_panel{
+    margin-top: 54.3%;
+    margin-left: 80.6%;
+}
+.talant_icon_42_panel{
+    margin-top: 45.7%;
+    margin-left: 82.9%;
+}
+.talant_icon_43_panel{
+    margin-top: 37.5%;
+    margin-left: 84.0%;
+}
+.talant_icon_44_panel{
+    margin-top: 42.4%;
+    margin-left: 91.0%;
+}
+.talant_icon_45_panel{
+    margin-top: 63.5%;
+    margin-left: 8.5%;
+}
+.talant_icon_46_panel{
+    margin-top: 9.3%;
+    margin-left: 26.6%;
+}
+.talant_icon_47_panel{
+    margin-top: 82.8%;
+    margin-left: 65.9%;
+}
+.talant_icon_48_panel{
+    margin-top: 27.2%;
+    margin-left: 83.5%;
+}
+.talant_icon_49_panel{
+    margin-top: 72.4%;
+    margin-left: 13.5%;
+}
+.talant_icon_50_panel{
+    margin-top: 15.0%;
+    margin-left: 18.5%;
+}
+.talant_icon_51_panel{
+    margin-top: 77.3%;
+    margin-left: 74.1%;
+}
+.talant_icon_52_panel{
+    margin-top: 18.6%;
+    margin-left: 78.4%;
+}

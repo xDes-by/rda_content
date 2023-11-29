@@ -38,8 +38,8 @@ function OnClickSpray(t) {
 		}
 		can_use_highfive = false
 	}else if(t == "pet" && Entities.IsAlive( Players.GetPlayerHeroEntityIndex( playerID ) )){
-		var spray = CustomNetTables.GetTableValue( "player_pets", playerID);
-		if (spray != null){
+		var pet = CustomNetTables.GetTableValue( "cosmetic_buttons", "pet");
+		if (pet[playerID] != null){
 			if(can_use_pet) {
 					GameEvents.SendCustomGameEventToServer( "UsePet", {} )
 					timer3(2)	
@@ -195,7 +195,16 @@ function CtrlTimer(){
 	Game.AddCommand( bind_3, ()=>{ OnClickSpray( 'pet' ) }, "", 0 );
 	var button_text = pet.FindChildTraverse("CosmeticAbility_text2");
 	button_text.text = keybind_courier
-	GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
+	// GameEvents.Subscribe('UpdatePetIcon', UpdatePetIcon);
+	// cosmetic_buttons
+	CustomNetTables.SubscribeNetTableListener( "cosmetic_buttons", (_, key, data)=>{
+        if(key == "pet"){
+			const spray_icon = FindDotaHudElement("CustomAbility_pet_custom");
+			spray_icon
+				.FindChildTraverse("CosmeticAbilityImage")
+				.SetImage( "file://{images}/custom_game/pet_buttons/"+data[Players.GetLocalPlayer()]+".png" );
+        }
+    });
 	CtrlTimer()
 })();
 

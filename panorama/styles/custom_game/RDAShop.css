@@ -922,7 +922,7 @@
 }
 #rp_booster_container{
 	flow-children: down;
-	margin-top: 60px;
+	margin-top: 78px;
 	margin-left: 400px;
 }
 #rp_booster_label_1{
@@ -932,7 +932,7 @@
 }
 #rp_booster_label_2{
 	color: gold;
-    font-size: 21;
+    font-size: 30;
     font-weight: bold;
     text-shadow: 2px 2px 2px 4.0 rgb(0, 0, 0);
     animation-name: rp_booster_label_2_animation;

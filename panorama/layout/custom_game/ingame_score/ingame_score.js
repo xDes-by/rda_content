@@ -7,6 +7,7 @@ $("#score_panel").SetParent(DotaHUD.Get().FindChildTraverse("TopBarDireTeamConta
 var for_victory = 0
 var reliable = 0
 var mode_name = ""
+var scale = 0
 var player_mmr = 0
 
 const winning = CustomNetTables.GetTableValue( "GameInfo", "winning")
@@ -19,13 +20,14 @@ if(winning != undefined){
 }
 if(mode != undefined){
     mode_name = mode["name"] || ""
+    scale = mode["scale"] || 1
 }
 if(local_player != undefined){
     player_mmr = local_player["mmr"] || ""
 }
 function UpdateScore(){
     DotaHUD.Get().FindChildTraverse("information_block_first").GetChild(0).text = for_victory
-    DotaHUD.Get().FindChildTraverse("information_block_second").GetChild(0).text = reliable
+    DotaHUD.Get().FindChildTraverse("information_block_second").GetChild(0).text = reliable > 0 ? reliable : -25 * scale
     DotaHUD.Get().FindChildTraverse("information_block_difficulty").GetChild(0).text = mode_name
     DotaHUD.Get().FindChildTraverse("local_player_mmr").text = Number(player_mmr) + Number(for_victory)
     if(Number(for_victory) > 0){
@@ -36,9 +38,9 @@ function UpdateScore(){
 }
 UpdateScore()
 function NetTableListener(table_name, key, data){
-    $.Msg("1234")
     if(key == "mode"){
         mode_name = data["name"] || ""
+        scale = data["scale"] || 1
     }
     if(key == "winning"){
         for_victory = data["for_victory"] || 0

@@ -2,14 +2,14 @@ var npc,
 	playerID = Players.GetLocalPlayer(),
 	butupdate,
 	sid = GetUniverseSteamID32( playerID ),
-	base_tab = CustomNetTables.GetTableValue( "quests" , 'base'),
-	options_tab = CustomNetTables.GetTableValue( "quests" , 'options'),
-	reward_tab = CustomNetTables.GetTableValue( "quests" , 'reward'),
-	abs_tab = CustomNetTables.GetTableValue( "quests" , 'abs'),
-	kill_tab = CustomNetTables.GetTableValue( "quests" , 'kill'),
-	item_tab = CustomNetTables.GetTableValue( "quests" , 'item'),
-	custom_tab = CustomNetTables.GetTableValue( "quests" , 'custom'),
-	giveItem_tab = CustomNetTables.GetTableValue( "quests" , 'giveItem'),
+	base_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'base'),
+	options_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'options'),
+	reward_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'reward'),
+	abs_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'abs'),
+	kill_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'kill'),
+	item_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'item'),
+	custom_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'custom'),
+	giveItem_tab = CustomNetTables.GetTableValue( "QuestSystem" , 'giveItem'),
 	itemsArray,
 	list,
 	mode,
@@ -524,10 +524,9 @@ function open_base_panel(name, unit){
 	if(trialPeriod > 0 && !subscribe)
 		$("#TrialPeriod").visible = true
 }
-
-
-
-
+function PlayCompletionSound(){
+	Game.EmitSound("DOTA_Item.MagicLamp.Cast");
+}
 (function(){
 	
 	if($("#questPanel") != null)
@@ -542,6 +541,7 @@ function open_base_panel(name, unit){
 	GameEvents.Subscribe('dota_player_update_hero_selection', open_quest_window);
 	GameEvents.Subscribe('dota_player_update_selected_unit', open_quest_window);
 	GameEvents.Subscribe('open_quest_window', open_quest_window);
+	GameEvents.Subscribe('PlayCompletionSound', PlayCompletionSound);
 	// CustomNetTables.SubscribeNetTableListener( "player_info", changeHudPanel );
 	if($.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("HUDElements")){
 		$.CreatePanel("Panel", $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("HUDElements"), 'questInfoBarPanel')

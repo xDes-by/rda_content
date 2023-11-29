@@ -111,3 +111,23 @@ function UpdateBonusOnSliderChange(){
         PANEL.display_gems_buff_text.text = GetGemBuffDescription(data)
     }
 }
+function CreateOpenButton(){
+    const ShopPanel = DotaHUD.Get().FindChildTraverse("shop_launcher_block")
+    var CustomButton = ShopPanel.FindChildTraverse("CustomButtonForge")
+    if(CustomButton == null){
+        CustomButton = $.CreatePanel("Panel", ShopPanel, "CustomButtonForge")
+        CustomButton.BLoadLayout("file://{resources}/layout/custom_game/forge/forge_button.xml", false, false)
+        CustomButton.style.align = "right bottom"
+        CustomButton.style.margin = "5px"
+        CustomButton.SetPanelEvent("onactivate", OpenButton)
+    }else{
+        CustomButton.SetPanelEvent("onactivate", OpenButton)
+    }
+    if(Game.IsHUDFlipped()){
+        CustomButton.style.marginRight = "130px"
+        CustomButton.style.transform = "scaleX(-1)"
+    }else{
+        CustomButton.style.marginRight = "5px"
+        CustomButton.style.transform = "scaleX(1)"
+    }
+}

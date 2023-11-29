@@ -1,4 +1,4 @@
-const tableLength = 7
+const tableLength = 6
 var PlayerCount = 0,
 	rating,
 	commented = [],
@@ -631,7 +631,7 @@ function OpenInventory(){
 }
 
 function OpenBuyGens(){
-	let o = opn(7)
+	let o = opn(6)
 	o()
 }
 
@@ -654,11 +654,13 @@ var acceptBuy = (function(i, n, pan, consumabl, currency)
 		$('#accept_shadow').visible = false
 		GameEvents.SendCustomGameEventToServer("buyItem", {i,n, amountBuy,currency})
 		var numb = Number(Number(shopinfo[i][n].now) + amountBuy)
-		shopinfo[i][n].now = numb
-		shopinfo[i][n].onStart = Number(shopinfo[i][n].onStart) + amountBuy
-		$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
-		if($("#ShopItem_Inventory" + i + '_' + n)){
-			$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+		if(shopinfo[i][n].type != 'gem'){
+			shopinfo[i][n].now = numb
+			shopinfo[i][n].onStart = Number(shopinfo[i][n].onStart) + amountBuy
+			$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+			if($("#ShopItem_Inventory" + i + '_' + n)){
+				$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+			}
 		}
 		if(consumabl){
 			
@@ -1545,6 +1547,17 @@ function shopinfoed(table_name, key, data){
 		if($('#RatingTeamPlayer'+key))
 			if($('#RatingTeamPlayer'+key).FindChildTraverse("RatingPlayerLikes2"))
 				$('#RatingTeamPlayer'+key).FindChildTraverse("RatingPlayerLikes2").text = data['likes'];
+
+		if($('#smithy_purple_label'))
+			$('#smithy_purple_label').text = data['purple_gem']
+		if($('#smithy_blue_label'))
+			$('#smithy_blue_label').text = data['blue_gem']
+		if($('#smithy_orange_label'))
+			$('#smithy_orange_label').text = data['orange_gem']
+		if($('#smithy_red_label'))
+			$('#smithy_red_label').text = data['red_gem']
+		if($('#smithy_green_label'))
+			$('#smithy_green_label').text = data['green_gem']
     }
 }
 
@@ -1586,7 +1599,37 @@ function FindChildTraverse(name){
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(name)
 }
 
+function UpdateExperienceMultiplier(){
+    const talent_multiplier_panel = $("#rp_booster_label_2")
+	if(!talent_multiplier_panel) return
+    const data = CustomNetTables.GetTableValue( "GameInfo", Game.GetLocalPlayerID())
+	if(data.rp_multiplier.multiplier <= 1){
+		talent_multiplier_panel.visible = false
+		return
+	}else{
+		talent_multiplier_panel.visible = true
+	}
+    talent_multiplier_panel.text = "x" + data.rp_multiplier.multiplier
+	talent_multiplier_panel.visible = data.rp_multiplier.multiplier > 1
+    let multiplier_text = ""
+    for(let i in data.rp_multiplier.list){
+        if(i > 1){
+            multiplier_text += "<br>"
+        }
+        multiplier_text += $.Localize("#quest_multiplier_text")
+        multiplier_text = multiplier_text.replace("##multiplier##", data.rp_multiplier.list[i].multiplier)
+        multiplier_text = multiplier_text.replace("##games##", data.rp_multiplier.list[i].remaining_games_count)
+    }
+    talent_multiplier_panel.SetPanelEvent("onmouseover",()=>{
+        $.DispatchEvent( "DOTAShowTextTooltip", talent_multiplier_panel, multiplier_text);
+    });
+    talent_multiplier_panel.SetPanelEvent("onmouseout",()=>{
+        $.DispatchEvent( "DOTAHideTextTooltip");
+    });
+}
+
 (function(){
+	UpdateExperienceMultiplier()
 	GameEvents.Subscribe( "Noti", Noti)
 	GameEvents.Subscribe( "UpdateStore", UpdateStore)
 	// GameEvents.Subscribe( "SetShopItemCount", SetShopItemCount)
@@ -1596,6 +1639,7 @@ function FindChildTraverse(name){
 	GameEvents.Subscribe( "change_pet", change_pet)
 	GameEvents.Subscribe( "ReceivingRPAlert", ReceivingRPAlert)
 	GameEvents.Subscribe( "ReceivingCoinsAlert", ReceivingCoinsAlert)
+	CustomNetTables.SubscribeNetTableListener( "GameInfo", UpdateExperienceMultiplier );
 	if($("#ReceivingRPNotification_Panel") && $("#ReceivingCoinsNotification_Panel")){
 		$("#ReceivingRPNotification_Panel").visible = false
 		$("#ReceivingCoinsNotification_Panel").visible = false

@@ -255,28 +255,9 @@ function ShowGemTooltip(n){
 function HideGemTooltip(){
     $.DispatchEvent( "DOTAHideTextTooltip");
 }
-function CreateOpenButton(){
-    const ShopPanel = DotaHUD.Get().FindChildTraverse("shop_launcher_block")
-    var CustomButton = ShopPanel.FindChildTraverse("CustomButtonForge")
-    if(CustomButton == null){
-        CustomButton = $.CreatePanel("Panel", ShopPanel, "CustomButtonForge")
-        CustomButton.BLoadLayout("file://{resources}/layout/custom_game/forge/forge_button.xml", false, false)
-        CustomButton.style.align = "right bottom"
-        CustomButton.style.margin = "5px"
-        CustomButton.SetPanelEvent("onactivate", OpenButton)
-    }else{
-        CustomButton.SetPanelEvent("onactivate", OpenButton)
-    }
-    if(Game.IsHUDFlipped()){
-        CustomButton.style.marginRight = "130px"
-        CustomButton.style.transform = "scaleX(-1)"
-    }else{
-        CustomButton.style.marginRight = "5px"
-        CustomButton.style.transform = "scaleX(1)"
-    }
+function PlayCompletionSound(){
+	Game.EmitSound("DOTA_Item.MagicLamp.Cast");
 }
-
-
 (()=>{
     BuildListOfItems(CustomNetTables.GetTableValue( "forge", Players.GetLocalPlayer()))
     CustomNetTables.SubscribeNetTableListener( "forge", (_, key, data)=>{

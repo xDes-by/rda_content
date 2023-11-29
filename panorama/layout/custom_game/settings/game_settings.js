@@ -172,27 +172,94 @@ $("#DiffName").text = `${DIFFICULTY_PRIZE[1].name}`
 
 GameEvents.SendCustomGameEventToServer("GameSettingsInit", {})
 GameEvents.Subscribe("GameSettingsMaxDifficulty", function(params) {
-	// for(let i = 3; i <= 6;i++){
-	// 	$("#SettingsComplexTier" + i).diff_available = true
-	// 	$("#SettingsComplexTier" + i).GetChild(1).visible = false
-	// }
+	$("#SettingsComplexTier1").SetPanelEvent("onmouseover", ()=>{
+		$("#SettingsComplexTier1").FindChildTraverse("diff_toggle_1").SetHasClass("Hidden", false)
+	})
+	$("#SettingsComplexTier1").SetPanelEvent("onmouseout", ()=>{
+		if($("#SettingsComplexTier1").FindChildTraverse("diff_toggle_1").checked == false){
+			$("#SettingsComplexTier1").FindChildTraverse("diff_toggle_1").SetHasClass("Hidden", true)
+		}
+	})
+	$("#SettingsComplexTier2").SetPanelEvent("onmouseover", ()=>{
+		$("#SettingsComplexTier2").FindChildTraverse("diff_toggle_2").SetHasClass("Hidden", false)
+	})
+	$("#SettingsComplexTier2").SetPanelEvent("onmouseout", ()=>{
+		if($("#SettingsComplexTier2").FindChildTraverse("diff_toggle_2").checked == false){
+			$("#SettingsComplexTier2").FindChildTraverse("diff_toggle_2").SetHasClass("Hidden", true)
+		}
+	})
 	if(params.maximum_passed_difficulty >= 1){
 		$("#SettingsComplexTier3").diff_available = true
 		$("#SettingsComplexTier3").GetChild(1).visible = false
+		$("#SettingsComplexTier3").SetPanelEvent("onmouseover", ()=>{
+			$("#SettingsComplexTier3").FindChildTraverse("diff_toggle_3").SetHasClass("Hidden", false)
+		})
+		$("#SettingsComplexTier3").SetPanelEvent("onmouseout", ()=>{
+			if($("#SettingsComplexTier3").FindChildTraverse("diff_toggle_3").checked == false){
+				$("#SettingsComplexTier3").FindChildTraverse("diff_toggle_3").SetHasClass("Hidden", true)
+			}
+		})
 	}
 	if(params.maximum_passed_difficulty >= 2){
 		$("#SettingsComplexTier4").diff_available = true
 		$("#SettingsComplexTier4").GetChild(1).visible = false
+		$("#SettingsComplexTier4").SetPanelEvent("onmouseover", ()=>{
+			$("#SettingsComplexTier4").FindChildTraverse("diff_toggle_4").SetHasClass("Hidden", false)
+		})
+		$("#SettingsComplexTier4").SetPanelEvent("onmouseout", ()=>{
+			if($("#SettingsComplexTier4").FindChildTraverse("diff_toggle_4").checked == false){
+				$("#SettingsComplexTier4").FindChildTraverse("diff_toggle_4").SetHasClass("Hidden", true)
+			}
+		})
 	}
 	if(params.maximum_passed_difficulty >= 3){
 		$("#SettingsComplexTier5").diff_available = true
 		$("#SettingsComplexTier5").GetChild(1).visible = false
+		$("#SettingsComplexTier5").SetPanelEvent("onmouseover", ()=>{
+			$("#SettingsComplexTier5").FindChildTraverse("diff_toggle_5").SetHasClass("Hidden", false)
+		})
+		$("#SettingsComplexTier5").SetPanelEvent("onmouseout", ()=>{
+			if($("#SettingsComplexTier5").FindChildTraverse("diff_toggle_5").checked == false){
+				$("#SettingsComplexTier5").FindChildTraverse("diff_toggle_5").SetHasClass("Hidden", true)
+			}
+		})
 	}
 	if(params.maximum_passed_difficulty >= 4){
 		$("#SettingsComplexTier6").diff_available = true
 		$("#SettingsComplexTier6").GetChild(1).visible = false
+		$("#SettingsComplexTier6").SetPanelEvent("onmouseover", ()=>{
+			$("#SettingsComplexTier6").FindChildTraverse("diff_toggle_6").SetHasClass("Hidden", false)
+		})
+		$("#SettingsComplexTier6").SetPanelEvent("onmouseout", ()=>{
+			if($("#SettingsComplexTier6").FindChildTraverse("diff_toggle_6").checked == false){
+				$("#SettingsComplexTier6").FindChildTraverse("diff_toggle_6").SetHasClass("Hidden", true)
+			}
+		})
+	}
+	let found = false
+	for(let i = 1; i <= 6; i++){
+		if(params.diff_toggle == 'diff_toggle_' + i){
+			found = true
+			$("#diff_toggle_"+i).SetSelected(true)
+			$("#diff_toggle_"+i).SetHasClass("Hidden", false)
+			OnDifficultySelected(i-1)
+		}
+	}
+	if(found == false){
+		OnDifficultySelected(1)
 	}
 })
 $("#SettingsComplexTier1").SetPanelEvent("onmouseover", ()=>{
 	$.Msg("12334333")
 })
+function Toggle(id){
+	GameEvents.SendCustomGameEventToServer("GameSettingsToggle", {id: id, toggle: $("#"+id).checked})
+	if($("#"+id).checked == true){
+		for(let i = 1; i <= 6; i++){
+			if("diff_toggle_"+i != id){
+				$("#diff_toggle_"+i).SetSelected(false)
+				$("#diff_toggle_"+i).SetHasClass("Hidden", true)
+			}
+		}
+	}
+}

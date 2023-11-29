@@ -29,6 +29,9 @@
                 </Panel>
             </Panel>
         </Panel>
+        <Panel id="rdandom_wave_panel" class="">
+            <Label id="" class="" text="#random_wave_notification" />
+        </Panel>
 	</Panel>
 
     <scripts>

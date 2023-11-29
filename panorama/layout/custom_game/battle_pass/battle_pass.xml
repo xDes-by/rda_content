@@ -2,69 +2,188 @@
     <styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass.css" />
+        <include src="file://{resources}/layout/custom_game/battle_pass/buy_confirmation.css" />
     </styles>
     <scripts>
+        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_show_tooltips.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_variables.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_view_processing.js" />
+        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_vote.js" />
+        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_tasks.js" />
+        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_buy.js" />
+        <include src="file://{resources}/layout/custom_game/battle_pass/buy_confirmation.js" />
+        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_inventory.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_functions.js" />
     </scripts>
-
+    
     <snippets>
         <snippet name="tab">
             <Panel id="" class="outer_tab_container">
                 <Panel id="" class="inner_tab_container">
-                    <Label id="" class="tab_label" text="TAB" />
+                    <Panel style='align:center center; flow-children:right;'>
+                        <Panel id="" class="tab_battle_pass_image"/>
+                        <Label id="tab_name" class="tab_label" text="TAB" />
+                    </Panel>
                 </Panel>
             </Panel>
         </snippet>
         <snippet name="scroll_item_column">
             <Panel id="" class="bp_scroll_item_Panel">
-                <Panel id="" class="free_tier_reward_Panel">
-                    <Panel id="" class="free_tier_reward_image_Panel">
-                        <Image id="" class="scroll_reward_Image" src="file://{images}/custom_game/bp/items/talent_exp.png" />
-                        <Panel id="" class="scroll_reward_Lock hidden" src="" />
-                        <Panel id="" class="GalkaPanel"></Panel>
-                        <Panel id="" class="HaveAwardPanel"></Panel>
-                        <Label id="" class="reward_item_amount" text="10" />
-                    </Panel>
-                    <Label id="level_in_scroll_label" class="" text="LEVEL 15" />
+                <Panel id="" class="reward_image_Panel reward_image_position_top">
+                    <Image id="" class="scroll_reward_Image" src="file://{images}/custom_game/bp/items/talent_exp.png" />
+                    <DOTAAbilityImage id="" class="reward_item_ability" abilityname="spell_item_pet_rda_bp_1" />
+                    <Panel id="" class="GalkaPanel" hittest="false"></Panel>
+                    <Label id="" class="reward_item_amount" hittest="false" text="" />
                 </Panel>
-                <Panel id="" class="scroll_level_line_indicator"/>
-                <Panel id="" class="donate_tier_reward_Panel">
-                    <Panel id="" class="donate_tier_reward_image_Panel donate_tier_reward_image_position_1">
-                        <Image id="" class="scroll_reward_Image" src="file://{images}/custom_game/bp/items/talent_exp.png" />
-                        <Panel id="" class="scroll_reward_Lock" src="" onmouseover="UIShowTextTooltip( '#battle_pass_lock' )" onmouseout="UIHideTextTooltip()" />
-                        <Panel id="" class="GalkaPanel"></Panel>
-                        <Panel id="" class="HaveAwardPanel"></Panel>
-                        <Label id="" class="reward_item_amount" text="10" />
-                    </Panel>
-                    <Panel id="" class="donate_tier_reward_image_Panel donate_tier_reward_image_position_2">
-                        <Image id="" class="scroll_reward_Image" src="file://{images}/custom_game/bp/items/talent_exp.png" />
-                        <Panel id="" class="scroll_reward_Lock" src="" />
-                        <Panel id="" class="GalkaPanel"></Panel>
-                        <Panel id="" class="HaveAwardPanel"></Panel>
-                        <Label id="" class="reward_item_amount" text="10" />
-                    </Panel>
+                <Panel id="" class="reward_image_Panel reward_image_position_bottom">
+                    <Image id="" class="scroll_reward_Image" src="file://{images}/custom_game/bp/items/talent_exp.png" />
+                    <DOTAAbilityImage id="" class="reward_item_ability" abilityname="spell_item_pet_rda_bp_1" />
+                    <Panel id="" class="GalkaPanel" hittest="false"></Panel>
+                    <Label id="" class="reward_item_amount" hittest="false" text="" />
                 </Panel>
+                <Panel id="" class="reward_level_panel" hittest="false">
+                    <Label id="" class="" text="17" hittest="false" />
+                </Panel>
+                <Panel id="" class="battle_pass_level_scene_panel" hittest="false">
+                    <DOTAScenePanel map="scenes/hud/levelupburst" hittest="false"/>
+                </Panel>
+            </Panel>
+        </snippet>
+        <snippet name="choice_item">
+            <Panel id="" class="choice_item_panel">
+                <Image id="" class="" src="file://{images}/custom_game/bp/items/choice_forest.png" />
+                <DOTAItemImage id="" itemname="item_forest_soul" />
+                <DOTAAbilityImage id="" class="" />
+            </Panel>
+        </snippet>
+        <snippet name="hero_panel">
+            <Panel id="" class="hero_panel">
+                <DOTAHeroMovie id="" class="" heroname="npc_dota_hero_naga_siren"/>
+                <Panel id="" class="hero_vote_button">
+                    <Label id="" class="" text="#battle_pass_vote_button" />
+                    <Panel id="" class="hero_vote_locked"/>
+                </Panel>
+                <Label id="" class="hero_vote_perc_label" text="100%" />
+            </Panel>
+        </snippet>
+        <snippet name="buy_button">
+            <Panel id="" class="buy_button">
+                <Panel id="" class="buy_button_inner_container">
+                    <Label id="buy_button_label" class="buy_button_label" text="1000 опыта за 150" />
+                    <Panel id="buy_button_image_rp" class="buy_button_image_rp"/>
+                    <Panel id="buy_button_image_coins" class="buy_button_image_coins"/>
+                </Panel>
+            </Panel>
+        </snippet>
+        <snippet name="inventory_particle_item">
+            <Panel id="" class="inventory_particle_item">
+                <Image id="inventory_particle_image" class="" src="file://{images}/custom_game/bp/items/perticle.jpg" />
+                <ToggleButton id="inventory_particle_toggle" class="" checked="true" text="#battle_pase_use_toggle_button" />
             </Panel>
         </snippet>
     </snippets>
 
     <Panel class="root" hittest = "false">
+        <!-- <Image id="MainImage" src="file://{images}/custom_game/bp/items/boss_summon_ticket.png" /> -->
         <Panel id="GameBPPanel" class="">
             <!-- TAB -->
             <Panel id="tabs_container" class=""></Panel>
             <!-- /TAB -->
-            <Panel id="level_line_container" class="">
-                <Label id="level_main_label" class="" text="LEVEL 15" />
-                <ProgressBar id="experience_progress_bar" min="0" max="1000" value="500"/>
-                <Label id="experience_progress_bar_Label" class="" text="500/1000" />
-                <Panel id="collect_all_rewards_button_Panel" class="">
-                    <Label id="" class="" text="Собрать все (6)" />
+            <Panel id="battle_pass_container" class="">
+                <Panel id="hero_selection_and_profile_panel" class="">
+                    <Panel id="profile_panel" class="">
+                        <Panel id="player_avatar_and_level_container" class="">
+                            <Panel id="avatar_image_panel" class="avatar_image_panel">
+                                <DOTAAvatarImage steamid="local" />
+                            </Panel>
+                            <Image id="battle_pass_rank_image" class="battle_pass_rank_image" src="file://{images}/custom_game/bp/hero_badges/hero_badge_rank_0_png.png" />
+                            <DOTAUserName steamid="local" />
+                            <Panel id="battle_pass_progress_panel" class="">
+                                <Label id="battle_pass_level" class="" text="LEVEL 12" />
+                                <Label id="battle_pass_experience" class="" text="652/1000" />
+                                <ProgressBar id="battle_pass_progress_bar" min="0" max="1000" value="500"/>
+                            </Panel>
+                        </Panel>
+                        <Panel id="" class="buy_buttons_container_panel">
+                            <Panel id="buy_buttons_panel" class="">
+                                
+                            </Panel>
+                        </Panel>
+                    </Panel>
+                    <Panel id="hero_selection_panel" class="">
+                        
+                    </Panel>
+                    <Panel id="hero_selection_label_panel" class="">
+                        <Label id="hero_selection_label" class="" text="#battle_pass_vote_label" />
+                    </Panel>
+                    <Panel id="" class="refresh_button"/>
+                    <Panel id="tasks_panel" class="tasks_panel">
+                        <Panel id="" class="task">
+                            <Panel id="" class="background_texsture2"/>
+                            <Image id="" class="task_image" src="file://{images}/custom_game/bp/icon_challenges_xkills_png.png" />
+                            <Label id="" class="task_description" html="true" text="#battle_pass_task_1_description" />
+                            <ProgressBar id="task_progress_bar_1" class="task_progress_bar" min="0" max="1000" value="500">
+                                <Label id="task_progress_bar_label" class="task_progress_bar_label" text="1023/10000" />
+                            </ProgressBar>
+                            <Panel id="task_reward_panel" class="task_reward_panel">
+                                <Label id="" class="" text="Получить награду" />
+                            </Panel>
+                        </Panel>
+                        <Panel id="" class="task">
+                            <Panel id="" class="background_texsture2"/>
+                            <Image id="" class="task_image" src="file://{images}/custom_game/bp/icon_challenges_godlikespree_png.png" />
+                            <Label id="" class="task_description" html="true" text="#battle_pass_task_2_description" />
+                            <ProgressBar id="task_progress_bar_1" class="task_progress_bar" min="0" max="250" value="175">
+                                <Label id="task_progress_bar_label" class="task_progress_bar_label" text="175/250" />
+                            </ProgressBar>
+                            <Panel id="task_reward_panel" class="task_reward_panel">
+                                <Label id="" class="" text="Получить награду" />
+                            </Panel>
+                        </Panel>
+                    </Panel>
+                </Panel>
+                <Panel id="rewards_list_scroll_panel" class="">
+                    <Panel id="rewards_list_panel" class=""/>
+                    <!-- <Image id="" class="scroll_reward_Image" src="file://{images}/custom_game/bp/items/forever_ward.png" /> -->
                 </Panel>
             </Panel>
-            <Panel id="rewards_list_scroll_panel" class="">
-                <Image id="" class="scroll_reward_Image" src="file://{images}/custom_game/bp/items/forever_ward.png" />
+            <Panel id="inventory_container" class="">
+                
+            </Panel>
+        </Panel>
+        <Panel id="choice_reward_main_container" class="">
+            <Panel id="choice_reward_container" class="">
+                <Label id="choice_reward_name" class="" html="true" text="#BattlePass_soul_name" />
+                <Label id="choice_reward_count" class="" html="true" text="#BattlePass_choice_count" />
+                <Panel id="choice_reward_items_container" class="">
+                    
+                </Panel>
+            </Panel>
+        </Panel>
+        <Panel id="buy_coufirm_bg" class="" onactivate="HideConfirmPanel()">
+            <Panel id="buy_confirm_panel" class="" onactivate="">
+                <Panel id="buy_description_panel" class="">
+                    <Panel id="" class="" style="flow-children: right; horizontal-align: center;">
+                        <Label id="buy_confirm_item_name" class="buy_description_text" html="true" text="корм" />
+                    </Panel>
+                    <Panel id="" class="" style="flow-children: right; horizontal-align: center; margin-top:10px;">
+                        <Label id="buy_confirm_price" class="buy_description_text" text="300" />
+                        <Panel id="coufirm_rp_image_pet" class=""></Panel>
+                        <Panel id="coufirm_gems_image_pet" class=""></Panel>
+                    </Panel>
+                    <DropDown id="confirm_drop_down" class="">
+                        <Label text="1 шт" id="entry1"/>
+                        <Label text="2 шт" id="entry2"/>
+                        <Label text="3 шт" id="entry3"/>
+                        <Label text="4 шт" id="entry4"/>
+                    </DropDown>
+                </Panel>
+                <Panel id="confirm_yes_panel" class="confirm_panel">
+                    <Label id="" class="" text="#yes" />
+                </Panel>
+                <Panel id="confirm_no_panel" class="confirm_panel" onactivate="HideConfirmPanel()">
+                    <Label id="" class="" text="#no" />
+                </Panel>
             </Panel>
         </Panel>
     </Panel>

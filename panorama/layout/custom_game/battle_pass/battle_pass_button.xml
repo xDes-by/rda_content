@@ -1,0 +1,10 @@
+<root>
+
+    <styles>
+        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <Panel class="battle_pass_button">
+        <Image id="" class="" src="file://{images}/custom_game/bp/battlepass_logo_png.png" />
+    </Panel>
+</root>

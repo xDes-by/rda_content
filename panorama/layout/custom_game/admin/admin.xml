@@ -38,8 +38,8 @@
                     <Panel id="" class="button_panel" onmouseactivate = "Talents()">
                         <Label id="" class="font_class font_align" text="Таланты"  />
                     </Panel>
-                    <Panel id="" class="button_panel" onmouseactivate = "TalentsDrop()">
-                        <Label id="" class="font_class font_align" text="Сброс Талантов"  />
+                    <Panel id="" class="button_panel" onmouseactivate = "">
+                        <Label id="" class="font_class font_align" text=""  />
                     </Panel>
                 </Panel>
                 <Panel id="" class="parameter_lines">
@@ -66,8 +66,8 @@
                     <Panel id="" class="button_panel" onmouseactivate = "BattlePassDrop()">
                         <Label id="" class="font_class font_align" text="Сброс БП" />
                     </Panel>
-                    <Panel id="" class="button_panel" onmouseactivate = "">
-                        <Label id="" class="font_class font_align" text="" />
+                    <Panel id="" class="button_panel" onmouseactivate = "AddCoins()">
+                        <Label id="" class="font_class font_align" text="+100 КРИСТААЛОВ" />
                     </Panel>
                 </Panel>
                 <Panel id="" class="parameter_lines">

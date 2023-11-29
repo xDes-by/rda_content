@@ -454,5 +454,17 @@
         <Image src="file://{images}/custom_game/forge/all/vladmir_10.jpg"/>
         <Image src="file://{images}/custom_game/forge/all/vladmir_11.jpg"/>
 
+        <Image src="file://{images}/custom_game/forge/all/vessel1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/all/vessel11.jpg"/>
+
 	</Panel>
 </root>

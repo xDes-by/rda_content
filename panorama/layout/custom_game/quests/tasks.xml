@@ -7,6 +7,7 @@
         <Panel id="TasksPanel" class="">
             <Label id="Main_Label" class="DailyFont_Class" text="#DailyMainLabel" />
             <Panel id="DailyQuests_Panel" class=""/>
+            <Panel id="BPQuests_Panel" class=""/>
             <Panel id="" class="Line_Panel"/> <!--  LINE -->
             <Panel id="MainQuests_Panel" class=""/>
         </Panel>

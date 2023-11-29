@@ -1,0 +1,6 @@
+<root>
+    <scripts>
+		<include src="file://{resources}/layout/custom_game/tempest_double/tempest_double.js" />
+	</scripts>
+	<Panel class ="root" hittest="false"/>
+</root>

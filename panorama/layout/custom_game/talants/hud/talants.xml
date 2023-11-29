@@ -6,6 +6,7 @@
 
 	<scripts>
 		<include src="file://{resources}/layout/custom_game/talants/hud/talants.js" />
+		<!-- <include src="file://{resources}/layout/custom_game/talants/hud/talants2.js" /> -->
 	</scripts>
 
     <snippets>
@@ -17,6 +18,8 @@
 	</snippets>
 
 	<Panel class = "root" hittest="false">
+        
+
 
         <Panel id="talant_root" class="talant_root">
             <DOTAScenePanel id="panel_bg" class = "panel_bg" map="scene2" light="light_1" camera="camera_1" particleonly="false" hittest="true" onmouseactivate="close()" />
@@ -30,7 +33,6 @@
                 <Panel id="talant_tree_images_panel" class="talant_tree_images_panel"/>
 
             </Panel>
-
             <Panel id="description_panel" class="description_panel" onmouseactivate="">
                 <Panel id="description_gradient_border_out" class="description_gradient_border_out">
                     <Image class='background-image-description' id='background-image-description' src="file://{resources}/images/custom_game/talants/111.png" />
@@ -108,7 +110,6 @@
                 <Image class='close_button' id='close_button' onmouseactivate="close()" src="file://{resources}/images/custom_game/talants/close.png" />
             </Panel>
             <Panel id="exp_boost_panel" class="">
-                <Label id="exp_boost_lavel_1" class="" text="Осталось 8 игр" />
                 <Label id="exp_boost_lavel_2" class="" text="x3.0" />
             </Panel>
         </Panel>

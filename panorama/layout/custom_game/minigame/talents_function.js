@@ -31,13 +31,13 @@ function talantsUpdate(table_name, key, data){
     blue_line_panel.GetChild(2).text = normal[0]
     blue_line_panel.GetChild(0).style.width = normal[1] + "%"
     blue_line_panel.GetChild(1).style.width = normal[1] + "%"
-    blue_line_panel.GetChild(3).text = Math.ceil(Number(data["gave_exp"]));
+    blue_line_panel.GetChild(3).text = Math.ceil(Number(data["gain"]));
 
     const donate = DisplayCurrentExp(Number(data["donlevel"]), Number(data["totaldonexp"]));
     red_line_panel.GetChild(2).text = donate[0]
     red_line_panel.GetChild(0).style.width = donate[1] + "%"
     red_line_panel.GetChild(1).style.width = donate[1] + "%"
-    red_line_panel.GetChild(3).text = Math.ceil(Number(data["gave_exp"]));
+    red_line_panel.GetChild(3).text = Math.ceil(Number(data["gain"]));
     
     const PlayerID = Players.GetLocalPlayer()
     const HeroIndex = Players.GetPlayerHeroEntityIndex( PlayerID )

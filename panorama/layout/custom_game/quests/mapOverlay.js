@@ -16,6 +16,7 @@ function RemoveNpcIcon(questType, listIndex){
 }
 
 function UpdateMinimapNpcIcons(data){
+    if(list == undefined) return
     for(let i in list){
         Entities.SetMinimapIcon( list[i]['index'], 'minimap_empty' )
         list[i]['icon'] = 'minimap_empty'
@@ -29,7 +30,6 @@ function UpdateMinimapNpcIcons(data){
         //     RemoveNpcIcon('main', listIndex)
         // }
         if(data['main'][mainIndex]["available"] == 1 && data['main'][mainIndex]["active"] == 0){
-            $.Msg("wtf")
             Entities.SetMinimapIcon( list[listIndex]['index'], 'minimap_yellow_exclamation' )
             list[listIndex]['icon'] = "minimap_yellow_exclamation"
             $.Msg(list[listIndex]['icon'])
@@ -83,7 +83,7 @@ function UpdateMinimapOverlay(data){
         for(let questNumber in data[typeIndex]){
             if(data[typeIndex][questNumber]['active']){
                 for(let taskIndex in data[typeIndex][questNumber]['tasks']){
-                    if(data[typeIndex][questNumber]['tasks'][taskIndex]['active'] == 1 && data[typeIndex][questNumber]['tasks'][taskIndex]['mapoverlay']){
+                    if(data[typeIndex][questNumber]['tasks'][taskIndex]['active'] == 1 && data[typeIndex][questNumber]['tasks'][taskIndex]['mapoverlay'] && data[typeIndex][questNumber]['tasks'][taskIndex]['have'] < data[typeIndex][questNumber]['tasks'][taskIndex]['HowMuch']){
                         const src = `file://{images}/custom_game/quest/map_overlay/${data[typeIndex][questNumber]['tasks'][taskIndex]['mapoverlay']}.png`
                         const createdPanel = $.CreatePanel("Panel", minimapPanel, "")
                         createdPanel.BLoadLayout("file://{resources}/layout/custom_game/quests/mapOverlayTemplate.xml", false, false)

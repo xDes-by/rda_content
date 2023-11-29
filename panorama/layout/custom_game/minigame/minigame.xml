@@ -10,9 +10,9 @@
 	<Panel class="minigame" hittest="false">
 		<Panel id="minigame_container" class="">
 			<Panel id="Labels_Panel" class="">
-				<Label id="" class="fontStyle" text="АДСКАЯ МИНИ ИГРА!" />
-				<Label id="" class="fontStyle" text="наказание за бездействие" />
-				<Label id="" class="fontStyle" text="вы теряете опыт талантов, пока игра не закончится" />
+				<Label id="" class="fontStyle" text="#minigame_label_1" />
+				<Label id="" class="fontStyle" text="#minigame_label_2" />
+				<Label id="" class="fontStyle" text="#minigame_label_3" />
 			</Panel>
 			<Panel id="ExperienceDisplay_Panel" class="">
 				<DOTAHeroImage id="heroIcon" heroname="npc_dota_hero_nevermore" />
@@ -24,14 +24,14 @@
 					<Panel id="blue_line_panel" class="">
 						<Panel id="top_line_progress" class=""/>
 						<DOTAScenePanel id="top_burner" class="SceneLoaded" map="maps/scenes/hud/healthbarburner.vmap" camera="camera_1" />
-						<Label id="" class="current_experience" text="5600/14000" />
-						<Label id="" class="gaining_experience" text="-50" />
+						<Label id="" class="current_experience" text="" />
+						<Label id="" class="gaining_experience" text="-20" />
 					</Panel>
 					<Panel id="red_line_panel" class="">
 						<Panel id="bottom_line_progress" class=""/>
 						<DOTAScenePanel id="botton_burner" class="SceneLoaded" map="maps/scenes/hud/healthbarburner.vmap" camera="camera_1" />
-						<Label id="" class="current_experience" text="5600/14000" />
-						<Label id="" class="gaining_experience" text="-50" />
+						<Label id="" class="current_experience" text="" />
+						<Label id="" class="gaining_experience" text="-20" />
 					</Panel>
 				</Panel>
 			</Panel>

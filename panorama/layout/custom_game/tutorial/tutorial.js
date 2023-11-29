@@ -27,6 +27,7 @@ var Tutorial = {
             $("#TutorialButtonLabel").RemoveClass("LabelColorGray")
             return
         }
+        Game.EmitSound("General.ButtonClick");
         $("#TutorialButtonTimerLabel").visible = true
         $("#TutorialButtonLabel").RemoveClass("LabelColorWhite")
         $("#TutorialButtonLabel").AddClass("LabelColorGray")

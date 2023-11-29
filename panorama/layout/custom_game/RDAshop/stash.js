@@ -12,6 +12,9 @@ const ITEMS_SCROLL =
     "item_move_aura",
     "item_attack_speed_aura",
     "item_hp_aura",
+    "item_book_mage_damage",
+    "item_book_phys_damage",
+    "item_book_gold",
 ]
 const ITEMS_ALL = ITEMS_TO_VIEW.concat(ITEMS_SCROLL);
 const DotaHUD = GameUI.CustomUIConfig().DotaHUD;

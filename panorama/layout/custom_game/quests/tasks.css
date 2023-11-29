@@ -76,6 +76,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     horizontal-align: right;
+    opacity: 0.8;
 }
 .TaskDescriptionZnak_Label{
     font-size: 20;
@@ -84,7 +85,7 @@
 .DailyTaskZnak_Image{
     margin-right: 5px;
 }
-#DailyQuests_Panel, #MainQuests_Panel{
+#DailyQuests_Panel, #MainQuests_Panel, #BPQuests_Panel{
     flow-children: down;
     horizontal-align: right;
 }

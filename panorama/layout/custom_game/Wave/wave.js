@@ -9,7 +9,7 @@ Button.Action = ()=>{
     }
 }
 $("#hide_button_container").SetPanelEvent("onmouseactivate", Button.Action())
-
+$("#rdandom_wave_panel").visible = false
 Button.Open = ()=>{
     Button.isOpen = true
     $("#hide_button").style.backgroundImage = 'url("s2r://panorama/images/control_icons/arrow_min_left_psd.vtex")'
@@ -56,6 +56,9 @@ WaveNotification.Hide()
 GameEvents.Subscribe( "WaveNotification", function(t){
     WaveNotification.SetValue(t)
     WaveNotification.Show()
+    if(Button.isOpen == true){
+        Game.EmitSound("MegaCreeps.Dire")
+    }
 })
 
 var Counter = {}
@@ -70,6 +73,12 @@ GameEvents.Subscribe( "updateWaveCounter", function(t){
     Counter.Build()
 })
 
-
-
-
+GameEvents.Subscribe( "RandomWaveNoification", function(t){
+    if(Button.isOpen == true){
+        $("#rdandom_wave_panel").visible = true
+        Game.EmitSound("MegaCreeps.Dire")
+    }
+    $.Schedule(15, ()=>{
+        $("#rdandom_wave_panel").visible = false
+    })
+})

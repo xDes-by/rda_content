@@ -418,5 +418,17 @@
         <Image src="file://{images}/custom_game/forge/gem2/sabre_blade10_gem2.jpg"/>
         <Image src="file://{images}/custom_game/forge/gem2/sabre_blade11_gem2.jpg"/>
 
+        <Image src="file://{images}/custom_game/forge/gem2/vessel1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/gem2/vessel11.jpg"/>
+
 	</Panel>
 </root>

@@ -48,8 +48,21 @@ function BattlePassPremium(){
     ClickButton()
     GameEvents.SendCustomGameEventToServer("AdminPanelBattlePassPremium", {})
 }
+function AddCoins(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelAddCoins", {})
+}
+function MidOff(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelMidOff", {})
+}
+function MidOn(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelMidOn", {})
+}
 
 (()=>{
+    $("#main_panel").visible = false
     const topBar = FindDotaHudElement("ButtonBar")
     var admin_button_layout = FindDotaHudElement("admin_button_layout")
     if(!admin_button_layout && topBar){
@@ -68,7 +81,6 @@ function BattlePassPremium(){
         admin_button_layout.SetPanelEvent("onmouseout",()=>{$.DispatchEvent( "DOTAHideTextTooltip");});
         admin_button_layout.style.tooltipPosition = 'bottom';
     }
-    $("#main_panel").visible = false
 })()
 
 

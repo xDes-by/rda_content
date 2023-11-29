@@ -9,8 +9,8 @@
   <Panel>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_score/ingame_score.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/admin/admin.xml" />
-    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/battle_pass/battle_pass.xml" /> -->
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pet ui rework/pets.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/battle_pass/battle_pass.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/pets/pets.xml" />
     <CustomUIElement type="PregameStrategy" layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/damage/damage.xml" />
     <CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/damage/end_screen.xml" />
@@ -22,7 +22,8 @@
 	  <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/global_events_notifications.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/RDAshop/stash.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/forge.xml"/>
-    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/talants/hud/talants.xml" style="z-index:2;"/>
+    <CustomUIElement type="PregameStrategy" layoutfile="file://{resources}/layout/custom_game/talents/talents_pregame_strategy.xml"/>
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/talents/talents.xml"/>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/duel/duel.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/teleport/tpspot.xml" />
 	  <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/cosmetic_button/cosmetic_button.xml" />
@@ -31,15 +32,23 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tutorial/tutorial.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/quests/quests.xml" />
     
-    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minigame/minigame.xml" /> -->
-
-
-
-
-
-
 
     
+
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tempest_double/tempest_double.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/item_boss_summon/item_boss_summon.xml" />
+
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/all.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/gem1.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/gem2.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/gem3.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/gem4.xml" />
+    <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/gem5.xml" /> -->
+
+
+
+
+    <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/minigame/minigame.xml" /> -->
     <!-- <CustomUIElement type="FlyoutScoreboard" layoutfile="file://{resources}/layout/custom_game/multiteam_flyout_scoreboard.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/collection/collection.xml" /> -->
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/smithy/smithy.xml" style="z-index:1;"/> -->

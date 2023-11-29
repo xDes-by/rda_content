@@ -1,3 +1,7 @@
+var previous_destroy_sounds = ""
+const destroy_sounds = ["gachi_1","gachi_3","gachi_4","gachi_5"]
+const restart_sounds = ["gachi_10","gachi_2"]
+var saw_soundtrack = null
 var game_procces = true
 
 const WIDTH = 800
@@ -108,6 +112,7 @@ function MainLoop(){
 				if (ball_speed < 12) {
 					ball_speed += 0.5
 				}
+				Game.EmitSound(GetDestroySound())
 				break
 			}
 		}
@@ -131,6 +136,7 @@ function MainLoop(){
 		
 		$.Schedule(0.016, MainLoop)
 	}else{
+		Game.StopSound( saw_soundtrack )
 		GameEvents.SendCustomGameEventToServer( "EndMiniGame", {} )
 	}
 }
@@ -151,6 +157,9 @@ function restart() {
 			blocks.push(new CustomPanel(x, y, block_height, block_width, "white", "block"))
         }
     }
+	GameEvents.SendCustomGameEventToServer( "RestartMiniGame", {} )
+
+	Game.EmitSound(restart_sounds[Math.floor(Math.random() * restart_sounds.length)])
 }
 
 function MoveLeftDown(){
@@ -181,8 +190,25 @@ function Controls() {
 	Game.AddCommand("-" + Moving_right, MoveRightUp, "", 0)
 	Game.CreateCustomKeyBind("L", "+" + Moving_right)
 }
-
+function GetDestroySound(){
+	do {
+		var random = getRandomInt(destroy_sounds.length);
+		var sound_name = destroy_sounds[random];
+	} while (sound_name == previous_destroy_sounds);
+	previous_destroy_sounds = sound_name
+	return sound_name
+}
+function SawSound(){
+	if(game_procces == false) return
+	saw_soundtrack = Game.EmitSound("saw_soundtrack")
+	$.Schedule(3.01 * 60, SawSound)
+}
+function getRandomInt(max) {
+	return Math.floor(Math.random() * max);
+}
+  
 (function () {
+	SawSound()
 	Controls()
 	MainLoop()
 })()

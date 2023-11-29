@@ -136,3 +136,28 @@
     color:white;
     font-size: 21;
 }
+#rdandom_wave_panel{
+    horizontal-align: center;
+    margin-top: 100px;
+}
+#rdandom_wave_panel Label{
+    text-shadow: -1px 1px 2px 3.0 #000000;
+    font-size: 50;
+    animation-name: exp_boost_lavel_2_animation;
+	animation-duration: 3.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes 'exp_boost_lavel_2_animation'
+{
+	0%{
+        color:gold;
+    }
+    50%{
+        color:rgb(155, 132, 0);
+    }
+    100%{
+        color:gold;
+    }
+}
