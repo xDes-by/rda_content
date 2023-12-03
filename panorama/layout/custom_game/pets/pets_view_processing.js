@@ -19,23 +19,27 @@ function HideTooltip(){
     }
 }
 function CreateOpenButton(){
-    const ButtonBar = DotaHUD.Get().FindChildTraverse("ButtonBar")
-    let panel = ButtonBar.FindChildTraverse("button_pets")
+    const right_flare = DotaHUD.Get().FindChildTraverse("right_flare")
+    right_flare.style.backgroundSize = "0"
+    right_flare.style.height = "191px"
+    right_flare.style.width = "92px"
+    let panel = right_flare.FindChildTraverse("button_right_flare")
     if(!panel){
-        panel = $.CreatePanel('Panel', ButtonBar, "button_pets")
-        panel.BLoadLayout("file://{resources}/layout/custom_game/pets/pets_button.xml", false, false)
+        panel = $.CreatePanel('Panel', right_flare, "button_right_flare")
+        panel.BLoadLayout("file://{resources}/layout/custom_game/pets/button_right_flare.xml", false, false)
     }
-    panel.SetPanelEvent("onmouseactivate",()=>{
+    const button = panel.FindChildTraverse("pets_button2")
+    button.SetPanelEvent("onmouseactivate",()=>{
         ClickButton()
         OpenButton()
     });
-    panel.SetPanelEvent("onmouseover",()=>{
-        $.DispatchEvent( "DOTAShowTextTooltip", panel, $.Localize("#pets"));
+    button.SetPanelEvent("onmouseover",()=>{
+        $.DispatchEvent( "DOTAShowTextTooltip", button, $.Localize("#pets"));
     });
-    panel.SetPanelEvent("onmouseout",()=>{
+    button.SetPanelEvent("onmouseout",()=>{
         $.DispatchEvent( "DOTAHideTextTooltip");
     });
-    panel.style.tooltipPosition = 'bottom';
+    button.style.tooltipPosition = 'right';
 }
 function SetPetPrice(panel, obj){
     if(obj.price == undefined){
@@ -269,3 +273,11 @@ function BuildExpDate(exp){
     PANEL.exp_progress_bar_pet.max = value
     PANEL.exp_counter_pet.text = (exp - passed) +"/" + value
 }
+function HudChangeRightFlare(){
+    const panel = DotaHUD.Get().FindChildTraverse("right_flare")
+    panel.style.backgroundSize = "0"
+    const button = $.CreatePanel('Panel', panel, "button_right_flare")
+    button.BLoadLayout("file://{resources}/layout/custom_game/pets/button_right_flare.xml", false, false)
+    // #right_flare
+}
+HudChangeRightFlare()

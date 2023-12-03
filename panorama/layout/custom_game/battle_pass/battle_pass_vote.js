@@ -60,7 +60,20 @@ function UpdateHeroVotePanels(data){
     ColculateVoteingPercantage();
     let i = 0
     for(let name in voting_heroes_list){
-        UpdateHeroVotePanel(PANEL_BP.hero_selection_panel.GetChild(i), name, data.premium, data.vote)
+        if(PANEL_BP.hero_selection_panel && PANEL_BP.hero_selection_panel.GetChild(i)){
+            UpdateHeroVotePanel(PANEL_BP.hero_selection_panel.GetChild(i), name, data.premium, data.vote)
+        }
         i += 1;
     }
+}
+function SortVoteingList(list){
+    const sortedKeys = Object.keys(list).sort();
+    const sortedObject = {};
+    for (const key of sortedKeys) {
+        sortedObject[key] = list[key];
+    }
+    return sortedObject;
+}
+function DestroyHeroVotePanels(){
+    PANEL_BP.hero_selection_panel.RemoveAndDeleteChildren()
 }

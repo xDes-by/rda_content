@@ -1,0 +1,11 @@
+<root>
+
+    <styles>
+        <include src="file://{resources}/layout/custom_game/pets/pets.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <Panel class="button_right_flare">
+        <Panel id = "pets_button2" class="pets_button2" onmouseover="UIShowTextTooltip( '#pets' )" onmouseout="UIHideTextTooltip()"/>
+        <Panel class="right_flare_bg" hittest="false"></Panel>
+    </Panel>    
+</root>

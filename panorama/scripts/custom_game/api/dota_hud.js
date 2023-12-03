@@ -3,7 +3,8 @@
 const DOTA_HUD_ROOT = $.GetContextPanel().GetParent().GetParent();
 
 var DotaHUD = {
-    mouseCallbacks: []
+    mouseCallbacks: [],
+    windowControllers: {},
 };
 
 DotaHUD.Get = function() {
@@ -69,6 +70,26 @@ function FireMouseEvent(eventType, clickBehavior)
     }
 }
 
+DotaHUD.WindowOpen = function(key){
+    for(let i = 0; i < Object.keys(DotaHUD.windowControllers).length; i++){
+        if(Object.keys(DotaHUD.windowControllers)[i] == key){
+            if(DotaHUD.windowControllers[key].is_open == false){
+                DotaHUD.windowControllers[key].is_open = true
+                DotaHUD.windowControllers[key].open()
+            }else{
+                DotaHUD.WindowClose(key)
+            }
+        }else{
+            DotaHUD.WindowClose(Object.keys(DotaHUD.windowControllers)[i])
+        }
+    }
+}
+DotaHUD.WindowClose = function(key){
+    if(DotaHUD.windowControllers[key].is_open == true){
+        DotaHUD.windowControllers[key].is_open = false
+        DotaHUD.windowControllers[key].close()
+    }
+}
 GameUI.CustomUIConfig().DotaHUD = DotaHUD;
 
 function RegisterKeyBind(name, callback) {

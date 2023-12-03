@@ -45,3 +45,7 @@
 .unavailable{
     brightness: 0.005;
 }
+.image_template{
+    height: 376px;
+    width: 296px;
+}

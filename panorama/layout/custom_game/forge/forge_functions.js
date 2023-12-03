@@ -1,35 +1,12 @@
-
-
-// function UpdateItemList(data){
-//     if(!data){
-//         data = CustomNetTables.GetTableValue( "forge", Players.GetLocalPlayer());
-//     }
-//     $("#UpgradeItemPanel").RemoveAndDeleteChildren()
-//     $("#UpgradeInfoPanel").visible = false
-//     $("#StatusPanel").visible = true
-//     for(var i in data){
-//         // $.Msg(Abilities.GetAbilityTextureName( data[i]['entindex'] ))
-//         $("#UpgradeInfoPanel").visible = true
-//         $("#StatusPanel").visible = false
-//         const new_panel = $.CreatePanel("Panel", $("#UpgradeItemPanel"), "", {class:"itemListPanel"})
-//         new_panel.BLoadLayoutSnippet("UpgradeItemSnippet")
-//         new_panel.FindChildTraverse("ItemIcon").itemname = data[i].itemname
-//         new_panel.FindChildTraverse("ItemName").text = $.Localize(`#dota_tooltip_ability_${data[i].itemname}`) + " LVL " + data[i].itemLevel
-//         new_panel.SetPanelEvent("onmouseactivate", UpdateUpgradeItemPanel_Event(data, i))
-//         const ItemIconPanel = new_panel.FindChildTraverse("ItemIcon")
-//         new_panel.FindChildTraverse("GemBuff").visible = false
-//         for(let i = 0; i < 5; i++){
-//             ItemIconPanel.GetChild(i).visible = false
-//         }
-//         if(data[i].gemType > 0){
-//             ItemIconPanel.GetChild(data[i].gemType-1).visible = true
-//             new_panel.FindChildTraverse("GemBuff").visible = false
-//         }
-//         if(itemIndex == data[i].entindex){
-//             new_panel.SetHasClass("item_list_selected_glow", true)
-//         }
-//     }
-// }
+DotaHUD.windowControllers["forge"] = {
+    is_open: false,
+    open: function(){
+        $("#ShopMenuPanel").style.visibility = "visible"
+    },
+    close: function(){
+        $("#ShopMenuPanel").style.visibility = "collapse"
+    }
+}
 const OnItemSelected_Event = (data)=>{
     return ()=>{
         ClickButton()
@@ -220,11 +197,7 @@ function GetItemImagePath(data){
     return "file://{images}/custom_game/forge/" + data.image + ".jpg"
 }
 function OpenButton(){
-    if($("#ShopMenuPanel").style.visibility == "collapse"){
-        $("#ShopMenuPanel").style.visibility = "visible"
-    }else{
-        $("#ShopMenuPanel").style.visibility = "collapse"
-    }
+    DotaHUD.WindowOpen("forge")
 }
 function OnMouseEvent(eventType, clickBehavior) {
 	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
@@ -236,7 +209,7 @@ function OnMouseEvent(eventType, clickBehavior) {
 			let height = Number(panel.actuallayoutheight)
 			if (!(Number(panelPos.x) < cursorPos[0] && Number(panelPos.x) + width > cursorPos[0] && Number(panelPos.y) < cursorPos[1] && Number(panelPos.y) + height > cursorPos[1]))
 			{
-				$("#ShopMenuPanel").style.visibility = "collapse"
+                DotaHUD.WindowClose("forge")
 			}
 		}
     }

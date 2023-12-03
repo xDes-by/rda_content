@@ -6,9 +6,9 @@
     </styles>
     <scripts>
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_show_tooltips.js" />
+        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_vote.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_variables.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_view_processing.js" />
-        <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_vote.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_tasks.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/battle_pass_buy.js" />
         <include src="file://{resources}/layout/custom_game/battle_pass/buy_confirmation.js" />
@@ -84,7 +84,7 @@
     </snippets>
 
     <Panel class="root" hittest = "false">
-        <!-- <Image id="MainImage" src="file://{images}/custom_game/bp/items/boss_summon_ticket.png" /> -->
+        <!-- <Image id="MainImage" src="file://{images}/custom_game/bp/items/models/pudge.png" /> -->
         <Panel id="GameBPPanel" class="">
             <!-- TAB -->
             <Panel id="tabs_container" class=""></Panel>
@@ -116,7 +116,7 @@
                     <Panel id="hero_selection_label_panel" class="">
                         <Label id="hero_selection_label" class="" text="#battle_pass_vote_label" />
                     </Panel>
-                    <Panel id="" class="refresh_button"/>
+                    <Panel id="refresh_button" class="refresh_button"/>
                     <Panel id="tasks_panel" class="tasks_panel">
                         <Panel id="" class="task">
                             <Panel id="" class="background_texsture2"/>

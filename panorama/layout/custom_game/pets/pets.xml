@@ -5,11 +5,9 @@
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
     </styles>
     <scripts>
-        <!-- <include src="file://{resources}/layout/custom_game/pets/pets.js" /> -->
         <include src="file://{resources}/layout/custom_game/pets/pets_variables.js" />
         <include src="file://{resources}/layout/custom_game/pets/pets_view_processing.js" />
         <include src="file://{resources}/layout/custom_game/pets/pets_functions.js" />
-        <include src="file://{resources}/layout/custom_game/pets/SendToPlayerError.js" />
     </scripts>
 
 <snippets>
@@ -72,8 +70,6 @@
 </snippets>
 
     <Panel class="root" hittest="false">
-        
-
         <Panel id="PetWindowMain" class="">
             <!-- ДЕНЬГИ -->
             <Panel id="MoneyPanelContaner" class="">

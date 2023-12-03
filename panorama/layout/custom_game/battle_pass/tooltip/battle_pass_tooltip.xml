@@ -11,6 +11,7 @@
         <Panel id="AttackTooltip">
             <Label id="MainLabel" class="" html="true" text="Одна душа на старте игры" />
             <Image id="MainImage" src="file://{images}/custom_game/bp/items/experience_choice.png" />
+            <Movie id="movie" class="" src="s2r://panorama/videos/SF.webm" repeat="true" autoplay="onload" />
             <Label id="Description" class="" html="true" text="" />
         </Panel>
     </Panel>

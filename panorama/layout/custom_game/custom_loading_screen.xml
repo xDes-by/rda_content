@@ -29,7 +29,7 @@
 	</scripts>
 	<Panel class="AddonLoadingRoot" hittest="false" style="z-index:100;">
 		<!-- <MoviePanel id="image_bg" class="ImageBg" src="s2r://panorama/videos/render_8.webm" repeat="true" autoplay="onload" /> -->
-		<Image id="image_bg" class="ImageBg"  style="height:100%;width:100%;" src="file://{images}/load.png"/>
+		<Image id="image_bg" class="ImageBg"  style="height:100%;width:100%;" src="file://{images}/new_bg.png"/>
 		<Panel id="CustomBg">
 			<Panel id="game_options_container" />
 		</Panel>

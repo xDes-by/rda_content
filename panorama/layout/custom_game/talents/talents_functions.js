@@ -13,11 +13,11 @@ function OpenButton(){
     PANEL.arrow_right.visible = IsPortraitLocal()
     PANEL.cheat_mode_panel.visible = data.testing == true
     PANEL.button_cheat_drop.visible = (data.testing == true && IsPortraitLocal())
-    PANEL.talant_root.visible = true;
+    PANEL.talant_root.SetHasClass("hidden", false)
 }
 function CloseButton(){
     Game.EmitSound("ui_rollover_today");
-    PANEL.talant_root.visible = false
+    PANEL.talant_root.SetHasClass("hidden", true)
     CloseShop()
 }
 function ClickTalant(arg){
@@ -102,6 +102,7 @@ function IsShowUpdateButton(i, j){
     return true;
 }
 function CalculateLevelFromExperience(experience){
+    const talents_experience = CustomNetTables.GetTableValue( "talants" , 'talents_experience')
     for(let i = 1; i <= LEVEL_MAX; i++){
         if(experience < talents_experience[i]){
             return i-1
@@ -110,6 +111,7 @@ function CalculateLevelFromExperience(experience){
     return LEVEL_MAX
 }
 function ColculateExperienceCounter(experience){
+    const talents_experience = CustomNetTables.GetTableValue( "talants" , 'talents_experience')
     const level = CalculateLevelFromExperience(experience)
     if(level < LEVEL_MAX){
         let max = talents_experience[level+1] - talents_experience[level]
@@ -120,6 +122,7 @@ function ColculateExperienceCounter(experience){
     return `${max}/${max}`
 }
 function ColculateProgressLinePercentage(experience){
+    const talents_experience = CustomNetTables.GetTableValue( "talants" , 'talents_experience')
     const level = CalculateLevelFromExperience(experience)
     if(level < LEVEL_MAX){
         let max = talents_experience[level+1] - talents_experience[level]
@@ -221,18 +224,23 @@ function ShopRefreshButton(){
     }
 }
 
+
 (()=>{
     if(Game.GetState() >= DOTA_GameState.DOTA_GAMERULES_STATE_PRE_GAME){
-        UpdateExperienceMultiplier()
-        CreateOpenButton();
-        CreateStore();
-        CreateSecondBranch();
-        // PANEL.talant_root.SetHasClass('hidden', false)
-        PANEL.talant_root.visible = false
+        PANEL.talant_root.SetHasClass("hidden", true)
+        const f = ()=>{
+            if(CustomNetTables.GetTableValue( "talants" , Game.GetLocalPlayerID())){
+                UpdateExperienceMultiplier()
+                CreateOpenButton();
+                CreateStore();
+                CreateSecondBranch();
+                CreateHeroScenePanels()
+                CreateTalentIcons()
+            }else $.Schedule(0.1, f)
+        }
+        f();
         CustomNetTables.SubscribeNetTableListener( "talants", UpdateTalentsTable );
         CustomNetTables.SubscribeNetTableListener( "GameInfo", UpdateExperienceMultiplier );
-        CreateHeroScenePanels()
-        CreateTalentIcons()
         PANEL.arrow_right.SetPanelEvent('onmouseactivate', OpenShop)
         PANEL.arrow_left.SetPanelEvent('onmouseactivate', CloseShop)
         PANEL.level_info_panel.SetPanelEvent('onmouseover', ShowHeroStateTooltip())

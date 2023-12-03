@@ -13,6 +13,29 @@
 .pets_button:hover{
     brightness: 1.5;
 }
+.button_right_flare{
+    height: 191px;
+    width: 92px;
+    horizontal-align: left;
+}
+.pets_button2{
+    height: 66px;
+    width: 52px;
+    background-image: url("file://{images}/custom_game/pet/button.png");
+    background-size: 100%;
+    position: 0 20px 0;
+    transition-duration: 0.2s;
+    transition-property: position;
+}
+.pets_button2:hover{
+    position: 0 10px 0;
+}
+.right_flare_bg{
+    height: 100%;
+    width: 100%;
+    background-image: url("file://{images}/custom_game/pet/right_flare_bg_psd.png");
+    background-size: 100%;
+}
 #PetWindowMain{
     height: 685px;
     width: 1123px;

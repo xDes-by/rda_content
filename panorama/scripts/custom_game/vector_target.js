@@ -2,12 +2,11 @@
 "use strict";
 
 var init_pos = null;
-var isTargeting = false;
 function StartVectorTarget( location, ability ) {
 	// Get Data
 	var particle_cast = "particles/ui_mouseactions/range_finder_cone.vpcf";
 	var caster = Abilities.GetCaster( ability );
-
+	
 	// Create Range Finder
 	var effect_cast = Particles.CreateParticle( particle_cast, ParticleAttachment_t.PATTACH_WORLDORIGIN, caster );
 	Particles.SetParticleControl( effect_cast, 0, Entities.GetAbsOrigin( caster ) );
@@ -24,39 +23,75 @@ function StartVectorTarget( location, ability ) {
 }
 
 function LoopVectorTarget( effect_cast, ability, location ) {
+	
 	// Get positions
 	var end_pos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() )
-	var direction = VectorMin( end_pos, location );
-	direction = Game.Normalized( direction );
-	var dist = Game.Length2D( end_pos, location );
-
-	// Calculate init direction
-	if (dist<0.05) {
-		var caster = Abilities.GetCaster( ability );
-		direction = VectorMin( location, Entities.GetAbsOrigin( caster ) );
+	if(end_pos){
+		var direction = VectorMin( end_pos, location );
 		direction = Game.Normalized( direction );
-	}
-	
-	// set minimum position
-	if (dist<100) {
-		end_pos = VectorAdd( location, VectorScale( direction, 100 ) );
-	}
+		var dist = Game.Length2D( end_pos, location );
 
-	// set particle
-	Particles.SetParticleControl( effect_cast, 2, end_pos );
+		// Calculate init direction
+		if (dist<0.05) {
+			var caster = Abilities.GetCaster( ability );
+			direction = VectorMin( location, Entities.GetAbsOrigin( caster ) );
+			direction = Game.Normalized( direction );
+		}
+		
+		// set minimum position
+		if (dist<100) {
+			end_pos = VectorAdd( location, VectorScale( direction, 100 ) );
+		}
 
-	// check if should continue
-	var current_ability = Abilities.GetLocalPlayerActiveAbility();
-	if (isTargeting && current_ability==ability ) {
-		$.Schedule( 0.01, function() {
-			LoopVectorTarget( effect_cast, ability, location );
-		});
-		return;
+		// set particle
+		Particles.SetParticleControl( effect_cast, 2, end_pos );
+		// check if should continue
+		$.Msg(GameUI.IsMouseDown( 0 ))
+		if (GameUI.IsMouseDown( 0 )) {
+			$.Schedule( 0.01, function() {
+				LoopVectorTarget( effect_cast, ability, location );
+			});
+			return;
+		}
 	}
-
 	// cast finished
 	Particles.DestroyParticleEffect( effect_cast, true );
 	Particles.ReleaseParticleIndex( effect_cast );
+
+	Abilities.ExecuteAbility( ability, Players.GetLocalPlayerPortraitUnit(), true );
+
+	// obtain final position
+	var end_pos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
+
+	// check if both start and end is close
+	var direction;
+	if ( Game.Length2D( end_pos, init_pos )<0.05 ) {
+		var caster = Abilities.GetCaster( ability );
+		direction = VectorMin( init_pos, Entities.GetAbsOrigin( caster ) );
+		end_pos = init_pos;
+	} else {
+		direction = VectorMin( end_pos, init_pos );
+	}
+	direction[2] = 0;
+	direction = Game.Normalized( direction );
+
+	// send data
+	var data = {};
+	data.init_pos = init_pos;
+	data.end_pos = end_pos;
+	data.direction = direction;
+	data.ability = ability;
+	GameEvents.SendCustomGameEventToServer( "vector_target", data );
+
+	var order = {};
+	order.AbilityIndex = ability;
+	order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
+	order.Position = init_pos;
+	order.Queue = false;
+	order.ShowEffects = false;
+	Game.PrepareUnitOrders( order );
+
+	init_pos = null;
 }
 
 var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
@@ -73,64 +108,63 @@ function Init() {
 		var ability = Abilities.GetLocalPlayerActiveAbility()
 		var isVectorTarget = Abilities.GetSpecialValueFor( ability, "vector_target" )
 		if ( isVectorTarget!=1 ) return CONTINUE_PROCESSING_EVENT;
-
+		
 		// on press
 		if ( eventName == "pressed") {
 			// store point
 			init_pos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
 
-			// start drawing
-			isTargeting = true
 			StartVectorTarget( init_pos, ability );
 
 			return CONSUME_EVENT;
 		}
 
 		// on release
-		else if ( eventName == "released" ) {
-			// stop casting
-			Abilities.ExecuteAbility( ability, Players.GetLocalPlayerPortraitUnit(), true );
+		// else if ( eventName == "released" ) {
+		// 	$.Msg("released")
+		// 	// stop casting
+		// 	Abilities.ExecuteAbility( ability, Players.GetLocalPlayerPortraitUnit(), true );
 
-			// obtain final position
-			var end_pos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
+		// 	// obtain final position
+		// 	var end_pos = GameUI.GetScreenWorldPosition( GameUI.GetCursorPosition() );
 
-			// check if both start and end is close
-			var direction;
-			if ( Game.Length2D( end_pos, init_pos )<0.05 ) {
-				var caster = Abilities.GetCaster( ability );
-				direction = VectorMin( init_pos, Entities.GetAbsOrigin( caster ) );
-				end_pos = init_pos;
-			} else {
-				direction = VectorMin( end_pos, init_pos );
-			}
-			direction[2] = 0;
-			direction = Game.Normalized( direction );
+		// 	// check if both start and end is close
+		// 	var direction;
+		// 	if ( Game.Length2D( end_pos, init_pos )<0.05 ) {
+		// 		var caster = Abilities.GetCaster( ability );
+		// 		direction = VectorMin( init_pos, Entities.GetAbsOrigin( caster ) );
+		// 		end_pos = init_pos;
+		// 	} else {
+		// 		direction = VectorMin( end_pos, init_pos );
+		// 	}
+		// 	direction[2] = 0;
+		// 	direction = Game.Normalized( direction );
 
-			// send data
-			var data = {};
-			data.init_pos = init_pos;
-			data.end_pos = end_pos;
-			data.direction = direction;
-			data.ability = ability;
-			GameEvents.SendCustomGameEventToServer( "vector_target", data );
+		// 	// send data
+		// 	var data = {};
+		// 	data.init_pos = init_pos;
+		// 	data.end_pos = end_pos;
+		// 	data.direction = direction;
+		// 	data.ability = ability;
+		// 	GameEvents.SendCustomGameEventToServer( "vector_target", data );
 
-			// create order
-			var order = {};
-			order.AbilityIndex = ability;
-			order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
-			order.Position = init_pos;
-			order.Queue = false;
-			order.ShowEffects = false;
-			Game.PrepareUnitOrders( order );
+		// 	// create order
+		// 	var order = {};
+		// 	order.AbilityIndex = ability;
+		// 	order.OrderType = dotaunitorder_t.DOTA_UNIT_ORDER_CAST_POSITION;
+		// 	order.Position = init_pos;
+		// 	order.Queue = false;
+		// 	order.ShowEffects = false;
+		// 	Game.PrepareUnitOrders( order );
 
-			// reset
-			init_pos = null;
+		// 	// reset
+		// 	init_pos = null;
 
-			// stop drawing
-			isTargeting = false;
+		// 	// stop drawing
+		// 	isTargeting = false;
 
-			return CONTINUE_PROCESSING_EVENT;
-		}
+		// 	return CONTINUE_PROCESSING_EVENT;
+		// }
 		return CONTINUE_PROCESSING_EVENT;
 	});
 }
@@ -145,8 +179,14 @@ function VectorMin( v1, v2 ) {
 function VectorScale( v1, c ) {
 	return [ v1[0]*c, v1[1]*c, 0 ];
 }
-
+// const f = ()=>{
+// 	$.Msg()
+// 	$.Schedule( 0.01, f);
+// }
+// f()
 (function() {
 	$.Msg( "Hello from vector_target, World!" );
 	Init();
 })();
+
+

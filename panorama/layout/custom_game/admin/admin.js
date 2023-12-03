@@ -1,3 +1,13 @@
+const DotaHUD = GameUI.CustomUIConfig().DotaHUD;
+DotaHUD.windowControllers["admin_panel"] = {
+    is_open: false,
+    open: function(){
+        $("#main_panel").visible = true
+    },
+    close: function(){
+        $("#main_panel").visible = false
+    }
+}
 function FindDotaHudElement(panel) {
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
 }
@@ -60,7 +70,14 @@ function MidOn(){
     ClickButton()
     GameEvents.SendCustomGameEventToServer("AdminPanelMidOn", {})
 }
-
+function Localize(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelLocalize", {})
+}
+function CreateBot(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelCreateBot", {})
+}
 (()=>{
     $("#main_panel").visible = false
     const topBar = FindDotaHudElement("ButtonBar")
@@ -71,11 +88,8 @@ function MidOn(){
     }
     if(admin_button_layout){
         admin_button_layout.SetPanelEvent("onmouseactivate", ()=>{
-            if($("#main_panel").visible == false){
-                $("#main_panel").visible = true
-            }else{
-                $("#main_panel").visible = false
-            }
+            Game.EmitSound("General.ButtonClick");
+            DotaHUD.WindowOpen("admin_panel")
         })
         admin_button_layout.SetPanelEvent("onmouseover",()=>{$.DispatchEvent( "DOTAShowTextTooltip", admin_button_layout, $.Localize("#cheat_button_tooltip"))});
         admin_button_layout.SetPanelEvent("onmouseout",()=>{$.DispatchEvent( "DOTAHideTextTooltip");});
@@ -84,7 +98,6 @@ function MidOn(){
 })()
 
 
-const DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 function OnMouseEvent(eventType, clickBehavior) {
 	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
 		const Panel = $("#main_panel")
@@ -95,9 +108,7 @@ function OnMouseEvent(eventType, clickBehavior) {
 			let height = Number(Panel.actuallayoutheight)
 			if (!(Number(panelPos.x) < cursorPos[0] && Number(panelPos.x) + width > cursorPos[0] && Number(panelPos.y) < cursorPos[1] && Number(panelPos.y) + height > cursorPos[1]))
 			{
-                if($("#main_panel").visible == true){
-                    $("#main_panel").visible = false
-                }
+                DotaHUD.WindowClose("admin_panel")
 			}
 		}
     }

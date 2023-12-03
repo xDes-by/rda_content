@@ -1,9 +1,21 @@
+DotaHUD.windowControllers["battle_pass"] = {
+    is_open: true,
+    open: function(){
+        CreateHeroVotePanels();
+        main_panel.style.opacity = "1";
+        main_panel.style.transform = "translate3d(0px, 0px, 0px)";
+        main_panel.style.preTransformScale2d = "1";
+    },
+    close: function(){
+        TabChange(0);
+        main_panel.style.opacity = "0";
+        main_panel.style.transform = "translate3d(0px, 500px, 0px)";
+        main_panel.style.preTransformScale2d = "0";
+        DestroyHeroVotePanels();
+    }
+}
 function OpenButton(){
-    TabChange(0);
-    main_panel.style.opacity = is_open == true ? "0" : "1";
-    main_panel.style.transform = is_open == true ? "translate3d(0px, 500px, 0px)" : "translate3d(0px, 0px, 0px)";
-    main_panel.style.preTransformScale2d = is_open == true ? "0" : "1";
-    is_open = !is_open
+    DotaHUD.WindowOpen("battle_pass")
 }
 function GetItemImagePath(data){
     if(data && data.reward_type){
@@ -29,7 +41,9 @@ function GetItemTooltipParamsString(data, reward_type){
             '&image_path=' + `file://{images}/custom_game/bp/items/${ITEM_TOOLTIP[data.reward_type].image}` +
             '&description=' + description +
             '&image_width=' + ITEM_TOOLTIP[data.reward_type].image_width +
-            '&image_height=' + ITEM_TOOLTIP[data.reward_type].image_height;
+            '&image_height=' + ITEM_TOOLTIP[data.reward_type].image_height +
+            '&is_video=' + (data.data.video != undefined ? 1 : 0) +
+            '&video=' + data.data.video;
         return params
     }
 }
@@ -76,8 +90,8 @@ function ColculateProgressBarValues(data){
 function RefreshUI(data){
     UpdatePlayerProfilData(data)
     UpdateRewardAvailability(data)
-    UpdateHeroVotePanels(data)
     UpdateShopButtons(data)
+    UpdateHeroVotePanels(data)
     if(projectile_particles_panels.length == Object.keys(data['projectile_particles']).length && following_particles_panels.length == Object.keys(data['following_particles']).length && model_panels.length == Object.keys(data['models']).length){
         UpdateInventory(data)
     }else{
@@ -171,8 +185,7 @@ function CloseWindowOnOutsideClick(eventType, clickBehavior) {
         let height = Number(main_panel.actuallayoutheight)
         if (!(Number(panelPos.x) < cursorPos[0] && Number(panelPos.x) + width > cursorPos[0] && Number(panelPos.y) < cursorPos[1] && Number(panelPos.y) + height > cursorPos[1]))
         {
-            is_open = true
-            OpenButton()
+            DotaHUD.WindowClose("battle_pass")
         }
     }
 }
@@ -188,12 +201,15 @@ function TabChange(index){
         obj.panel_container.SetHasClass("hidden", obj.index != index)
     }
 }
+function RefreshVoteCount(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("BattlePassRefreshVoteCount", {})
+}
 (()=>{
     CreateTopTabs();
     HideRewardSelection();
     CreateOpenButton()
     GenerateBattlePassContent();
-    CreateHeroVotePanels();
     OpenButton();
     TabChange(0);
     UpdateTasks();
@@ -202,11 +218,8 @@ function TabChange(index){
         if(key == Players.GetLocalPlayer()){
             RefreshUI(data);
         }
-    });
-    CustomNetTables.SubscribeNetTableListener( "BattlePass", (_, key, data)=>{
         if(key == "VotingHeroesList"){
-            voting_heroes_list = data
-            UpdateHeroVotePanels(CustomNetTables.GetTableValue( "BattlePass", Players.GetLocalPlayer()))
+            voting_heroes_list = SortVoteingList(data)
         }
     });
     CustomNetTables.SubscribeNetTableListener( "quests", (_, key, data)=>{
@@ -215,6 +228,7 @@ function TabChange(index){
         }
     });
     PANEL_BP.choice_reward_bg.SetPanelEvent("onactivate", HideRewardSelection);
+    PANEL_BP.refresh_button.SetPanelEvent("onactivate", RefreshVoteCount);
     RefreshUI(CustomNetTables.GetTableValue( "BattlePass", Players.GetLocalPlayer()));
     GameEvents.Subscribe('BattlePass_ClaimAllRewards_ChoiceIndex', ClaimAllChoice);
     DotaHUD.ListenToMouseEvent(CloseWindowOnOutsideClick);

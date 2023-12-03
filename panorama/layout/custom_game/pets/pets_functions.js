@@ -1,8 +1,18 @@
+DotaHUD.windowControllers["pets"] = {
+    is_open: false,
+    open: function(){
+        main_panel.style.opacity = "1";
+        main_panel.style.transform = "translate3d(0px, 0px, 0px)";
+        main_panel.style.preTransformScale2d = "1";
+    },
+    close: function(){
+        main_panel.style.opacity = "0";
+        main_panel.style.transform = "translate3d(0px, 500px, 0px)";
+        main_panel.style.preTransformScale2d = "0";
+    }
+}
 function OpenButton(){
-    main_panel.style.opacity = is_open == true ? "0" : "1";
-    main_panel.style.transform = is_open == true ? "translate3d(0px, 500px, 0px)" : "translate3d(0px, 0px, 0px)";
-    main_panel.style.preTransformScale2d = is_open == true ? "0" : "1";
-    is_open = !is_open
+    DotaHUD.WindowOpen("pets")
 }
 function ClickButton() {
 	Game.EmitSound("General.ButtonClick");
@@ -15,8 +25,7 @@ function CloseWindowOnOutsideClick(eventType, clickBehavior) {
         let height = Number(main_panel.actuallayoutheight)
         if (!(Number(panelPos.x) < cursorPos[0] && Number(panelPos.x) + width > cursorPos[0] && Number(panelPos.y) < cursorPos[1] && Number(panelPos.y) + height > cursorPos[1]))
         {
-            is_open = true
-            OpenButton()
+            DotaHUD.WindowClose("pets")
         }
     }
 }

@@ -468,6 +468,12 @@
     margin-right: 5px;
     margin-top: 5px;
     wash-color: rgb(255, 255, 255);
+    transition-duration: 0.2s;
+    transition-property: pre-transform-rotate2d;
+}
+.refresh_button:hover{
+    sound: "ui_select_arrow";
+    pre-transform-rotate2d: 45deg;
 }
 #battle_pass_progress_panel{
     height: 76px;
@@ -510,7 +516,7 @@
 }
 .buy_button{
     width: 250px;
-    height: 40px;
+    height: 34px;
     background-image: url("file://{images}/custom_game/bp/button_thin_secondary_png.png");
     background-size: 100%;
     align: center top;

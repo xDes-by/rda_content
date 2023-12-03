@@ -10,7 +10,7 @@
         <Panel id="window" class="">
             <Label id="item_name_label" class="" text="#dota_tooltip_ability_item_boss_summon" />
             <Panel id="bosses_row" class="">
-                <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_furion"/>
+                <!-- <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_furion"/>
                 <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_pudge"/>
                 <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_earth_spirit"/>
                 <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_nyx_assassin"/>
@@ -18,7 +18,7 @@
                 <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_venomancer"/>
                 <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_tiny"/>
                 <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_snapfire"/>
-                <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_doom_bringer"/>
+                <DOTAHeroMovie id="" class="boss_image" heroname="npc_dota_hero_doom_bringer"/> -->
             </Panel>
         </Panel>
     </Panel>

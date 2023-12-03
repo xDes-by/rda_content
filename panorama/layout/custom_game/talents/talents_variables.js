@@ -1,6 +1,5 @@
 const DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 const LEVEL_MAX = 50
-const talents_experience = CustomNetTables.GetTableValue( "talants" , 'talents_experience')
 const second_branch = CustomNetTables.GetTableValue( "talants" , 'second_branch')
 const PANEL = {
     talant_root : $("#talant_root"),
@@ -107,7 +106,7 @@ const classes = {
 };
 const EnhancedTalentValues = {
     "int1" : [6, 8, 10, 12, 14, 16],
-    "int2" : [2, 2.5, 3.0, 3.5, 4.0, 4.5],
+    "int2" : [0.05, 0.1, 0.15, 0.2, 0.25, 0.3],
     "int3" : [10, 15, 20, 25, 30, 35],
     "int4" : [0.75, 0.1, 0.125, 0.15, 0.175, 0.2],
     "int5" : [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],

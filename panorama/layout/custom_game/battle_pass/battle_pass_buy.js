@@ -1,6 +1,6 @@
 function CreateShopButtons(){
     PANEL_BP.buy_buttons_panel.RemoveAndDeleteChildren()
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 4; i++){
         const panel = $.CreatePanel("Panel", PANEL_BP.buy_buttons_panel, "")
         panel.BLoadLayoutSnippet("buy_button")
         let text = $.Localize("#"+shop[i].localize)
@@ -25,4 +25,7 @@ function CreateShopButtons(){
 }
 function UpdateShopButtons(data){
     PANEL_BP.buy_buttons_panel.GetChild(0).SetHasClass("hidden", (data.premium == 1))
+    PANEL_BP.buy_buttons_panel.GetChild(1).SetHasClass("hidden", (data.premium == 1))
+    PANEL_BP.buy_buttons_panel.GetChild(2).style.height = "40px"
+    PANEL_BP.buy_buttons_panel.GetChild(3).style.height = "40px"
 }

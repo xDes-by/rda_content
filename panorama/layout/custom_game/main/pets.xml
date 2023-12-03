@@ -1,8 +1,0 @@
-<root>
-	<styles>
-		<include src="file://{resources}/layout/custom_game/pet ui rework/pets.css" />
-	</styles>
-	<Panel class = "OpenButton">
-		<Panel id="OpenButton" class=""></Panel>
-	</Panel>
-</root>

@@ -466,5 +466,53 @@
         <Image src="file://{images}/custom_game/forge/all/vessel10.jpg"/>
         <Image src="file://{images}/custom_game/forge/all/vessel11.jpg"/>
 
+        <Image src="file://{images}/custom_game/forge/mid_items/lance1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/mid_items/lance1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/lance11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/mage_11.jpg"/>
+
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_1.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_2.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_3.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_4.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_5.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_6.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_7.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_8.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_9.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_10.jpg"/>
+        <Image src="file://{images}/custom_game/forge/mid_items/weapon_11.jpg"/>
+
 	</Panel>
 </root>

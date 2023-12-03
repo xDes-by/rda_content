@@ -3,9 +3,8 @@ const LEVEL_MAX = 30
 const VOTING_HEROES = 4
 const dataReward = CustomNetTables.GetTableValue( "BattlePass", "dataReward")
 const experienceList = CustomNetTables.GetTableValue( "BattlePass", "ExpToLevelUp")
-var voting_heroes_list = CustomNetTables.GetTableValue( "BattlePass", "VotingHeroesList")
+var voting_heroes_list = SortVoteingList(CustomNetTables.GetTableValue( "BattlePass", "VotingHeroesList"))
 var voting_heroes_percentage = {}
-var is_open = true
 const tabs_container = $("#tabs_container")
 const main_panel = $("#GameBPPanel")
 const PANEL_BP = {
@@ -24,6 +23,7 @@ const PANEL_BP = {
     hero_selection_panel : $("#hero_selection_panel"),
     tasks_panel : $("#tasks_panel"),
     buy_buttons_panel : $("#buy_buttons_panel"),
+    refresh_button : $("#refresh_button"),
 }
 const PANEL_INVENTORY = {
     inventory_container : $("#inventory_container"),
@@ -72,6 +72,7 @@ const ITEM_TOOLTIP = {
     item_forever_ward : {name:"BattlePass_forever_ward_name", description:"BattlePass_forever_ward_description", image:"", image_width:"100perc", image_height:"20px"},
     boss_summon_ticket : {name:"BattlePass_boss_summo_name", description:"BattlePass_boss_summo_description", image:"", image_width:"100perc", image_height:"20px"},
     item_ticket : {name:"BattlePass_ticket_name", description:"BattlePass_ticket_description", image:"", image_width:"100perc", image_height:"20px"},
+    hero_model : {name:"BattlePass_model_name", description:"BattlePass_model_description", image:"", image_width:"0px", image_height:"0px"},
 }
 const CHOICE_ITEMS = {
     soul : { width : "180px", height : "width-percentage( 75% )", images:[] ,items :["item_forest_soul","item_village_soul","item_mines_soul","item_dust_soul","item_cemetery_soul","item_swamp_soul","item_snow_soul","item_divine_soul"], abilities:[]},
@@ -90,6 +91,7 @@ const TABS = [
 ]
 const shop = [
     { name : "bp_premium", don : 150, localize : "battle_pass_buy_premium", tooltip : "battle_pass_buy_premium_tooltip", combinable : false},
+    { name : "bp_premium", rp : 15000, localize : "battle_pass_buy_premium", tooltip : "battle_pass_buy_premium_tooltip", combinable : false},
     { name : "bp_experience", rp : 1000, value : 1000, localize : "battle_pass_buy_experience", combinable : true },
     { name : "bp_experience", don : 50, value : 1000, localize : "battle_pass_buy_experience", combinable : true },
 ]

@@ -41,3 +41,10 @@
 .legendary_color{
     color: orange;
 }
+#movie{
+    height: 300px;
+    width: 300px;
+}
+.hidden{
+    visibility: collapse;
+}

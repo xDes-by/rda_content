@@ -5,6 +5,7 @@
     <include src="file://{resources}/scripts/custom_game/api/dota_hud.js" />
     <include src="file://{resources}/scripts/custom_indicator/custom_indicator.js" />
     <include src="file://{resources}/scripts/teams.js" />
+    <include src="file://{resources}/scripts/custom_game/vector_target.js" />
   </scripts>
   <Panel>
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ingame_score/ingame_score.xml" />
@@ -31,8 +32,6 @@
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/dummy/init.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tutorial/tutorial.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/quests/quests.xml" />
-    
-
     
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tempest_double/tempest_double.xml" />

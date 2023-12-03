@@ -8,8 +8,6 @@
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 	<scripts>
-		<!-- <include src="file://{resources}/scripts/custom_game/scripts/custom_indicator.js" /> -->
-		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection_const.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection.js" />
 		<include src="file://{resources}/scripts/custom_game/main.js" />
@@ -134,7 +132,9 @@
 
     <Panel class="root" hittest="false">
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_riki/int/5.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_sniper/agi/assault.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/pet_buttons/spell_item_pet_rda_roshan_2.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/pet_buttons/spell_item_pet_rda_roshan_1.png"/> -->
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/60.png"/>
 		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/61.png"/>
 		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/62.png"/>
@@ -273,6 +273,7 @@
 						<Panel class='RDAMoneyPanel' id='RDAMoneyPanel' onmouseover="TipsOver('gems','DonateMoneyPanel')" onmouseout="TipsOut()">
 							<Image class='RDAMoneyLogo3' id='RDAMoneyLogo' src="file://{resources}/images/custom_game/RDAShop/money_logo_3_mini.png" />
 							<Label class="RDAMoneyLabel" id="RDAMoneyLabel" text='0'/>
+							<Panel id="RefreshMoney" class="refresh_button" onactivate="RefreshMoney()"></Panel>
 						</Panel>
 						<Panel class='MMMRPointsPanel' id='MMMRPointsPanel' onmouseover="TipsOver('mmrpoints','MMMRPointsPanel')" onmouseout="TipsOut()">
 							<Image class='MMMRPointsLogo' id='MMMRPointsLogo' src="file://{resources}/images/custom_game/RDAShop/protection_mini.png" />

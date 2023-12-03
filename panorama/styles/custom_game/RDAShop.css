@@ -263,6 +263,7 @@
 .RDAMoneyPanel{
 	margin-top: 4px;
 	margin-left: 7px;
+	width: 140px;
 }
 .money_panel{
 	height:82px;
@@ -951,4 +952,21 @@
     100%{
         color:#FFD700;
     }
+}
+.refresh_button{
+    height: 25px;
+    width: 25px;
+    background-image: url("file://{images}/custom_game/bp/refresh_psd.png");
+    background-size: 100%;
+    horizontal-align: right;
+    margin-right: 5px;
+	margin-top: 3px;
+    vertical-align: center;
+    wash-color: rgb(255, 255, 255);
+    transition-duration: 0.2s;
+    transition-property: pre-transform-rotate2d;
+}
+.refresh_button:hover{
+    sound: "ui_select_arrow";
+    pre-transform-rotate2d: 45deg;
 }

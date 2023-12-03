@@ -1,3 +1,4 @@
+var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 const tableLength = 6
 var PlayerCount = 0,
 	rating,
@@ -16,40 +17,26 @@ var PlayerCount = 0,
 	marci = null,
 	pango = null
 
-function hudInit(){
-    /*
-    var hud = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("ButtonBar");
-    var panel = $.CreatePanel('Panel', hud, '');
-    panel.style.backgroundImage = "url('file://{resources}/images/custom_game/rating/Rating1.png')";
-    panel.style.width = "35px";
-    panel.style.height = "30px";
-    panel.style.backgroundRepeat = "no-repeat";
-    panel.style.height = "30px";
-    panel.AddClass("DOTAHudMenuButtons");
-    panel.AddClass("Button");
-    */
-    //2314
+if($('#RatingPanel')){
+	DotaHUD.windowControllers["rating"] = {
+		is_open: false,
+		open: function(){
+			openRaiting('team')
+		},
+		close: function(){
+			$('#RatingPanel').style.opacity = "0"
+			$("#RatingPanel").style.transform = "translate3d(-100px, 0px, 0px)";
+			$("#RatingPanel").style.preTransformScale2d = "0.8";
+		}
+	}
 }
-
 function closeRaiting(){
-	if(!$('#RatingPanel')) return
-	isopen = false
-	$('#RatingPanel').style.opacity = "0"
-	$("#RatingPanel").style.transform = "translate3d(-100px, 0px, 0px)";
-	$("#RatingPanel").style.preTransformScale2d = "0.8";
+	DotaHUD.WindowClose("rating")
 }
 var openRaitingButton =  function(){
 	return function(){
-		if(isopen == true){
-			if(windowName == "shop"){
-				closeShop()
-				openRaiting('team')
-			}else if(windowName == "rating"){
-				closeRaiting()
-			}
-			return
-		}
-		openRaiting('team')
+		Game.EmitSound("General.ButtonClick");
+		DotaHUD.WindowOpen("rating")
 	}
 }
 function openRaiting(x){
@@ -499,53 +486,38 @@ function rank(points){
 ********************************************************************************************************************************************
 ********************************************************************************************************************************************
 */
-
-var shopnumber = 0
+if($('#RDAShopPanel')){
+	DotaHUD.windowControllers["shop"] = {
+		is_open: false,
+		open: function(){
+			$.Msg("open shop")
+			openShop()
+			$('#RDAShopPanel').style.opacity = "1"
+			$('#RDAShopPanel').style.preTransformScale2d = "1"
+			$('#RDAShopPanel').style.transform = "translate3d(0px, 0px, 0px)"
+		},
+		close: function(){
+			$.Msg("close shop")
+			$('#RDAShopPanel').style.opacity = "0"
+			$('#RDAShopPanel').style.preTransformScale2d = "0.8"
+			$('#RDAShopPanel').style.transform = "translate3d(0px, 300px, 0px)"
+			$('#BuyControl').visible = false
+			$('#accept_shadow').visible = false
+		}
+	}
+}
+var shopnumber = 1
 var specialAltOpenBut = false;
 
 var openShopButton = function(){
 	return function(){
-		isShopOpen = true
-		if(isopen == true){
-			if(windowName == "rating"){
-				closeRaiting()
-				openShop(shopnumber)
-			}else if(windowName == "shop"){
-				closeShop()
-			}
-			return
-		}else{
-			openShop(shopnumber)
-		}
+		Game.EmitSound("General.ButtonClick");
+		DotaHUD.WindowOpen("shop")
 	}
 }
  
 function closeShop(){
-	if(!$('#RDAShopPanel')) return
-	isopen = false
-	if(IsSelected){
-		IsSelected = false;
-		$('#RDAShop').hittest = false
-		$('#RDAShopPanel').style.position = x + 'px ' + y + 'px 0'
-	}
-	// if(GameUI.IsAltDown() && specialAltOpenBut == false){
-	// 	specialAltOpenBut = true;
-	// }else if(GameUI.IsAltDown() && specialAltOpenBut == true){
-	// 	specialAltOpenBut = false;
-	// }
-	if(specialAltOpenBut){
-		$.Schedule(0.2, function(){
-			$('#openShopLabel').visible = true;
-		})
-	}
-
-	$('#RDAShopPanel').style.opacity = "0"
-	$('#RDAShopPanel').style.preTransformScale2d = "0.8"
-	$('#RDAShopPanel').style.transform = "translate3d(0px, 300px, 0px)"
-	
-	$('#RDAShop').SetFocus(false)
-	$('#BuyControl').visible = false
-	$('#accept_shadow').visible = false
+	DotaHUD.WindowClose("shop")
 }
 function specialOpnBut(){
 	
@@ -558,11 +530,7 @@ function specialOpnBut(){
 }
 
 function openShop(n){
-	isopen = true
-	windowName = "shop"
-	$('#RDAShopPanel').style.opacity = "1"
-	$('#RDAShopPanel').style.preTransformScale2d = "1"
-	$('#RDAShopPanel').style.transform = "translate3d(0px, 0px, 0px)"
+	if(n == undefined) n = shopnumber
 	for(var i = 1; i <= tableLength; i++){
 		if(i == n){
 			$('#TabLabelImg_' + i).AddClass('selected_bd')
@@ -1627,7 +1595,10 @@ function UpdateExperienceMultiplier(){
         $.DispatchEvent( "DOTAHideTextTooltip");
     });
 }
-
+function RefreshMoney(){
+	Game.EmitSound("General.ButtonClick");
+    GameEvents.SendCustomGameEventToServer("ShopRefreshMoney", {})
+}
 (function(){
 	UpdateExperienceMultiplier()
 	GameEvents.Subscribe( "Noti", Noti)
@@ -1647,7 +1618,6 @@ function UpdateExperienceMultiplier(){
 	CustomNetTables.SubscribeNetTableListener( "shopinfo", shopinfoed );
 	puls_bg_rating()
 	puls_bg_shop()
-	hudInit()
 	visibleOff("openShopLabel")
 	visibleOff("ChangeHeroMainPanel")
 	visibleOff("LikeNotificationsPanel")
@@ -1743,7 +1713,6 @@ function UpdateExperienceMultiplier(){
 
 
 
-var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 
 
 function OnMouseEvent(eventType, clickBehavior) {

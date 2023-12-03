@@ -47,6 +47,7 @@
 	</snippets>
 
 	<Panel class = "root" hittest="false">
+
         <!-- <Image class='talante_bg_image_panel' id='talante_bg_image_panel' src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_750.png" /> -->
         <Panel id="talant_root" class="talant_root">
             <DOTAScenePanel id="panel_bg" class = "panel_bg" map="scene2" light="light_1" camera="camera_1" particleonly="false" hittest="true" onmouseactivate="CloseButton()" />

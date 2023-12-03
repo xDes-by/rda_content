@@ -24,6 +24,7 @@ function BuyButton_Event(name, currency, price, combinable, value){
         Game.EmitSound("General.ButtonClick");
         if(ThrowAnError(currency, price) == false){
             BuyButton(name, currency, price, combinable, value);
+            CONFIRM.buy_confirm_price.text = price;
         }
     }
 }
