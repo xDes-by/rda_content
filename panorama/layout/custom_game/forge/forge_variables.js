@@ -24,3 +24,16 @@ const DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 var itemIndex = 0;
 var playerDisplayMode = "levelup";
 var gems = [];
+const max_gems = {
+    1 : 150,
+    2 : 300,
+    3 : 450,
+    4 : 600,
+    5 : 750,
+    6 : 900,
+    7 : 1050,
+    8 : 1200,
+    9 : 1350,
+    10 : 1500,
+    11 : 2000,
+}

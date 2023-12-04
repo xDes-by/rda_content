@@ -132,9 +132,9 @@
 
     <Panel class="root" hittest="false">
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_sniper/agi/assault.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/pet_buttons/spell_item_pet_rda_roshan_2.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/pet_buttons/spell_item_pet_rda_roshan_1.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_vengefulspirit/agi/4.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_vengefulspirit/int/4.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_vengefulspirit/str/4.png"/> -->
 		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/60.png"/>
 		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/61.png"/>
 		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/62.png"/>

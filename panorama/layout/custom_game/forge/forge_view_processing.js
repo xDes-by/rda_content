@@ -100,6 +100,7 @@ function AdjustSliderAttributes(data){
     PANEL.slider.min = data.gemsNumber
     PANEL.slider.value = data.gemsNumber
     PANEL.slider.max = DeterminePlayerGemLimit(data)
+    PANEL.slider.itemLevel = data.itemLevel
     UpdateSliderTextField()
 }
 function UpdateBonusOnSliderChange(){
@@ -107,6 +108,7 @@ function UpdateBonusOnSliderChange(){
         const data = {
             gemType : RetrieveSelectedGem(),
             gemsNumber : PANEL.slider.value,
+            itemLevel : PANEL.slider.itemLevel,
         }
         PANEL.display_gems_buff_text.text = GetGemBuffDescription(data)
     }

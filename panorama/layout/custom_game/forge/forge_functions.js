@@ -160,19 +160,19 @@ function OnSliderValueChanged(){
 }
 function CalculateGemBonuses(data){
     if(data.gemType == 1){
-        return ( data.gemsNumber / 5 * 0.01 ).toFixed(1)
+        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 5 * 0.01 ).toFixed(1)
     }
     if(data.gemType == 2){
-        return ( data.gemsNumber / 5 ).toFixed(1)
+        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 5 * data.itemLevel ).toFixed(1)
     }
     if(data.gemType == 3){
-        return ( data.gemsNumber / 1.5 ).toFixed(1)
+        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 1.5 * (data.itemLevel / 10 + 1) ).toFixed(1)
     }
     if(data.gemType == 4){
-        return ( data.gemsNumber ).toFixed(1)
+        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber ).toFixed(1)
     }
     if(data.gemType == 5){
-        return ( data.gemsNumber / 75 / 4 ).toFixed(1)
+        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 75 / 4 ).toFixed(1)
     }
 }
 function GetGemBuffDescription(data){
