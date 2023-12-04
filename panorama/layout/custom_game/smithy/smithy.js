@@ -87,7 +87,6 @@ function clickingloop(){
 var OnMouseOverItem = (function(type){
     return function(){
         if(GameTime &&  Game.Time() - GameTime  < 0.25){
-            $.Msg("Yes")
             let event = {
                 slot : ItemNumber,
                 type : type,
@@ -101,7 +100,6 @@ var OnMouseOverItem = (function(type){
 var ReturnItemBack = (function(type){
     
     return function(){
-        $.Msg(type)
         let event = {
             type : type,
             toggle : false,
@@ -238,7 +236,6 @@ function prepare_build_js(t){
     }
 }
 function pick_up_item_js(t){
-    $.Msg(t['gold']['stuck'])
     if(t['gold']['item_name'] == false){
         $("#smuthy_gold_bar_item").visible = false
         $("#smithy_gold_bar_label").visible = false
@@ -263,7 +260,6 @@ function pick_up_item_js(t){
 }
 
 function update_gems_js(t){
-    $.Msg(t)
     $('#smithy_purple_label').text = t[1]
     $('#smithy_blue_label').text = t[2]
     $('#smithy_orange_label').text = t[3]

@@ -1,0 +1,741 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+#GameBPPanel{
+    align: center center;
+    height: 670px;
+    width: 1000px;
+    border: 1px solid black;
+    /* background-color:gradient( linear, 0% 0%, 0% 100%, from( #1b2031 ), to( #111017 ) ); */
+    background-image: url("file://{images}/custom_game/bp/generic_hero_background_png.png");
+    background-size: 100%;
+    transition-duration: 0.2s;
+    transition-property: transform, opacity, pre-transform-scale2d;
+    opacity: 0;
+    pre-transform-scale2d: 0.8;
+	transform: translate3d(0px, 0px, 0px);
+}
+#tabs_container{
+    width: 100%;
+    height: 50px;
+    flow-children: right;
+}
+.outer_tab_container{
+    height: 50px;
+}
+.outer_tab_container:hover{
+    brightness: 1.5;
+}
+.inner_tab_container{
+    height: 40px;
+    margin-left: 5px;
+    width: 130px;
+    border:1px solid black;
+    vertical-align: bottom;
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #2d354b ), to( #121118 ) );
+    box-shadow: #111111e5 0px 0px 8px 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.tab_label{
+    align: center center;
+    color:white;
+    text-shadow: 0px 0px 2px 1.0 black;
+}
+#level_line_container{
+    width: 100%;
+    height: 45px;
+    border-top:1px solid black;
+    box-shadow: #111111e5 0px 0px 8px 0px;
+}
+#level_main_label{
+    vertical-align: center;
+    width: 100px;
+    text-align: center;
+    color:white;
+    text-shadow: 0px 0px 2px 1.0 black;
+    font-size: 21;
+}
+#experience_progress_bar{
+    height: 15px;
+    width: 615px;
+    vertical-align: center;
+    margin-left: 100px;
+}
+#experience_progress_bar_Left{
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #2c5ba0 ), to( #2677d4 ) );
+    background-image: url("file://{resources}/images/custom_game/bp/topbar_mana_psd.png");
+    background-size: 100%;
+}
+#experience_progress_bar_Label{
+    color:white;
+    text-shadow: 0px 0px 2px 1.0 black;
+    vertical-align: center;
+    margin-right: 170px;
+    font-size: 21;
+    horizontal-align: right;
+    width: 100px;
+    text-align: center;
+}
+#collect_all_rewards_button_Panel{
+    height: 30px;
+    width: 150px;
+    border: 1px solid black;
+    horizontal-align: right;
+    vertical-align: center;
+    margin-right: 10px;
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #2d354b ), to( #121118 ) );
+    box-shadow: #111111e5 0px 0px 8px 0px;
+    border-radius: 5px;
+}
+#collect_all_rewards_button_Panel:hover{
+    brightness: 2.0;
+}
+#collect_all_rewards_button_Panel Label{
+    color:white;
+    text-shadow: 0px 0px 2px 1.0 black;
+    align: center center;
+}
+#rewards_list_scroll_panel{
+    width: 100%;
+    height: 250px;
+    overflow: scroll squish;
+}
+#rewards_list_panel{
+    height: 100%;
+    flow-children: right;
+    /* background-image: url("file://{resources}/images/custom_game/bp/bg3.png"); */
+}
+.bp_scroll_item_Panel{
+    height: 100%;
+    width: 91px;
+    background-image: url("file://{resources}/images/custom_game/bp/bg5.png");
+    background-size: 100%;
+}
+.reward_level_panel{
+    background-image: url("file://{resources}/images/custom_game/bp/levelup_button_3_psd.png");
+    height: 35px;
+    width: 80px;
+    background-size: 100%;
+    align: center bottom;
+    box-shadow: black 0px 2px 3px 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.reward_level_panel Label{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    align: center center;
+    font-size: 25;
+    font-weight: bold;
+}
+.reward_image_position_top{
+    align: center top;
+    margin-top: 15px;
+}
+.reward_image_position_bottom{
+    align: center top;
+    margin-top: 110px;
+}
+.scroll_level_line_indicator{
+    height: 0%;
+    width: 100%;
+}
+.free_tier_reward_Panel{
+    height: 50%;
+    width: 100%;
+    /* background-color:gradient( linear, 0% 0%, 0% 40%, from( #000000ad ), to( #00000000 ) ); */
+    /* background-color:gradient( linear, 0% 0%, 0% 100%, from( #3f3f3f ), to( #6a6a6a ) ); */
+    /* background-image: url("file://{resources}/images/custom_game/bp/rewardline_levelbg_large_psd.png"); */
+    /* background-color:rgba(0, 0, 0, 0.1); */
+    /* box-shadow: #1111116c 0px 0px 8px 0px; */
+}
+.donate_tier_reward_Panel{
+    height: 50%;
+    width: 100%;
+    /* background-color:gradient( linear, 0% 0%, 0% 300%, from( #00000000 ), to( rgba(255, 217, 0, 0.2) ) ); */
+    /* background-image: url("file://{resources}/images/custom_game/bp/rewardline_levelbg_large_psd.png");
+    background-size: 100%; */
+    /* background-color:gradient( linear, 0% 0%, 0% 100%, from( #2d354e ), to( #16141d ) ); */
+    /* box-shadow: #1111113d 0px 0px 8px 0px; */
+}
+#level_in_scroll_label{
+    color:white;
+    text-shadow: 0px 0px 2px 1.0 black;
+    align: center bottom;
+}
+.scroll_reward_Image{
+    brightness: 0.5;
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+}
+.GalkaPanel{
+    height: 48px;
+    width: 50px;
+    background-size: contain;
+    background-image: url("file://{resources}/images/custom_game/bp/challenge_icon_check_psd.png");
+    vertical-align: center;
+    horizontal-align: center;
+    img-shadow: 2px 2px 8px 3.0 #000000b0;
+    wash-color: rgb(0, 255, 0);
+}
+.HaveAwardPanel{
+    background-image: url("file://{resources}/images/custom_game/bp/HaveAward.png");
+    height: 32px;
+    width: 32px;
+    background-size: contain;
+    horizontal-align: right;
+    margin: 1px;
+    img-shadow: 2px 2px 8px 3.0 #000000b0;
+    animation-name: HaveAwardPanelAnimation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes 'HaveAwardPanelAnimation'
+{
+	0%{
+        brightness: 0.4;
+    }
+    50%{
+        brightness: 3;
+    }
+    100%{
+        brightness: 0.4;
+    }
+}
+.reward_item_amount{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    font-size: 17px;
+    align: right bottom;
+    font-weight: bold;
+    margin-right: 5px;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+}
+.scroll_reward_Lock{
+    align: right top;
+    height: 35px;
+    width: 35px;
+    opacity: 0.95;
+    wash-color: #d81c1c;
+    background-image: url("file://{images}/custom_game/bp/lock.png");
+    background-size: 100%;
+    margin: 5px;
+}
+.unavailable_reward{
+    brightness: 0.2;
+}
+.middle_line_available{
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #2c5ba0 ), to( #2677d4 ) );
+}
+.middle_line_unavailable{
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #0a0b0c ), to( #03090f ) );
+}
+.hidden{
+    visibility: collapse;
+}
+#choice_reward_main_container{
+    height: 100%;
+    width: 100%;
+    background-color: gradient( radial, 50% 50%, 0% 0%, 200% 200%, from(rgb(0, 0, 0)), to(rgba(0, 0, 0, 0.7)) ) ;
+}
+#choice_reward_container{
+    height: 400px;
+    width: 100%;
+    align: center center;
+    margin-bottom: 50px;
+}
+#choice_reward_name{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    font-size: 22px;
+    text-transform: uppercase;
+    horizontal-align: center;
+}
+#choice_reward_count{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    font-size: 22px;
+    text-transform: uppercase;
+    horizontal-align: center;
+    margin-top: 30px;
+}
+#choice_reward_items_container{
+    margin-top: 50px;
+    height: 100%;
+    horizontal-align: center;
+    flow-children: right-wrap;
+}
+.choice_item_panel{
+    vertical-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 100px 1.0 #000000b0;
+}
+.choice_item_panel Image{
+    width: 100%;
+    height: 100%;
+}
+.choice_item_panel DOTAItemImage{
+    width: 100%;
+    height: 100%;
+}
+.choice_item_panel DOTAAbilityImage{
+    width: 100%;
+    height: 100%;
+}
+.choice_item_panel:hover{
+    ui-scale: 120%;
+}
+.common_shadow{
+    box-shadow: fill #a0a0a0 0px 0px 15px 0px;
+}
+.rare_shadow{
+    box-shadow: fill #0052cc 0px 0px 15px 0px;
+}
+.epic_shadow{
+    box-shadow: fill #991199 0px 0px 15px 0px;
+}
+.unique_shadow{
+    box-shadow: fill #adff2f 0px 0px 15px 0px;
+}
+.uncommon_shadow{
+    box-shadow: fill #abcdef 0px 0px 15px 0px;
+    animation-name: uncommon_shadow_animation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes 'uncommon_shadow_animation'
+{
+	0%{
+        box-shadow: fill #abcdef 0px 0px 9px 0px;
+    }
+    50%{
+        box-shadow: fill #abcdef 0px 0px 11px 0px;
+    }
+    100%{
+        box-shadow: fill #abcdef 0px 0px 9px 0px;
+    }
+}
+.legendary_shadow{
+    box-shadow: fill orange 0px 0px 15px 0px;
+    animation-name: legendary_shadow_animation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+@keyframes 'legendary_shadow_animation'
+{
+	0%{
+        box-shadow: fill orange 0px 0px 9px 0px;
+    }
+    50%{
+        box-shadow: fill orange 0px 0px 11px 0px;
+    }
+    100%{
+        box-shadow: fill orange 0px 0px 9px 0px;
+    }
+}
+.battle_pass_button{
+    height: 50px;
+    width: 50px;
+    vertical-align: center;
+}
+.battle_pass_button:hover{
+    brightness: 1.5;
+}
+#hero_selection_and_profile_panel{
+    height: 400px;
+    width: 100%;
+    background-color:gradient( linear, 0% 0%, 0% 40%, from( #00000098 ), to( #0bf80b00 ) );
+}
+#profile_panel{
+    width: 295px;
+    height: 100%;
+}
+.avatar_image_panel{
+    height: 100px;
+    width: 100px;
+    align: center top;
+    margin-top: 35px;
+}
+.avatar_image_gray_glow{
+    animation-name: avatar_image_gray_glow_animation;
+	animation-duration: 3.0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes 'avatar_image_gray_glow_animation'
+{
+	0%{
+        box-shadow: #497985e5 0px 0px 15px 0px;
+    }
+    50%{
+        box-shadow: #497985e5 0px 0px 10px 0px;
+    }
+    100%{
+        box-shadow: #497985e5 0px 0px 15px 0px;
+    }
+}
+.avatar_image_gold_glow{
+    animation-name: avatar_image_gold_glow_animation;
+	animation-duration: 3.0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes 'avatar_image_gold_glow_animation'
+{
+	0%{
+        box-shadow: gold 0px 0px 15px 0px;
+    }
+    50%{
+        box-shadow: gold 0px 0px 10px 0px;
+    }
+    100%{
+        box-shadow: gold 0px 0px 15px 0px;
+    }
+}
+#profile_panel DOTAAvatarImage{
+    height: 100px;
+    width: 100px;
+    align: center center;
+}
+#profile_panel DOTAUserName{
+    align: center top;
+    margin-top: 155px;
+}
+#hero_selection_label_panel{
+    width: 700px;
+    margin-top: 2px;
+    horizontal-align: right;
+}
+#hero_selection_label{
+    text-transform: uppercase;
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    /* background-color: rgba(0, 0, 0, 0.9); */
+    padding: 5px;
+    horizontal-align: center;
+}
+#hero_selection_panel{
+    width: 700px;
+    height: 265px;
+    align: right top;
+    flow-children: right;
+    margin-top: 30px;
+}
+.hero_panel{
+    height: 100%;
+    width: 25%;
+    padding: 5px;
+}
+.hero_panel DOTAHeroMovie{
+    width: 100%;
+    border-radius: 5px;
+}
+.hero_panel:hover{
+    sound: "ui_select_arrow";
+}
+.hero_vote_button{
+    background-image: url("file://{images}/custom_game/bp/button_thin_secondary_png.png");
+    background-size: 100%;
+    width: 90%;
+    height: 40px;
+    align: center bottom;
+    margin-bottom: 35px;
+}
+.hero_vote_button Label{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    align: center center;
+    text-transform: uppercase;
+}
+.hero_vote_perc_label{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    font-size: 30;
+    align: center bottom;
+}
+.refresh_button{
+    height: 30px;
+    width: 30px;
+    background-image: url("file://{images}/custom_game/bp/refresh_psd.png");
+    background-size: 100%;
+    horizontal-align: right;
+    margin-right: 5px;
+    margin-top: 5px;
+    wash-color: rgb(255, 255, 255);
+    transition-duration: 0.2s;
+    transition-property: pre-transform-rotate2d;
+}
+.refresh_button:hover{
+    sound: "ui_select_arrow";
+    pre-transform-rotate2d: 45deg;
+}
+#battle_pass_progress_panel{
+    height: 76px;
+    width: 260px;
+    align: center top;
+    margin-top: 185px;
+}
+#battle_pass_level{
+    align: left top;
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+}
+#battle_pass_experience{
+    align: right top;
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+}
+#battle_pass_progress_bar{
+    margin-top: 20px;
+    width: 100%;
+    height: 10px;
+}
+#battle_pass_progress_bar_Left{
+    border-radius: 10px;
+    /* background-color:gradient( linear, 0% 0%, 0% 100%, from( #192b7e98 ), to( #2e6dca93 ) ); */
+    background-image: url("file://{resources}/images/custom_game/bp/topbar_mana_psd.png");
+    background-size: 100%;
+}
+#player_avatar_and_level_container{
+    width: 100%;
+}
+#buy_button_experience_rp{
+    margin-top: 240px;
+}
+#buy_button_experience_coins{
+    margin-top: 290px;
+}
+#buy_button_battle_pass_level_2{
+    margin-top: 340px;
+}
+.buy_button{
+    width: 250px;
+    height: 34px;
+    background-image: url("file://{images}/custom_game/bp/button_thin_secondary_png.png");
+    background-size: 100%;
+    align: center top;
+    margin: 5px;
+}
+.buy_button:hover{
+    brightness: 2.0;
+    sound: "ui_select_arrow";
+}
+.buy_button_inner_container{
+    flow-children: right;
+    align: center center;
+}
+.buy_button_label{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    vertical-align: center;
+    margin: 5px;
+}
+.buy_button_image_coins{
+    background-image: url("file://{images}/custom_game/RDAShop/money_logo_3_mini.png");
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    vertical-align: center;
+}
+.buy_button_image_rp{
+    background-image: url("file://{images}/custom_game/RDAShop/protection_mini.png");
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+    vertical-align: center;
+}
+.tab_battle_pass_image{
+    /* background-image: url("file://{images}/custom_game/bp/max_shield_icon_psd.png");
+    background-size: contain;
+    width: 30px;
+    height: 35px;
+    vertical-align: center; */
+}
+.hero_vote_locked{
+    background-image: url("file://{images}/custom_game/bp/challenge_locked_psd.png");
+    background-size: contain;
+    height: 40px;
+    width: 30px;
+    align: center center;
+}
+.tasks_panel{
+    height: 100px;
+    width: 701px;
+    align: right top;
+    margin-top: 295px;
+    flow-children: right;
+}
+.task{
+    height: 90px;
+    width: 340px;
+    background-image: url("file://{images}/custom_game/bp/dashboard_background_armory_update_psd.png");
+    /* opacity-mask: url("file://{images}/custom_game/bp/background_play_button_large_2x_png.png"); */
+    background-size: 100%;
+    margin: 5px;
+    border-radius: 5px;
+}
+.background_texsture1{
+    background-image: url("file://{images}/custom_game/bp/background_play_button_large_2x_png.png");
+    height: 100%;
+    width: 100%;
+    border:1px solid red;
+}
+.background_texsture2{
+    background-image: url("file://{images}/custom_game/bp/background_play_button_2x_png.png");
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+}
+.task_image{
+    height: 80px;
+    width: 80px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.task_description{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    margin-top: 5px;
+    margin-left: 100px;
+}
+.task_progress_bar{
+    width: 230px;
+    height: 20px;
+    margin-left: 100px;
+    margin-top: 60px;
+}
+#task_progress_bar_1_Left{
+    border-radius: 10px;
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #192b7e98 ), to( #2e6dca93 ) );
+    background-image: url("file://{resources}/images/custom_game/bp/topbar_mana_psd.png");
+    background-size: 100%;
+}
+#task_progress_bar_2_Left{
+    border-radius: 10px;
+    background-color:gradient( linear, 0% 0%, 0% 100%, from( #192b7e98 ), to( #2e6dca93 ) );
+    background-image: url("file://{resources}/images/custom_game/bp/topbar_mana_psd.png");
+    background-size: 100%;
+}
+.task_progress_bar_label{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    align:  center center;
+}
+#rewards_list_scroll_panel #HorizontalScrollBar{
+    opacity: 0;
+}
+.task_reward_panel{
+    background-image: url("file://{images}/custom_game/bp/button_thin_secondary_png.png");
+    height: 35px;
+    width: 200px;
+    background-size: 100%;
+    align: right bottom;
+    margin-bottom: 5px;
+    margin-right: 30px;
+}
+.task_reward_panel Label{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    align: center center;
+}
+.reward_image_Panel{
+    height: 60px;
+    width: 60px;
+    border-radius: 5px;
+    overflow: clip;
+}
+.reward_image_Panel:hover{
+    sound: "ui_select_arrow";
+}
+.battle_pass_level_scene_panel{
+    height: 100px;
+    width: 90px;
+    align: center bottom;
+}
+.battle_pass_level_scene_panel DOTAScenePanel{
+    height: 100%;
+    width: 100%;
+}
+.battle_pass_rank_image{
+    height: 70px;
+    width: 70px;
+    margin-left: 60px;
+    margin-top: 5px;
+}
+.unavailable_level{
+    brightness: 0.2;
+}
+.voteing_selected{
+    animation-name: voteing_selected_animation;
+	animation-duration: 3.0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes 'voteing_selected_animation'
+{
+	0%{
+        box-shadow: white 0px 0px 4px 0px;
+    }
+    50%{
+        box-shadow: white 0px 0px 5px 0px;
+    }
+    100%{
+        box-shadow: white 0px 0px 4px 0px;
+    }
+}
+#battle_pass_container{
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    flow-children: down;
+}
+#inventory_container{
+    horizontal-align: center;
+    margin-top: 50px;
+    width: 99%;
+    height: 100%;
+    background-color:gradient( linear, 0% 0%, 0% 30%, from( #00000098 ), to( #0bf80b00 ) );
+    flow-children: right-wrap;
+    overflow: squish scroll;
+}
+.tab_notactive{
+    brightness: 0.4;
+}
+.buy_buttons_container_panel{
+    width: 100%;
+    height: 175px;
+    margin-top: 220px;
+}
+#buy_buttons_panel{
+    align: center center;
+    flow-children: down;
+}
+.reward_item_ability{
+    height: 1100px;
+    align: center center;
+}
+.inventory_particle_item{
+    height: 150px;
+    width: 155px;
+    margin: 5px;
+    box-shadow: black 0px 0px 4px 0px;
+}
+.inventory_particle_item:hover{
+    box-shadow: white 0px 0px 4px 0px;
+    sound: "ui_select_arrow";
+}
+#inventory_particle_toggle{
+    align: center bottom;
+    margin-bottom: 5px;
+}
+#inventory_particle_toggle Label{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    text-transform: uppercase;
+}

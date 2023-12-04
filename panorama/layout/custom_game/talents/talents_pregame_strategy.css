@@ -1,0 +1,309 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+#talant_root{
+    width: 883px;
+    height: 683px;
+    background-color: #0009;
+}
+#talant_tree_panel{
+    height: 100%;
+    width: height-percentage( 100% );
+    align: center center;
+}
+#talante_bg_image_panel{
+    height: 100%;
+    width: 100%;
+}
+#talant_tree_images_panel{
+    height: 100%;
+    width: 100%;
+}
+.available-0{
+    brightness: 0.05;
+}
+.available-1{
+    brightness: 0.5;
+}
+.brightness15{
+    brightness: 3.0;
+}
+.brightness25{
+    brightness: 3.5;
+}
+.brightness5{
+    brightness: 0.5;
+}
+.selected{
+    brightness: 1.2;
+}
+.brightness02{
+    brightness: 0.2;
+}
+.hidden{
+    visibility: collapse;
+}
+#talent_level_label{
+    color: white;
+    font-size: 21px;
+    text-shadow: 2px 2px 8px 3.0 black;
+    margin: 20px;
+    vertical-align: bottom;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.talant_icon_panel_size_1{
+    height: 45px;
+    width: 45px;
+    border-radius: 30px;
+}
+.talant_icon_panel_size_2{
+    height: 47px;
+    width: 47px;
+    border-radius: 30px;
+}
+.talant_icon_panel_size_3{
+    height: 53px;
+    width: 53px;
+    border-radius: 30px;
+}
+
+
+.talant_icon_1_panel{
+    margin-top: 330px;
+    margin-left: 3.8%;
+}
+.talant_icon_2_panel{
+    margin-top: 268px;
+    margin-left: 5.6%;
+}
+.talant_icon_3_panel{
+    margin-top: 298px;
+    margin-left: 137px;
+}
+.talant_icon_4_panel{
+    margin-top: 350px;
+    margin-left: 125px;
+}
+.talant_icon_5_panel{
+    margin-top: 238px;
+    margin-left: 245px;
+}
+.talant_icon_6_panel{
+    margin-top: 275px;
+    margin-left: 277px;
+}
+.talant_icon_7_panel{
+    margin-top: 364px;
+    margin-left: 70px;
+}
+.talant_icon_8_panel{
+    margin-top: 310px;
+    margin-left: 80px;
+}
+.talant_icon_9_panel{
+    margin-top: 256px;
+    margin-left: 98px;
+}
+.talant_icon_10_panel{
+    margin-top: 229px;
+    margin-left: 142px;
+}
+.talant_icon_11_panel{
+    margin-top: 224px;
+    margin-left: 195px;
+}
+
+
+
+
+.talant_icon_12_panel{
+    margin-top: 22px;
+    margin-left: 284px;
+}
+.talant_icon_13_panel{
+    margin-top: 271px;
+    margin-left: 353px;
+}
+.talant_icon_14_panel{
+    margin-top: 69px;
+    margin-left: 255px;
+}
+.talant_icon_15_panel{
+    margin-top: 75px;
+    margin-left: 308px;
+}
+.talant_icon_16_panel{
+    margin-top: 29px;
+    margin-left: 345px;
+}
+.talant_icon_17_panel{
+    margin-top: 131px;
+    margin-left: 392px;
+}
+.talant_icon_18_panel{
+    margin-top: 183px;
+    margin-left: 403px;
+}
+.talant_icon_19_panel{
+    margin-top: 88px;
+    margin-left: 364px;
+}
+.talant_icon_20_panel{
+    margin-top: 123px;
+    margin-left: 272px;
+}
+.talant_icon_21_panel{
+    margin-top: 131px;
+    margin-left: 325px;
+}
+.talant_icon_22_panel{
+    margin-top: 233px;
+    margin-left: 392px;
+}
+
+
+
+.talant_icon_23_panel{
+    margin-top: 598px;
+    margin-left: 286px;
+}
+.talant_icon_24_panel{
+    margin-top: 507px;
+    margin-left: 362px;
+}
+.talant_icon_25_panel{
+    margin-top: 496px;
+    margin-left: 312px;
+}
+.talant_icon_26_panel{
+    margin-top: 608px;
+    margin-left: 350px;
+}
+.talant_icon_27_panel{
+    margin-top: 560px;
+    margin-left: 55.6%;
+}
+.talant_icon_28_panel{
+    margin-top: 553px;
+    margin-left: 47.6%;
+}
+.talant_icon_29_panel{
+    margin-top: 539px;
+    margin-left: 270px;
+}
+.talant_icon_30_panel{
+    margin-top: 495px;
+    margin-left: 243px;
+}
+.talant_icon_31_panel{
+    margin-top: 443px;
+    margin-left: 234px;
+}
+.talant_icon_32_panel{
+    margin-top: 390px;
+    margin-left: 242px;
+}
+.talant_icon_33_panel{
+    margin-top: 347px;
+    margin-left: 280px;
+}
+
+
+
+
+
+
+.talant_icon_34_panel{
+    margin-top: 349px;
+    margin-left: 51.7%;
+}
+.talant_icon_35_panel{
+    margin-top: 391px;
+    margin-left: 395px;
+}
+.talant_icon_36_panel{
+    margin-top: 275px;
+    margin-left: 510px;
+}
+.talant_icon_37_panel{
+    margin-top: 326px;
+    margin-left: 500px;
+}
+.talant_icon_38_panel{
+    margin-top: 352px;
+    margin-left: 600px;
+}
+.talant_icon_39_panel{
+    margin-top: 404px;
+    margin-left: 446px;
+}
+.talant_icon_40_panel{
+    margin-top: 396px;
+    margin-left: 498px;
+}
+.talant_icon_41_panel{
+    margin-top: 368px;
+    margin-left: 541px;
+}
+.talant_icon_42_panel{
+    margin-top: 313px;
+    margin-left: 556px;
+}
+.talant_icon_43_panel{
+    margin-top: 258px;
+    margin-left: 564px;
+}
+.talant_icon_44_panel{
+    margin-top: 290px;
+    margin-left: 610px;
+}
+.talant_icon_45_panel{
+    margin-top: 431px;
+    margin-left: 69px;
+}
+.talant_icon_46_panel{
+    margin-top: 75px;
+    margin-left: 188px;
+}
+.talant_icon_47_panel{
+    margin-top: 556px;
+    margin-left: 445px;
+}
+.talant_icon_48_panel{
+    margin-top: 191px;
+    margin-left: 561px;
+}
+.talant_icon_49_panel{
+    margin-top: 488px;
+    margin-left: 100px;
+}
+.talant_icon_50_panel{
+    margin-top: 112px;
+    margin-left: 135px;
+}
+.talant_icon_51_panel{
+    margin-top: 520px;
+    margin-left: 500px;
+}
+.talant_icon_52_panel{
+    margin-top: 136px;
+    margin-left: 527px;
+}

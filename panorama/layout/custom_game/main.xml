@@ -8,8 +8,6 @@
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
 	</styles>
 	<scripts>
-		<!-- <include src="file://{resources}/scripts/custom_game/scripts/custom_indicator.js" /> -->
-		<include src="file://{resources}/scripts/custom_game/vector_target.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection_const.js" />
 		<include src="file://{resources}/layout/custom_game/collection/collection.js" />
 		<include src="file://{resources}/scripts/custom_game/main.js" />
@@ -134,12 +132,32 @@
 
     <Panel class="root" hittest="false">
 		
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/heros/silencer.png"/> -->
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/1.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/2.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/3.png"/>
-		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_viper/agi/4.png"/> -->
-		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_award.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_vengefulspirit/agi/4.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_vengefulspirit/int/4.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/talants/img/npc_dota_hero_vengefulspirit/str/4.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/60.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/61.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/62.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/63.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/64.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/65.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/66.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/67.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/68.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/69.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/70.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/71.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_50.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_100.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_500.png"/> -->
+		<!-- <Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_50.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_100.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_500.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_1000.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/gems_reward_1500.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/rp_reward_1000.png"/>
+		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/rp_reward_1500.png"/> -->
+
 
 		<Panel id = "Rating" class = "Rating" hittest = "false">
 			<Panel id='RatingPanel' class='RatingPanel'>
@@ -220,6 +238,9 @@
 							</Panel>
 						</Panel>
 						<DOTAUserName id="RatingProfilNameShop" class="RatingProfilName" steamid="local" />
+						<Panel id="rp_booster_container" class="">
+							<Label id="rp_booster_label_2" class="" text="x2.5" />
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel id="shop_gems_panel" class="">
@@ -252,6 +273,7 @@
 						<Panel class='RDAMoneyPanel' id='RDAMoneyPanel' onmouseover="TipsOver('gems','DonateMoneyPanel')" onmouseout="TipsOut()">
 							<Image class='RDAMoneyLogo3' id='RDAMoneyLogo' src="file://{resources}/images/custom_game/RDAShop/money_logo_3_mini.png" />
 							<Label class="RDAMoneyLabel" id="RDAMoneyLabel" text='0'/>
+							<Panel id="RefreshMoney" class="refresh_button" onactivate="RefreshMoney()"></Panel>
 						</Panel>
 						<Panel class='MMMRPointsPanel' id='MMMRPointsPanel' onmouseover="TipsOver('mmrpoints','MMMRPointsPanel')" onmouseout="TipsOut()">
 							<Image class='MMMRPointsLogo' id='MMMRPointsLogo' src="file://{resources}/images/custom_game/RDAShop/protection_mini.png" />
@@ -348,29 +370,6 @@
 			</Panel>
 		</Panel>
 		<Panel id="TreasuresPreviewRoot" />
-		
-		<Panel id="rating_info_panel" class="rating_info_panel" hittest = "false">
-			<Panel id="rating_info_paadssdf23">
-				<Image id="rating_score_image_bg" class="rating_score_image_bg" src="file://{resources}/images/custom_game/rating/score.png" />
-				<Panel id="rating_info_panel_1" class="rating_info_panel_1">
-					<Panel id="rating_info_panel_3" class="rating_info_panel_3">
-						<Panel id="rating_info_panel_9" class="rating_info_panel_9" onmouseover="TipsOver('rating_zar','rating_info_panel_9')" onmouseout="TipsOut()">
-							<Label id="rating_zar" class="rating_info_label" text="0" />
-						</Panel>
-						<Panel id="rating_info_panel_10" class="rating_info_panel_10" onmouseover="TipsOver('rating_nadez','rating_info_panel_10')" onmouseout="TipsOut()">
-							<Label id="rating_nadez" class="rating_info_label" text="0" />
-						</Panel>
-						<Panel id="rating_info_panel_11" class="rating_info_panel_11" onmouseover="TipsOver('rating_doom','rating_info_panel_11')" onmouseout="TipsOut()">
-							<Label id="rating_doom" class="rating_info_label" text="0" />
-						</Panel>
-						<Panel id="rating_info_panel_12" class="rating_info_panel_12" onmouseover="TipsOver('rating_your_mmr','rating_info_panel_12')" onmouseout="TipsOut()">
-							<Label id="rating_your_mmr" class="rating_info_label" text="0" />
-						</Panel>
-					</Panel>
-				</Panel>
-				<Image id="rating_info_panel_img" class = "rating_info_panel_img" src="" />
-			</Panel>
-		</Panel>
 
 		<Panel id="ChangeHeroMainPanel" hittest = "false">
 			<Image id="ChangeHeroCloseButton" class="" src="file://{resources}/images/custom_game/changehero/close.png" onmouseactivate="hide_change()" onmouseover="TipsOver('close','ChangeHeroCloseButton')" onmouseout="TipsOut()" />
@@ -393,6 +392,17 @@
 				<Label id="ChangeHeroButtonText" class="" text="" />
 			</Panel>
 			
+		</Panel>
+
+		<Panel id="ReceivingCurrencyNotification_Panel" class="">
+			<Panel id="ReceivingCoinsNotification_Panel" class="ReceivingNotification_Panel">
+				<Label id="" class="ReceivingNotification_Label" text="+1" />
+				<Panel id="ReceivingCoinsNotificationImage_Panel" class=""/>
+			</Panel>
+			<Panel id="ReceivingRPNotification_Panel" class="ReceivingNotification_Panel">
+				<Label id="" class="ReceivingNotification_Label" text="+1" />
+				<Panel id="ReceivingRPNotificationImage_Panel" class=""/>
+			</Panel>
 		</Panel>
 
 	</Panel>

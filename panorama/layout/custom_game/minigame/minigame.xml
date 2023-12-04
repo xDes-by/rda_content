@@ -1,0 +1,45 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/layout/custom_game/minigame/minigame.css" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/layout/custom_game/minigame/minigame_variables.js" />
+		<include src="s2r://panorama/layout/custom_game/minigame/minigame.js" />
+		<include src="s2r://panorama/layout/custom_game/minigame/talents_function.js" />
+	</scripts>
+	<Panel class="minigame" hittest="false">
+		<Panel id="minigame_container" class="">
+			<Panel id="Labels_Panel" class="">
+				<Label id="" class="fontStyle" text="#minigame_label_1" />
+				<Label id="" class="fontStyle" text="#minigame_label_2" />
+				<Label id="" class="fontStyle" text="#minigame_label_3" />
+			</Panel>
+			<Panel id="ExperienceDisplay_Panel" class="">
+				<DOTAHeroImage id="heroIcon" heroname="npc_dota_hero_nevermore" />
+				<Panel id="LevelContainer" class="">
+					<Label id="" class="levelFont" text="LEVEL 10" />
+					<Label id="" class="levelFont" text="LEVEL 9" />
+				</Panel>
+				<Panel id="ExperienceFullContainer" class="">
+					<Panel id="blue_line_panel" class="">
+						<Panel id="top_line_progress" class=""/>
+						<DOTAScenePanel id="top_burner" class="SceneLoaded" map="maps/scenes/hud/healthbarburner.vmap" camera="camera_1" />
+						<Label id="" class="current_experience" text="" />
+						<Label id="" class="gaining_experience" text="-20" />
+					</Panel>
+					<Panel id="red_line_panel" class="">
+						<Panel id="bottom_line_progress" class=""/>
+						<DOTAScenePanel id="botton_burner" class="SceneLoaded" map="maps/scenes/hud/healthbarburner.vmap" camera="camera_1" />
+						<Label id="" class="current_experience" text="" />
+						<Label id="" class="gaining_experience" text="-20" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<Image id="billie_Image1" class="" src="file://{images}/custom_game/minigame/bili.png" />
+			<Image id="billie_Image2" class="" src="file://{images}/custom_game/minigame/bili.png" />
+			<Panel id="minigame">
+				<Label id="" class="ControllsTooltip" text="K + L" />
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

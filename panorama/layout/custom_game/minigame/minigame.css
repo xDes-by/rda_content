@@ -1,0 +1,197 @@
+.minigame{
+	horizontal-align: center;
+	vertical-align: center;
+	height: 100%;
+	width: 100%;
+}
+#minigame_container{
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+#minigame{
+	margin-top: 100px;
+	horizontal-align: center;
+	vertical-align: center;
+	height: 600px;
+	width: 800px;
+	background-color:rgb(59, 109, 68);
+}
+#ball{
+	border-radius: 50%;
+}
+#Labels_Panel{
+	horizontal-align: center;
+	flow-children: down;
+	margin-top: 100px;
+}
+#mainLabel{
+	/* font-size: 35px;
+	font-weight: bold;
+	letter-spacing: 4px;
+	animation-name: mainLabelAnimation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+	text-shadow: 2px 2px 2px 3.0 black; */
+}
+.fontStyle{
+	font-size: 35px;
+	font-weight: bold;
+	letter-spacing: 4px;
+	animation-name: mainLabelAnimation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+	text-shadow: 2px 2px 2px 3.0 black;
+	horizontal-align: center;
+}
+@keyframes 'mainLabelAnimation'
+{
+	0%{
+        color:#FF0000;
+		opacity: 1;
+    }
+    50%{
+        color:#DC143C;
+		opacity: 0.5;
+    }
+    100%{
+        color:#FF0000;
+		opacity: 1;
+    }
+}
+#billie_Image1{
+	vertical-align: center;
+	horizontal-align: right;
+	animation-name: billieAnimation1;
+	animation-duration: 5.0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes 'billieAnimation1'
+{
+	0%{
+        position: 0px 0px 0px;
+    }
+    50%{
+        position: -20px 20px 0px;
+    }
+    100%{
+        position: 0px 0px 0px;
+    }
+}
+#billie_Image2{
+	vertical-align: center;
+	horizontal-align: left;
+	animation-name: billieAnimation2;
+	animation-duration: 5.0s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+	transform: scaleX(-1);
+}
+@keyframes 'billieAnimation2'
+{
+	0%{
+        position: 0px 0px 0px;
+    }
+    50%{
+        position: 20px 20px 0px;
+    }
+    100%{
+        position: 0px 0px 0px;
+    }
+}
+#ExperienceDisplay_Panel{
+	horizontal-align: center;
+	width: 800px;
+	margin-top: 215px;
+}
+#ExperienceFullContainer{
+	flow-children: down;
+	width: 555px;
+	horizontal-align: right;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #708090 ), to( #696969 ) );
+	vertical-align: center;
+}
+#top_line_progress{
+	background-image: url("file://{resources}/images/custom_game/talants/blue_line.png");
+    background-size: 100% 100%;
+	width: 70%;
+	height: 100%;
+}
+#blue_line_panel{
+    height: 20px;
+    width: 100%;
+	border-bottom:1px solid #2c2c2c;
+}
+#bottom_line_progress{
+	background-image: url("file://{resources}/images/custom_game/talants/yellow_line.png");
+    background-size: 100% 100%;
+	height: 100%;
+	width: 30%;
+}
+#red_line_panel{
+    height: 20px;
+    width: 100%;
+}
+
+#top_burner{
+    hue-rotation: 0deg;
+	height: 100%;
+	width: 70%;
+}
+#botton_burner{
+    hue-rotation: 250deg;
+	height: 100%;
+	width: 30%;
+}
+#LevelContainer{
+	flow-children: down;
+	width: 100px;
+	margin-left: 140px;
+	vertical-align: center;
+}
+.levelFont{
+	color:white;
+	font-size: 21;
+	horizontal-align: left;
+	text-shadow: 2px 2px 2px 3.0 black;
+}
+.gaining_experience{
+	color:white;
+	text-shadow: 2px 2px 2px 3.0 black;
+	font-size: 18;
+	horizontal-align: right;
+	animation-name: experience_tick_animation;
+	animation-duration: 1.0s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.current_experience{
+	color:white;
+	text-shadow: 2px 2px 2px 3.0 black;
+	font-size: 18;
+	horizontal-align: left;
+}
+@keyframes 'experience_tick_animation'
+{
+	0%{
+        pre-transform-scale2d: 1.0;
+		color:white;
+    }
+    50%{
+        pre-transform-scale2d: 1.2;
+		color:Crimson;
+    }
+    100%{
+        pre-transform-scale2d: 1.0;
+		color:white;
+    }
+}
+.ControllsTooltip{
+	color:white;
+	font-size: 21;
+	align: right bottom;
+	margin: 10px;
+}

@@ -1,0 +1,10 @@
+<root>
+
+	<styles>
+        <include src="file://{resources}/layout/custom_game/admin/admin_button.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <Panel class ="admin_button">
+        <Label id="" class="" text="CH" />
+	</Panel>
+</root>

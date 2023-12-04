@@ -1,4 +1,5 @@
-const tableLength = 7
+var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
+const tableLength = 6
 var PlayerCount = 0,
 	rating,
 	commented = [],
@@ -16,40 +17,26 @@ var PlayerCount = 0,
 	marci = null,
 	pango = null
 
-function hudInit(){
-    /*
-    var hud = $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse("ButtonBar");
-    var panel = $.CreatePanel('Panel', hud, '');
-    panel.style.backgroundImage = "url('file://{resources}/images/custom_game/rating/Rating1.png')";
-    panel.style.width = "35px";
-    panel.style.height = "30px";
-    panel.style.backgroundRepeat = "no-repeat";
-    panel.style.height = "30px";
-    panel.AddClass("DOTAHudMenuButtons");
-    panel.AddClass("Button");
-    */
-    //2314
+if($('#RatingPanel')){
+	DotaHUD.windowControllers["rating"] = {
+		is_open: false,
+		open: function(){
+			openRaiting('team')
+		},
+		close: function(){
+			$('#RatingPanel').style.opacity = "0"
+			$("#RatingPanel").style.transform = "translate3d(-100px, 0px, 0px)";
+			$("#RatingPanel").style.preTransformScale2d = "0.8";
+		}
+	}
 }
-
 function closeRaiting(){
-	if(!$('#RatingPanel')) return
-	isopen = false
-	$('#RatingPanel').style.opacity = "0"
-	$("#RatingPanel").style.transform = "translate3d(-100px, 0px, 0px)";
-	$("#RatingPanel").style.preTransformScale2d = "0.8";
+	DotaHUD.WindowClose("rating")
 }
 var openRaitingButton =  function(){
 	return function(){
-		if(isopen == true){
-			if(windowName == "shop"){
-				closeShop()
-				openRaiting('team')
-			}else if(windowName == "rating"){
-				closeRaiting()
-			}
-			return
-		}
-		openRaiting('team')
+		Game.EmitSound("General.ButtonClick");
+		DotaHUD.WindowOpen("rating")
 	}
 }
 function openRaiting(x){
@@ -128,45 +115,64 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 		var profil = $("#RatingProfilPlayerByIdPanel")
 		profil.FindChildTraverse('profavatar').steamid = plysteamid
 		profil.FindChildTraverse('RatingProfilName').steamid = plysteamid
-		profil.FindChildTraverse('logotext1').text = t.rating[i+1].points
-		profil.FindChildTraverse('logotext2').text = t.rating[i+1].games
-		profil.FindChildTraverse('logotext3').text = t.rating[i+1].likes
-		profil.FindChildTraverse('logotext4').text = t.rating[i+1].reports
+		profil.FindChildTraverse('logotext1').text = t.rating[i].points
+		profil.FindChildTraverse('logotext2').text = t.rating[i].games
+		profil.FindChildTraverse('logotext3').text = t.rating[i].likes
+		profil.FindChildTraverse('logotext4').text = t.rating[i].reports
 		profil.FindChildTraverse('RatingProfilRank').SetImage(rankUrl)
 		profil.FindChildTraverse("RatingProfilLike").visible = false
 		profil.FindChildTraverse("RatingProfilDislike").visible = false
-		profil.FindChildTraverse("RatingProfilLike").SetPanelEvent("onmouseactivate",function(){сommenBut(i,'likes')})
-		profil.FindChildTraverse("RatingProfilDislike").SetPanelEvent("onmouseactivate",function(){сommenBut(i,'reports')})
-		profil.FindChildTraverse("profil_first_game_label").text = typeof(t.rating[i+1].first_game) == 'string' ? t.rating[i+1].first_game : "-"
+		profil.FindChildTraverse("RatingProfilLike").SetPanelEvent("onmouseactivate",function(){commenBut(i,'likes')})
+		profil.FindChildTraverse("RatingProfilDislike").SetPanelEvent("onmouseactivate",function(){commenBut(i,'reports')})
+		profil.FindChildTraverse("profil_first_game_label").text = typeof(t.rating[i].first_game) == 'string' ? t.rating[i].first_game : "-"
 		profil.FindChildTraverse("last_games_profil").RemoveAndDeleteChildren()
-		for(let n in t.history[i+1]){
-			let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "", {class:"profil_game"})
-			let p1 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanel("DOTAHeroImage", p1, "", {class:"last_game_hero_img", heroimagestyle:"landscape", heroname:t.history[i+1][n].hero_name})
-			let p2 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanel("Label", p2, "", {text:$.Localize("#"+t.history[i+1][n].result), style: `color:${t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"};`})
-			let p3 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanel("Label", p3, "", {text:$.Localize("#"+t.history[i+1][n].status), style: `color:${t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"};`})
+		for(let n in t.history[i]){
+			let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "")
+			pan.AddClass("profil_game")
+			let p1 = $.CreatePanel("Panel", pan, "")
+			p1.AddClass("profil_game_colun_des_panel")
+			let p11 = $.CreatePanel("DOTAHeroImage", p1, "")
+			p11.AddClass("last_game_hero_img")
+			p11.heroimagestyle = landscape
+			p11.heroname = t.history[i][n].hero_name
+			let p2 = $.CreatePanel("Panel", pan, "")
+			p2.AddClass("profil_game_colun_des_panel")
+			const p22 = $.CreatePanel("Label", p2, "")
+			p22.text = $.Localize("#"+t.history[i][n].result)
+			p22.style.color = t.history[i][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"
+			let p3 = $.CreatePanel("Panel", pan, "")
+			p3.AddClass("profil_game_colun_des_panel")
+			const p33 = $.CreatePanel("Label", p3, "")
+			p33.text = $.Localize("#"+t.history[i][n].status)
+			p33.style.color = t.history[i][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"
 			let p4 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanel("Label", p4, "", {text:Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")})
-			let p5 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanel("Label", p5, "", {text:t.history[i+1][n].level, style:"color:yellow;"})
+			p4.AddClass("profil_game_colun_des_panel")
+			const p44 = $.CreatePanel("Label", p4, "")
+			p44.text = Math.ceil(t.history[i][n].in_game_time/60) + " " + $.Localize("#min")
+			let p5 = $.CreatePanel("Panel", pan, "")
+			p5.AddClass("profil_game_colun_des_panel")
+			const p55 = $.CreatePanel("Label", p5, "")
+			p55.text = t.history[i][n].level
+			p55.style.color = "yellow"
 			let mode_color = "white"
-			if(t.history[i+1][n].mode == "hard"){
+			if(t.history[i][n].mode == "hard"){
 				mode_color = "rgb(204, 68, 68)"
-			}else if(t.history[i+1][n].mode == "ultra"){
+			}else if(t.history[i][n].mode == "ultra"){
 				mode_color = "rgb(159, 68, 212)"
-			}else if(t.history[i+1][n].mode == 4){
+			}else if(t.history[i][n].mode == 4){
 				mode_color = "rgb(46, 108, 201)"
 			}
-			let p6 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-			$.CreatePanel("Label", p6, "", {text:$.Localize("#"+t.history[i+1][n].mode), style:"color:"+mode_color+";"})
+			let p6 = $.CreatePanel("Panel", pan, "")
+			p6.AddClass("profil_game_colun_des_panel")
+			const p66 = $.CreatePanel("Label", p6, "")
+			p66.text = $.Localize("#"+t.history[i][n].mode)
+			p66.style.color = mode_color
 			// pan.BLoadLayoutSnippet("profil_game_history")
 			// $.Msg(profil.FindChildTraverse("last_games_profil"))
-			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 			// let children_count = profil.FindChildTraverse("last_games_profil").GetChildCount()
 			// let pan = profil.FindChildTraverse("last_games_profil").GetChild(children_count-1)
-			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+			// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 		}
 		if(playerconf){
 			if(playerconf["color"] != '' && playerconf["color"] != null){
@@ -187,19 +193,19 @@ var playerProfil = (function(t,i,plysteamid,rankUrl,playerconf)
 	}
 });
 
-var сommenBut = (function(i, type)
+var commenBut = (function(i, type)
 {
 	return function(){
 		Game.EmitSound("ui_team_select_shuffle")
 		var loc = Players.GetLocalPlayer();
-		// $.Msg(rating[loc+1]);
-		if(rating[loc+1].commens > 0 && commented[i] != true){
+		// $.Msg(rating[loc]);
+		if(rating[loc].commens > 0 && commented[i] != true){
 			$("#RatingTeamPlayer"+i).FindChildTraverse("comens").visible = false;
 			// $.Msg("1");
-			rating[loc+1].commens -= 1;
+			rating[loc].commens -= 1;
 			commented[i] = true;
 			GameEvents.SendCustomGameEventToServer("CommentChange", {type:type,pid:i});
-			$("#RatingCommentCout").text = rating[loc+1].commens;
+			$("#RatingCommentCout").text = rating[loc].commens;
 		}
 	}
 });
@@ -221,7 +227,7 @@ function initRating(t){
 		}
 		// init all team
 		var plysteamid = Game.GetPlayerInfo(i).player_steamid
-		var rankUrl = 'file://{resources}/images/custom_game/ranks/' + rank(t.rating[i+1].points) + '.png';
+		var rankUrl = 'file://{resources}/images/custom_game/ranks/' + rank(t.rating[i].points) + '.png';
 		
 		
 		if($("#RatingTeamPanel")){
@@ -230,14 +236,14 @@ function initRating(t){
 			pan.FindChildTraverse("RatingPlayerAvatar").heroname = Players.GetPlayerSelectedHero(i)
 			pan.FindChildTraverse("RatingPlayerName").steamid = plysteamid
 			pan.FindChildTraverse("RatingPlayerAvatar").SetPanelEvent("onmouseactivate",playerProfil(t,i,plysteamid,rankUrl,playerconf))
-			pan.FindChildTraverse("RatingPlayerLikes2").text = t.rating[i+1].likes
-			pan.FindChildTraverse("RatingPlayerReports2").text = t.rating[i+1].reports
-			pan.FindChildTraverse("RatingPlayergames").text = t.rating[i+1].games
-			pan.FindChildTraverse("RatingPlayerrait").text = t.rating[i+1].points
+			pan.FindChildTraverse("RatingPlayerLikes2").text = t.rating[i].likes
+			pan.FindChildTraverse("RatingPlayerReports2").text = t.rating[i].reports
+			pan.FindChildTraverse("RatingPlayergames").text = t.rating[i].games
+			pan.FindChildTraverse("RatingPlayerrait").text = t.rating[i].points
 			pan.FindChildTraverse("RatingPlayerRank").SetImage(rankUrl)
 			
-			if(t.rating[i+1].last_heros){
-				var last_heros = JSON.parse( t.rating[i+1].last_heros );
+			if(t.rating[i].last_heros){
+				var last_heros = JSON.parse( t.rating[i].last_heros );
 				for(var z = 0; z < 3; z++){
 					if(last_heros[z]){
 						pan.FindChildTraverse("heroicon_"+z).heroname = last_heros[z]["name"];
@@ -254,8 +260,8 @@ function initRating(t){
 				pan.FindChildTraverse("besthero").visible = false;
 			}
 			if(i!=playerID){ // !=
-				pan.FindChildTraverse("likeimg").SetPanelEvent("onmouseactivate",сommenBut(i,'likes'))
-				pan.FindChildTraverse("dislikeimg").SetPanelEvent("onmouseactivate",сommenBut(i,'reports'))
+				pan.FindChildTraverse("likeimg").SetPanelEvent("onmouseactivate",commenBut(i,'likes'))
+				pan.FindChildTraverse("dislikeimg").SetPanelEvent("onmouseactivate",commenBut(i,'reports'))
 			}else{
 				pan.FindChildTraverse("likeimg").visible = false;
 				pan.FindChildTraverse("dislikeimg").visible = false;
@@ -277,39 +283,58 @@ function initRating(t){
 				profil.BLoadLayout("file://{resources}/layout/custom_game/RatingProfil.xml", false, false)
 				profil.FindChildTraverse('profavatar').steamid = plysteamid
 				profil.FindChildTraverse('RatingProfilName').steamid = plysteamid
-				profil.FindChildTraverse('logotext1').text = t.rating[i+1].points
-				profil.FindChildTraverse('logotext2').text = t.rating[i+1].games
-				profil.FindChildTraverse('logotext3').text = t.rating[i+1].likes
-				profil.FindChildTraverse('logotext4').text = t.rating[i+1].reports
-				profil.FindChildTraverse("profil_first_game_label").text = t.rating[i+1].first_game
-				for(let n in t.history[i+1]){
-					let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "", {class:"profil_game"})
-					let p1 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanel("DOTAHeroImage", p1, "", {class:"last_game_hero_img", heroimagestyle:"landscape", heroname:t.history[i+1][n].hero_name})
-					let p2 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanel("Label", p2, "", {text:$.Localize("#"+t.history[i+1][n].result), style: `color:${t.history[i+1][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"};`})
-					let p3 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanel("Label", p3, "", {text:$.Localize("#"+t.history[i+1][n].status), style: `color:${t.history[i+1][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"};`})
-					let p4 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanel("Label", p4, "", {text:Math.ceil(t.history[i+1][n].in_game_time/60) + " " + $.Localize("#min")})
-					let p5 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanel("Label", p5, "", {text:t.history[i+1][n].level, style:"color:yellow;"})
+				profil.FindChildTraverse('logotext1').text = t.rating[i].points
+				profil.FindChildTraverse('logotext2').text = t.rating[i].games
+				profil.FindChildTraverse('logotext3').text = t.rating[i].likes
+				profil.FindChildTraverse('logotext4').text = t.rating[i].reports
+				profil.FindChildTraverse("profil_first_game_label").text = t.rating[i].first_game
+				for(let n in t.history[i]){
+					let pan = $.CreatePanel("Panel", profil.FindChildTraverse("last_games_profil"), "")
+					pan.AddClass("profil_game")
+					let p1 = $.CreatePanel("Panel", pan, "")
+					p1.AddClass("profil_game_colun_des_panel")
+					const p11 = $.CreatePanel("DOTAHeroImage", p1, "")
+					p11.AddClass("last_game_hero_img")
+					p11.heroimagestyle = "landscape"
+					p11.heroname = t.history[i][n].hero_name
+					let p2 = $.CreatePanel("Panel", pan, "")
+					p2.AddClass("profil_game_colun_des_panel")
+					const p22 = $.CreatePanel("Label", p2, "")
+					p22.text = $.Localize("#"+t.history[i][n].result)
+					p22.style.color = t.history[i][n].result == 'win' ? "#19962b" : "rgb(204, 68, 68)"
+					let p3 = $.CreatePanel("Panel", pan, "")
+					p3.AddClass("profil_game_colun_des_panel")
+					const p33 = $.CreatePanel("Label", p3, "")
+					p33.text = $.Localize("#"+t.history[i][n].status)
+					p33.style.color = t.history[i][n].status == 'in' ? "#19962b" : "rgb(204, 68, 68)"
+					let p4 = $.CreatePanel("Panel", pan, "")
+					p4.AddClass("profil_game_colun_des_panel")
+					const p44 =  $.CreatePanel("Label", p4, "")
+					p44.text = Math.ceil(t.history[i][n].in_game_time/60) + " " + $.Localize("#min")
+					let p5 = $.CreatePanel("Panel", pan, "")
+					p5.AddClass("profil_game_colun_des_panel")
+					const p55 = $.CreatePanel("Label", p5, "")
+					p55.text = t.history[i][n].level
+					p55.style.color = "yellow"
 					let mode_color = "white"
-					if(t.history[i+1][n].mode == "hard"){
+					if(t.history[i][n].mode == "hard"){
 						mode_color = "rgb(204, 68, 68)"
-					}else if(t.history[i+1][n].mode == "ultra"){
+					}else if(t.history[i][n].mode == "ultra"){
 						mode_color = "rgb(159, 68, 212)"
-					}else if(t.history[i+1][n].mode == 4){
+					}else if(t.history[i][n].mode == 4){
 						mode_color = "rgb(46, 108, 201)"
 					}
-					let p6 = $.CreatePanel("Panel", pan, "", {class:"profil_game_colun_des_panel"})
-					$.CreatePanel("Label", p6, "", {text:$.Localize("#"+t.history[i+1][n].mode), style:"color:"+mode_color+";"})
+					let p6 = $.CreatePanel("Panel", pan, "")
+					p6.AddClass("profil_game_colun_des_panel")
+					const p66 = $.CreatePanel("Label", p6, "")
+					p66.text = $.Localize("#"+t.history[i][n].mode)
+					p66.style.color = mode_color
 					// pan.BLoadLayoutSnippet("profil_game_history")
 					// $.Msg(profil.FindChildTraverse("last_games_profil"))
-					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 					// let children_count = profil.FindChildTraverse("last_games_profil").GetChildCount()
 					// let pan = profil.FindChildTraverse("last_games_profil").GetChild(children_count-1)
-					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i+1][n].hero_name
+					// pan.FindChildTraverse("last_game_hero_img").heroname = t.history[i][n].hero_name
 				}
 				profil.FindChildTraverse('RatingProfilRank').SetImage(rankUrl)
 				profil.FindChildTraverse('RatingProfilLikeDislikePanel').visible = false
@@ -325,7 +350,7 @@ function initRating(t){
 		}
 	}
 	if($("#RatingCommentCout")){
-		$("#RatingCommentCout").text = rating[LocalPlayer+1].commens
+		$("#RatingCommentCout").text = rating[LocalPlayer].commens
 	}
 	if($("#RatingProfilPlayerByIdPanel")){
 		$("#RatingProfilPlayerByIdPanel").BLoadLayout("file://{resources}/layout/custom_game/RatingProfil.xml", false, false)
@@ -360,7 +385,7 @@ function initRating(t){
 				}
 			}
 			if(top["last_heros"]){
-				var last_heros = JSON.parse( top["last_heros"] );
+				var last_heros = top["last_heros"];
 				for(var z = 0; z < 3; z++){
 					if(last_heros[z]){
 						pan.FindChildTraverse("heroicon_"+z).heroname = last_heros[z]["name"];
@@ -461,53 +486,38 @@ function rank(points){
 ********************************************************************************************************************************************
 ********************************************************************************************************************************************
 */
-
-var shopnumber = 0
+if($('#RDAShopPanel')){
+	DotaHUD.windowControllers["shop"] = {
+		is_open: false,
+		open: function(){
+			$.Msg("open shop")
+			openShop()
+			$('#RDAShopPanel').style.opacity = "1"
+			$('#RDAShopPanel').style.preTransformScale2d = "1"
+			$('#RDAShopPanel').style.transform = "translate3d(0px, 0px, 0px)"
+		},
+		close: function(){
+			$.Msg("close shop")
+			$('#RDAShopPanel').style.opacity = "0"
+			$('#RDAShopPanel').style.preTransformScale2d = "0.8"
+			$('#RDAShopPanel').style.transform = "translate3d(0px, 300px, 0px)"
+			$('#BuyControl').visible = false
+			$('#accept_shadow').visible = false
+		}
+	}
+}
+var shopnumber = 1
 var specialAltOpenBut = false;
 
 var openShopButton = function(){
 	return function(){
-		isShopOpen = true
-		if(isopen == true){
-			if(windowName == "rating"){
-				closeRaiting()
-				openShop(shopnumber)
-			}else if(windowName == "shop"){
-				closeShop()
-			}
-			return
-		}else{
-			openShop(shopnumber)
-		}
+		Game.EmitSound("General.ButtonClick");
+		DotaHUD.WindowOpen("shop")
 	}
 }
  
 function closeShop(){
-	if(!$('#RDAShopPanel')) return
-	isopen = false
-	if(IsSelected){
-		IsSelected = false;
-		$('#RDAShop').hittest = false
-		$('#RDAShopPanel').style.position = x + 'px ' + y + 'px 0'
-	}
-	// if(GameUI.IsAltDown() && specialAltOpenBut == false){
-	// 	specialAltOpenBut = true;
-	// }else if(GameUI.IsAltDown() && specialAltOpenBut == true){
-	// 	specialAltOpenBut = false;
-	// }
-	if(specialAltOpenBut){
-		$.Schedule(0.2, function(){
-			$('#openShopLabel').visible = true;
-		})
-	}
-
-	$('#RDAShopPanel').style.opacity = "0"
-	$('#RDAShopPanel').style.preTransformScale2d = "0.8"
-	$('#RDAShopPanel').style.transform = "translate3d(0px, 300px, 0px)"
-	
-	$('#RDAShop').SetFocus(false)
-	$('#BuyControl').visible = false
-	$('#accept_shadow').visible = false
+	DotaHUD.WindowClose("shop")
 }
 function specialOpnBut(){
 	
@@ -520,11 +530,7 @@ function specialOpnBut(){
 }
 
 function openShop(n){
-	isopen = true
-	windowName = "shop"
-	$('#RDAShopPanel').style.opacity = "1"
-	$('#RDAShopPanel').style.preTransformScale2d = "1"
-	$('#RDAShopPanel').style.transform = "translate3d(0px, 0px, 0px)"
+	if(n == undefined) n = shopnumber
 	for(var i = 1; i <= tableLength; i++){
 		if(i == n){
 			$('#TabLabelImg_' + i).AddClass('selected_bd')
@@ -593,7 +599,7 @@ function OpenInventory(){
 }
 
 function OpenBuyGens(){
-	let o = opn(7)
+	let o = opn(6)
 	o()
 }
 
@@ -616,11 +622,13 @@ var acceptBuy = (function(i, n, pan, consumabl, currency)
 		$('#accept_shadow').visible = false
 		GameEvents.SendCustomGameEventToServer("buyItem", {i,n, amountBuy,currency})
 		var numb = Number(Number(shopinfo[i][n].now) + amountBuy)
-		shopinfo[i][n].now = numb
-		shopinfo[i][n].onStart = Number(shopinfo[i][n].onStart) + amountBuy
-		$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
-		if($("#ShopItem_Inventory" + i + '_' + n)){
-			$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+		if(shopinfo[i][n].type != 'gem'){
+			shopinfo[i][n].now = numb
+			shopinfo[i][n].onStart = Number(shopinfo[i][n].onStart) + amountBuy
+			$("#ShopItem" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+			if($("#ShopItem_Inventory" + i + '_' + n)){
+				$("#ShopItem_Inventory" + i + '_' + n).FindChildTraverse('RDAShopItemButtonLabelStock').text =  numb
+			}
 		}
 		if(consumabl){
 			
@@ -721,9 +729,21 @@ var buy = (function(i, n, pan, consumabl, currency)
 			$('#BuyControl').visible = true;
 			$('#accept_shadow').visible = true;
 			$('#acceptButton').SetPanelEvent("onmouseactivate",acceptBuy(i, n, pan, consumabl, currency))
+		}else{
+			ErrorMessage({message : "#dota_don_shop_error"})
 		}
 	}
 });
+
+function ErrorMessage(data){
+	GameEvents.SendEventClientSide("dota_hud_error_message",
+	{
+		"splitscreenplayer": 0,
+		"reason": 80,
+		"message": data.message
+	})
+}
+GameEvents.Subscribe("CreateIngameErrorMessage", function(data) { ErrorMessage(data) })
 var give = (function(i, n, pan, consumabl)
 {
 	return function()
@@ -1283,17 +1303,17 @@ function initShop(tab){
 	// -------------------------------------------------------------
 	$.Schedule(0.5, function(){
 		if($('#logotext1shop'))
-			$('#logotext1shop').text = rating[LocalPlayer+1].points
+			$('#logotext1shop').text = rating[LocalPlayer].points
 		if($('#logotext2shop'))
-			$('#logotext2shop').text = rating[LocalPlayer+1].games
+			$('#logotext2shop').text = rating[LocalPlayer].games
 		if($('#logotext3shop'))
-			$('#logotext3shop').text = rating[LocalPlayer+1].likes
+			$('#logotext3shop').text = rating[LocalPlayer].likes
 	})
 }
 
-function UpdateStore(t){
-	shopinfo = t.shopinfo
+function UpdateStore(tab){
 	const Update = (itemInfo, pan)=>{
+		$.Msg(shopinfo[itemInfo.categoryKey][itemInfo.productKey].name)
 		if(!pan) return
 		if(pan.FindChildTraverse("RDAShopItemButtonLabelStock")){ 
 			pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = shopinfo[itemInfo.categoryKey][itemInfo.productKey].now
@@ -1304,25 +1324,37 @@ function UpdateStore(t){
 				pan.FindChildTraverse("RDAShopItemButtonQuickUse").SetPanelEvent("onactivate", QuickUseSpray(shopinfo[itemInfo.categoryKey][itemInfo.productKey]))
 			}
 		}
+		if(shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_1" || shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_2" || shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_3" || shopinfo[itemInfo.categoryKey][itemInfo.productKey].name == "other_4" && shopinfo[itemInfo.categoryKey][itemInfo.productKey].onStart == 0 && shopinfo[itemInfo.categoryKey][itemInfo.productKey].now == 1){
+			if(pan.FindChildTraverse('RDAShopItemButtonBuy')){
+				pan.FindChildTraverse('RDAShopItemButtonBuy').visible = false
+			}
+			if(pan.FindChildTraverse('RDAShopItemButtonHas')){
+				pan.FindChildTraverse('RDAShopItemButtonHas').visible = true
+			}
+		}
 	}
-	for(let i in t.updateCount){
-		const itemInfo = t.updateCount[i]
+	for(let i in tab){
+		const itemInfo = tab[i]
 		const pan = $("#ShopItem" + itemInfo.categoryKey + '_' + itemInfo.productKey)
 		const inventory = $("#ShopItem_Inventory" + itemInfo.categoryKey + '_' + itemInfo.productKey)
+		if(!shopinfo || !itemInfo.categoryKey || !shopinfo[itemInfo.categoryKey] || !itemInfo.productKey || !shopinfo[itemInfo.categoryKey][itemInfo.productKey]) continue
+		shopinfo[itemInfo.categoryKey][itemInfo.productKey].now = Number(itemInfo.count)
 		Update(itemInfo, pan)
 		Update(itemInfo, inventory)
 	}
 }
 
-GameEvents.Subscribe( "SetShopItemCount", (t)=>{
-	const categoryKey = t.categoryKey
-	const itemKey = t.itemKey
-	const count = t.count
-	shopinfo[categoryKey][itemKey].now = Number(count)
-	const pan = $("#ShopItem" + categoryKey + '_' + itemKey)
-	if(pan){ pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = count
-	}
-})
+// function SetShopItemCount(t){
+// 	const categoryKey = t.categoryKey
+// 	const itemKey = t.itemKey
+// 	const count = t.count
+// 	if(!shopinfo || categoryKey || !shopinfo[categoryKey] || itemKey || shopinfo[categoryKey][itemKey])return
+// 	shopinfo[categoryKey][itemKey].now = Number(count)
+// 	const pan = $("#ShopItem" + categoryKey + '_' + itemKey)
+// 	if(pan){ 
+// 		pan.FindChildTraverse("RDAShopItemButtonLabelStock").text = count
+// 	}
+// }
 
 
 
@@ -1402,20 +1434,6 @@ function UpdateButtonInWorld(name) {
 		pan.SetHasClass("shopbuttonvisible",false)
 }
 
-
-function updateRatingCouter(t){
-    t.a = Number(t.a);
-    if($('#rating_zar') != null && $('#rating_nadez') != null && $('#rating_doom') != null && $('#rating_your_mmr') != null && $('#rating_info_panel_img') != null){
-        
-            $('#rating_zar').text = t.a
-            $('#rating_nadez').text = t.b
-            $('#rating_doom').text = t.c
-
-        $('#rating_your_mmr').text = rating[LocalPlayer+1].points
-        $('#rating_info_panel_img').SetImage('file://{resources}/images/custom_game/ranks/' + rank(rating[LocalPlayer+1].points) + '.png')
-    }
-}
-
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
@@ -1484,6 +1502,17 @@ function shopinfoed(table_name, key, data){
 		if($('#RatingTeamPlayer'+key))
 			if($('#RatingTeamPlayer'+key).FindChildTraverse("RatingPlayerLikes2"))
 				$('#RatingTeamPlayer'+key).FindChildTraverse("RatingPlayerLikes2").text = data['likes'];
+
+		if($('#smithy_purple_label'))
+			$('#smithy_purple_label').text = data['purple_gem']
+		if($('#smithy_blue_label'))
+			$('#smithy_blue_label').text = data['blue_gem']
+		if($('#smithy_orange_label'))
+			$('#smithy_orange_label').text = data['orange_gem']
+		if($('#smithy_red_label'))
+			$('#smithy_red_label').text = data['red_gem']
+		if($('#smithy_green_label'))
+			$('#smithy_green_label').text = data['green_gem']
     }
 }
 
@@ -1501,23 +1530,81 @@ const update_gems_js = (t) => {
     	$('#smithy_green_label').text = t[5]
 }
 
+function ReceivingRPAlert(t){
+	Game.EmitSound("Quickbuy.Confirmation");
+	const Panel = $("#ReceivingRPNotification_Panel")
+	Panel.GetChild(0).text = `+${t.value}`
+	Panel.visible = true
+	$.Schedule(5,()=>{
+		Panel.visible = false
+	})
+}
+
+function ReceivingCoinsAlert(t){
+	Game.EmitSound("Quickbuy.Confirmation");
+	const Panel = $("#ReceivingCoinsNotification_Panel")
+	Panel.GetChild(0).text = `+${t.value}`
+	Panel.visible = true
+	$.Schedule(5,()=>{
+		Panel.visible = false
+	})
+}
+
 function FindChildTraverse(name){
 	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(name)
 }
 
+function UpdateExperienceMultiplier(){
+    const talent_multiplier_panel = $("#rp_booster_label_2")
+	if(!talent_multiplier_panel) return
+    const data = CustomNetTables.GetTableValue( "GameInfo", Game.GetLocalPlayerID())
+	if(data.rp_multiplier.multiplier <= 1){
+		talent_multiplier_panel.visible = false
+		return
+	}else{
+		talent_multiplier_panel.visible = true
+	}
+    talent_multiplier_panel.text = "x" + data.rp_multiplier.multiplier
+	talent_multiplier_panel.visible = data.rp_multiplier.multiplier > 1
+    let multiplier_text = ""
+    for(let i in data.rp_multiplier.list){
+        if(i > 1){
+            multiplier_text += "<br>"
+        }
+        multiplier_text += $.Localize("#quest_multiplier_text")
+        multiplier_text = multiplier_text.replace("##multiplier##", data.rp_multiplier.list[i].multiplier)
+        multiplier_text = multiplier_text.replace("##games##", data.rp_multiplier.list[i].remaining_games_count)
+    }
+    talent_multiplier_panel.SetPanelEvent("onmouseover",()=>{
+        $.DispatchEvent( "DOTAShowTextTooltip", talent_multiplier_panel, multiplier_text);
+    });
+    talent_multiplier_panel.SetPanelEvent("onmouseout",()=>{
+        $.DispatchEvent( "DOTAHideTextTooltip");
+    });
+}
+function RefreshMoney(){
+	Game.EmitSound("General.ButtonClick");
+    GameEvents.SendCustomGameEventToServer("ShopRefreshMoney", {})
+}
 (function(){
+	UpdateExperienceMultiplier()
 	GameEvents.Subscribe( "Noti", Noti)
 	GameEvents.Subscribe( "UpdateStore", UpdateStore)
+	// GameEvents.Subscribe( "SetShopItemCount", SetShopItemCount)
 	GameEvents.Subscribe( "initRating", initRating)
 	GameEvents.Subscribe( "initShop", initShop)
-	GameEvents.Subscribe( "updateRatingCouter", updateRatingCouter)
 	GameEvents.Subscribe( "update_gems_js", update_gems_js)
 	GameEvents.Subscribe( "change_pet", change_pet)
-	
+	GameEvents.Subscribe( "ReceivingRPAlert", ReceivingRPAlert)
+	GameEvents.Subscribe( "ReceivingCoinsAlert", ReceivingCoinsAlert)
+	CustomNetTables.SubscribeNetTableListener( "GameInfo", UpdateExperienceMultiplier );
+	if($("#ReceivingRPNotification_Panel") && $("#ReceivingCoinsNotification_Panel")){
+		$("#ReceivingRPNotification_Panel").visible = false
+		$("#ReceivingCoinsNotification_Panel").visible = false
+	}
 	CustomNetTables.SubscribeNetTableListener( "shopinfo", shopinfoed );
 	puls_bg_rating()
 	puls_bg_shop()
-	hudInit()
 	visibleOff("openShopLabel")
 	visibleOff("ChangeHeroMainPanel")
 	visibleOff("LikeNotificationsPanel")
@@ -1530,17 +1617,17 @@ function FindChildTraverse(name){
 		FindChildTraverse("ToggleScoreboardButton").visible = false
 	let topBar = FindChildTraverse("ButtonBar")
 	if(topBar)
-		topBar.style.height = "75px";
+		topBar.style.height = "55px";
 	let btn1 = FindChildTraverse("DashboardButton")
 	if(btn1){
-		btn1.style.height = "65px";
-		btn1.style.width = "65px";	
+		btn1.style.height = "55px";
+		btn1.style.width = "55px";	
 	}
 	let btn2 = FindChildTraverse("SettingsButton")
 	if(btn2){
-		btn2.style.height = "65px";
-		btn2.style.width = "65px";
-		btn2.style.backgroundSize = "65px"
+		btn2.style.height = "55px";
+		btn2.style.width = "55px";
+		btn2.style.backgroundSize = "55px"
 	}
 	if(topBar){
 		let pan = $.CreatePanel('Panel', topBar, '')
@@ -1613,7 +1700,6 @@ function FindChildTraverse(name){
 
 
 
-var DotaHUD = GameUI.CustomUIConfig().DotaHUD;
 
 
 function OnMouseEvent(eventType, clickBehavior) {

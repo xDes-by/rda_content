@@ -57,27 +57,6 @@ function ActivateShop(t) {
 	}
 	if(name && searchQuestByName( name )){
 		open_quest_window(t)
-		// var availableQuest = searchQuestByName(name)
-		// if(availableQuest){
-		// 	butupdate = true
-		// 	if($("#shopbuttonname")){
-		// 		$("#shopbuttonname").text = $.Localize('#open')
-		// 	}
-		// 	if($('#shopbutton')){
-		// 		$('#shopbutton').SetPanelEvent("onmouseactivate",showQuest(availableQuest, t))
-		// 	}
-		// 	if($("#shopbuttonhud")){
-		// 		//$("#shopbuttonhud").text = $.Localize('open')
-		// 		$('#shopbuttonhud').RemoveClass('hide_button')
-		// 		$('#shopbuttonhud').AddClass('show_button')
-		// 		$("#shopbuttonhud").visible = true
-		// 	}
-		// 	$.Msg(t.index)
-		// 	//UpdateButtonInWorld(t.index)
-			
-		// 	//pan.style.position = uixp + '% ' + uiyp + '% 0'
-			
-		// }
 	}
 }
 
@@ -88,17 +67,6 @@ var showQuest = (function(availableQuest, t)
 		$("#questScrollPanel").visible = true
 		$("#basepanel").visible = false
 		Game.EmitSound('Shop.Available')
-		/*
-		base_tab = CustomNetTables.GetTableValue( "quests" , 'base'),
-		options_tab = CustomNetTables.GetTableValue( "quests" , 'options'),
-		reward_tab = CustomNetTables.GetTableValue( "quests" , 'reward'),
-		abs_tab = CustomNetTables.GetTableValue( "quests" , 'abs'),
-		kill_tab = CustomNetTables.GetTableValue( "quests" , 'kill'),
-		item_tab = CustomNetTables.GetTableValue( "quests" , 'item'),
-		custom_tab = CustomNetTables.GetTableValue( "quests" , 'custom'),
-		*/
-		//$.Msg(options_tab)
-		//$.Msg(kill_tab)
 		
 		var type = availableQuest[0]
 		var numbtype
@@ -485,6 +453,7 @@ function open_quest_window(index){
 				if(list[i].index == unit){
 					name = list[i].name;
 				}
+				Entities.SetMinimapIcon( list[i].index, 'minimap_questgiver' )
 				i++;
 			}
 		}

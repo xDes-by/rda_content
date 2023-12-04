@@ -1,0 +1,13 @@
+<root>
+    <styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://{resources}/layout/custom_game/quests/tasks.css" />
+    </styles>
+    <Panel id="" class="TaskDescription_Panel"> 
+        <Image id="" class="DailyTaskZnak_Image" src="file://{resources}/images/custom_game/quest/znak4.png" />
+        <Image id="" class="DailyTaskDone_Image" src="file://{resources}/images/custom_game/pngwing.png" />
+        <Label id="" class="DailyTaskGetAward_Label box_animation_on" text="#DailyTaskGetAward" />
+        <Label id="" class="TaskDescription_Label DailyFont_Class" html="true" text="#DailyTaskDescription_Lable3" />
+        <Label id="" class="DailyTaskGetAward_Label box_animation_on" text="#DailyTaskGetAward" />
+    </Panel>
+</root>

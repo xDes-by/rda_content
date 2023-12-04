@@ -1,0 +1,18 @@
+
+<root>
+    <styles>
+        <include src="file://{resources}/layout/custom_game/battle_pass/tooltip/battle_pass_tooltip.css" />
+        <include src="s2r://panorama/styles/dotastyles.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/layout/custom_game/battle_pass/tooltip/battle_pass_tooltip.js" />
+    </scripts>
+    <Panel class="Tooltip" ontooltiploaded="setupTooltip()">
+        <Panel id="AttackTooltip">
+            <Label id="MainLabel" class="" html="true" text="Одна душа на старте игры" />
+            <Image id="MainImage" src="file://{images}/custom_game/bp/items/experience_choice.png" />
+            <Movie id="movie" class="" src="s2r://panorama/videos/SF.webm" repeat="true" autoplay="onload" />
+            <Label id="Description" class="" html="true" text="" />
+        </Panel>
+    </Panel>
+</root>

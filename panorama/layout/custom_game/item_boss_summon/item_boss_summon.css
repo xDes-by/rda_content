@@ -1,0 +1,51 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+#window{
+    height: 600px;
+    width: 1200px;
+    align: center center;
+    background-image: url("file://{images}/custom_game/item_boss_summon/dashboard_background_armory_update_psd.png");
+    background-size: 100%;
+    box-shadow: #111111e5 0px 0px 50px 0px;
+    transition-duration: 0.2s;
+    transition-property: transform, opacity, pre-transform-scale2d;
+    opacity: 0;
+    pre-transform-scale2d: 0.8;
+	transform: translate3d(0px, 0px, 0px);
+}
+#item_name_label{
+    align: center top;
+    font-size: 25;
+    color:white;
+    text-shadow: 2px 2px 2px 3.0 black;
+    margin-top: 5px;
+}
+#bosses_row{
+    width: 1124px;
+    height: 500px;
+    align: center bottom;
+    margin-bottom: 40px;
+    flow-children: right-wrap;
+}
+.boss_image{
+    height: 250px;
+    width: 215px;
+    margin: 5px;
+    box-shadow: #111111e5 0px 0px 10px 0px;
+}
+.hidden{
+    visibility: collapse;
+}
+.available:hover{
+    box-shadow: #dfdddbb2 0px 0px 8px 0px;
+    sound: "ui_select_arrow";
+}
+.unavailable{
+    brightness: 0.005;
+}
+.image_template{
+    height: 376px;
+    width: 296px;
+}

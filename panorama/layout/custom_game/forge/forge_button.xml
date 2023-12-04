@@ -1,0 +1,16 @@
+<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
+<root>
+	<styles>
+		<include src="file://{resources}/layout/custom_game/forge/forge_button.css" />
+	</styles>
+	<scripts>
+		
+	</scripts>
+	<Panel class="MainPanel">
+		<Button id="ExampleButton2ID" class="ExampleButton2Class">
+            <Panel class="Contents">
+              <Label id="ExampleButton2Label" text="#ForgeButton_Label"/>
+            </Panel>
+        </Button>
+	</Panel>
+</root>

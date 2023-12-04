@@ -1,0 +1,90 @@
+.root{
+    height: 100%;
+    width: 100%;
+    /* background-color: red; */
+}
+#CustomStash_Panel{
+    /* height: 200px; */
+    width: 215px;
+    background-image: url("s2r://panorama/images/hud/reborn/inventory_bg_psd.vtex");
+    vertical-align: bottom;
+    /* position: 0px 100px 0px; */
+    horizontal-align: right;
+    margin-right: 320px;
+    background-repeat:no-repeat;
+    background-size:100%;
+    border:1px solid #000e;
+    flow-children: down;
+    transition-property: transform;
+	transition-duration: 0.2s;
+	transform: translate3d(0px, 0px, 0px);
+}
+#CustomStashTopContainer_Panel{
+    height: 60px;
+}
+.CustomInventoryList{
+    padding: 0;
+    width: 210px;
+    flow-children: right-wrap;
+}
+#PanelForScrollButton{
+    width: 100%;
+}
+#PanelForScrollButton:hover{
+    brightness: 0.5;
+}
+#ScrollButton{
+    horizontal-align: center;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #25282b, to( #1b1d20));
+    height: 30px;
+    width: 90%;
+}
+#ScrollButton Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #c0c5cc, to( #d5dae0));
+    font-size: 21;
+    align: center center;
+}
+.CustomInventorySlot{
+    width: 67px;
+    height: 50px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 2px;
+}
+.CustomStashItemCount_Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #c0c5cc, to( #d5dae0));
+	font-size: 16px;
+	font-weight: normal;
+	horizontal-align: right;
+	vertical-align: bottom;
+	text-shadow: -1px 1px 2px 3.0 #000000;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: titleFont;
+	font-weight: semi-bold;
+    margin-bottom: 1px;
+    margin-right: 3px;
+}
+.CustomStashItemCd_Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff, to( #575757));
+	font-size: 21px;
+	font-weight: normal;
+	horizontal-align: center;
+	vertical-align: center;
+	text-shadow: -1px 1px 3px 3.0 #000000;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: titleFont;
+	font-weight: semi-bold;
+}
+.CustomStashTopContainerDescription_Label{
+    color: gradient( linear, 0% 0%, 0% 100%, from( #ffffff, to( #575757));
+	font-size: 14px;
+	font-weight: normal;
+	horizontal-align: center;
+	vertical-align: center;
+	text-shadow: -1px 1px 2px 1.0 #000000;
+	/* letter-spacing: 1px; */
+	font-family: titleFont;
+	font-weight: semi-bold;
+}

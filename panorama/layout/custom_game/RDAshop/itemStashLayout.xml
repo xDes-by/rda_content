@@ -1,0 +1,17 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/layout/custom_game/RDAshop/stash.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+
+	<Panel class ="CustomInventorySlot">
+        <Panel>
+            <Panel id="" class="CustomInventorySlot">
+                <DOTAItemImage id="ItemImage" class="" itemname="item_boss_summon" />
+                <Label id="ItemCD" class="CustomStashItemCd_Label" text="48" hittest="false" />
+                <Label id="ItemCount" class="CustomStashItemCount_Label" text="12" hittest="false" />
+            </Panel>
+        </Panel>
+	</Panel>
+</root>

@@ -1,0 +1,30 @@
+<root> 
+	<styles>
+		<include src="file://{resources}/layout/custom_game/ingame_score/ingame_score.css" />
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/ingame_score/ingame_score.js" />
+	</scripts>
+
+	<Panel class = "root" hittest = "false">
+        <Panel id="score_panel" class="">
+            <Panel id="information_block_first" class="information_block" onmouseover="DOTAShowTextTooltip(#rating_zar)" onmouseout="DOTAHideTextTooltip()">
+                <Label id="" class="font_style" text="30" />
+            </Panel>
+            <Panel id="information_block_second" class="information_block" onmouseover="DOTAShowTextTooltip(#rating_nadez)" onmouseout="DOTAHideTextTooltip()">
+                <Label id="" class="font_style" text="30" />
+            </Panel>
+            <Panel id="information_block_difficulty" class="information_block" onmouseover="DOTAShowTextTooltip(#rating_difficulty)" onmouseout="DOTAHideTextTooltip()">
+                <Label id="" class="font_style" text="Insane" />
+            </Panel>
+            <Panel id="information_block_rating" class="information_block" onmouseover="DOTAShowTextTooltip(#rating_your_mmr)" onmouseout="DOTAHideTextTooltip()">
+                <Panel id="" class="">
+                    <Panel id="rating_arrowup" class=""/>
+                    <Label id="local_player_mmr" class="font_style" text="555555" />
+                </Panel>
+            </Panel>
+        </Panel>
+	</Panel>
+</root>

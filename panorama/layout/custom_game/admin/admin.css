@@ -5,10 +5,13 @@
 #main_panel{
     height: 500px;
     width: 700px;
-    background-color: rgb(8, 67, 122);
-    border:1px solid red;
+    background-color: black;
+    background-image: url("s2r://panorama/images/hud/reborn/bg_scoreboard_psd.vtex");
+    background-size: cover;
     vertical-align: center;
     horizontal-align: left;
+    transition-property: transform, opacity, pre-transform-scale2d;
+    /* opacity: 0; */
 }
 #admin_panel_label{
     horizontal-align: center;
@@ -34,133 +37,35 @@
     border:1px solid black;
     flow-children: down;
 }
-.text_entry_small{
-    width: 50px;
-}
-.option_line{
-    flow-children: right;
-    width: 100%;
-}
-.feed_entry_buttons_panels{
-    height: 16px;
-    width: 16px;
-    border:1px solid rgb(99, 99, 99);
-    margin: 1px;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-.feed_entry_buttons{
+#parameter_panel{
+    width: 95%;
     flow-children: down;
-}
-#feed_entry_line_1{
-    width: 8px;
-    height: 1px;
-    border:1px solid rgb(99, 99, 99);
-}
-#feed_entry_line_2{
-    height: 8px;
-    width: 1px;
-    border:1px solid rgb(99, 99, 99);
-}
-.center{
-    vertical-align: center;
+    margin-top: 50px;
     horizontal-align: center;
 }
-#player_entry_text{
-    width: 40px;
-}
-#count_entry_text{
-    width: 100px;
-}
-.gold_icon{
-    background-image: url("s2r://panorama/images/hud/reborn/gold_small_psd.vtex");
-    width:26px;
-    height: 26px;
-    background-size: 100%;
-}
-.base_label{
-    color:white;
-    vertical-align: center;
-    text-transform: uppercase;
-}
-.base_button{
-    vertical-align: center;
-    height: 30px;
-    width: 150px;
-    margin: 2px;
-    border:1px solid red;
-}
-.base_button Label{
-    horizontal-align: center;
-}
-.auto-width{
-    flow-children: right;
-}
-.width-style-1{
-    width: 100px;
-}
-.width-style-2{
-    width: 100px;
-}
-.width-style-3{
-    width: 200px;
-}
-.width-style-4{
-    width: 150px;
-}
-.width-style-5{
-    width: 200px;
-}
-.width-style-6{
-    width: 250px;
-}
-.rp_image{
-    background-image: url("file://{images}/custom_game/donateshop/protection_mini.png");
-    width:26px;
-    height: 26px;
-    background-size: contain;
-}
-.coins_image{
-    background-image: url("file://{images}/custom_game/donateshop/money_logo_3_mini.png");
-    width:26px;
-    height: 26px;
-    background-size: contain;
-}
-.feed_image{
-    background-image: url("file://{images}/custom_game/pet/feed.png");
-    width:26px;
-    height: 26px;
-    background-size: contain;
-}
-.create_entity_drop_down{
-    height: 35px;
-    padding: 0;
-}
-.item_option{
+.parameter_lines{
     width: 100%;
     flow-children: right;
+    margin-bottom: 2px;
 }
-.item_option_item_text{
-    /* margin-left: 20px; */
+.button_panel{
+    height: 50px;
+    width: 24.5%;
+    margin-left: 0.25%;
+    margin-right: 0.25%;
+    border: 1px solid black;
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #271f6b ), to( #244a92 ) );
+    border: 1px solid #232961;
 }
-.item_option_item_image{
-    height: 30px;
+.button_panel:hover{
+    /* background-color: gradient( linear, 0% 0%, 0% 100%, from( #312a6b )( #244a92 ) ); */
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #1f1d30 ), to( #394966 ) );
 }
-.admin_buttons_panel{
-    height: 40px;
-    width: 138px;
-    border:1px solid red;
-}
-.admin_buttons_panel Label{
+.font_class{
     color:white;
-    horizontal-align: center;
-    vertical-align: center;
-    text-decoration: underline;
+    text-shadow: 2px 2px 2px 3.0 black;
+    font-size: 18;
 }
-#admin_buttons_line{
-    height: 80px;
-    width: 100%;
-    flow-children: right-wrap;
-}
-.flow-children-right{
-    flow-children: right;
+.font_align{
+    align: center center;
 }

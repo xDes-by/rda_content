@@ -9,7 +9,4 @@ function golded(t){
 
 (function() {
     GameEvents.Subscribe('golded', golded);
-    $.Msg("1112212")
-    $.Msg("1112212")
-    $.Msg("1112212")
 })();

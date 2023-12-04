@@ -1,0 +1,27 @@
+<root>
+
+	<styles>
+		<include src="file://{resources}/layout/custom_game/RDAshop/stash.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/layout/custom_game/RDAshop/stash.js" />
+	</scripts>
+	
+	<Panel class ="root" hittest="false">
+        <Panel id="CustomStash_Panel" class="">
+            <Panel id="CustomStashTopContainer_Panel" class="">
+                <Label id="" class="CustomStashTopContainerDescription_Label" text="#panorama_custon_stash_description" />
+            </Panel>
+            <Panel id="CustomInventoryFirstLine" class="CustomInventoryList">
+			</Panel>
+			<Panel id="PanelForScrollButton" class="">
+				<Panel id="ScrollButton" class="">
+					<Label id="" class="" text="#panorama_custon_stash_use_all" />
+				</Panel>
+			</Panel>
+            <Panel id="CustomInventorySecondLine" class="CustomInventoryList">
+			</Panel>
+        </Panel>
+	</Panel>
+</root>

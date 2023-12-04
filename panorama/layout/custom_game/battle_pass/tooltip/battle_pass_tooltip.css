@@ -1,0 +1,50 @@
+#AttackTooltip{
+    flow-children: down;
+    width: 300px;
+}
+#MainImage{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    horizontal-align: center;
+}
+#MainLabel{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+    font-size: 22px;
+    horizontal-align: center;
+    text-transform: uppercase;
+}
+#Description{
+    color:white;
+    text-shadow: 0px 0px 2px 3.0 black;
+}
+#RarityLabel{
+    horizontal-align: center;
+    text-shadow: 0px 0px 2px 3.0 black;
+    text-transform: uppercase;
+}
+.common_color{
+    color: #a0a0a0;
+}
+.uncommon_color{
+    color:#abcdef;
+}
+.rare_color{
+    color: #0052cc;
+}
+.epic_color{
+    color: #991199;
+}
+.unique_color{
+    color: #adff2f;
+}
+.legendary_color{
+    color: orange;
+}
+#movie{
+    height: 300px;
+    width: 300px;
+}
+.hidden{
+    visibility: collapse;
+}

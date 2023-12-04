@@ -1,40 +1,117 @@
-
-
-
-var Admin = {}
-
-Admin.UpdateView = (pid)=>{
-    var shopinfo = CustomNetTables.GetAllTableValues("shopinfo")
-    this.main = $("#admin_page")
-    this.main.GetChild(0).FindChildTraverse("player_gold_label").text = Players.GetGold(pid)
-    this.main.GetChild(1).FindChildTraverse("player_gold_label").text = Players.GetLevel(pid)
-    this.main.GetChild(2).FindChildTraverse("player_gold_label").text = shopinfo[pid].value.mmrpoints
-    this.main.GetChild(3).FindChildTraverse("player_gold_label").text = shopinfo[pid].value.coins
-    this.main.GetChild(4).FindChildTraverse("player_gold_label").text = shopinfo[pid].value.feed
-    this.main.GetChild(5).FindChildTraverse("create_entity_drop_down").RemoveAllOptions()
-    for(let name of this.creeps){
-        this.main.GetChild(5).FindChildTraverse("create_entity_drop_down").AddOption($.CreatePanel("Label", this.main.GetChild(5).FindChildTraverse("create_entity_drop_down"), name, {text:$.Localize("#"+name)}))
+const DotaHUD = GameUI.CustomUIConfig().DotaHUD;
+DotaHUD.windowControllers["admin_panel"] = {
+    is_open: false,
+    open: function(){
+        $("#main_panel").visible = true
+    },
+    close: function(){
+        $("#main_panel").visible = false
     }
-    this.main.GetChild(7).FindChildTraverse("create_entity_drop_down").RemoveAllOptions()
-    for(let item of this.items){
-        var pan = $.CreatePanel("Panel", this.main.GetChild(7).FindChildTraverse("create_entity_drop_down"), item, {class:"item_option"})
-        $.CreatePanel("DOTAItemImage", pan, "", {class:"item_option_item_image", itemname : item})
-        $.CreatePanel("Label", pan, "", {class:"item_option_item_text", text : $.Localize("#"+item)})
-        
-        this.main.GetChild(7).FindChildTraverse("create_entity_drop_down").AddOption(pan)
-        pan.SetPanelEvent("onmouseactivate", function(){
-            this.main.GetChild(7).FindChildTraverse("create_entity_drop_down").SetSelected(item)
+}
+function FindDotaHudElement(panel) {
+	return $.GetContextPanel().GetParent().GetParent().GetParent().FindChildTraverse(panel);
+}
+function ClickButton() {
+	Game.EmitSound("General.ButtonClick");
+}
+function ChangeGold(amount){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelChangeGold", { amount : amount })
+}
+function DropItems(level){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelDropItems", { level : level })
+}
+function GiveSouls(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelGiveSouls", {  })
+}
+function GiveBooks(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelGiveBooks", {  })
+}
+function Talents(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelTalents", {  })
+}
+function TalentsDrop(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelTalentsDrop", {  })
+}
+function ChangeLevel(amount){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelHeroLevel", { amount : amount })
+}
+function ChangeGems(amount){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelChangeGems", { amount : amount })
+}
+function BattlePassAddExperience(amount){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelBattlePassAddExperience", { amount : amount })
+}
+function BattlePassDrop(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelBattlePassDrop", {})
+}
+function BattlePassPremium(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelBattlePassPremium", {})
+}
+function AddCoins(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelAddCoins", {})
+}
+function MidOff(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelMidOff", {})
+}
+function MidOn(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelMidOn", {})
+}
+function Localize(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelLocalize", {})
+}
+function CreateBot(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelCreateBot", {})
+}
+(()=>{
+    $("#main_panel").visible = false
+    const topBar = FindDotaHudElement("ButtonBar")
+    var admin_button_layout = FindDotaHudElement("admin_button_layout")
+    if(!admin_button_layout && topBar){
+        admin_button_layout = $.CreatePanel('Panel', topBar, 'admin_button_layout')
+        admin_button_layout.BLoadLayout("file://{resources}/layout/custom_game/admin/admin_button.xml", false, false)
+    }
+    if(admin_button_layout){
+        admin_button_layout.SetPanelEvent("onmouseactivate", ()=>{
+            Game.EmitSound("General.ButtonClick");
+            DotaHUD.WindowOpen("admin_panel")
         })
+        admin_button_layout.SetPanelEvent("onmouseover",()=>{$.DispatchEvent( "DOTAShowTextTooltip", admin_button_layout, $.Localize("#cheat_button_tooltip"))});
+        admin_button_layout.SetPanelEvent("onmouseout",()=>{$.DispatchEvent( "DOTAHideTextTooltip");});
+        admin_button_layout.style.tooltipPosition = 'bottom';
     }
-    // $.Msg(shopinfo)
+})()
 
+
+function OnMouseEvent(eventType, clickBehavior) {
+	if (eventType == "pressed" && clickBehavior == CLICK_BEHAVIORS.DOTA_CLICK_BEHAVIOR_NONE) {
+		const Panel = $("#main_panel")
+		if(Panel){
+			let cursorPos = GameUI.GetCursorPosition();
+			let panelPos = Panel.GetPositionWithinWindow();
+			let width = Number(Panel.actuallayoutwidth)
+			let height = Number(Panel.actuallayoutheight)
+			if (!(Number(panelPos.x) < cursorPos[0] && Number(panelPos.x) + width > cursorPos[0] && Number(panelPos.y) < cursorPos[1] && Number(panelPos.y) + height > cursorPos[1]))
+			{
+                DotaHUD.WindowClose("admin_panel")
+			}
+		}
+    }
 }
 
-Admin.SetValue = (t)=>{
-    this.creeps = ["npc_forest_boss","npc_village_boss","npc_mines_boss","npc_dust_boss","npc_swamp_boss","npc_snow_boss","npc_boss_location8", "raid_boss", "raid_new_year", "raid_boss2", "npc_raid_earth", "npc_raid_storm", "npc_raid_fire", "raid_boss3", "raid_boss4"]
-    this.items = ["item_forest_soul","item_village_soul","item_mines_soul","item_dust_soul","item_swamp_soul","item_snow_soul","item_divine_soul"]
-}
-Admin.SetValue()
-Admin.UpdateView(Players.GetLocalPlayer())
-
-$("#main_panel").visible = false
+DotaHUD.ListenToMouseEvent(OnMouseEvent);

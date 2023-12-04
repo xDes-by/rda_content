@@ -1,0 +1,54 @@
+.root{
+    height: 100%;
+    width: 100%;
+}
+#score_panel{
+    /* background-image: url("s2r://panorama/images/topbar/topbar_home_small_png.vtex"); */
+    /* background-color: gradient( linear, 0% 0%, 100% 0%, from( #000000d3 ), color-stop( 0.8, #000000cb ), to( #00000085 ) ); */
+    background-image: url("file://{resources}/images/custom_game/rating/score2.png");
+    background-size: 100%;
+    width: 400px;
+    height: 42px;
+    margin-left: 20px;
+}
+.information_block{
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+    background-color: #3c3744;
+    vertical-align: center;
+}
+.font_style{
+    color:white;
+    align: center center;
+}
+#information_block_first{
+    margin-left: 40px;
+}
+#information_block_second{
+    margin-left: 110px;
+}
+#information_block_difficulty{
+    margin-left: 180px;
+    width: 100px;
+}
+#information_block_rating{
+    margin-left: 290px;
+    width: 100px;
+}
+#information_block_rating Panel{
+    align: center center;
+    flow-children: right;
+}
+#rating_arrowup{
+    width:16px;
+    height: 9px;
+    background-image:url("s2r://panorama/images/control_icons/arrow_solid_up_png.vtex");
+    background-size: 100%;
+    wash-color: #0dcc27;
+    vertical-align: center;
+    margin-right: 5px;
+}
+#information_block_first, #information_block_second, #information_block_difficulty, #information_block_rating{
+    tooltip-position: bottom;
+}

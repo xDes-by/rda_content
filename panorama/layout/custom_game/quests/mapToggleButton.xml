@@ -1,0 +1,9 @@
+<root>
+    <styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="file://{resources}/layout/custom_game/quests/mapOverlayTemplate.css" />
+    </styles>
+    <Panel class="maptogglebutton" hittest="false">
+        <ToggleButton id="maptogglebutton" checked="true" text="#maptogglebutton_Label" />
+    </Panel>
+</root>

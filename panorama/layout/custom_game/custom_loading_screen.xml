@@ -1,4 +1,4 @@
-<root> 
+<!-- <root> 
 	<styles>
 		<include src="s2r://panorama/styles/custom_loading_screen.css" />
 	</styles>
@@ -17,4 +17,21 @@
 			</Panel>
 		</Panel>
   	</Panel>
+</root> -->
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_loading_screen.css" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/simple_panel_animation.js" />
+		<include src="file://{resources}/scripts/custom_game/game_mode.js" />
+	</scripts>
+	<Panel class="AddonLoadingRoot" hittest="false" style="z-index:100;">
+		<!-- <MoviePanel id="image_bg" class="ImageBg" src="s2r://panorama/videos/render_8.webm" repeat="true" autoplay="onload" /> -->
+		<Image id="image_bg" class="ImageBg"  style="height:100%;width:100%;" src="file://{images}/new_bg.png"/>
+		<Panel id="CustomBg">
+			<Panel id="game_options_container" />
+		</Panel>
+	</Panel>
 </root>

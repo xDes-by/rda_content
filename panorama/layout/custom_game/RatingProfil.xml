@@ -2,9 +2,6 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/rating.css" />
 	</styles>
-	<scripts>
-		<include src="file://{resources}/scripts/custom_game/main.js" />
-	</scripts>
 	<Panel class = "RatingProfilInfo">
 		<Panel id="profilimage" class="profilimage"/>
 		<Panel id="profilvideopanel" class="profilvideopanel">
@@ -15,21 +12,21 @@
 			<Panel id = "RatingProfilInfoDescPanel" class="RatingProfilInfoDescPanel">
 				<Panel class="statisticbox1" >
 					<Panel class = "statisticbox">
-						<Image class = "RatingPlayerLineLogo" id = "logo1" src="file://{resources}/images/custom_game/rating/starblue.png" onmouseover="TipsOver('points','logo1')" onmouseout="TipsOut()"/>
+						<Image class = "RatingPlayerLineLogo" id = "logo1" src="file://{resources}/images/custom_game/rating/starblue.png" onmouseover="UIShowTextTooltip( '#points' )" onmouseout="UIHideTextTooltip()"/>
 						<Label id="logotext1" class="logotext1" text='123'/>
 					</Panel>
 					<Panel class = "statisticbox">
-						<Image class = "RatingPlayerLineLogo" id = "logo2" src="file://{resources}/images/custom_game/rating/1 (2).png" onmouseover="TipsOver('games','logo2')" onmouseout="TipsOut()"/>
+						<Image class = "RatingPlayerLineLogo" id = "logo2" src="file://{resources}/images/custom_game/rating/1 (2).png" onmouseover="UIShowTextTooltip( '#games' )" onmouseout="UIHideTextTooltip()"/>
 						<Label id="logotext2" class="logotext2" text='123'/>
 					</Panel>
 				</Panel>
 				<Panel class="statisticbox1" >
 					<Panel class = "statisticbox">
-						<Image class = "RatingPlayerLineLogo" id = "logo3" src="file://{resources}/images/custom_game/rating/bonus48x48.png" onmouseover="TipsOver('likes','logo3')" onmouseout="TipsOut()"/>
+						<Image class = "RatingPlayerLineLogo" id = "logo3" src="file://{resources}/images/custom_game/rating/bonus48x48.png" onmouseover="UIShowTextTooltip( '#likes' )" onmouseout="UIHideTextTooltip()"/>
 						<Label id="logotext3" class="logotext3" text='123'/>
 					</Panel>
 					<Panel class = "statisticbox">
-						<Image class = "RatingPlayerLineLogo" id = "logo4" src="file://{resources}/images/custom_game/rating/onebit.png" onmouseover="TipsOver('reports','logo4')" onmouseout="TipsOut()"/>
+						<Image class = "RatingPlayerLineLogo" id = "logo4" src="file://{resources}/images/custom_game/rating/onebit.png" onmouseover="UIShowTextTooltip( '#reports' )" onmouseout="UIHideTextTooltip()"/>
 						<Label id="logotext4" class="logotext4" text='123'/>
 					</Panel>
 				</Panel>

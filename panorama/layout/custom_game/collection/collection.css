@@ -649,13 +649,13 @@
 
  @keyframes 'newItemGlow'{
   0%{
-   box-shadow: #d80f00 0px 0px 8px 0px;
+   box-shadow: #FFD700 0px 0px 8px 0px;
   }
   50%{
-   box-shadow: #d80f00 0px 0px 16px 0px;
+   box-shadow: #FFA500 0px 0px 16px 0px;
   }
   100%{
-   box-shadow: #d80f00 0px 0px 8px 0px;
+   box-shadow: #FFD700 0px 0px 8px 0px;
   }
  }
 
