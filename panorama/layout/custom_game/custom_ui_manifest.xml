@@ -36,6 +36,10 @@
 
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tempest_double/tempest_double.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/item_boss_summon/item_boss_summon.xml" />
+	
+	
+	
+
 
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/all.xml" />
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/forge/precache/gem1.xml" />

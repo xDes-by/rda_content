@@ -1,5 +1,6 @@
 
 function UpdateDaily(data){
+	$.Msg(data)
     if(!data){
         data = CustomNetTables.GetTableValue( "quests", Players.GetLocalPlayer());
         data = data.daily
@@ -10,20 +11,21 @@ function UpdateDaily(data){
         const qData = data[i+1]
         const newPanel = $.CreatePanel("Panel", Panel, "", {})
         newPanel.BLoadLayout("file://{resources}/layout/custom_game/quests/tasksSnippet.xml", false, false)
-        newPanel.GetChild(0).GetChild(0).visible = false
-        newPanel.GetChild(0).GetChild(1).visible = false
-        newPanel.GetChild(0).GetChild(2).visible = false
-        newPanel.GetChild(0).GetChild(4).visible = false
-        newPanel.GetChild(0).GetChild(3).text = `${$.Localize("#DailyTaskDescription_"+qData['index'])} <font color='green'>${qData['now']}/${qData['count']}</font>`
+		$.Msg(newPanel.GetChild(2))
+        newPanel.GetChild(0).visible = false
+        newPanel.GetChild(1).visible = false
+        newPanel.GetChild(2).visible = false
+        newPanel.GetChild(4).visible = false
+        newPanel.GetChild(3).text = `${$.Localize("#DailyTaskDescription_"+qData['index'])} <font color='green'>${qData['now']}/${qData['count']}</font>`
         if(qData['now'] >= qData['count'] && qData['received'] == false){
-            newPanel.GetChild(0).GetChild(2).visible = true
-            newPanel.GetChild(0).GetChild(2).SetPanelEvent("onactivate", DailyRewardButton(qData['index']))
+            newPanel.GetChild(2).visible = true
+            newPanel.GetChild(2).SetPanelEvent("onactivate", DailyRewardButton(qData['index']))
         }
         if(qData['received'] == true){
-            newPanel.GetChild(0).GetChild(1).visible = true
+            newPanel.GetChild(1).visible = true
         }
-        newPanel.GetChild(0).GetChild(3).SetPanelEvent("onmouseover", ShowTooltip("DailyTitleTooltip", newPanel))
-        newPanel.GetChild(0).GetChild(3).SetPanelEvent("onmouseout", HideTooltip())
+        newPanel.GetChild(3).SetPanelEvent("onmouseover", ShowTooltip("DailyTitleTooltip", newPanel))
+        newPanel.GetChild(3).SetPanelEvent("onmouseout", HideTooltip())
         newPanel.style.tooltipPosition = "left"
     }
 }
@@ -38,20 +40,20 @@ function UpdateBp(data){
         const qData = data[i+1]
         const newPanel = $.CreatePanel("Panel", Panel, "", {})
         newPanel.BLoadLayout("file://{resources}/layout/custom_game/quests/tasksSnippet.xml", false, false)
-        newPanel.GetChild(0).GetChild(0).visible = false
-        newPanel.GetChild(0).GetChild(1).visible = false
-        newPanel.GetChild(0).GetChild(2).visible = false
-        newPanel.GetChild(0).GetChild(4).visible = false
+        newPanel.GetChild(0).visible = false
+        newPanel.GetChild(1).visible = false
+        newPanel.GetChild(2).visible = false
+        newPanel.GetChild(4).visible = false
         if(qData['now'] >= qData['count'] && qData['received'] == false){
-            newPanel.GetChild(0).GetChild(2).visible = true
-            newPanel.GetChild(0).GetChild(2).SetPanelEvent("onactivate", BpRewardButton(qData['index']))
+            newPanel.GetChild(2).visible = true
+            newPanel.GetChild(2).SetPanelEvent("onactivate", BpRewardButton(qData['index']))
         }
         if(qData['received'] == true){
-            newPanel.GetChild(0).GetChild(1).visible = true
+            newPanel.GetChild(1).visible = true
         }
-        newPanel.GetChild(0).GetChild(3).text = `${$.Localize("#BpTaskDescription_"+qData['index'])} <font color='OrangeRed'>${qData['now']}/${qData['count']}</font>`
-        newPanel.GetChild(0).GetChild(3).SetPanelEvent("onmouseover", ShowTooltip("battle_pass_task_description", newPanel))
-        newPanel.GetChild(0).GetChild(3).SetPanelEvent("onmouseout", HideTooltip())
+        newPanel.GetChild(3).text = `${$.Localize("#BpTaskDescription_"+qData['index'])} <font color='OrangeRed'>${qData['now']}/${qData['count']}</font>`
+        newPanel.GetChild(3).SetPanelEvent("onmouseover", ShowTooltip("battle_pass_task_description", newPanel))
+        newPanel.GetChild(3).SetPanelEvent("onmouseout", HideTooltip())
         newPanel.style.tooltipPosition = "left"
     }
 }
@@ -74,26 +76,26 @@ function BuildLine(table_name, key, data){
                     if(data[sid][questType][index]['tasks'][taskNumber]['active'] == true){
                         const newPanel = $.CreatePanel("Panel", Panel, "", {})
                         newPanel.BLoadLayout("file://{resources}/layout/custom_game/quests/tasksSnippet.xml", false, false)
-                        newPanel.GetChild(0).GetChild(1).visible = false
-                        newPanel.GetChild(0).GetChild(2).visible = false
-                        newPanel.GetChild(0).GetChild(4).visible = false
+                        newPanel.GetChild(1).visible = false
+                        newPanel.GetChild(2).visible = false
+                        newPanel.GetChild(4).visible = false
                         var FullText = $.Localize(`#${data[sid][questType][index]['tasks'][taskNumber]['TextName']}`)
                         if(questType == "main"){
                             FullText += ` <font color='gold'>`
                             if(data[sid][questType][index]['tasks'][taskNumber]['have'] >= data[sid][questType][index]['tasks'][taskNumber]['HowMuch']){
-                                newPanel.GetChild(0).GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak2.png`)
+                                newPanel.GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak2.png`)
                             }else{
-                                newPanel.GetChild(0).GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak1.png`)
+                                newPanel.GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak1.png`)
                             }
                         }else if(questType == "bonus"){
                             FullText += ` <font color='RoyalBlue'>`
                             if(data[sid][questType][index]['tasks'][taskNumber]['have'] >= data[sid][questType][index]['tasks'][taskNumber]['HowMuch']){
-                                newPanel.GetChild(0).GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak4.png`)
+                                newPanel.GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak4.png`)
                             }else{
-                                newPanel.GetChild(0).GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak3.png`)
+                                newPanel.GetChild(0).SetImage(`file://{resources}/images/custom_game/quest/znak3.png`)
                             }
                         }
-                        newPanel.GetChild(0). GetChild(3).text = FullText + `${data[sid][questType][index]['tasks'][taskNumber]['have']}/${data[sid][questType][index]['tasks'][taskNumber]['HowMuch']}</font>`
+                        newPanel. GetChild(3).text = FullText + `${data[sid][questType][index]['tasks'][taskNumber]['have']}/${data[sid][questType][index]['tasks'][taskNumber]['HowMuch']}</font>`
                     }
                     taskNumber += 1
                 }
@@ -102,7 +104,6 @@ function BuildLine(table_name, key, data){
         }
     }
 }
-
 
 function FullBuild(){
     DotaHUD.Get().FindChildTraverse("TasksPanel").RemoveAndDeleteChildren()
