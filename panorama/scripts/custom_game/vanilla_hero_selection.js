@@ -157,17 +157,7 @@ function s(){
 GameEvents.Subscribe( "pickRating", function(t){
 	pickInit = true
 	for(let i in t.rating){
-		const panel_1 = $.CreatePanel("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "")
-		panel_1.text = $.Localize("#pick_rating")+t.rating[i].points
-		panel_1.style.width = "100%"
-		panel_1.style.textAlign = "center"
-		panel_1.style.marginTop = "105px"
-		panel_1.style.color = "white"
-		const panel_2 = $.CreatePanel("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "")
-		panel_2.text = $.Localize("#pick_game")+t.rating[i].games
-		panel_2.style.width = "100%"
-		panel_2.style.textAlign = "center"
-		panel_2.style.marginTop = "125px"
-		panel_2.style.color = "white"
+		$.CreatePanel("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "", {text:$.Localize("#pick_rating")+t.rating[i].points, style:"width:100%;text-align:center;margin-top:105px;color:white;"})
+		$.CreatePanel("Label", FindDotaHudElement("RadiantTeamPlayers").GetChild(i-1), "", {text:$.Localize("#pick_game")+t.rating[i].games, style:"width:100%;text-align:center;margin-top:125px;color:white;"})
 	}
 })

@@ -712,15 +712,11 @@ var buy = (function(i, n, pan, consumabl, currency)
 				for(let z = 1; z <= 10; z++){
 					if(currency){
 						if(z * shopinfo[i][n]['price']['rp'] <= shopinfo.mmrpoints){
-							const new_panel = $.CreatePanel("Label", dropdown, "entry"+z)
-							new_panel.text = z
-							dropdown.AddOption(new_panel)
+							dropdown.AddOption($.CreatePanel("Label", dropdown, "entry"+z, {text:z}))
 						}
 					}else{
 						if(z * shopinfo[i][n]['price']['don'] <= shopinfo.coins){
-							const new_panel = $.CreatePanel("Label", dropdown, "entry"+z)
-							new_panel.text = z
-							dropdown.AddOption(new_panel)
+							dropdown.AddOption($.CreatePanel("Label", dropdown, "entry"+z, {text:z}))
 						}
 					}
 					
@@ -956,8 +952,7 @@ const SprayOnmouseout = (value, pan)=>{
 }
 
 const CreateItem = function(value, parentPanel, newPanelId){
-	var pan = $.CreatePanel("Panel", parentPanel, newPanelId)
-	pan.AddClass("RDAShopItemPanel")
+	var pan = $.CreatePanel("Panel", parentPanel, newPanelId, {class:"RDAShopItemPanel"})
 	if(value.hidden != undefined) pan.visible = false
 	if(!value.layout){
 		pan.BLoadLayout("file://{resources}/layout/custom_game/RDAShopItem1.xml", false, false)
@@ -1157,18 +1152,18 @@ const CreateItem = function(value, parentPanel, newPanelId){
 	if (value.type == "treasuries") {
 		const previewPanel = $.CreatePanel("Panel", $("#TreasuresPreviewRoot"), "TreasurePreview_" + value.name);
 		previewPanel.BLoadLayoutSnippet("TreasuresPreviewWrap");
-		// $.CreatePanelWithProperties(
-		// 	`DOTAScenePanel`,
-		// 	previewPanel.FindChildTraverse(`PreviewParticleRoot`),
-		// 	"",
-		// 	{
-		// 		style: `width:100%;height:100%;`,
-		// 		camera: `camera_immortal`,
-		// 		particleonly: `false`,
-		// 		map: `collection/spin_glow`,
-		// 		hittest: `false`,
-		// 	},
-		// );
+		$.CreatePanel(
+			`DOTAScenePanel`,
+			previewPanel.FindChildTraverse(`PreviewParticleRoot`),
+			"",
+			{
+				style: `width:100%;height:100%;`,
+				camera: `camera_immortal`,
+				particleonly: `false`,
+				map: `collection/spin_glow`,
+				hittest: `false`,
+			},
+		);
 		previewPanel.FindChildTraverse("TreasureName").text = $.Localize("#treasure_preview_header")
 			.replace("##treasure##", $.Localize(value.name))
 			.toUpperCase();
@@ -1243,24 +1238,16 @@ function initShop(tab){
 
 	const CreateTabButton = (key, value)=>{
 		if($("#RDAShopTabsPanel")){
-			let TabPanel = $.CreatePanel("Panel", $("#RDAShopTabsPanel"), "TabPanel_" + key);
-			TabPanel.AddClass("TabPanel")
-			TabPanel.AddClass("TabPanelOnServ")
-			TabPanel.AddClass("TabLabelOnServ")
-			TabPanel.AddClass("tab-normal-style")
+			let TabPanel = $.CreatePanel("Panel", $("#RDAShopTabsPanel"), "TabPanel_" + key, {class:"TabPanel TabPanelOnServ TabLabelOnServ tab-normal-style"});
 			TabPanel.SetPanelEvent("onmouseactivate",opn(key));
-			let TabLabelImg = $.CreatePanel("Image", TabPanel, "TabLabelImg_" + key);
-			TabLabelImg.AddClass("TabLabelImg")
-			var TabPanelLabel = $.CreatePanel("Label", TabPanel, "TabLabel_" + key);
-			TabPanelLabel.AddClass("TabLabel")
-			TabPanelLabel.text = $.Localize("#"+value.name)
+			let TabLabelImg = $.CreatePanel("Image", TabPanel, "TabLabelImg_" + key, {class:'TabLabelImg'});
+			var TabPanelLabel = $.CreatePanel("Label", TabPanel, "TabLabel_" + key, {class:"TabLabel", text:$.Localize("#"+value.name)});
 			if(value.name == "gems"){
 				TabPanel.visible = false
 			}
 		}
 		if($("#RDAShopContentPanel")){
-			TabContent = $.CreatePanel("Panel", $("#RDAShopContentPanel"), "RDAShopContentPanel_" + key);
-			TabContent.AddClass("TabContent")
+			TabContent = $.CreatePanel("Panel", $("#RDAShopContentPanel"), "RDAShopContentPanel_" + key, {class:"TabContent"});
 			TabContent.visible = false
 		}
 	}
