@@ -160,7 +160,7 @@ function OnSliderValueChanged(){
 }
 function CalculateGemBonuses(data){
     if(data.gemType == 1){
-        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 5 * 0.01 ).toFixed(1)
+        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 2 * 0.01 ).toFixed(1)
     }
     if(data.gemType == 2){
         return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 5 * data.itemLevel ).toFixed(1)
@@ -169,7 +169,7 @@ function CalculateGemBonuses(data){
         return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 1.5 * (data.itemLevel / 10 + 1) ).toFixed(1)
     }
     if(data.gemType == 4){
-        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber ).toFixed(1)
+        return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber * data.itemLevel ).toFixed(1)
     }
     if(data.gemType == 5){
         return ( max_gems[data.itemLevel] / (max_gems[data.itemLevel] + data.gemsNumber) * data.gemsNumber / 75 / 4 ).toFixed(1)
@@ -189,7 +189,7 @@ function GetGemBuffDescription(data){
         return `<font color='#e34234'>+${CalculateGemBonuses(data)} ${$.Localize("#ForgeBaseDamage")}</font>`
     }
     if(data.gemType == 5){
-        return `<font color='#53ec8c'>+${CalculateGemBonuses(data)} ${$.Localize("#ForgeRegen")}</font>`
+        return `<font color='#53ec8c'>+${CalculateGemBonuses(data)}% ${$.Localize("#ForgeRegen")}</font>`
     }
     return ""
 }

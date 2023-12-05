@@ -158,7 +158,6 @@
 		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/rp_reward_1000.png"/>
 		<Image id="" class = "" src="file://{resources}/images/custom_game/RDAShop/spray/rp_reward_1500.png"/> -->
 
-
 		<Panel id = "Rating" class = "Rating" hittest = "false">
 			<Panel id='RatingPanel' class='RatingPanel'>
 				<Panel id='RatingHeader' class='RatingHeader'>

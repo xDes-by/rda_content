@@ -78,6 +78,10 @@ function CreateBot(){
     ClickButton()
     GameEvents.SendCustomGameEventToServer("AdminPanelCreateBot", {})
 }
+function TEST(){
+    ClickButton()
+    GameEvents.SendCustomGameEventToServer("AdminPanelTest", {})
+}
 (()=>{
     $("#main_panel").visible = false
     const topBar = FindDotaHudElement("ButtonBar")

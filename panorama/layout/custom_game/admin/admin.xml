@@ -80,8 +80,8 @@
                     <Panel id="" class="button_panel" onmouseactivate = "">
                         <Label id="" class="font_class font_align" text="" />
                     </Panel>
-                    <Panel id="" class="button_panel" onmouseactivate = "">
-                        <Label id="" class="font_class font_align" text="" />
+                    <Panel id="" class="button_panel" onmouseactivate = "TEST()">
+                        <Label id="" class="font_class font_align" text="TEST" />
                     </Panel>
                 </Panel>
             </Panel>
